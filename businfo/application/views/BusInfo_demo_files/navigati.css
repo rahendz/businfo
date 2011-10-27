@@ -1,0 +1,272 @@
+/* ========================================================
+
+   NAVIGATION STYLES
+   
+   Includes:
+   	Global navigation
+    Local navigation
+	Tabs
+	Progress bars
+		
+*/
+
+/* GLOBAL NAVIGATION */
+#global-navigation {
+  	background: url("global-n.gif") repeat-x 58px 0;
+  	margin:0;
+  	padding:0;
+ 	list-style:none;
+}
+#global-navigation dd {
+  	background: url("global-n.gif") repeat-x;
+  	background-position: 106px 0;
+  	line-height: 1.2em;
+  	float:left;
+  	margin:0;
+  	padding:0;
+}
+/*Right-most nav items background image */
+#global-navigation dd#nav-business-and-partners,
+#global-navigation dd#nav-corporate{
+  	width: 107px;
+  	background: url("file://localhost/C:/Users/KarmiPhuc/Desktop/Bus%20maps_%20Transport%20for%20London_files/global-o.gif") repeat-x;
+}
+#global-navigation dd#nav-corporate{
+  	background-position: 106px 0;
+}
+/* Basic global nav link style */ 
+#global-navigation a{
+  	color: #000;
+  	text-align: center;
+  	display:block;
+  	width: 82px;
+  	height: 27px;
+  	padding: 8px 12px;
+  	margin-bottom: 19px;
+}
+/* Adjust single-line global nav items to centre them vertically */
+#nav-home a,
+#nav-tickets a,
+#nav-corporate a,
+#nav-road-users a{
+  	padding-top: 15px;
+  	height: 20px;
+}  
+/* Selected global nav item styles */
+.home #nav-home		{ background: #2F93D2 url("http://www.tfl.gov.uk/tfl-global/images/global-nav-selected-3.gif") no-repeat; }
+.home #nav-home a	{ font-weight: bold; color: #FFF }
+/* All but the home page link need tweaking */
+/* The selected link is one pixel wider */
+/* The link to the left is one pixel narrower to compensate */
+/* This is to allow the selected link to have both a left and right border */
+.live-travel-news #global-navigation dd#nav-live-travel-news,
+.getting-around #global-navigation dd#nav-getting-around,
+.tickets #global-navigation dd#nav-tickets,
+.road-users #global-navigation dd#nav-road-users,
+.corporate #global-navigation dd#nav-corporate,
+.business-and-partners #global-navigation dd#nav-business-and-partners{
+  	background: #2F93D2 url("file://localhost/C:/Users/KarmiPhuc/Desktop/Bus%20maps_%20Transport%20for%20London_files/global-p.gif") no-repeat;
+}
+.live-travel-news #global-navigation dd#nav-live-travel-news a,
+.getting-around #global-navigation dd#nav-getting-around a,
+.tickets #global-navigation dd#nav-tickets a,
+.road-users #global-navigation dd#nav-road-users a,
+.corporate #global-navigation dd#nav-corporate a,
+.business-and-partners #global-navigation dd#nav-business-and-partners a{
+  	width: 83px;
+  	font-weight: bold;
+  	color: #FFF
+}   
+.live-travel-news #global-navigation dd#nav-home a,
+.getting-around #global-navigation dd#nav-live-travel-news a,
+.tickets #global-navigation dd#nav-getting-around a,
+.road-users #global-navigation dd#nav-tickets a,
+.corporate #global-navigation dd#nav-road-users a
+.business-and-partners #global-navigation dd#nav-corporate a{
+ 	width: 81px
+}
+.corporate #global-navigation dd#nav-road-users{
+  	background-position: 107px 0;
+}
+.business-and-partners #global-navigation dd#nav-corporate{
+  	background-position: 108px 0;
+}  
+/* LOCAL NAVIGATION */
+#local-navigation dd,
+#local-navigation li{
+  	padding-left: 0;
+  	background-image: none;
+}
+#local-navigation ul,
+#local-navigation dl{
+  	list-style-type: none;
+  	padding-left: 0;
+}
+#local-navigation a{
+	padding-left: 19px;
+	border-top: 1px solid #FFF;
+	display: block;
+	color: #FFF300;
+	background: #000 url("http://www.tfl.gov.uk/tfl-global/images/local-nav-parent.gif") no-repeat
+}
+#local-navigation #current-section a{
+	background: #2F93D2 url("http://www.tfl.gov.uk/tfl-global/images/local-nav-current-section.gif") no-repeat;
+	color: #FFF;
+	font-weight: bold;
+}
+#local-navigation #current-section dl dd a{
+	border-bottom: 1px solid #E5E5E5;
+	margin-bottom: 1px; /* Show all bottom borders in Firefox 1*/
+	background-image: none;
+	background-color: #FFF;
+	color: #666;
+	font-weight: normal;
+}
+#local-navigation #current-section dl dd.current-page a{
+	background: url("http://www.tfl.gov.uk/tfl-global/images/local-nav-current-page.gif") no-repeat;
+	font-weight: bold;
+}
+#local-navigation #current-section dl{
+	background: url("panel-sh.gif") left bottom repeat-x;
+	padding-bottom: 18px;
+}
+
+.tabs{
+	background: url("http://www.tfl.gov.uk/tfl-global/images/tab-background.gif") left bottom repeat-x;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 19px;
+	height: 1.6em;
+	padding-left: 4px;	
+ }
+ .tabs li{
+ 	background: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+	/* IE hacks */
+	margin-bottom: -1px;	
+	position: relative;
+	zoom 1;
+ }
+ .tabs li a{
+ 	display: inline;
+	float: left;
+	clear: left;
+	margin-left: 4px;
+	
+	padding: 0 4px;
+	border-top: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	text-decoration: none;
+	background: #FFF url("http://www.tfl.gov.uk/tfl-global/images/tab-unselected.gif") left bottom repeat-x;
+ }
+.tabs li a:hover{
+	text-decoration: underline;
+
+}
+.tabs li.selected a{
+	background: #FFF;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 1px solid #FFF;
+}
+.tabs li.selected a:hover{
+	text-decoration: underline;
+	color: #333; 
+}
+
+
+/* PROGRESS BARS */
+
+.progress-bar {
+	overflow: hidden;
+	height: 1%;
+	background: url("panel-sh.gif") left bottom repeat-x;
+	border-top: 1px solid #EBEBEB;
+	padding: 4px 0 20px 0;
+	margin-bottom: -5px;
+}
+
+.progress-bar ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.progress-bar li{
+	float: left;
+	background: #EBEBEB url('http://www.tfl.gov.uk/tfl-global/images/progress-arrow-right.png') right no-repeat;
+	padding: 0;
+	margin: 0;
+	color: #000;
+	margin-bottom: 4px;
+}
+.progress-bar li span,
+.progress-bar li a {
+	text-decoration: none;
+	background: url('http://www.tfl.gov.uk/tfl-global/images/progress-arrow-left.png') -5px no-repeat;
+	padding:3px 8px;
+	display: block;
+}
+.progress-bar .completed{
+	background-color: #CCC;
+}	
+.progress-bar .current {
+	background-color: #3497D5;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.progress-bar li a {
+	color: #000;
+	text-decoration: underline;
+}
+.progress-bar li a:hover {
+	text-decoration: none !important;
+}
+.progress-bar h1 {
+	margin: 0; padding: 0; padding-right: 8px;
+	font-size: 1.6em;
+	float: left;
+	border-bottom: none;
+}
+
+/* BREADCRUMBS */
+
+.breadcrumbs{
+	margin-bottom: 8px;
+	float: left;
+	padding-top: 2px;
+	width: 100%;
+}
+.breadcrumbs ul,
+.breadcrumbs li,
+.breadcrumbs a{
+	float: left;
+	display: inline;
+	margin-bottom: 0;
+}
+
+.breadcrumbs li{
+	background-image: none;
+	padding-left: 0;
+}
+.breadcrumbs a{
+	padding-right: 8px;
+	margin-right: 4px;
+	background: url('http://www.tfl.gov.uk/tfl-global/images/arrow-breadcrumb.gif') center right no-repeat;
+}
+
+/* The following styles are deprecated */
+#heading-progbar {
+	border-bottom: 1px solid #CCC;
+	color: #666;
+	padding-bottom: 6px;
+	margin-bottom: 1em;
+	margin-bottom: 19px;
+	}
+#heading-progbar h1 {
+	font-size: 1.6em;
+	margin: 0;
+	float: left;
+	border-bottom: none;
+}

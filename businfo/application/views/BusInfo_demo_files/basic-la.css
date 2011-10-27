@@ -1,0 +1,413 @@
+/* ========================================================
+
+   BASIC LAYOUT STYLES
+   
+   Basic layout styles for viewing the website through a visual browser
+   
+    */
+  
+body{
+  background: #D7D7D7 url('page-bac.gif') repeat-y center;
+  margin: 0
+  }
+#container{
+  width: 744px;
+  margin: 0 auto;
+  background-color: #FFF;
+  }				
+#help-and-search,
+#microsite-tools{
+  padding: 8px 0;
+  width: 372px;
+  }
+#branding{
+  background:  url('logo0000.gif') no-repeat;
+  padding-left: 78px;
+  padding-top: 36px;
+  height: 3.1em;
+  margin: 0 0 16px 0;
+  width: 294px;
+  position:relative;
+  }  
+ #branding a{
+ position:absolute;
+ left:0;
+ top:26px;
+ display:block;
+ padding:10px 5px 15px 78px;
+ width:210px;
+ white-space:nowrap;
+ }
+#help-and-search,
+#microsite-tools{
+  float: left; 
+  margin-left: 372px;
+  position: absolute;
+  top: 0;
+}
+#global-navigation{
+  width: 744px;
+  height: 62px;
+  position: absolute;
+  top: 7.7em;
+  }
+#main-content,
+#supporting-content,
+#local-navigation{
+  float: left;
+  margin-top: 5.6em;
+  }
+#supporting-content{
+  width: 186px;
+  }
+#local-navigation{
+  width: 167px;
+  margin-right: 19px;
+  }
+#corporate-links{
+  background:  url('file://localhost/C:/Users/KarmiPhuc/Desktop/Bus%20maps_%20Transport%20for%20London_files/corporat.gif') repeat-x;
+  padding: 19px 19px 0 19px;
+  clear:both;
+  height: 48px;
+  }
+  
+
+
+
+/* Position these elements off the page */
+.off-left,
+.structural-label,
+#help-and-search dt,
+#corporate-links dt,
+#local-navigation dt,
+#global-navigation dt {
+  position: absolute;
+  left: -1999px;
+  }
+
+ul#navigation{
+	list-style-type: none;
+}  
+  
+/* ALIGNMENT */
+.left{
+	float: left;
+	margin-right: 19px;
+	margin-bottom: 17px
+}
+.right{
+	float: right;
+	margin-left: 19px;
+	margin-bottom: 17px;
+}
+.centre{    
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 17px;
+}
+.sml{
+    width:140px;
+    background:#ccc;
+}
+/* COMPACT STYLE */
+/* Styles for the 'compact' versions of the templates */
+
+
+body.compact #branding {
+	background:transparent url(http://www.tfl.gov.uk/tfl-global/images/logo-small-2.gif) no-repeat scroll 8px 6px;
+	height:35px;
+	padding:0;
+	margin: 0;
+}
+body.compact #branding p{
+	width:152px;
+	left:0}
+body.compact #branding a{
+	top:0;
+	padding:10px 5px 0px 30px;
+}
+body.compact #help-and-search{
+	padding:0;
+}
+body.compact #help-and-search form{
+	padding-top:7px;
+	padding-right: 8px;
+	padding-bottom:6px;
+	margin-bottom:0
+}
+body.compact #help-and-search .linklist,
+body.compact #global-navigation,
+body.compact #corporate-links .linklist{
+		display: none;
+	}
+/* Styles for site-map footer */
+#site-map{
+  background:#fff url('panel-sh.gif') repeat-x;
+  padding: 19px 19px 0 19px;
+  clear:both;  
+  overflow:hidden;
+  display: none;
+  }
+body.compact #site-map{
+  display: block;
+}  
+#site-map h2, .bop-nav h2{
+	border:0;
+	color:#727272;
+	font-size:1.2em;
+}
+#site-map .site-map-links{
+	float:left;
+	clear:both;
+	width:100%;
+	background:#fff;
+}
+#site-map ul{
+	margin:0 5px 19px 0;
+	float:left;
+	width:24%;
+	
+}
+#site-map ul li{
+	background:none;
+	float:left;
+	width:100%;
+	padding-left:0
+}
+#site-map ul li a{
+	color:#727272;
+}
+#site-map ul li a:hover{
+	text-decoration:underline
+}
+
+
+body.compact #corporate-links {
+background: #F2F2F1 none repeat scroll 0;
+border-top: 1px solid #CCCCCC;
+}
+
+body.compact #main-content,
+body.compact #supporting-content,
+body.compact #local-navigation{
+  margin-top: 0px;
+  }
+
+body.compact #sub-header{
+	display:block;
+}
+
+/* end of compact styles*/
+
+/* -- Bottom of page (bop) navigation --*/
+
+div.bop-nav {
+	margin-bottom: 0;
+	padding: 10px 19px 0 19px;
+	float: left;
+	width: 706px;
+}
+
+div.bop-nav-1 {
+	background: #f4f4f4 url('file://localhost/C:/Users/KarmiPhuc/Desktop/Bus%20maps_%20Transport%20for%20London_files/panel-si.gif') left top repeat-x;
+}
+
+div.bop-nav-2 {
+	background: #f0f0f0 url('file://localhost/C:/Users/KarmiPhuc/Desktop/Bus%20maps_%20Transport%20for%20London_files/panel-sj.gif') left top repeat-x;
+}
+
+.bop-nav dl{
+	margin:0 0 10px 0;
+	float:left;
+	width:100%;
+	
+}
+.bop-nav dl dt, .bop-nav dl dd{
+	background:none;
+	float:left;
+	margin-right: 25px;
+	width:auto;
+	padding-left:0
+}
+.bop-nav dl dt{
+	margin-right: 10px;
+}
+.bop-nav dl dd a, .bop-nav dl dt a, .bop-nav dl dt {
+	color:#727272;
+}
+.bop-nav dl dt a {
+	font-weight: 400;
+}
+.bop-nav dl a:hover{
+	text-decoration:underline
+}
+
+body #sub-header{
+	display:none
+}
+
+/* supporting content within main-content*/
+#main-content .mainSection{
+    clear:both;
+    float:left;
+    width:100%;
+    margin-bottom:10px;
+}
+#main-content .mainSection .pagelinks{
+    float:left;
+    width:49%;
+}
+.template-3 #main-content .mainSection .pagelinks li,
+.template-3 #main-content .mainSection .linklist li{
+    margin-bottom:2px;
+}
+#main-content #supporting-content{
+    float:right;
+    width:49%;
+    left:0;
+    position:relative;
+    margin-top:0;
+}
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box{
+    width:274px
+}
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box .contentArea{
+    width:243px;
+    padding-left:5px;
+} 
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box .contentArea h2{
+    background:0;
+    border-bottom:1px solid #ccc;
+    margin-bottom:10px;
+    padding-top:0
+} 
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box .contentArea p{
+    margin-bottom:10px;
+}
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box .contentArea ul{
+    padding-left:5px;
+    margin-bottom:0;
+}
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box .contentArea ul li{
+    margin-bottom:5px;
+}
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box .contentArea ul li.button{
+    background:none;
+    text-align:center
+}
+.template-3 #main-content .mainSection #supporting-content .rounded-shadow-box .contentArea ul li .button-next-1{
+    margin-top:20px;
+}
+.template-3 #main-content .mainSection li{
+    margin-bottom:9px;
+}
+.template-3 #main-content .mainSection li p{
+    margin-bottom:5px;
+}
+.smlSection{
+    float:left;
+    width:48%;
+}
+.definition {
+    clear:both;
+    
+}
+.definition p{
+    font-weight:bold;
+    float:left;
+    width:47.5%;
+    border:1px solid #ccc;
+    padding:0px 2px 0px 4px;
+}
+
+
+.definition p span{
+    float:left;
+    margin-right:10px;
+    width:205px;  
+    border-right:1px solid #CCCCCC;  
+}
+
+.definition dd{
+    margin-left:10px;
+    background:none;
+}
+.comparison{
+    clear:both;
+    float:left;
+    padding-bottom:2px;
+    width:100%;
+    border:0px solid #ccc;
+    margin-bottom:10px;
+}
+
+.comparison h2{
+    clear:both;
+    color:#000000;
+    margin:0px 0 5px;
+}
+.mainSection h2{
+    clear:both;
+}
+.comparison h3{
+    clear:both;
+    float:left;
+    width:100%;
+    margin:10px 0 5px
+}
+.comparison h2.studentSectionTitle,
+.comparison h2.adultSectionTitle{
+    float:left;
+    clear:none;
+    width:48%;
+    padding:2px 2px 2px 4px}
+    
+.comparison h2.studentSectionTitle,
+.comparison table.student,
+.definition p.studentCrd{
+    background:#E1F4FD;
+    margin-right:8px;}
+    
+.comparison h2.adultSectionTitle,
+.comparison table.adult,
+.definition p.adultCrd{
+    background:#FCE9E9;}
+  
+.mainSection .comparison table {
+    border:1px solid #CCCCCC;
+    margin:0;
+    float:left;
+    width:48.5%;
+    margin-left:3px;
+}
+#main-content .mainSection .comparison .mrgRht{
+    margin-right:8px;
+}
+.mainSection .comparison table th,
+.mainSection .comparison table td{
+    border:1px solid #CCCCCC;
+    background:none;
+}
+.mainSection .comparison table td ul{
+    clear:both;
+    margin-left:3px;
+}
+.mainSection .comparison table td h3{
+    margin-top:0;
+    border-bottom:1px solid #ccc;
+}
+/*--- two column layout styles ---*/
+.two-column-layout {
+	width: 100%;
+	float: left;
+	margin-bottom: 19px;
+}
+.two-cols .column-50 {
+	width: 45%;
+	float: right;
+	padding: 0 2%;
+}
+.two-cols .column-left {
+	float: left;
+	border-right: 1px solid #ccc;
+}

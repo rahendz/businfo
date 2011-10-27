@@ -1,0 +1,5 @@
+.NonMapInfoWindowHolder{ display:block; }
+.RouteInfoWindow_ShowFullRoute, #mm-SwitchMapVersion, #mm-footer, #searchFromHere, .listPointNoLine, .searchBox, .bop-nav, .mm-breadCrumbs { display:none; }
+#StopRouteInfoHolder #Stop_Route_TimeTable{ height:auto; }
+.routesDiv, .bottomBorder, #section-title, .crumb-share { display:none; }
+#main-content {margin-top: 1em;}

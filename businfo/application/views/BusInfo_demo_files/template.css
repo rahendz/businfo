@@ -1,0 +1,187 @@
+/* ========================================================
+
+   TEMPLATE LAYOUT STYLES
+   
+   Adjust the basic layout according to the page template 
+   specified in the body class
+   */
+
+
+/* TEMPLATE 1: Local navigation, main content and supporting content */
+body.template-1 #main-content{
+  	width: 353px;
+  	margin-right: 19px;
+  	margin-left: 186px;
+}
+body.template-1 #local-navigation{  
+  	margin-left:-744px
+}
+/* TEMPLATE 2: Local navigation and main content, no supporting content */
+body.template-2 #main-content{	
+  	width: 558px;
+  	margin-left: 186px;
+}
+body.template-2 #local-navigation{
+  	margin-left:-744px
+}
+body.template-2 #supporting-content{
+  	position: absolute;
+	left: -999px;
+}
+/* TEMPLATE 3: Local navigation and main content, no supporting content, right margin */
+body.template-3 #main-content{	
+  	width: 537px;
+  	margin-left: 186px;
+}
+body.template-3 #local-navigation{
+  	margin-left:-723px
+}
+body.template-3 #supporting-content{
+  	position: absolute;
+	left: -999px;
+}
+/* TEMPLATE 4: Main and supporting content, no local navigation */
+body.template-4 #main-content{	
+   	width: 520px;
+   	margin-right: 19px;
+   	margin-left: 19px;
+}
+body.template-4 #local-navigation{
+  	position: absolute;
+	left: -999px;
+}
+/* TEMPLATE 5: Main content (no margins), no supporting content or local navigation */
+body.template-5 #main-content{	
+   	width: 744px;
+}
+body.template-5 #supporting-content,
+body.template-5 #local-navigation{
+  	position: absolute;
+	left: -999px;
+}
+/* TEMPLATE 6: Main content, no supporting content or local navigation */
+body.template-6 #main-content{	
+   	width: 706px;
+   	margin-left: 19px;
+   	margin-right: 19px;
+}
+body.template-6 #supporting-content,
+body.template-6 #local-navigation{
+  	position: absolute;
+	left: -999px;
+}
+/* TEMPLATE 7, 8, 9 & 10: Microsite */
+body.template-7 #main-content,
+body.template-8 #main-content,
+body.template-10 #main-content{	
+   	width: 744px;
+   	background:  url(panel-sh.gif) repeat-x;
+   	margin:0;
+   	padding-top: 19px;
+}
+body.template-8 #main-content{
+   	width: 706px;
+   	padding-left: 19px;
+   	padding-right: 19px;
+}
+body.template-10 #main-content{
+		background-image: none;
+		padding-top: 0;
+		border-top: 1px solid #ccc;
+}
+/*
+body.template-7 #supporting-content,
+body.template-7 #local-navigation,
+body.template-7 #corporate-links .linklist,
+body.template-8 #supporting-content,
+body.template-8 #local-navigation,
+body.template-8 #corporate-links .linklist,
+body.template-9 #supporting-content,
+body.template-9 #local-navigation,
+body.template-9 #corporate-links .linklist,{
+  	position: absolute;
+	left: -999px;
+}
+*/
+body.template-7 #branding,
+body.template-8 #branding,
+body.template-9 #branding{
+  	background:  url(http://www.tfl.gov.uk/tfl-global/images/logo-small.gif) no-repeat;
+  	padding-top: 0;
+ 	 height: 50px;
+  	margin-bottom: 0;
+}
+
+body.template-10 #branding-strip {
+	height: 41px; 
+	background: url(http://www.tfl.gov.uk/tfl-global/images/branding-strip.png) left bottom repeat-x;
+	position: absolute;
+	left: 0; 
+	top: 0; 
+	width: 100%;
+}
+
+body.template-10 #branding-container {
+	width: 744px; 
+	margin: 0 auto; 
+	height: 35px; 
+	z-index: 100; 
+	position: relative;
+}
+
+body.template-10 #branding-container img {
+	margin: 0; 
+	padding: 0; 
+	float: right;
+}
+
+body.template-10 #branding-container p {
+	margin: 8px 0 0; 
+	padding: 0; 
+	float: left; 
+	width: auto;
+}
+
+ 
+body.template-7 #branding p,
+body.template-8 #branding p,
+body.template-9 #branding p{
+  	position: absolute;
+  	left: -999px;
+} 
+body.template-9{
+	background-image: none;
+}
+body.template-9 #main-content{
+   	/* width: auto; previous size*/
+	width: 97%;
+   	background:  url(panel-sh.gif) repeat-x;
+   	margin:0;
+	padding-left: 19px;
+	padding-right: 19px;
+   	padding-top: 19px ;
+}
+body.template-9 #container{
+   	width: auto;
+}
+
+#microsite-tools{
+  	text-align: right;
+  	padding-top: 15px;
+}
+body.template-9 #microsite-tools{
+  	width: 100%;
+	margin-left: 0;
+}
+#microsite-tools a{
+  	margin-right: 19px;
+}
+.main-520 {
+	width: 520px;
+	float: left;
+}
+.rh-column-167 {
+	width: 167px;
+	float: right;
+	margin-bottom: 19px;
+}

@@ -1,0 +1,2099 @@
+#mm-AppHolder
+{
+	 width: 766px;
+}
+
+#mm-LHP
+{
+	 border: 1px solid #cfcfcf;
+	 float: left;
+	 padding: 0;
+}
+#mm-SearchBoxHolder
+{
+	 width: 400px;
+}
+#mm-PopUpBoxMsg
+{
+	 border-top: 1px solid #000000;
+	 border-bottom: 1px solid #000000;
+	 border-right: 1px solid #000000;
+	 display: none;
+	 left: -8000px;
+	 margin-right: 10px;
+	 padding: 10px;
+	 background: #ffffff url(panel-sh.gif) repeat-x scroll left bottom;
+	 margin-bottom: -5px;
+}
+  #InfoWindowPrintVersion{display:none;}
+
+.PopUpBoxMsgZ
+{
+	 z-index: 50;
+}
+
+#mm-PopUpBoxMsg.active
+{
+	 display: block;
+}
+
+.StopGreyText
+{
+	 color: #a0a0a0;
+	 font-size: xx-small;
+}
+.LHP_Loading_Spinner
+{
+	 padding-top: 5px;
+}
+#mm-WorkingMsg, #mm-WorkingMsg2
+{
+	 display: none;
+	 border: 1px solid #cfcfcf;
+	 padding: 5px;
+	 background: url(loading0.gif) no-repeat 2px 6px #ffffff;
+	 padding-left: 23px;
+}
+#mm-WorkingMsg.active, #mm-WorkingMsg2.active
+{
+	 display: block;
+}
+
+
+#mm-MapHolder
+{
+	 border-left: 1px solid #A9A8A8;
+	 float: right;
+	 padding: 0;
+	 width: 536px;
+}
+#mm-map {
+	width: 536px; 
+	height: 600px;
+}
+ul.did-you-mean
+{
+	 border: 1px solid Pink;
+	 list-style: none;
+}
+
+#mm-bus-routes-holder
+{
+	 display: none;
+	 height: 520px;
+	 width: auto;
+	 overflow-x: hidden;
+	 overflow-y: auto;
+	 font-size: x-small;
+	 position: relative;
+}
+
+
+
+#mm-show-all-routes
+{
+	 color: #a6a6a6;
+	 text-align: right;
+	 display: none;
+	 border-bottom: 1px solid #d4cfbf;
+	 font-size: 0.8em;
+	 padding-right:5px;
+	 margin-left:2px;
+}
+#mm-show-all-routes.showAllRoutesActive
+{
+	 color: #246cce;
+	 background-color: #fff;
+	 font-weight: bold;
+	 cursor: pointer;
+	 
+}
+
+#mm-show-all-routes.showAllRoutesActiveBlink
+{
+	 color: #fef79f;
+	 background-color: #246cce;
+	 font-weight: bold;
+	 cursor: pointer;
+}
+
+
+.mm-show-all-stops-link
+{
+	 padding: 5px 10px 5px 2px;
+	 /*background: url(../img/plus-minus-sprite.gif) no-repeat top left;
+	 background-position: 0 -50px;
+	 margin-left: 10px;*/
+}
+
+.mm-show-all-stops-link a:hover
+{
+	 text-decoration: underline;
+}
+.inActive .mm-show-all-stops-link a:hover, .inActive .mm-show-all-stops-link a
+{
+	 text-decoration: none !important;
+	 color: #CFCFCF;
+	 cursor: default;
+}
+
+
+
+.inActive .mm-show-all-stops-link
+{
+	 background-position: 0 -109px;
+	 cursor: default;
+}
+
+.mm-show-all-stops-link.stops-active
+{
+	 background-position: 0 9px;
+}
+.mm-all-stops-holder
+{
+	 background-color: Yellow;
+}
+
+					 
+
+/*
+.nightRoute
+{
+	 display: none;
+}
+			  */
+.IsDay_0
+{
+	 display: none;
+}
+
+
+.nonBold{ font-weight:normal !important; }
+
+
+.mm-all-stops-holder ul
+{
+	 list-style: none;
+}
+.mm-bus-routes-item_ski
+{
+	 text-align: center;
+	 
+	 color: #fff;
+	 font-size: 1.8em;
+	 font-weight: bold;
+	 float: left;
+	 background: #ff0;
+	 width: 2em;
+	 padding: 2px 0;
+	 font-family: Arial, Sans-Serif;
+}
+
+.route_active_SingleLine .mm-bus-routes-item_ski {
+	background: #fd0013 !important;
+}
+
+.route_active_SingleLine .mm-show-all-stops-link {
+	position: relative;
+	top: -14px;
+	padding-top: 0;
+	padding-bottom: 0;
+	width: 42%;
+}
+
+
+
+/*.inActive_SingleLine .mm-bus-routes-item_ski {	
+	background: #ccc !important;
+}*/
+
+a.mm-bus-routes-item_ski:hover
+{
+
+	 color: #fff;
+ cursor:pointer;
+ text-decoration:none !important;
+}
+
+.inActive .mm-bus-routes-item_ski
+{
+	 cursor: default;
+}
+.show-all-stops-link_Hold
+{
+	 /*background: url(../img/tfl-stop-sprite.gif) no-repeat top right;
+	 background-position: 155px -78px;*/
+}
+.inActive .show-all-stops-link_Hold
+{
+	 background-position: 155px 0;
+}
+.context a
+{
+	 color: #565656;
+	 padding: 0px 3px 0px 3px;
+}
+.context a:hover
+{
+	 text-decoration: underline;
+}
+.context.borderTop
+{
+	 border-top: 1px solid #565656;
+}
+
+.mm-bus-routes-item.inActive, .mm-bus-routes-item.inActive_SingleLine
+{
+	 cursor: default;
+	 color: #000;
+}
+.route_active_SingleLine{background-color:#fff; }
+
+.route_active_SingleLine .mm-bus-routes-item-directionText
+{ cursor: default;
+	color: #000000;
+
+}
+.mm-bus-routes-item-directionText
+{
+	 cursor: pointer;
+	 color: #246cce;
+	 margin: 0;
+	 margin-left: 4em;
+	 font-family: Arial;
+}
+.mm-bus-routes-item-directionText dt
+{
+	font-weight: 700;
+	width: 3em;
+	float: left;
+	background: none;
+	margin: 0 3px 0 0;
+	padding: 0;
+	text-align: right;
+}
+.mm-bus-routes-item-directionText dd
+{
+	font-weight: 400;
+	background: none;	
+	margin: 0 0 0 3.2em;
+	padding: 0;
+	color: #565656;
+	/*white-space: nowrap;*/
+}
+
+.mm-bus-routes-item.inActive .mm-bus-routes-item-directionText
+{
+	 color: #cfcfcf;
+	 cursor: default;
+}
+.stopItem
+{
+	 margin: 0;
+	 padding-left: 20px;
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/stop-item-bkg.gif) 8px top no-repeat;
+	 margin: 0;
+	 width: auto;
+}
+.stopItem a
+{
+	 color: #246cce;
+	 cursor: pointer;
+	 line-height: 1.3em;
+	 font-size: 1.2em;
+	 white-space: nowrap;
+	 font-family: Arial, Verdana, Sans-Serif;
+	 padding: 3px;
+	 display: block;
+}
+.stopItem a:hover
+{
+	 text-decoration: none !important;
+	 background: #f00;
+	 color: #fff;
+	 font-weight: 700;
+}
+
+.stopItemHover
+{
+	 text-decoration: none !important;
+	 background: #fd0013;
+	 color: #fff !important;
+	 font-weight: 700;
+}
+
+
+.stop-item-active a, .stopItem a:active
+{
+	 background-color: #1d66fc;
+	 color: #fff;
+	 font-weight: 700;
+}
+
+/*.route_active_SingleLine .stopItem.stop-item-active
+{
+	 background-color: #fff;
+	 font-weight:bold;
+}*/
+
+.AllStops
+{
+	 display: block;
+}
+#mm-LHP-loading
+{
+	 text-align: center;
+}
+
+.mm-bus-routes-item
+{
+	 /*border-bottom: 1px solid #d4cfbf;*/
+	 margin: 0;
+	 background: #fff;
+}
+
+
+.mm-bus-routes-item:hover {
+	background: #dedede;
+}
+
+.route_active_SingleLine:hover {
+	background: #fff !important;
+}
+
+.mm-bus-routes-item-SwapRun
+{
+	 display: none;
+	 /*background: #E0E0E0 url(../img/switch-direction-bkg.gif) repeat-x scroll left center;
+	 border: 1px solid #9A9A9A;*/
+	 color: #246cce;
+	 font-size: x-small;
+	 margin: 0.35em 0.25em 0.25em 0;
+	 cursor: pointer;
+	 text-align: right;
+}
+.mm-bus-routes-item-SwapRun.active
+{
+	 display: block;
+}
+
+#mm-LHP-NoResults, #mm-LHP-ServerErrorMsg, #mm-LHP-AppErrorMsg, #mm-LHP-loading, #mm-LHP-ValidationErrorMsg
+{
+	 display: none;
+	 height: 585px;
+	 padding: 5px;
+	 background-color: #fff;
+}
+
+
+
+
+
+
+
+.mm-LHP-NoResults_heading
+{
+	 border-bottom: 1px solid #cfcfcf;
+}
+.mm-LHP-NoResults_content
+{
+	 font-weight: bold;
+}
+
+
+
+
+
+.mm-LHP-Disambiguation-Msg-Close
+{
+	 float: right;
+	 padding: 5px;
+	 margin-top: 5px;
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/plus-minus-sprite.gif) no-repeat top left;
+	 background-position: 0 0px;
+}
+.mm-LHP-Disambiguation-Msg-Close.closed
+{
+	 background-position: 0 -59px;
+	 cursor: pointer;
+}
+
+
+#img_buttom_day, #img_buttom_night
+{
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/dayNightTab_Sprite.gif) no-repeat;
+	 height: 31px;
+	 width: 64px;
+	 float: left;
+	 cursor: pointer;
+}
+
+
+
+
+
+.dN_day { background-position: 0 0 !important; } 
+.dN_day_active { background-position: 0 -41px !important; } 
+.dN_day_grey { background-position: 0 -82px !important; } 
+.dN_night { background-position: 0 -123px !important; } 
+.dN_night_active { background-position: 0 -164px !important;  } 
+.dN_night_grey { background-position: 0 -205px !important;  } 
+
+
+#StopWindowHeading
+{
+	 margin-bottom: 5px;
+	 
+	 display: block;
+	 float: left;
+	 padding: 2px 0px 5px 0px;
+	
+	width: 99%;
+}
+#maxContentDiv #StopWindowHeading
+{
+	 width:99%;  /* 500px */
+	  margin-top:0.6em;
+}
+
+
+.bus_stop_title
+{
+	 float: left;
+	 width: 6em;
+	 font-weight: bold;
+	 padding-top: 0px; /* 3px;*/
+}
+
+.bus_route_title{
+		float: left;
+	 width: 7.5em;
+	 font-weight: bold;
+	 padding-top: 0px; /* 3px;*/
+	 }
+
+#RouteName{
+	  display: block;
+	 color: #565656;
+	 padding-bottom: 0px 0px 5px 0px;
+	 padding: 0px 0px 5px 5px;
+	 font-weight:bold;
+	 margin-left:7.6em;
+}
+
+
+#StopName
+{
+  /*  float: left;*/
+	 display: block;
+	 /*	width: 260px; *//*270px; 180px;*/
+	 color: #565656;
+	 padding-bottom: 0px 0px 5px 0px;
+	 padding: 0px 0px 5px 0px;
+	 font-weight:bold;
+	 
+}
+#StopName.withStopLetter
+{
+
+	 /*margin-left:60px;*/
+}
+.withStopLetter #StopNameText, #StopNameText{
+	/*padding-left:55px;*/
+	float: left;
+	padding: 5px;
+	max-width: 280px;
+	background: #1d66fc;
+}
+
+#StopNameText a {
+	color: #fff;
+	background: #1d66fc;
+	padding: 0;
+	font-weight: 700;
+	font-size: 1.5em;
+	font-family: Arial, Sans-Serif;
+}
+
+.stopOtherRoutes {
+	font-family: Arial, Sans-Serif;
+	font-size: 1.2em;
+	padding-left: 5px;
+	float: left;
+}
+
+#ViewStopInformation {
+	font-family: Arial, Sans-Serif;
+	font-size: 1.2em;
+	padding-left: 5px;
+	margin-top: 10px; 
+}
+
+#ViewStopInformation p {
+	margin-bottom: 8px; 
+}
+
+#ViewStopInformation a {
+	font-weight: 700; 
+}
+
+.RouteInfoWindow_FromTowards
+{
+/*float:left;*/
+
+padding-left:60px;
+}
+
+.listPoint
+{
+	 /*background: transparent url(/tfl-global/images/green-bullet.gif) no-repeat scroll 0 7px;
+	 padding-left: 8px;
+	 color: #246cce;*/
+}
+.listPointNoLine
+{
+	 /*background: transparent url(/tfl-global/images/green-bullet.gif) no-repeat scroll 0 7px;
+	 padding-left: 8px; /*  color: #246cce;*/
+}
+.listPoint:hover
+{
+	 text-decoration: underline !important;
+}
+
+
+#maxContentDiv .stopTimeTableHeading {
+	text-decoration:none !important;
+	color: #246cce !important;
+	cursor:default;
+}
+
+.stopTimeTableHeading
+{
+	 font-size: 1.1em;
+	 color: #246cce;
+	 float: left;
+	 width: 260px;
+	 font-weight: bold;
+}
+.stopTimeTableHeading:hover{text-decoration:underline;}
+
+
+div.clearerBlank
+{
+	 clear: left;
+}
+
+form
+{
+	 padding: 0px;
+	 margin: 0px;
+}
+
+
+.closePopUpBox
+{
+	 float: right;
+}
+
+
+
+.busesLeftCol_AddARoute_Itemspacer
+{
+	 padding-bottom: 10px;
+}
+.busesLeftCol_AddARoute_ItemDivider
+{
+	 margin: 10px 0px 10px 0px;
+	 border-bottom: 1px solid #cccccc;
+}
+
+
+
+
+.busesHolder_preTop
+{
+	 margin: 0 auto;
+	 width: 744px;
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/structure/nav_top_fade_top.gif) repeat-x; /*height:600px;*/
+	 float: left;
+	 padding-top: 10px;
+	 border-bottom:1px solid #aaaaaa;
+}
+
+
+#busesHolder
+{
+	 margin: 0 auto;
+	 width: 744px;
+	 /*background: url(../img/structure/main_backFade.jpg) repeat-x; height:600px;*/
+	 /*float: left;
+	 padding-top: 30px;*/
+	 overflow:hidden;
+	 
+	 border-top: 1px solid #ccc;
+}
+
+
+.LHSItemDistanceBox
+{
+	 color: #FFFFFF;
+	 float: left;
+	 font-weight: bold;
+	 overflow: hidden;
+	 padding: 2px;
+	 text-align: center;
+	 background: #000000 url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/structure/LHSDistanceBack.jpg) repeat-x;
+	 width: 50px;
+	 font-size: 0.8em;
+}
+
+#map #copyright
+{
+	 width: 400px;
+	 overflow: hidden;
+}
+.LHSItemTitle
+{
+	 color: #1889c3;
+	 margin-left: 65px;
+	 font-weight: bold;
+}
+
+
+#main-content
+{
+	 margin-left: 0px;
+	 margin-right: 0px;
+}
+
+/*#main-content, #supporting-content, #local-navigation{ margin-top:0px;}*/
+
+#busesLeftCol
+{
+	 float: left;
+	 padding: 0px;
+	 width: 207px;
+	 display: none;
+	 height:600px;
+}
+
+#busesLeftCol_Routes
+{
+	 background-color: #fff;
+}
+#busesLeftCol_Routes.night
+{
+	 background-color: #e8f9ff;
+}
+
+#busesLeftColHolder
+{
+	 padding: 4px;
+	 background-color: #ffffff;
+	 border-bottom: 1px solid #c9c9c9;
+}
+
+#busesLeftCol_inner
+{
+	 display: none;
+	 float: left;
+	 width: 128px;
+	 height: 31px;
+}
+#mm-but_hideLHP
+{
+	 float: right;
+	 margin: 8px 2px;
+	 cursor: pointer;
+}
+#busesLeftCol_TabsHolder, #busesLeftCol_inner
+{
+	 height: 31px;
+}
+
+#busesLeftCol_TabsHolder
+{
+	 background: url(lhp-tabs.gif) repeat-x scroll 0 0;
+}
+
+#busesLeftCol_TabsHolder a
+{
+	 float: left;
+}
+
+#busesLeftCol_TopSearchBarButton_HideLHS
+{
+	 float: right;
+	 width: 25px;
+}
+
+
+#busesRightCol
+{
+	 border-left: 1px solid #a9a8a8;
+	 float: right;
+	 padding: 0px; /*width: 536px;*/
+	 width: 744px;
+}
+
+
+
+
+.busesLeftCol_Msg
+{
+	 background-color: #fff;
+	 background-color: #fff;
+	 font-weight: bold;
+	 padding: 3px 3px 3px 6px;
+	 margin-bottom: 5px;
+	 font-size: .9em;
+	 clear: both;
+	 float: left;
+	 margin-top: 5px;
+}
+
+
+
+
+#busesRightCol_TopSearchBar
+{
+	 /*  */
+	 border-bottom: 1px solid #a9a8a8;
+	 height: 30px;
+	 display: none;
+	 /*background: #F7F7F7 none repeat scroll 0 0*/
+	 background: #e9e9e9;
+}
+
+
+
+
+#busesRightCol_TopSearchBarButton_ShowLHS
+{
+	 float: left;
+	 width: 25px;
+	 margin: 0;
+	 padding: 0; /* set default hidden */
+	 cursor: pointer;
+}
+
+
+#busesLeftCol_TopSearchBarButton_HideLHS img
+{
+	 padding: 8px 0px 0px 5px;
+}
+#busesRightCol_TopSearchBarButton_ShowLHS img
+{
+	 padding: 8px 0px 0px 5px;
+}
+
+
+
+#busesRightCol_TopSearchBar_Left
+{
+	 float: left;
+	 width: 440px;
+}
+
+#busesRightCol_TopSearchBar_SearchBox
+{
+	 margin: 0 0px 0px 0px;
+	 padding: 3px 0px 3px 8px;
+}
+
+#busesRightCol_TopSearchBar_PrintButton
+{
+	 float: right;
+	 margin: 6px 0px 5px 5px;
+	 padding: 0px 8px 3px 20px;
+	 /*background: url(../img/icons/print.gif) no-repeat;*/
+}
+
+
+
+
+#FormRouteTitleDistanceHolder_L
+{
+	 width: 150px;
+	 float: left;
+}
+#FormRouteTitleDistanceHolder_R
+{
+	 width: 40px;
+	 overflow: hidden;
+	 float: right;
+}
+
+
+#MapWorkingMsg
+{
+	 position: relative;
+	 left: -9000px;
+	 top: -200px;
+}
+
+
+.mapButton_outer
+{
+	 border: 1px solid black;
+	 position: absolute;
+	 background-color: white;
+	 text-align: center;
+	 cursor: pointer;
+}
+.mapButton_Inner
+{
+	 border-style: solid;
+	 font-family: Arial,sans-serif;
+	 border-color: white rgb(176, 176, 176) rgb(176, 176, 176) white;
+	 border-width: 1px;
+	 font-size: 12px;
+}
+
+.mapButton_Inner.selected
+{
+	 border-color: rgb(52, 86, 132) rgb(108, 157, 223) rgb(108, 157, 223) rgb(52, 86, 132);
+	 font-weight: bold;
+}
+
+#controls_LineMode_buses
+{
+	 width: 130px;
+	 left: -8000px;
+}
+
+#controls_LineMode_Line
+{
+	 width: 130px;
+	 left: -8000px;
+}
+#controls_undo
+{
+	 width: 55px;
+	 left: -8000px;
+}
+
+
+
+
+/* VIEW   */
+
+
+.LHS_bottomFadeToGrey
+{
+	 /*    background:url(../img/structure/LHS_bottomFadeToGrey.jpg) repeat-x; width:100%; width:740px; height:32px; */
+}
+
+
+
+#formAddRoute label.error
+{
+	 color: red;
+	 display: block;
+}
+#formAddRoute .hilight
+{
+	 background-color: #FFFFDD;
+}
+
+
+
+
+
+#formAddRoute fieldset
+{
+	 background-color: #FFFFFF;
+	 border: none;
+	 display: block;
+	 margin: 0;
+	 padding: 0px;
+}
+/*
+.mapInfoData
+{
+	 margin: 0px;
+	 padding: 0px;
+	 background-color: #ffffff;
+	 overflow: hidden;
+	 width: 199px;
+}
+
+
+
+.mapInfoData.selected
+{
+	 background-color: #fff69f;
+}
+	 */
+
+.RouteItemHover
+{
+	 background-color: #eee;
+}
+
+
+
+.zoomInNow:hover, .AppPointNow:hover
+{
+	 color: #246cce;
+	 text-decoration: underline !important;
+	 display: inline;
+}
+.zoomInNow, .AppPointNow
+{
+	 color: #246CCE;
+	 text-decoration: none;
+}
+
+
+
+
+
+
+.inline
+{
+	 display: inline;
+}
+#mm-PopUpBoxMsg_close
+{
+	 float: right;
+	 text-align: right;
+	 cursor: pointer;
+	 margin-bottom: -8px;
+	 padding-top: 10px;
+}
+#mm-PopUpBoxMsg_close:hover
+{
+	 text-decoration: underline;
+}
+.margin-left-10
+{
+	 margin-left: 10px;
+}
+
+#GoogleMapsTicketLocator form
+{
+	 margin: 0px;
+	 padding: 0px;
+	 height: auto !important;
+}
+#PostCode
+{
+	 width: 16em;
+}
+
+
+#buses_route_area
+{
+	 overflow: auto;
+	 margin-bottom: 20px;
+	 float: left;
+}
+
+
+.KeyHeading
+{
+	 font-size: 1.5em;
+	 font-weight: bold;
+	 margin-bottom: 10px;
+}
+#LoadingStatusWrapper
+{
+	 position: relative;
+	 height: 30px;
+	 float: right;
+	 width: 28px;
+	 margin-top: -30px;
+	 display: none;
+}
+
+.hidden
+{
+	 display: none;
+}
+
+
+.FormPadding
+{
+	 margin-bottom: 5px;
+}
+
+
+.hidden_viewResults
+{
+	 left: -999em;
+	 position: relative;
+}
+
+a.hidden_viewResults:active, a.hidden_viewResults:focus
+{
+	 display: block;
+	 left: 0;
+	 top: 0;
+}
+
+#PostCodestatus
+{
+	 display: none;
+}
+#FormSearch
+{
+	 float: left;
+	 width: 320px;
+}
+#TipBox
+{
+	 /*     width:24px;     background-color:#ff0000;    */
+}
+#PreMapFormHolder
+{
+	 padding-bottom: 10px;
+	 float: left;
+}
+.TipBoxBackgroundON
+{
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/icons/spinner_1.gif) no-repeat;
+}
+#pano_Loading{background: url(loading0.gif) no-repeat;
+padding-left:20px;
+}
+.streeViewContext{display:none;}
+
+
+
+.TipBoxBackgroundOFF
+{
+	 background: none;
+}
+
+.MoreSearchResults
+{
+	 display: none;
+}
+ul.ambiguousResultsList
+{
+	 list-style: none;
+	 background: none;
+	 font-size: 0.8em;
+	 font-weight: normal;
+	 margin: 0;
+}
+.ambiguousResultsList li
+{
+	 margin: 0px 4px 2px 10px;
+	 cursor: pointer;
+}
+.ambiguousResultsList li:hover
+{
+	 text-decoration: underline;
+}
+
+.ambiguousResultsList li.more
+{
+	 padding: 0px 10px 5px 13px;
+	 margin-left: 10px;
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/plus-minus-sprite.gif) no-repeat top left;
+	 background-position: 0 -54px;
+	 cursor: pointer;
+}
+.cursor-pointer
+{
+	 cursor: pointer;
+}
+
+
+#mm-search-result h3
+{
+	 color: #000;
+	 font-family: Arial, Sans-Serif;
+	 font-size: 1em;
+	 font-weight: bold;
+	 padding: 5px 5px 5px 20px;
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/your_location-small.png) left 5px no-repeat;
+}
+#mm-search-result
+{
+	/* margin: 0 3px;*/
+	margin:0;
+	 border-bottom: 1px solid #cfcfcf;
+	 /*padding: 5px 5px 5px 0px; */
+	  padding: 5px 5px 5px 3px;
+}
+
+.mm-LHP-Disambiguation-Msg
+{
+	 margin: 0px;
+	 color: #000;
+	 font-weight: bold;
+	 font-size: 0.8em;
+	 float: left;
+}
+#mm-LHP-content
+{
+	 color: #000;
+}
+
+
+/*  common section starts */
+
+/* section ends */
+
+
+.twentFourKey span
+{
+	 border-bottom: 1px solid #FFFFFF;
+	 border-top: 1px solid #FFFFFF;
+	 padding: 0;
+
+}
+
+
+.tabsL li a.twenty4 span span, .tabs li a.twenty4 span span
+{
+	 border-bottom: 1px solid #FFFFFF;
+	 border-top: 1px solid #FFFFFF;
+	 padding: 0;
+}
+
+
+
+ul.tabs, ul.tabsL
+{
+	 /*float: left;*/
+	 width: 400px;
+	 height:2.3em;
+	 display: inline;
+}
+ul.tabs
+{
+	 border-bottom: 1px solid #CCCCCC;
+}
+ul.tabs li, ul.tabsL li
+{
+	 /*float: left;*/
+	 padding-left: 3px;
+	 list-style-type: none;
+	 background: none;
+	 margin: 0 0 -1px;
+	 display: inline;
+	 float: left;
+}
+
+
+ul.tabs li a, ul.tabsL li a, ul.tabs li a:hover, ul.tabsL li a:hover
+{
+	 float: left;
+	 color: #FFFFFF;
+	 padding: 2px 2px;
+}
+.tabs li a span, .tabsL li a span
+{
+	 float: left;
+	 padding: 1px 0;
+	 display: block !important;
+}
+ul.tabs li.TabRouteLineActive a {background:#FFFFFF none;}
+ul.tabs li.TabRouteLineActive a
+{
+	 color: #FFFFFF;
+	 font-weight: normal;
+	 border-bottom: 1px solid #ffffff;
+}
+.tabs li a span.ski_ffffff span, .tabsL li a span.ski_ffffff span
+{
+	 float: left;
+	 border: 1px solid #000;
+	 color: #000;
+}
+				
+/*.tabs lif a span.ski_fffff span, .tabsL li a span.ski_ffffff span
+{
+	 border: none;
+}*/
+
+
+.tabs li a span span, .tabsL li a span span
+{
+	 border-bottom: 1px solid transparent;
+	 border-top: 1px solid transparent;
+	 padding: 0;
+	 width: 2.5em;
+	 text-align: center;
+	 display: block !important;
+}
+
+
+.LoadingData
+{
+	 margin: 10px background: url(loading0.gif) no-repeat 0 7px #ffffff;
+}
+
+
+.TimeTableActive
+{
+	 width: 99%;
+	 height: 200px;
+	 overflow: auto;
+	 border-top: 1px solid #cfcfcf;
+	 border-bottom: 1px solid #cfcfcf;
+	 margin: 3px 0px 3px 0px;
+}
+
+.c5
+{
+	 border-collapse: collapse;
+	 border: none;
+	 font-weight: bold;
+	 padding: 0;
+}
+/*
+.c4
+{
+	 width: 200px;
+	 font-weight: bold;
+	 border: none;
+}
+
+.c5, .c15, .c16
+{
+	 border-collapse: collapse;
+	 border: none;
+}
+.c18, .c19
+{
+	 display: none;
+}
+#RouteDetailsArea.active
+{
+	 width: 100%;
+	 overflow: auto;
+}
+.TT_DayType
+{
+	 overflow: auto;
+} */
+
+.RoutesTabsClear
+{
+	 clear: both;
+	 margin: 15px;
+}
+
+#routeList
+{
+	 padding-top: 5px;
+	 display: inline;
+	 font-family: Arial, Sans-Serif;
+	font-size: 1.2em;
+}
+			 
+
+
+#routeList ul
+{
+	 margin-bottom: 10px;
+	 /*width: 350px;*/
+}
+#maxContentDiv #routeList ul
+{
+	 width: 99%; /* 495px; */
+}
+/*#routeList ul
+{
+	 list-style-type: none;
+	 width: 300px;
+	 background-image: none;
+}
+#routeList ul li
+{
+	 list-style-type: none;
+	 display: inline;
+	 padding: 5px;
+	 margin-left: 5px;
+	 background-image: none;
+	 color: #fff;
+	 font-weight: bold;
+}*/
+
+		
+.NonMapInfoWindowHolder
+{
+	 display: none;
+	 width: 500px;
+	 padding: 10px;
+	 border: 1px dashed #000;
+	 margin: 20px;
+}
+
+
+
+
+#Stop_Route_TimeTable.active
+{
+	 height: 180px;
+	 overflow: auto;
+	 width: 470px;
+	 margin-top: 10px;
+	 border-top: 1px solid #cccccc;
+	 border-bottom: 1px solid #cccccc;
+	 margin-left: 10px;
+}
+#InfoWindowPrimary
+{
+	 width: 350px;
+}
+#InfoWindowPrimary .listPoint a, #InfoWindowPrimary .listPointNoLine a
+{
+	 color: #246cce;
+}
+
+#maxContentDiv .listPoint, #InfoWindowPrimary .listPoint{cursor:pointer; margin-right:20px;}
+
+
+#maxContentDiv
+{
+	 width: 99%/*500px;*/
+}
+#StopRouteInfoHolder
+{
+	 
+	 margin-bottom: 5px;
+}
+
+.StopRouteInfoHolder_routeID
+{
+	 float: left;
+	 padding: 5px;
+	 text-align: center;
+	 width: 40px;
+	 color: #fff;
+}
+
+.StopRouteInfoHolder_routeID.ski_ffffff
+{
+	 color: #000000;
+	 border: 1px solid #000000;
+}
+.StopRouteInfoHolder_TowardsFrom_Holder
+{
+	 padding-left: 45px;
+}
+.StopRouteInfoHolder_Towards
+{
+	 float: left;
+	 padding: 5px 0px 5px 0px;
+}
+.StopRouteInfoHolder_From
+{
+	 float: left;
+	 padding: 5px 5px 5px 0px;
+	 margin-left:10px;
+}
+
+
+
+
+
+
+#Stop_Route_TimeTable_Loading
+{
+	 background: url(loading0.gif) no-repeat scroll 0 0;
+	 padding: 0px 0px 5px 20px;
+	 margin-left: 30px;
+}
+
+.AllStopsLoading
+{
+	 background: url(loading0.gif) no-repeat scroll 0 0;
+	 padding: 0px 0px 5px 20px;
+	 margin-left: 30px;
+	 display: none;
+	 border: none;
+}
+.AllStopsLoading.active
+{
+	 display: block;
+}
+
+#Stop_Route_TimeTable_Loading
+{
+	 margin-top: 15px;
+}
+
+
+div.overlay
+{
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/structure/search_box_background.png) no-repeat;
+	 padding: 25px 36px 31px 25px;
+	 width: 460px;
+	 display: none;
+}
+
+* html div.overlay
+{
+	 background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/structure/search_box_background.gif) no-repeat;
+}
+#searchbox_overlay
+{
+	 width: 300px;
+}
+
+div.overlay .title
+{
+	 font-size: 1.3em;
+	 font-weight: bold;
+	 padding: 0px 0px 5px 0px;
+}
+
+div.overlay .topHolder
+{
+	 font-weight: bold;
+	 background: #ffffff url(http://www.tfl.gov.uk/tfl-global/images/supporting-content-header.gif) repeat-x scroll 0 0;
+	 padding: 20px 20px 30px 20px;
+	 width: 400px;
+}
+div.overlay .bottomHolder
+{
+	 background: transparent url(panel-sh.gif) repeat-x scroll 0 0;
+	 padding: 20px 20px 10px 20px;
+	 width: 400px;
+}
+
+div.overlay label
+{
+	 font-weight: normal;
+	float: none;
+	width: 100%;
+	text-align: left;
+}
+div.overlay .spiderMaps {
+	font-weight: normal;
+	float: none;
+	text-align: right;
+	margin-right:50px;
+	padding-bottom:10px;
+}
+
+
+.mm-breadCrumbs
+{
+	 border-bottom: 1px solid #CCCCCC;
+	 color: #565656;
+	 font-size: 1.5em;
+	 height: 1.4em;
+	 margin-left: 19px;
+	 margin-right: 19px;
+	 width: 706px;
+}
+.mm-breadCrumbs h1{ border:medium none;
+font-size:1.1em;
+font-weight:normal;
+line-height:1em;
+margin-bottom:0;
+padding:0; float:left;  }
+
+.DayNightTabs
+{
+	 cursor: pointer; /*height: 16px;*/
+}
+
+.mm-breadCrumbs .breadcrumbs a
+{
+	 background: transparent url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/structure/breadcrumb_slash.gif) no-repeat scroll right center;
+	 padding-right: 12px;
+	 text-decoration: underline;
+	 font-family:Verdana,Arial,Helvetica,sans-serif;   
+font-weight:bold;
+}
+
+
+
+.mm-breadCrumbs .Nav_listPoint a{  border:none;
+  text-decoration:none;
+background:transparent url(green-bu.gif) no-repeat scroll 0 7px;
+display:inline;
+font-size:0.8em;
+font-weight:normal;
+padding-left:8px; margin-left:30px; }
+	.mm-breadCrumbs .Nav_listPoint.hidden{display:none;}
+
+
+/* az stuff */
+#text-content
+{
+	 padding: 0 0 0 10px;
+}
+
+#text-content h1
+{
+	 margin: 0 0 0 10px;
+	 border: 0;
+}
+.showMap
+{
+	 margin: 10px 0 0 20px;
+}
+.heading
+{
+	 border-bottom: 1px solid #CCCCCC;
+	 margin: 0 10px 0 0;
+}
+.spanH1
+{
+	 font-size: 1.5em;
+}
+.spanH2
+{
+	 font-size: 1.3em;
+}
+.mm-textversion-search h1
+{
+	font-size:1.25em;
+	border:none;
+	margin:0;
+	padding:0 0 4px 0;
+}
+
+.mm-textversion-search p
+{
+	 margin: 0;
+}
+.mm-textversion-search table
+{
+	 margin: 0;
+}
+.mm-textversion-search
+{
+	 margin: 20px 10px 10px 19px;
+}
+.mm-textversion-search div#MainBody
+{
+	 float: left;
+	 overflow:auto;
+	 width:525px;
+	 padding:2px;
+}
+.mm-textversion-search .listPointNoLine
+{
+	 float: left;
+}
+
+
+.route
+{
+	 border-bottom: 1px solid #cccccc;
+	 margin: 0 0 10px 0;
+	 float:left;
+	 width:100%;
+}
+.route p
+{
+	 margin: 5px 0;
+}
+.contentL
+{
+	 width: 526px;
+}
+.contentR
+{
+	 width: 175px;
+	 float: right;
+	 margin: 20px 0 0 10px;
+}
+div.results label
+{
+	float: none;
+	width: 100%;
+	text-align: left;
+	
+}
+.results h2, .results h1
+{
+	 border: 0;
+	 color: #000000;
+	 font-size: 1.1em;
+	 margin:0;
+	 float:left;
+}
+.adsIframe
+{
+	 float: right;
+}
+.maxFare
+{
+	 width: 200px;
+	 float: left;
+	 margin: 0 20px 0 0;
+}
+.maxFare h2
+{
+	 background: transparent url(http://www.tfl.gov.uk/tfl-global/images/supporting-content-header.gif) repeat-x scroll 0 0;
+	 margin: 0;
+	 border: 0;
+}
+.maxFare img
+{
+	 border-bottom: 1px solid #cccccc;
+	 width: 200px;
+}
+.textTitle h2
+{
+	 border: 0;
+	 margin: 0 20px 0 0;
+	 float: left;
+}
+.textTitle ul
+{
+	 float: left;
+	 margin-bottom: 10px;
+}
+.direction
+{
+	 margin-bottom: 10px;
+}
+.direction a
+{
+	 font-weight: bold;
+}
+.stopDetails p
+{
+	 clear: left;
+	 margin: 0 0 2px 30px;
+}
+.stopDetails h2
+{
+	 float: left;
+	 border: 0;
+}
+.pointLetter
+{
+	 background: transparent url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/structure/stop_letter_background.gif) no-repeat scroll center center;
+	 color: #FFFFFF;
+	 font-weight: bold;
+	 padding: 15px;
+}
+.routes ul.tabs, .routes #Stop_Route_TimeTable.TimeTableActive
+{
+	 width: 99%;
+	 padding-top:5px;
+}
+ul.tabs li.selected a span span
+{
+	 color: #FFFFFF;
+}
+.contentL #Stop_Route_TimeTable.TimeTableActive
+{
+	 width: 100%;
+}
+
+#busesLeftCol_text_TabsHolder
+{
+	 margin: 5px 0;
+	 background: url(lhp-tabs.gif) repeat-x scroll 0 0;
+}
+.twenty4legend
+{
+	 text-align: right;
+	 color: #FFFFFF;
+	 float:right;
+}
+.twenty4legend span
+{
+	 padding: 1px 0px;
+	 float: right;
+	 width:40px;
+}
+.twenty4legend span span
+{
+	 border-bottom: 1px solid #FFFFFF;
+	 border-top: 1px solid #FFFFFF;
+	 float: right;
+	 padding: 0px 2px;
+	 width:100%;
+	 text-align:center;
+}
+.bottomBorder
+{
+	 float: left;
+	 width: 100%;
+	 border-bottom: 1px solid #CCCCCC;
+	 margin-bottom: 5px;
+}
+.bottomBorder div
+{
+	 float: right;
+	 margin: 5px 10px;
+}
+div.twenty4, div.twelve
+{
+	 float: left;
+	 color: #FFFFFF;
+	 width: 30px;
+	 text-align: center;
+	 margin: 3px 4px;
+	 padding: 3px 1px 4px 0px;
+	 font-weight: bold;
+}
+div.twenty4 div
+{
+	 margin: 1px 0;
+	 text-align: center;
+}
+
+#mainLinear td, #mainLinear th,
+.TT_Page td, .TT_Page th 
+{
+	border:none;
+}
+/*.TT_DayType td, .TT_DayType th
+{
+	border:1px solid #CCCCCC;
+}*/
+
+#DayType1,  #DayType2, #DayType3
+{
+	border:1px solid #000;
+}
+
+.TT_Page td.c4
+{
+	border:none;
+}
+.TT_Page table
+{
+	margin:5px 0;
+}
+.TT_Page table p
+{
+	margin:0;	
+}
+
+.TT_Page table td, .TT_Page table th
+{
+	border:1px solid #000;
+}
+.TT_Page table td table, .TT_Page table td table td
+{
+	border:none;
+}
+.TTError
+{
+	float:left;
+	margin-top:10px;
+}
+.textDisambig
+{
+	clear:left;
+	float:left;
+	width:325px;
+	margin:5px 0;
+}
+.routesInfo
+{
+	float:right;
+	width:200px;
+}
+.twenty4Img
+{
+	float:right;
+}
+/*end az stuff */
+
+
+.nobullet li
+{
+	 list-style: none;
+	 background: none;
+}
+
+#Stop_Route_TimeTable .no_resultsIcon
+{
+	 padding: 2px;
+	 float: left;
+}
+
+#mm-footer
+{
+	 background: #FFFFFF url(panel-sh.gif) repeat-x scroll left top;
+	 padding-top: 20px;
+}
+
+#mm-footer-left
+{
+	 width: 175px;
+	 float: left;
+	 padding: 0px 0px 0px 10px;
+}
+
+#mm-footer-right
+{
+	 height: 140px;
+	 margin: 0 0 0 200px;
+	 width: 535px;
+}
+#txtSearch
+{
+	 width: 300px;
+}
+
+.asbf-box-header
+{
+	 background: transparent url(http://www.tfl.gov.uk/tfl-global/images/supporting-content-header.gif) repeat-x scroll 0 0;
+	 border-bottom: 1px solid #FFFFFF;
+	 color: #000000;
+	 font-family: Arial,Helvetica,sans-serif;
+	 font-size: 1.25em;
+	 margin-bottom: 0;
+	 padding-top: 5px;
+}
+
+.asbf-box-header h3
+{
+	 padding-left: 5px;
+}
+
+.asbf-box-img
+{
+	 width: 85px;
+	 padding: 0px;
+	 margin: 0px;
+	 text-align: center;
+}
+.asbf-box-rightCol, .asbf-box-leftCol
+{
+	 width: 85px;
+	 padding: 0px;
+	 text-align: center;
+	 font-size: 1em;
+	 font-weight: bold;
+}
+
+.asbf-box-leftCol
+{
+	 float: left;
+}
+.asbf-box-rightCol
+{
+	 float: right;
+	 border-left: 1px solid #cccccc;
+}
+
+.asbf-box-links
+{
+	 border-top: 1px solid #cccccc;
+	 float:left;
+}
+
+
+
+
+
+
+/*#Stop_Route_TimeTable td, #Stop_Route_TimeTable th
+{
+	border: none !important;
+}*/
+
+
+.TT_DayType
+{
+	 padding: 0px;
+}
+
+
+
+
+.mm-bus-routes-item_Holder
+{
+	 float: left;
+	 width: 30px;
+	 padding: 0px;
+	 margin: 0px;
+	 text-align: center;
+}
+.ski_24hrs
+{
+	 text-align: center;
+	 float: left;
+}
+.ski_CCCCCC
+{
+	background:#CCC;
+}
+
+
+
+
+
+
+
+.ac_results
+{
+	 padding: 0px;
+	 border: 1px solid black;
+	 background-color: white;
+	 overflow: hidden;
+	 z-index: 99999;
+}
+
+.ac_results ul
+{
+	 width: 100%;
+	 list-style-position: outside;
+	 list-style: none;
+	 padding: 0;
+	 margin: 0;
+}
+
+.ac_results li
+{
+	 margin: 0px;
+	 padding: 2px 5px;
+	 cursor: default;
+	 display: block;
+	 background-image: none; /*  	if width will be 100% horizontal scrollbar will apear  	when scroll mode will be used 	*/ /*width: 100%;*/
+	 font: menu;
+	 font-size: 12px; /*  	it is very important, if line-height not setted or setted  	in relative units scroll will be broken in firefox 	*/
+	 line-height: 16px;
+	 overflow: hidden;
+}
+
+.ac_loading
+{
+	 background: white url( 'http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/css/indicator.gif' ) right center no-repeat;
+}
+
+.ac_odd
+{
+	 background-color: #eee;
+}
+
+.ac_over
+{
+	 background-color: #0A246A;
+	 color: white;
+}
+
+
+.cboxLoadedContent {
+	overflow: hidden;
+}
+.otherRouteInfo
+{
+	 display: block;
+}
+.listPoint_sameLine_left
+{
+	 float: left;
+}
+
+.listPoint_sameLine_right
+{
+	 float: left;
+  /*  margin-left: 20px;*/
+}
+
+.otherRouteInfo a, .listPointNoLine a
+{
+	 color: #246cce;
+}
+
+.Pre_myOtherRouteIs_Spacer{margin-top:15px;}
+.myOtherRouteIs_Text_Type{float:left; margin:5px 0px 0px 5px;}
+
+.Stop_TimeTable_SorryMsg{margin-left:20px;}
+.twentFourIcon{float:right;}
+
+.hidden_label{display:none !important;}
+#busesRightCol_MapHolder{background: #ffffff url(loading0.gif) no-repeat 50% 50px;}
+
+.searchBox { padding-bottom:10px; }
+/*		bus route page text version	*/
+.bus_route_static_map {border:1px solid #666666; margin-bottom:13px; display:block;}
+
+/*		bus stop page text version	*/
+
+/*		search page tweak		*/
+.busStopDisambiguation {background: #ffffff url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/stop_landing.jpg) no-repeat; margin-top:2px; padding-left:30px; display:block; line-height:32px; }
+.routeSearchDetailsInset { padding-left:40px; }
+.routeSearchDetailsTimetableInset { float:left; clear:both; padding-left:20px; }
+
+#overlayMsg {
+	width: 440px;
+}
+
+.search-map-bkg {
+	width: 100%;
+	margin-bottom: 19px;	
+	height: 150px;
+	background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/search-map-bkg.gif) 50% 15% no-repeat;
+	padding-top: 50px;
+	border: 1px solid #ccc;
+	-moz-box-shadow: inset 0 0 7px #666;
+}
+
+.search-map-bkg .panel {
+	width: 62%;
+	margin: 0 19%;
+}
+
+.login-style input {
+	width: 82%;
+}
+
+#busesRightCol_TopSearchBar_SearchBox .form-buttons {
+	display: inline;
+}
+
+.tfl-field.form-buttons input.mm-SearchButton {
+	font-size: 1.3em;
+	font-weight: 700;
+	padding-top: 0.2%;
+	padding-bottom: 0;
+}
+
+.search-map-wrapper {
+	width: 95%;
+	margin: 0 2.5%;
+}
+
+.bus-left-top {
+	padding-top: 8px;
+	/*border-top: 1px solid #999;
+	border-bottom: 1px solid #ccc;*/
+	overflow: hidden;
+	/*background-color: #f2f2f2;
+	background: -moz-linear-gradient(center top, #ddd, #f2f2f2 10%, #fff); /* FF3.6 */
+	/*background: -webkit-gradient(linear,0 0, 0 0,from(#ccc),color-stop(10%, #f2f2f2)); /* Saf4+, Chrome */
+	/*filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#cccccc', EndColorStr='#f2f2f2'); /* IE6,IE7 */
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#cccccc', EndColorStr='#f2f2f2')"; /* IE8 */ 
+	
+	margin-bottom: -5px;
+}
+
+.route_active_SingleLine .bus-left-top {
+	background-color: #fff;
+	background: -moz-linear-gradient(center top, #e6e6e6, #fff); /* FF3.6 */
+	background: -webkit-gradient(linear,0 0, 0 100,from(#e6e6e6),to(#fff)); /* Saf4+, Chrome */
+	filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#e6e6e6', EndColorStr='#ffffff'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#e6e6e6', EndColorStr='#ffffff')"; /* IE8 */ 
+	
+}
+
+.RouteStopsHolder {
+	border-top: 1px solid #ccc;
+	
+}
+
+.launchFullScreen {
+	background: url(full-scr.gif) right top no-repeat;
+	padding: 2px 20px 5px 40px;
+	
+}
+
+div.markerTooltip { color: #fff; font-weight: 700; font-weight: bold; background-color: #fd0013; white-space: nowrap; margin: 0; padding: 4px 8px 4px 4px; font-family: arial, sans-serif; font-size: 1.2em; -moz-box-shadow: 0px 0px 6px #000; -webkit-box-shadow: 0px 0px 6px #000; box-shadow: 0px 0px 6px #000; }
+div.markerTooltip:after { content: ""; display: block; /* reduce the damage in FF3.0 */ position: absolute; /*bottom:-20px;  value = - border-top-width - border-bottom-width */ /*left:50px;  controls horizontal position */ width: 0; height: 0; /*border-width:8px 0 0 8px;  vary these values to change the angle of the vertex */ border-style: solid; /*border-color:#fd0013 transparent;*/ }
+div.markerTooltip.right-side:after { top: 0px; left: -12px; /* value = - border-left-width - border-right-width */ bottom: auto; border-width: 12px 12px 12px 0; /* vary these values to change the angle of the vertex */ border-color: transparent #fd0013; }
+div.markerTooltip.left-side:after { top: 0px; right: -12px; /* value = - border-left-width - border-right-width */ bottom: auto; border-width: 12px 0 12px 12px; /* vary these values to change the angle of the vertex */ border-color: transparent #fd0013; }
+div.markerDetail { color: #000; font-weight: 700; font-weight: bold; background-color: #fff; white-space: nowrap; margin: 0; padding: 2px 4px; border: 1px solid #000; }
+			

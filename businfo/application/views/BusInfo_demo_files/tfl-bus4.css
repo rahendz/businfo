@@ -1,0 +1,84 @@
+
+div.clearer { clear: left; height: 0; line-height: 0; }
+
+.ski_099999{ background-color: #099999;}
+.ski_336666{ background-color: #336666;}
+.ski_3399CC{ background-color: #3399CC;}
+.ski_33CCFF{ background-color: #33CCFF;}
+.ski_336699{ background-color: #336699;}
+.ski_669933{ background-color: #669933;}
+.ski_009933{ background-color: #009933;}
+.ski_999933{ background-color: #999933;}
+.ski_006699{ background-color: #006699;}
+.ski_996666{ background-color: #996666;}
+.ski_993333{ background-color: #993333;}
+.ski_660000{ background-color: #660000;}
+.ski_333366{ background-color: #333366;}
+.ski_666699{ background-color: #666699;}
+.ski_663366{ background-color: #663366;}
+.ski_993366{ background-color: #993366;}
+.ski_CC0000{ background-color: #CC0000;}
+.ski_CC3366{ background-color: #CC3366;}
+.ski_FF3399{ background-color: #FF3399;}
+.ski_CC6699{ background-color: #CC6699;}
+.ski_FF9999{ background-color: #FF9999;}
+.ski_CC9966{ background-color: #CC9966;}
+.ski_FF6633{ background-color: #FF6633;}
+.ski_666666{ background-color: #666666;}
+.ski_333333{ background-color: #333333;}
+
+.ski_img
+{
+    background: url(http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/tfl-bus-map/img/ski/ski_sprite_map.gif) no-repeat top left;
+    height: 32px;
+    width: 30px;
+    line-height: 34px;
+    text-align: center;
+}
+
+.inActive .ski_img,.inActive_SingleLine .ski_img
+{
+    background-position: 0 -925px; 
+    cursor: default;
+}
+
+.ski_img_006699 { background-position: 0 0; } 
+.ski_img_009933 { background-position: 0 -37px; } 
+.ski_img_099999 { background-position: 0 -74px; } 
+.ski_img_333333 { background-position: 0 -111px; } 
+.ski_img_333366 { background-position: 0 -148px; } 
+.ski_img_336666 { background-position: 0 -185px; } 
+.ski_img_336699 { background-position: 0 -222px; } 
+.ski_img_3399CC { background-position: 0 -259px; } 
+.ski_img_33CCFF { background-position: 0 -296px; } 
+.ski_img_660000 { background-position: 0 -333px; } 
+.ski_img_663366 { background-position: 0 -370px; } 
+.ski_img_666666 { background-position: 0 -407px; } 
+.ski_img_666699 { background-position: 0 -444px; } 
+.ski_img_669933 { background-position: 0 -481px; } 
+.ski_img_993333 { background-position: 0 -518px; } 
+.ski_img_993366 { background-position: 0 -555px; } 
+.ski_img_996666 { background-position: 0 -592px; } 
+.ski_img_999933 { background-position: 0 -629px; } 
+.ski_img_CC0000 { background-position: 0 -666px; } 
+.ski_img_CC3366 { background-position: 0 -703px; } 
+.ski_img_CC6699 { background-position: 0 -740px; } 
+.ski_img_CC9966 { background-position: 0 -777px; } 
+.ski_img_FF3399 { background-position: 0 -814px; } 
+.ski_img_FF6633 { background-position: 0 -851px; } 
+.ski_img_FF9999 { background-position: 0 -888px; } 
+.ski_img_notactive { background-position: 0 -925px; } 
+
+#stopPointLetter {
+    /*background: transparent url(../img/structure/stop_letter_background.gif) no-repeat scroll center center;*/
+    background: #f00;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    color: #FFFFFF;
+    font-family: Arial,sans-serif;
+    font-weight: bold;
+    padding: 2px 7px;
+	float:left;
+	margin-top: 2px;
+	margin-left: 10px;
+}

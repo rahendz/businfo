@@ -1,0 +1,1570 @@
+/* ========================================================
+
+   PAGE ELEMENT STYLES
+   
+   Includes standard template elements like:
+   
+    branding,
+	header and footer links, 
+   	search form, 
+	supporting content banners,
+	journey planner form
+	
+   Also:
+   
+   	image captions,
+	generic forms,
+	download and launch panels,
+	date/time formatting,
+	page tools,
+	highlight box
+	polls styles
+	bottom banners
+	
+*/
+
+/* BRANDING */
+#branding p{
+  	font-size: 19px;
+  	font-weight: bold;
+  	line-height: 19px;
+  	width: 250px;
+  	font-family:Arial, Helvetica, sans-serif;
+  	margin: 0;
+ 	padding: 0;
+}
+#branding p a{
+	color: #113B92;
+  	text-indent: -999px;
+	width:250px;
+	overflow:hidden;
+	display:block;
+}
+#branding img{
+	display: none;
+}
+/* CORPORATE LINKS & HELP AND SEARCH */
+#corporate-links a,
+#help-and-search a{
+  	color: black
+  }
+#corporate-links img{
+  	float: left;
+  	margin-right: 19px;
+  }
+#corporate-links dl,
+#help-and-search dl {
+ 	margin:0;
+ 	margin-right: 10px;
+ 	padding:0;
+ 	float: left;
+}
+#corporate-links dl {
+	width: 400px;
+}
+#corporate-links dd,
+#help-and-search dd {
+ 	margin-right: 10px;
+	float:left;
+}
+#corporate-links p{
+	text-align: right;
+}
+#help-and-search dl{
+  	float: right;
+}
+/* SEARCH FORM */
+#help-and-search form{
+  	float: right;
+  	padding-right: 19px;
+  	padding-top: 10px;
+}
+#help-and-search fieldset{
+	margin: 0;
+	padding: 0;
+	border: 0 solid;
+	text-align: right;
+}
+#help-and-search input,
+#help-and-search label,
+#help-and-search button{
+	vertical-align: middle;
+}
+#main-search-box{
+  	width: 200px;
+} 
+/* SUPPORTING CONTENT BANNERS */
+.banner,
+.big-banner{
+	display: block;
+	background:  url('panel-sh.gif') left bottom repeat-x;
+	padding-bottom: 19px;
+}
+.banner img,
+.big-banner img{
+	padding: 1px;
+	border: 1px solid #CCC;
+	padding-right: 0;
+	border-right: 0;
+}
+.big-banner img{
+	padding-left: 0;
+	border-left: 0;
+}
+.banner:hover img,
+.big-banner:hover img,
+.borderless-banner:hover img{
+	border-color: #3497D5
+}
+.borderless-banner{
+	display: block;
+	padding-bottom: 19px;
+}
+.borderless-banner img{
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #FFF
+}
+/* IMAGE CAPTIONS */
+p.teaser .captioned-image{
+	font-size: 0.8em;
+	margin-bottom: 0;
+}
+.captioned-image{
+	width: 167px;
+	background: #F7F7F7 url('panel-sh.gif') left bottom repeat-x;
+	padding-bottom: 23px;
+	text-align: center;
+	font-size: 1em;
+	line-height: 1em;
+	color: #666666;
+}
+
+.captioned-image img{
+	display:block;
+}
+
+/* DOWNLOAD & LAUNCH PANELS */
+div.download,
+div.launch{	
+	height: 65px;
+	margin: 0 auto;
+	margin-bottom: 19px;
+}
+div.download{
+	background-image:  url('http://www.tfl.gov.uk/tfl-global/images/download-panel.gif');
+	width: 222px;
+	padding: 39px 19px 0 112px;
+}
+div.launch{
+	background-image:  url('http://www.tfl.gov.uk/tfl-global/images/launch-panel.gif');
+	width: 254px;
+	padding: 23px 19px 0 80px;
+}
+.download a,
+.launch a{
+  	color: #4BA60A;
+  	font-family:Arial, Helvetica, sans-serif;
+  	font-size: 1.25em;
+  	font-weight: bold;
+}
+/* DATE/TIME FORMATTING */
+.timestamp{
+	margin-top: -19px;
+	color: #999999;
+}
+/* PAGE TOOLS */
+#page-tools{
+	border-top: 1px solid #CCC;
+	padding-top: 8px;
+}
+#page-tools li{
+	float: left;
+	margin-right: 19px;
+}
+/* HIGHLIGHT BOX - Creates a box with a blue border and a blue background behind the heading */
+.highlight-box {
+	background-color: #FFF;
+	color: #000;
+	text-align: left;
+	margin: 0 0 19px 0;
+	border: 1px solid #3497D5;
+	padding: 19px;
+	padding-bottom: 0;
+}
+.highlight-box h2	{
+	border: 0;
+	line-height: 25px;
+	background-image:  url('http://www.tfl.gov.uk/tfl-global/images/blue-panel-heading-bg.gif');
+	background-repeat: repeat-x;
+	background-position: center;
+	padding: 8px 19px;
+	margin: -18px;
+	margin-bottom: 8px;
+	color: #FFFFFF;
+}
+/* MICROFORMATS */
+/* vCard */
+.vcard{
+	margin-bottom: 19px;
+}
+/* SEARCH RESULTS */
+#aspnetForm{
+	background-image: none;
+	
+}
+#searchResults .result h2{
+	border-bottom: 0 solid;
+	margin-top: 9px;
+	margin-bottom: 0;
+}
+#searchResults .result{
+	border-top: 1px solid #CCC;
+	margin-top: 9px;
+}	
+#searchResults{
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 9px;
+	margin-bottom: 19px;
+}
+#PaginationTop,
+#PaginationBottom{
+display: block;
+text-align: center;
+margin-bottom: 9px;
+}
+#ResultsSummary{
+	padding: 4px 8px 24px 8px;
+	border-top: 1px solid #CCC;
+	background: #F7F7F7 url('panel-sh.gif') left bottom repeat-x;
+}
+#ctl00_Main_lblMessage h1{
+	margin-bottom: 9px;
+}
+
+/* ANIMATED FAQ STYLES */
+#faq dt{
+	color: #246CCE;
+	cursor: pointer;
+	cursor: hand;
+	background:  url('green-bu.gif') no-repeat 0 7px;
+	padding-left: 8px;
+}
+#faq dd{
+	background-image: none;
+}
+
+/* POLLS FOR THE RIGHT HAND COLUMN (or centre - temporarily)*/
+#poll {
+	padding-right: 9px;
+	color: #000000;
+	} 
+#poll div {
+	background-image: url(http://www.tfl.gov.uk/tfl-global/images/result-bar2.jpg); 
+	height: 1em;
+	margin-bottom: 4px;
+	}
+#poll .error-message{
+	background-image: url('exclamau.png') no-repeat 3px 50%;	
+}
+
+#update-widget{
+	float: right;
+	margin-top: -19px;
+}
+#jp-widget,
+#map-widget{
+	display: block;
+	margin-top: -19px;
+	margin-left: 75px;
+	margin-bottom: 0;
+}
+
+/* Full width banners across bottom of page */
+.bottom-banner{
+	float: left;
+	width: 744px;
+	/* IE hacks follow  */
+	position: relative;
+	zoom 1;
+    *clear:both;
+	*float: none;
+}
+* html .bottom-banner{
+	height: 0;
+}
+
+/* Transforming The Tube banner */
+#transform-tube h2{
+	padding: 8px 19px;
+	margin: 0;
+	border-bottom: 0 solid;
+	color: #666;
+}
+#transform-tube p{
+	float: left;
+	display: inline;
+	margin: -2.2em 0 -2.2em 22em;
+	background:  url('green-bu.gif') no-repeat 0 7px;
+	padding-left: 8px;
+}
+/* network wide message */
+.network-message{
+	background:url(http://www.tfl.gov.uk/tfl-global/images/network-alert-bg.gif) 20px 20px no-repeat #fffacf;
+	padding:20px 20px 10px 90px;
+	margin-bottom:1em;
+	color:#303030;
+}
+
+.network-message h2{
+	border-bottom:1px solid #303030 !important;
+	color:#303030 !important;
+	padding-bottom:5px !important;
+	margin-bottom:5px !important;
+	font-size:160%;
+}
+
+.network-message p{
+	margin-bottom:8px !important;
+}
+
+/* rounded shadow box start */
+
+/* template-1: ThreeColumn */
+
+.template-1 #main-content .rounded-shadow-box{
+	width:372px;
+	*width:360px;
+	margin-left:-9px;
+	*margin-left:-7px;
+}
+.template-1 #main-content .rounded-shadow-box .contentArea{
+	width:352px;	
+	*width:337px;
+
+}
+/* template-2: TwoColumn_NoMargin */
+.template-2 #main-content .rounded-shadow-box{
+	width:557px;
+	*width:556px;
+	margin-left:-9px;
+	*margin-left:-7px;
+}
+.template-2 #main-content .rounded-shadow-box .contentArea{
+	width:537px;	
+	*width:533px;
+}
+
+/* template-3: TwoColumn */
+.template-3 #main-content .rounded-shadow-box{
+	width:557px;
+	*width:556px;
+	margin-left:-9px;
+	*margin-left:-7px;
+}
+.template-3 #main-content .rounded-shadow-box .contentArea{
+	width:537px;	
+	*width:533px;
+}
+
+/* template-4: TwoColumn_NoLeftNav */
+
+.template-4 #main-content .rounded-shadow-box{
+	width:539px;
+	*width:527px;
+	margin-left:-9px;
+	*margin-left:-7px;
+}
+.template-4 #main-content .rounded-shadow-box .contentArea{
+	width:519px;	
+	*width:504px;
+}
+
+/* template-5: OneColumn_NoMargin */
+.template-5 #main-content .rounded-shadow-box{
+	width:723px;
+	margin-left:11px;
+}
+.template-5 #main-content .rounded-shadow-box .contentArea{
+	width:703px;	
+	*width:700px;
+}
+
+/* template-6: OneColumn */
+.template-6 #main-content .rounded-shadow-box{
+	width:722px;
+	*width:712px;
+	margin-left:-7px;
+}
+.template-6 #main-content .rounded-shadow-box .contentArea{
+	width:702px;
+	*width:690px;	
+}
+
+/* template-7: Microsite_NoMargin */
+.template-7 #main-content .rounded-shadow-box{
+	width:722px;
+	margin-left:11px;
+}
+.template-7 #main-content .rounded-shadow-box .contentArea{
+	width:702px;
+	*width:699px;	
+}
+
+/* template-8: Microsite  */
+.template-8 #main-content .rounded-shadow-box{
+	width:722px;
+	*width:712px;
+	margin-left:-7px;
+}
+.template-8 #main-content .rounded-shadow-box .contentArea{
+	width:702px;	
+	*width:690px;
+}
+/* template-9: Microsite_Elastic   */
+.template-9 #main-content .rounded-shadow-box{
+	width:101.5%;
+	margin-left:-9px;
+}
+.template-9 #main-content .rounded-shadow-box .contentArea{
+	width:100.6%;	
+	*width:100.5%;
+}
+/*supporting content styles*/
+#supporting-content .rounded-shadow-box .contentArea{
+	width:162px;	
+	*width:159px;
+	padding-left:3px
+}
+
+/*supporting content styles end*/	
+
+	
+.rounded-shadow-box{
+	clear:both;
+}
+.rounded-shadow-box .tlc{
+	overflow:hidden;
+	padding-left:14px;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/tlc.gif) no-repeat top left;
+}
+.rounded-shadow-box .trc{
+	overflow:hidden;
+	padding-right:14px;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/trc.gif) no-repeat top right;
+}
+.rounded-shadow-box .t-bg{
+	height:14px;
+	overflow:hidden;
+	width:100%;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/t_bg.gif) repeat-x top left;
+}
+.rounded-shadow-box .left-bg{
+	overflow:hidden;
+	padding-left:14px;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/l_bg.gif)  repeat-y top left;
+}
+.rounded-shadow-box .right-bg{
+	padding-right:14px;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/r_bg.gif)  repeat-y top right;
+}
+.rounded-shadow-box .contentArea{
+	margin-left:-5px;
+	overflow:hidden;
+}
+.rounded-shadow-box .blc{
+	overflow:hidden;
+	padding-left:14px;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/blc.gif) no-repeat top left;
+}
+.rounded-shadow-box .brc{
+	overflow:hidden;
+	padding-right:14px;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/brc.gif) no-repeat top right;
+}
+.rounded-shadow-box .b-bg{
+	height:14px;
+	overflow:hidden;
+	width:100%;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/b_bg.gif)  repeat-x top left;
+}
+/* rounded shadow box end */
+
+/* new Poll styles with rounded shadow box */
+.poll-question{
+	font-weight:bold;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/sep_bg.gif)  repeat-x 500px bottom;
+	padding:0 0 8px 5px;
+	margin:0;
+}
+
+#main-content .poll-answers{
+	clear:both;
+	margin:0 !important;
+	width:100%;
+	padding-left:0;
+	list-style:none;
+}
+.poll-answers li{
+	clear:both;
+	float:left;
+	width:99%;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/sep_bg.gif)  repeat-x bottom right;
+	overflow:hidden;
+	padding-left:5px;
+	line-height:2.5em;
+	*margin-bottom:1px;
+}
+
+.poll-answers li label{
+	line-height:2.5em;
+	float:left;
+	width:92%;
+	*width:90%;
+	text-align:left;
+	margin-top:0
+	}
+.poll-answers li input{
+	float:left;
+	margin-top:9px;
+	*margin-top:5px;
+}
+.rounded-shadow-box .contentArea .button-default-1{
+	margin:31px 0 0 10px;	
+}
+.poll-answers li .value-bar{
+	float:left;
+	width:auto;
+	line-height:2.2em;
+	background:url(http://www.tfl.gov.uk/tfl-global/images/poll_value.gif) no-repeat top left;
+	overflow:hidden;
+	padding-left:5px;
+}
+.poll-answers li .poll-item{
+	float:left;
+	clear:both;
+	width:85%;
+	line-height:2.2em;	
+	overflow:hidden;
+	padding-left:5px;
+	margin-right:5px;
+	margin-top:-2.2em;
+}
+.poll-answers li .poll-value{
+	float:right;
+	width:40px;
+	font-weight:bold;
+	text-align:center;
+	margin-right:5px;
+	margin-top:-2.2em;
+	*margin-top:0em;
+}
+.previous-polls {
+	clear:both;
+	float:left;
+	width:97%;
+	margin:19px 0 0 10px;	
+}
+.previous-polls p{
+	margin:0	
+}
+/* new Poll styles with rounded shadow box */
+
+/* Maps panel */ 
+
+.RHS_maps_panel_holder{
+background: transparent url(panel-sh.gif) repeat-x scroll left bottom; 
+display: block;  
+padding-bottom: 19px;}
+.RHS_maps_panel_map_img{margin:0px; padding:0px; display:block; border-top:1px solid #CCCCCC;  border-bottom:1px solid #CCCCCC; border-left:1px solid #CCCCCC;}
+ul.RHS_maps_panel_Links { margin:0px;padding:4px; border-left:1px solid #CCCCCC;}
+ul.RHS_maps_panel_Links li{padding:0 7px; background:none; display:block; border-right:1px solid #CCCCCC; text-align:center; 
+font-family: Arial ; font-size:1.2em; font-weight:bold; display:inline;}
+ul.RHS_maps_panel_Links li.RHS_maps_panel_Links_noRightBorder{border:none;}
+a.RHS_maps_panel_map_img:hover{border-color:#3497D5;}
+ul.RHS_maps_panel_Links li a{color:#113B92;}
+.RHS_maps_panel_holder a span {display: inline-block; position: absolute; left: -9999px}
+
+/* End maps panel */
+
+.video-embed {
+	float: left;
+	background: #f2f2f2;
+	margin-bottom: 19px;
+	width: 100%;
+}
+
+.video-embed div {
+	float: left;
+}
+
+.video-copy {
+	padding: 10px 8px 5px 10px;
+	width: 170px;
+}
+
+.video-copy p.linklist {
+	margin-bottom: 0;
+}
+
+.video-embed p.video-credit {
+	clear: both;
+	background: #F2F2F2;
+	margin-bottom: 0;
+	border-top: 5px solid #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 5px 10px;
+	*padding: 0px 10px 5px 10px;
+}
+
+.video-credit {
+	display: none;
+	padding: 0px 0;
+}
+
+.cycling-pages .video-credit {
+	display: block;
+}
+
+ul.promo-tabs  {
+	position: relative;
+	background: #fff;
+	margin:  0 1px 19px;
+	/*padding: 2px;*/
+}
+
+.promo-tabs li {
+	background-image: none;
+	padding-left: 0;
+	width: 100%;
+}
+
+.promo-tabs p {
+	width: 52%;
+	margin-left: 48%;
+	display: block;
+	background: none;
+	padding: 0;
+	/*margin-top: 1px;*/
+	margin-bottom: 0;
+	
+}
+
+.promo-tabs li:first-child div img{
+	position: absolute;
+	z-index: 99;
+}
+
+.promo-tabs li:first-child p a {
+	/*margin-top: 0;*/
+	border-top: 1px solid #ccc;
+}
+
+.promo-tabs p a {
+	background-position: 0% 0%;
+	padding: 7px 8px 7px 12px;
+	display: block;
+	/*height: 2.6em;*/
+		min-height: 34px;
+	/**min-height: 2.8em;*/
+		margin: 0;
+		color: #575757;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #ccc;
+	/*position: relative;*/
+		font-weight: 400;
+		background-color: #eee;
+	/* FF3.6 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#dfdfdf', EndColorStr='#fafafa')";
+	background-image: -webkit-gradient(linear,0 0, 0 100%,from(#dfdfdf),color-stop(75%, #fafafa),color-stop(85%, #fafafa),color-stop(95%, #eeeeee));
+/* Saf4+, Chrome */
+   	background-repeat: repeat;
+	background-attachment: scroll;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	.promo-tabs p a {
+		min-height: 34px;
+		}
+}
+
+.promo-tabs p a:hover {
+	text-decoration: none !important;
+}
+
+.promo-tabs p a.selected {
+	background-position: 0% 0%;
+	color: #fff;
+	/* FF3.6 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#0681d3', EndColorStr='#0095cd')";
+	padding-bottom: 6px;
+	border-top: 1px solid #0090c6 !important;
+	border-bottom: 1px solid #0090c6;
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #0681d3),color-stop(1, #0095cd));
+/* Saf4+, Chrome */
+   /* IE6,IE7 */
+   /* IE8 */
+   	background-color: #0681d3;
+	background-repeat: repeat;
+	background-attachment: scroll;
+}
+
+.promo-tabs p a:focus, .promo-tabs p a:active {
+    background-color: #113b92;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.promo-tabs p a.selected span {
+	text-shadow: 1px 2px 3px #000;
+}
+
+.promo-tabs p a span {
+	display: block;
+	font-size: 1.2em;
+	font-weight: 700;
+	font-family: Arial, Helvetica , Sans-Serif;
+}
+
+.promo-tabs div {
+	width: 47%;
+	height: 145px;
+	display: block;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	border: 2px solid #0090c6;
+	
+	margin-top: -2px;
+	padding: 0;
+	overflow: hidden;
+}
+
+ul.vtabs.promo-tabs  {
+	height: 15.5em;
+	width: 90%;
+	min-width: 90%;
+	margin: 0 auto;
+	background-color: transparent;
+}
+
+.vtabs.promo-tabs div {
+	width: 100%;
+	min-width: 100%;
+	left: 0;
+	top: 1.6em;
+	margin: 10px auto !important;
+}
+
+.vtabs.promo-tabs li {
+	float: left;
+	width: auto;
+	border-right: 1px solid #ddd;
+}
+
+.vtabs.promo-tabs li p {
+	float: left;
+	width: auto;
+	margin-left: 0;
+}
+
+.vtabs.promo-tabs li p a {
+	border-top: none !important;
+	padding: 6px 12px !important;
+	min-height: 16px;
+}
+	
+
+.change-to-background {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.change-to-background img {
+	visibility: hidden;
+	
+}
+
+
+/* STRIKE MESSAGING */
+
+#strike-message h2{
+	background: url("http://www.tfl.gov.uk/tfl-global/images/roundel-small-tube.gif") no-repeat left center;
+	padding: 10px;
+	padding-left: 46px;
+	border-bottom: 0 solid;
+}
+#strike-message p{
+	margin-bottom: 9px;
+}
+#strike-message a{
+	font-weight: bold;
+}
+#strike-message{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 19px;
+	padding-bottom: 10px;
+}
+
+
+/* Right-hand banner - HTML based */
+.promo {
+background:url("panel-sh.gif") repeat-x scroll left bottom transparent;
+padding-bottom:20px;
+clear:both;
+text-align:center;
+}
+
+.promo:hover {
+border-color:#0096cd;
+}
+
+.promo strong {
+font-family:Arial;
+display:block;
+color:#0e2773;
+font-size:1.25em;
+margin-bottom:1em;
+}
+
+.promo img {
+border:0;
+display:block;
+margin:0 auto 1em;
+}
+
+.promo img.reflection {
+-webkit-box-reflect: below 0 -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, transparent), to(rgba(255, 255, 255, 0.25)));
+}
+
+.promo a {
+display:block;
+background:url("http://www.tfl.gov.uk/tfl-global/images/supporting-content-header.gif") repeat-x scroll 0 0 transparent;
+border-bottom:1px solid #FFF;
+color:#333;
+text-decoration:none;
+padding:1em;
+}
+
+.other-languages a {
+display:inline;
+background:none;
+border-bottom:0;
+color:#333;
+text-decoration:none;
+padding:0;
+}
+/* End Right-hand banner - HTML based */
+
+.click-div:hover {
+	outline: 1px solid #0096cd;
+	cursor: pointer;
+	-moz-outline-radius: 3px;
+	-webkit-outline-radius: 3px;
+}
+
+/* SET CORPORATE FONT
+================================================*/
+/* Sets the corporate font to New Johnston, in the multiple formats supported by various browsers */
+/* font conversion at www.fontsquirrel.com */
+/*
+@font-face {
+	font-family: 'NJFontLogo';
+	src: url('/tfl-global/fonts/NJFont-Logo.eot');
+}*/
+@font-face {
+	font-family: 'NJFontLogo';
+	src:url(http:///) format('No-IE-404'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-Logo.woff') format('woff'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-Logo.otf') format('opentype'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-Logo.svg') format('svg');
+}
+/*
+@font-face {
+	font-family: 'NJFontBookBold';
+	src: url('/tfl-global/fonts/NJFont-BookBold.eot');
+}*/	
+@font-face {	
+	font-family: 'NJFontBookBold';
+	src:url(http:///) format('No-IE-404'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-BookBold.woff') format('woff'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-BookBold.otf') format('opentype'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-BookBold.svg') format('svg');
+}
+/*
+@font-face {
+	font-family: 'NJFontBook';
+	src: url('/tfl-global/fonts/NJFont-Book.eot');
+}*/
+@font-face {	
+	font-family: 'NJFontBook';
+	src:url(http:///) format('No-IE-404'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-Book.woff') format('woff'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-Book.otf') format('opentype'), url('http://www.tfl.gov.uk/tfl-global/fonts/NJFont-Book.svg') format('svg');
+}
+
+
+/* Section title */
+
+#section-title {
+	font-family: NJFontBook, Arial, Sans-Serif, Verdana;
+	font-size: 2em;
+	font-weight: 700;	
+	/*padding: 2.5% 2%;*/
+	position: relative;
+	z-index: 10;
+	margin-bottom: -2.5em;
+	float: left;
+	/*width: 96%;*/
+	margin-top: 1.9em;
+	
+	background: #e4e4e4 url(section-.gif) left bottom no-repeat;
+	height: 20px;
+	width: 710px;
+	padding: 17px;
+	border-bottom: 1px solid #ccc;
+	-webkit-box-shadow: 0 -1px 1px #999;
+	/*	
+	background-color: #f2f2f2;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.01, #999),  color-stop(0.02, #dadada),  color-stop(0.12, #f2f2f2),  color-stop(0.90, #f2f2f2), color-stop(1, #e6e6e6));
+	background-image: -moz-linear-gradient(top, #dadada 2%, #f2f2f2 12%, #f2f2f2 95%, #e6e6e6 100%);
+	filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#dadada', EndColorStr='#f2f2f2');
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#dadada', EndColorStr='#f2f2f2')";
+	color: #565656;	
+	border-bottom: 1px solid #ccc;
+	*/	
+}
+
+
+
+.live-travel-news #section-title {
+	background-position: -744px top;
+}
+.getting-around #section-title {
+	background-position: -1488px top;
+}
+.tickets #section-title {
+	background-position: -2232px top;
+}
+.road-users #section-title {
+	background-position: -2976px top;
+}
+.corporate #section-title {
+	background-position: -3720px top;
+}
+.business-and-partners #section-title {
+	background-position: -4464px top;
+}
+
+
+.station-stop-page h1 {
+	border: none;	
+	font-family: NJFontBook, Arial, Sans-Serif, Verdana;
+	font-size: 2.2em;
+	text-transform: uppercase;
+	background: none;
+}
+
+.station-stop-page h1 { float:left; margin-top:-6px; margin-right: 10px; }
+.station-stop-page h1, .bus-stop-direction, .bus-numbers, .station-stop-detail {
+	margin-left: 2%;
+	margin-bottom: 3px;
+	clear: left;
+}
+
+#station-list-drop-down-js {display: none;}
+.station-search h2 span { font-size: 0.8em; color:#565656; font-weight:normal; font-family:Verdana,Arial,Helvetica,sans-serif; margin-left: 0.5em}
+
+.bus-stop-code {
+	float: right;
+	width: 25%;
+	margin-top: 5px;
+	text-align: right;
+}
+
+.bus-stop-direction, .station-stop-detail {
+	font-size: 1.3em;
+	font-weight: 700;
+	font-family: Arial, Verdana, Sans-Serif;
+	color: #999;
+}
+
+.bus-numbers {
+	color: #000;
+}
+
+#main-content.station-stop-page form#aspnetForm.styled {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+}
+
+/* PANELS
+================================================*/
+   
+
+/* Basic panel styles */
+.panel, .tfl-form fieldset {
+	margin-bottom: 1em;
+	background-color: #f8f8f8;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1', endColorstr='#ffffff');
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#fff));	
+	background: -moz-linear-gradient(top, #f1f1f1, #fff);
+}
+
+/*
+.panel {height:100%;}
+*/
+
+.panel-empty {
+	background: none;
+}
+
+/* Panel margins */
+.panel > * 		{ margin: 0.7em; }
+.panel-empty.panel > * 		{ margin-top: 0; }
+.ad.panel > *	{ margin: 0; }
+.panel .column:first-child {margin-left: 0;}
+
+/* Panel headers */
+.panel h2,/* HTML4 */
+.panel h1 /* HTML5 */
+{
+	margin: 0 0 0.3em 0;
+	padding: 0.3em 0.5em;
+	background-color: #f1f1f1;
+	/* Creates the inset header underline */
+	/*background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.05, #ccc),  color-stop(0.05, transparent));
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0) 97%, rgb(100,100,100));
+	background-image: -moz-linear-gradient(bottom, #ccc 1px, #f3f3f3 1px, #f1f1f1);*/
+	border-bottom: 1px solid #ccc;
+	-moz-box-shadow: 0 1px 0px #fff;
+	-webkit-box-shadow: 0 1px 0px #fff;
+	box-shadow: 0 1px 0px #fff;
+}
+
+.panel h2 {
+	behaviour: url(http://www.tfl.gov.uk/tfl-global/css/ie-css3.htc);
+}
+
+.panel p{
+	margin-top: 0;
+}
+
+/* Styles for panel control buttons */
+.panel h2 .button, /* HTML4 */
+.panel h1 .button  /* HTML5 */
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 0.2em;
+	float: right;
+	text-decoration: none;
+	color: #333;
+	font-size: 0.6em;
+	font-weight: normal;
+	border: 1px solid #cdcdcd;
+	padding: 0.1em 0.5em;
+	margin-left: 5px;
+	/* Webkit */
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f1f1f1));
+	-webkit-border-radius: 3px;
+	/* Gecko */
+	background: -moz-linear-gradient(top, #fff, #f1f1f1);
+	-moz-border-radius: 3px; 
+}
+.panel h2 .button:hover, /* HTML4 */
+.panel h1 .button:hover	 /* HTML5 */
+{
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#fff));
+	background: -moz-linear-gradient(top, #f1f1f1, #fff);
+}
+
+.panel .linklist {
+	margin-bottom: 0;
+}
+
+/* Interactive panels */
+.interactive{
+	padding: 1px 0;
+	/* Webkit */	
+	border: 1px solid #cdcdcd;
+	-webkit-background-clip: content-box;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.25) 0 0 6px;
+	/* Gecko */
+	-moz-border-radius: 3px; 
+	-moz-box-shadow: rgba(0, 0, 0, 0.25) 0 0 6px;	
+}
+
+/* Content panels */
+.content{
+	padding-top: 1px;
+	margin-bottom: 2em;
+	border-top: 1px solid #cdcdcd;
+	/*border-bottom: 1px solid #cdcdcd;*/
+}
+
+/* Ad panels */
+.ad h2,/* HTML4 */
+.ad h1 /* HTML5 */
+{
+	text-align: center;
+	font-size: 0.5em;
+	font-weight: normal;
+	text-transform:uppercase;
+	color: #666;
+}
+
+/* Promo panels */
+.promo-2{
+	border: 1px solid #cdcdcd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f1f1f1));
+	background: -moz-linear-gradient(top, #fff, #f1f1f1);
+	-webkit-background-origin: content;
+	-moz-background-origin: content;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px; 
+	-moz-outline-radius: 3px;
+	overflow: hidden;
+	}
+.promo-2{
+	text-align: center;
+}
+.promo-2:hover{
+	/*border-color: #0096cd;
+	outline: 1px solid #0096cd;*/
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#E7F3FA));
+	-webkit-background-origin: content;
+	background: -moz-linear-gradient(top, #fff, #E7F3FA);
+	-moz-background-origin: content;	
+}
+.promo-2 strong{
+	display: block;
+	color: #0e2773;
+	font-size: 1.2em;
+	margin-bottom: 1em;
+}
+.promo-2 img{
+	margin: 0 auto 1em auto;
+	border: 0;
+	display: block;
+	-webkit-box-reflect: below 0 -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, transparent), to(rgba(255, 255, 255, 0.25)));
+}
+.promo-2 a{
+	display: block;
+	color: #222;
+	text-decoration: none;
+	padding: 0;
+}
+
+.last-child .promo-2, .narrow-column.last-child .highlight {
+	border-right: none;
+	outline-right: none;
+	-webkit-border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+}
+
+.narrow-column.last-child .highlight {
+	-webkit-border-radius: 6px 0 0 6px;
+	-moz-border-radius: 6px 0 0 6px;
+}
+
+/* Highlight panels */
+.highlight{
+	border: 3px solid #075fa0;
+	padding: 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+.highlight h2,
+.highlight h1{
+	background-color: #075fa0;
+	background-image: none;
+	color: #fff !important;
+	border: 0;
+	padding: 0.2em 0.5em 0.3em 0.5em;
+	margin: 0 0 0.5em 0;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
+}
+
+
+/* OTHER
+================================================*/
+
+/* CLEARFIX */
+.panel:after,
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+/* HTML5FIX */
+/* Adds styles to HTML5 elements for browsers with only partial support */
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup,
+menu, nav, section, summary { 
+  display:block;
+}
+
+
+/* Columns and wide columns */
+.column{
+	float: left;
+}
+/*.column.wide{
+	width: 66.1%;
+	margin-right: 0;
+}
+
+.half.column{
+	width: 47.4%;
+	margin-right: 2%
+}*/
+
+.narrow-column {
+	width: 25%;
+	min-width: 25%;
+}
+
+.wide-column .narrow-column {
+	width: 35%;
+	min-width: 35%;
+}
+
+.wide-column {
+	width: 72%;
+	min-width: 72%;
+}
+
+.wide-column .wide-column {
+	width: 61%;
+	min-width: 61%;
+}
+
+.half-column {
+	width: 46%;
+	min-width: 46%;
+}
+
+.last-child {
+	margin-right: 0;
+	float: right;
+}
+
+/* forms */
+fieldset {
+	border: none;
+}
+
+.tfl-form.large {
+	font-size: 1.2em;
+}
+
+.tfl-form.large label {
+	font-family: Arial, Sans-serif, Verdana;
+	
+	line-height: 1.8em;
+}
+	
+.tfl-form.large input, .tfl-form.large select {
+	font-size: 1.2em;
+	font-weight: 700;
+	}
+	
+.tfl-form.inline  label {
+	float: left;
+	width: 120px;
+	text-align: right;
+}
+
+.tfl-form.inline  input, .tfl-form.inline  select {
+	margin-left: 15px;
+}
+
+.tfl-form fieldset {
+	padding: 2%; 
+	border-top: 1px solid #ccc;
+	}
+.column .tfl-form {
+	margin-left: 2%;
+}
+fieldset h2 {
+	margin-top: 0;
+	margin-bottom: 5px;
+} 
+
+.tfl-field {
+	margin-bottom: 12px;
+}
+	
+.tfl-form label {
+	display: block;
+	font-weight: 700;
+	font-size: 1.2em;
+	line-height: 2.0em;
+	}
+	
+.tfl-field input, .tfl-field select {
+	width: 250px;
+	padding: 4px;
+	}
+
+.template-1 .tfl-field input, .template-1 .tfl-field select {
+	width: 150px;
+	padding: 4px;
+	}
+	
+.tfl-form .check-radio input {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.tfl-form .check-radio label {
+	font-weight: 400;
+	line-height: 1em;
+	text-align: left;
+}
+
+.tfl-form p.question {
+	font-weight: 700;
+	font-size: 1.2em
+}
+
+.tfl-field.form-buttons input, .button-link {
+	border-style: none;
+	border-color: inherit;
+	border-width: medium;
+	width: auto;
+		padding: 0.5% 2%;
+		overflow: visible;
+		color: #fff;
+		font-family: Arial;
+		font-size: 1.7em;
+		font-weight: 400;
+		-moz-border-radius: 3px; /* FF1+ */
+		-webkit-border-radius: 3px; /* Saf3-4 */
+		border-radius: 3px; /* Opera 10.5, IE 9, Saf5, Chrome */
+		/*-moz-box-shadow: 0px 2px 2px #333;  FF3.5+ */
+		/*-webkit-box-shadow: 0px 2px 3px #000;  Saf3.0+, Chrome */
+		/*box-shadow: 0px 2px 3px #000;  Opera 10.5, IE 9.0 */
+		background-color: #157db9 /*009fe0*/;
+	/* FF3.6 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#3394C7', EndColorStr='#1784C2')";
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	background-image: -webkit-gradient(linear,left top,left bottom, color-stop(0.5, #3394C7),color-stop(0.53, #1784C2));/* Saf4+, Chrome */
+	/* IE6,IE7 */
+}
+
+.login-style fieldset {margin-bottom: 5px;}
+.login-style p {margin-bottom: 0;}
+.login-style label {display: block; margin-bottom: 5px;}
+.login-style input, .station-search .login-style select {float: left; margin-right: 10px; font-size: 2em; width: 75%;}
+.login-style .form-buttons {display: inline;}
+.login-style .form-buttons input {padding-left:10px; padding-right:10px; margin-right: 0;}
+
+
+.crumb-share {
+ float: left;
+ border: 1px solid #ccc;
+ margin: 5.6em 0.9% -4em;
+ width: 98%;
+ position: relative;
+ display: inline;
+}
+
+.crumb-share ul.crumb {
+	float: left;
+	margin: 0;
+	
+}
+
+.crumb-share .crumb li {
+	float: left;
+	background: url(crumb-ar.png) -22px 50% no-repeat;
+	padding: 0.5em 0.5em 0.5em 1.5em;
+}
+.crumb-share .crumb li:first-child {
+	background: none;
+}
+
+.crumb-share .crumb li a {
+	color: #575757;
+}
+
+.crumb-share .share {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.piped-list {
+	float: left;
+}
+
+.piped-list li {
+	float: left;
+	background: none;
+	margin: 0;
+	padding: 0;
+	border-left: 1px solid #575757;
+	line-height: 1em;
+}
+
+.piped-list li:first-child {
+	border-left: none;
+}
+
+.piped-list li a {
+	margin: 0 0.6em;
+}
+
+.piped-list li:first-child a {
+	margin-left: 0;
+}
+
+.tabs-large > div {
+	margin: 10px 20px 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+ul.tabs-large li  {
+	float: left;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-weight: 700;
+	font-size: 1.4em;
+	margin-left: 10px;
+	padding: 10px 15px 5px;
+	color: #000;
+	position: relative;
+	top: 1px;
+	-moz-border-radius: 5px 5px 0 0; /* FF1+ */
+ -webkit-border-radius: 5px 5px 0 0; /* Saf3-4 */
+   border-radius: 5px 5px 0 0; /* Opera 10.5, IE 9, Saf5, Chrome */ 
+	border: 1px solid #ccc;	
+	background-image: none;
+	background-color: #f2f2f2;
+	background: -moz-linear-gradient(center bottom, #ddd, #f2f2f2 10%, #f2f2f2); /* FF3.6 */
+	background: -webkit-gradient(linear,0 100%, 0 0,from(#ccc),color-stop(10%, #f2f2f2)); /* Saf4+, Chrome */
+	filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#f9f9f9', EndColorStr='#eeeeee'); /* IE6,IE7 */
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#f9f9f9', EndColorStr='#eeeeee')"; /* IE8 */   
+	-moz-box-shadow: 0px -1px 1px #d9d9d9; /* FF3.5+ */
+ -webkit-box-shadow: 0px -1px 1px #d9d9d9; /* Saf3.0+, Chrome */
+ box-shadow: 0px -1px 1px #d9d9d9; /* Opera 10.5, IE 9.0 */
+}
+
+ul.tabs-large {
+	margin-top: 10px;
+	border-bottom: 1px solid #ccc;
+	float: left;
+	width: 100%;
+	min-width: 100%;
+	-moz-box-shadow: inset 0px -2px 2px #ddd; /* FF3.5+ */
+ -webkit-box-shadow: inset 0px -2px 2px #ddd; /* Saf3.0+, Chrome */
+ box-shadow: inset 0px -2px 2px #ddd; /* Opera 10.5, IE 9.0 */
+}
+
+ul.tabs-large li.selected {
+	background: #fff;
+	filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#ffffff', EndColorStr='#ffffff'); /* IE6,IE7 */
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#ffffff', EndColorStr='#ffffff')"; /* IE8 */
+	border-bottom-color: #fff;
+}
+
+ul.tabs-large li:hover a {
+	text-decoration: underline !important;
+	color: #113B92 !important;
+}
+
+ul.tabs-large li.selected:hover a {
+	text-decoration: none !important;
+	color: #000 !important;
+}
+
+ul.tabs-large li.selected a {
+	color: #000;
+}
+
+ul.tabs-large li.selected a:hover {
+	text-decoration: none !important;
+	cursor: default;
+}
+
+ul.tabs-large > div {
+	margin-left: 12px;
+}
+
+.silver-button {
+	background-color: #eaeaea;
+	/* FF3.6 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#eaeaea', EndColorStr='#d5d5d5')";
+	border: 1px solid #ccc;
+	color: #246cce;
+	text-shadow: 0 0 0;
+	-moz-box-shadow: 0px 2px 2px #666;
+	-webkit-box-shadow: 0px 2px 2px #666;
+	box-shadow: 0px 2px 2px #666;
+	background-image: -webkit-gradient(linear,left top,left bottom, color-stop(0.1, #3394C7), color-stop(0.5, #3394C7),color-stop(0.53, #1784C2));/* Saf4+, Chrome */
+	/* IE6,IE7 */
+	/* IE8 */
+	}
+ .silver-button:hover {
+	-moz-box-shadow: 0px 2px 6px #113B92;
+	-webkit-box-shadow: 0px 2px 6px #113B92;
+	box-shadow: 0px 2px 6px #113B92;
+ }
+
+ 
+ /*Buttons - default - primary action blue*/
+button, .button, .button:visited {border-style: none; background-color: #157DB9; display: inline-block; padding: 4px 11px; color: #fff; text-decoration: none; -moz-border-radius: 3px; -webkit-border-radius: 3px;  border-radius: 3px;	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25); box-shadow: 0 1px 3px rgba(0,0,0,0.25); text-shadow: 0 -1px 1px rgba(0,0,0,0.25);	border-bottom: 1px solid rgba(0,0,0,0.25);	position: relative; cursor: pointer;  font: bold  1.2em/1 Arial,Helvetica,sans-serif; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); line-height: 1;}
+button::-moz-focus-inner, input.button::-moz-focus-inner {border: 0; padding: 0;}
+
+button, input.button {overflow: visible; width: auto;}
+button:hover, .button:hover, .button:focus {  background-color: #2c8ac0; color: #fff; text-decoration: underline;}
+button:active, .button:active { top: 1px;}
+
+button.small, .button.small, .button.icon.small, .button.small:visited { font-size: 1.15em; padding: 3px 10px;}
+button.large, .button.large, .button.icon.large, .button.large:visited { font-size: 1.5em; padding: 6px 13px; margin:0;}
+
+/*Button - secondary action silver */
+button.secondary-action, .button.secondary-action {background-color: #efefef; border: 1px solid #bdbdbd; color: #000; font-weight: normal; text-shadow: none;}
+button.secondary-action:hover, .button.secondary-action:hover {  background-color: #f6f6f6; color: #000;}
+
+/*Button - support-action link style */
+button.support-action, .button.support-action {font-family: Verdana, Sans-Serif; font-size: 1em; background: 0; border: 0; color: #246CCE; font-weight: normal; text-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; padding: 0;}
+button.support-action:hover, .button.support-action:hover {text-decoration: underline;}
+
+/*Button - go to action */
+button.go-to-action, .button.go-to-action {background-color: #016B01;}
+button.go-to-action:hover, .button.go-to-action:hover { background-color: #019401; color: #fff;}
+
+/*Button - icons */
+button.icon, .button.icon {background-image: url('http://www.tfl.gov.uk/tfl-global/images/icon-sprite-horizontal.png'); background-repeat: no-repeat; padding-left: 28px;  }
+button.icon.dark, .button.icon.dark {background-image: url('http://www.tfl.gov.uk/tfl-global/images/icon-sprite-horizontal-dark.png');}
+button.icon.small, .button.icon.small {padding-left:27px;}
+button.icon.large, .button.icon.large {padding-left:34px;}
+button.icon.large.launch, .button.icon.large.launch {background-position: -393px center; }
+
+button.icon.previous, .button.icon.previous {background-position: 0  center;}
+button.icon.next, .button.icon.next {background-position: right center; padding-left: 0.8em; padding-right: 28px;}
+button.icon.launch, .button.icon.launch {background-position: -400px center; }
+button.icon.tick, .button.icon.tick {background-position: -800px center;}
+button.icon.cross, .button.icon.cross {background-position: -1200px center;}
+button.icon.plus, .button.icon.plus {background-position: -1600px center;}
+button.icon.minus, .button.icon.minus {background-position: -2000px center;}
+button.icon.sign, .button.icon.sign {background-position: -2400px center;}
+  
+/*Google ads*/
+.advert {text-align: center; clear: both; margin-bottom: 1em; position: relative; background: #F1F1F1;}
+.advert h2, #supporting-content .advert h2 {position: absolute; top: 4px; left: 7px; font-size: 10px; color: #666; font-weight: normal; padding: 0; margin: 0; border: 0; -moz-box-shadow:0; -webkit-box-shadow:0; box-shadow:0; background: none;}
+.advert {padding: 26px; display: inline-block;}
+.advert.support-placement, #supporting-content .advert, #main-content .narrow-column .advert, .rh-column-167 .advert, .tkt-right-col .info-panel .advert {padding: 0; display: block; background: none;}
+.advert.support-placement h2, #supporting-content .advert h2, #main-content .narrow-column .advert h2, .rh-column-167 .advert h2, .tkt-right-col .info-panel .advert h2 {position: absolute; left: -9999px;}
+
+/* AB Adjust .panel styles within #supporting-content */
+#supporting-content .panel {overflow:hidden;}
+#supporting-content .panel h2 {background-image: none; margin: 0 0 0.3em 0;padding: 0.3em 0.5em;background-color: #f1f1f1;border-bottom: 1px solid #ccc;-moz-box-shadow: 0 1px 0px #fff;-webkit-box-shadow: 0 1px 0px #fff;box-shadow: 0 1px 0px #fff;}
+
+/* AB Journey Planner */
+#supporting-content .panel #jpForm {margin-left: 0;}
+#supporting-content .panel #jpForm select {font-size: 1.2em;}
+#supporting-content .panel #jpForm .advanced {background: url("green-bu.gif") no-repeat scroll 0 8px transparent; line-height: 1.8em;}
+#supporting-content .panel #jpForm.styled .form-buttons.small {height: 25px; margin-bottom: 0;}
+#supporting-content .panel #jpForm.styled .form-buttons.small input {width: 39px; font-size: 1.3em; padding: 0.6% 1%; font-weight: bold; font-size: 1.15em; float:right; margin-right: 0px;}
+#supporting-content .panel #jpForm.styled .form-buttons.small input:hover {cursor:pointer;}
+#supporting-content .panel #jpForm.styled  input.button.small {margin-bottom: 0;}
+#supporting-content .panel #jpForm.styled {background-color: transparent; background: none; color: #666666; margin-bottom: 0; padding-bottom: 0;}

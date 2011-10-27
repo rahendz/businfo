@@ -1,0 +1,19 @@
+/* new styles for timetables	*/
+.printWrapper { clear: both; display: block; width: 100%; }
+.printWrapper table { width: 100%; margin: 0; }
+.printWrapper table, .printWrapper table td, .printWrapper table th { border: 1px solid black; border-collapse: separate; text-align: center; }
+.printWrapper table table, .printWrapper table table td { border: none; padding: 5px; }
+.printWrapper td { border-top: 0px; border-bottom: 0px; padding: 0; }
+
+.printWrapper .headerDiv { height: 72px; position: relative; }
+.printWrapper .routeDiv { border: 0 none; font-family: Arial,Helvetica,sans-serif; font-size: 50px; font-weight: bold; line-height: normal; position: absolute; left: 15px; width: 30px; }
+.printWrapper .twentyFourDiv { left: 120px; position: absolute; top: 19px; width: 35px; }
+.printWrapper .towardsDiv { font-size: 15px; font-weight: bold; left: 210px; position: absolute; top: 21px; width: 350px; }
+.printWrapper .timetableDiv { padding-left: 20px; padding-right: 20px; }
+
+/*	specific ids that seem to re-occur	*/
+#bmttMonday-Friday tr, #bmttMonday-Friday td, #bmttSaturdayalsoGoodFriday tr, #bmttSaturdayalsoGoodFriday td, #bmttSundayandotherPublicHolidays tr, #bmttSundayandotherPublicHolidays td, #SundayNightMondayMorningtoThursdayNightFridayMorning tr, #SundayNightMondayMorningtoThursdayNightFridayMorning td, #bmttFridayNightSaturdayMorning tr, #bmttFridayNightSaturdayMorning td, #bmttSaturdayNightSundayMorning tr, #bmttSaturdayNightSundayMorning td { background-color: Black; color: White; font-size: 1.3em; text-align: left; height: auto; }
+.printWrapper #bmttDayType1 td, .printWrapper #bmttDayType2 td, .printWrapper #bmttDayType3 td { border: 1px solid black; }
+.printWrapper #bmttDayType1 td table td, .printWrapper #bmttDayType2 td table td, .printWrapper #bmttDayType3 td table td { border: 0; }
+.printWrapper #bmttmainLinear td { padding: 0; }
+/*	end new styles for timetables	*/

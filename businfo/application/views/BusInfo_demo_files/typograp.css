@@ -1,0 +1,459 @@
+/* ========================================================
+
+	TYPOGRAPHY 
+
+	Default styles for headers, paragraphs, lists, tables, 
+	pullquotes, images etc.
+	*/
+
+/* PADDING AND MARGINS */
+h1, h2, h3, h4, h5, h6, ul, dl, dt, dd, table, p, hr, form, fieldset{
+  	margin: 0;
+  	padding: 0
+} 
+ol{
+  	padding-left: 2em	
+}
+h1, ul, dl, p, hr, form, fieldset, address{
+  	margin-bottom: 19px
+}
+h2{
+  	margin-bottom: 8px;
+  	padding-bottom: 4px
+}
+h3, h4, h5, h6{
+  	margin-bottom: 0
+}
+h1{
+	padding: 5px 0;
+	line-height: 20px;
+}
+body{
+	line-height: 1.5em 
+}
+/* FONTS */
+body{
+  	font-family:Verdana, Arial, Helvetica, sans-serif
+}
+h1, h2{
+  	font-family: Arial, Helvetica, sans-serif;
+}
+/* FONT SIZES */
+body{
+  	font-size: 70%;
+}
+h1{
+  	font-size: 1.75em;
+}
+h2{
+  	font-size: 1.25em
+}
+
+h3, h4, h5, h6{
+  	font-size: 1em
+}
+/* FONT WEIGHT */
+dt{
+	font-weight: bold;
+} 
+/* FONT COLOURS AND STYLES */
+body{
+  	color: #565656
+}
+a{  
+	color: #246CCE;
+  	text-decoration:none;
+} 
+a:hover{
+  	text-decoration: underline !important;
+  	color:#113B92;
+}
+
+h1 a, h2 a{
+  	color:#113B92;
+  	text-decoration:none
+}
+ 
+h1{
+  	border-bottom: 1px solid #CCC;
+  	color: #565656
+}
+h2{
+  	border-bottom: 1px solid #CCC;
+}
+h2, h3, h4, h5, h6, dt{
+  	color: #000
+}
+/*h4, h5, h6{
+	display: inline;
+	float: left;
+	margin-right: 5px
+}*/
+code{
+	color: #000;
+	white-space: nowrap;
+}
+acronym{
+	border-bottom: 1px dotted;
+}
+address{
+	font-style: normal;
+}
+/* Tube line colours */
+.bakerloo					{color: #FFF;  		background: #AE6118;}
+.central					{color: #FFF;  		background: #E41F1F;}
+.circle						{color: #113B92;  	background: #F8D42D;}
+.district					{color: #FFF; 		background: #00A575;}
+.eastlondon	{color: #113B92;  	background: #F2AD41;}
+.hammersmithandcity			{color: #113B92;  	background: #E899A8;}
+.jubilee					{color: #FFF;  		background: #8F989E;}
+.metropolitan				{color: #FFF;  		background: #893267;}
+.northern					{color: #FFF;  		background: #000000;}
+.piccadilly					{color: #FFF;  		background: #0450A1;}
+.victoria					{color: #FFF;  		background: #009FE0;}
+.waterlooandcity			{color: #113B92;  	background: #70C3CE;}
+.dlr						{color: #FFF;  		background: #00BBB4;}
+.overground					{color: #FFF;  		background: #F86C00;}
+
+a.bakerloo:hover			{color: #FFF;  		background: #AE6118; text-decoration: underline}
+a.central:hover				{color: #FFF;  		background: #E41F1F; text-decoration: underline}
+a.circle:hover				{color: #113B92;  	background: #F8D42D; text-decoration: underline}
+a.district:hover			{color: #FFF; 		background: #00A575; text-decoration: underline}
+a.eastlondon:hover			{color: #113B92;  	background: #F2AD41; text-decoration: underline}
+a.hammersmithandcity:hover	{color: #113B92;  	background: #E899A8; text-decoration: underline}
+a.jubilee:hover				{color: #FFF;  		background: #8F989E; text-decoration: underline}
+a.metropolitan:hover		{color: #FFF;  		background: #893267; text-decoration: underline}
+a.northern:hover			{color: #FFF;  		background: #000000; text-decoration: underline}
+a.piccadilly:hover			{color: #FFF;  		background: #0450A1; text-decoration: underline}
+a.victoria:hover			{color: #FFF;  		background: #009FE0; text-decoration: underline}
+a.waterlooandcity:hover		{color: #113B92;  	background: #70C3CE; text-decoration: underline}
+a.dlr:hover		{color: #FFF;  		background: #00BBB4; text-decoration: underline}
+a.overground:hover	{color: #FFF;  		background: #F86C00; text-decoration: underline}
+
+/* Block and pull quotes */
+
+.pullquote {
+	background:  url('http://www.tfl.gov.uk/tfl-global/images/quote-open.gif') top left no-repeat;
+}
+
+.pullquote p,
+blockquote p{
+	margin-bottom: 0;
+	text-indent: 21px;
+  	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	margin-bottom: 5px;
+	font-size: 1.2em;
+	line-height: 1.3em;
+	color: #565656;
+}
+div.pullquote.left,
+div.pullquote.right,
+blockquote.left,
+blockquote.right{
+	width: 167px;
+	clear:both;
+}
+
+.right p {
+	background: url('http://www.tfl.gov.uk/tfl-global/images/quote-close.gif') bottom right no-repeat;
+}
+
+div.pullquote.left {
+	clear: left !important;
+}
+
+div.pullquote.right {
+	clear: right !important;
+}
+
+
+div.pullquote.right, blockquote.right{
+	margin-left:12px;
+}
+
+.pullquote .cite{
+	background: #F7F7F7 url('panel-sh.gif') left bottom repeat-x;
+	padding-bottom: 23px;
+	padding-top: 3px;
+	font-size: 10px;
+	line-height: 13px;
+	color: #666666;
+}
+/* SUPPORTING CONTENT HEADERS */
+#supporting-content h2,
+#see-also dt,
+#related-websites dt{
+  	font-size: 1.25em;
+  	font-family:Arial, Helvetica, sans-serif;
+  	border-bottom: 1px solid #FFF;
+  	padding-top: 5px;
+ 	margin-bottom: 0;
+ 	color: #000;
+ 	background:  url('http://www.tfl.gov.uk/tfl-global/images/supporting-content-header.gif') repeat-x ;
+}
+ 
+#supporting-content form#jpForm h2,
+#supporting-content form#departureBoard h2,
+#see-also dt,
+#related-websites dt{
+	padding-left:8px;
+}
+
+#supporting-content form#jpForm h2, #supporting-content form#departureBoard h2 {margin-bottom: 4px; background-image: url(http://www.tfl.gov.uk/tfl-global/images/grey-panel-header.gif); border-bottom: none;}
+
+#supporting-content h2.smaller-header {font-size: 1.2em;}
+
+/* end */
+
+/* LISTS AND LISTS OF LINKS */
+ul{
+	list-style-type: none;
+} 
+dd,
+ul li{
+	background:  url('grey-bul.gif') no-repeat 0 7px;
+	padding-left: 8px;
+}
+li li{
+	background:  url('http://www.tfl.gov.uk/tfl-global/images/grey-disc.gif') no-repeat 0 7px;
+	padding-left: 8px;
+}
+li li li{
+	background:  url('http://www.tfl.gov.uk/tfl-global/images/grey-square.gif') no-repeat 0 7px;
+	padding-left: 8px;
+}
+.linklist dd,
+.linklist li, 
+p.linklist, /* linklist style for non list use (e.g single link) */
+span.linklist {
+	background:  url('green-bu.gif') no-repeat 0 7px;
+	padding-left: 8px;
+}
+
+p.linklist, span.linklist {
+	display: block;
+}
+.pagelinks li ul{
+	margin-left:20px;
+}
+
+.pagelinks dd,
+.pagelinks li{
+	background:  url('http://www.tfl.gov.uk/tfl-global/images/green-bullet-down.gif') no-repeat 0 7px;
+	padding-left: 8px;
+}
+ul.inline{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+ul.inline li{
+	margin: 0;
+	padding: 0;
+	float: left;
+	margin-right: 3px;
+	background-image: none;
+}
+/* CLEAR */
+.clear{
+  	clear: both
+}
+/* IMAGE BORDERS */
+a img{
+  	border: 0 solid;
+}
+.border {
+  	border:solid 1px #CCC;
+  	padding:2px;
+	background-color: #FFF;
+}
+.white-border {
+  	border:solid 1px #FFF;
+  	padding:2px;
+	background-color: #FFF;
+}
+a:hover img.border,
+a:hover img.white-border{
+  	border:solid 1px #3497D5; 
+}
+/* TABLES */
+table {
+	border-collapse: collapse;
+}
+td, th{
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	padding: 2px 8px 2px 1px;
+}
+
+table.boxed{
+	border-bottom: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+}
+table.boxed td,
+table.boxed th{
+	border-top: 0 solid #CCC;
+	border-bottom: 0 solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	padding: 2px 4px 2px 4px
+	
+}
+
+/* Added by AD 15/05/07  */
+table.no-top td, th{
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	padding: 2px 8px 2px 0
+	}
+/* end AD 15/05/07  */
+.no-border td,
+.no-border th{
+	border: 0 solid;
+}
+th{
+	color: #000; 
+	text-align: left;
+	background: #E5E5E5;
+	padding-left: 1px;
+	border-right: 1px solid #FFF;
+}
+table,
+caption{
+	margin-bottom: 8px;
+}
+caption{
+	font-style: italic; color: #000
+}
+
+
+
+/* TEASER */
+.teaser{
+	font-size: 1.2em;
+	line-height: 1.28em;
+	color: #333;
+}
+/* ICONS */
+/* Photoshop */		a.filetype-psd	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-psd.gif') no-repeat;}
+/* Text */			a.filetype-txt	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-txt.gif') no-repeat;}
+/* RTF */			a.filetype-rtf	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-txt.gif') no-repeat;}
+/* Word */			a.filetype-doc	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-doc.gif') no-repeat;}
+/* Excel */			a.filetype-xls	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-xls.gif') no-repeat;}
+/* Powerpoint */	a.filetype-ppt	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-ppt.gif') no-repeat;}
+/* GIF */			a.filetype-gif	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-gif.gif') no-repeat;}
+/* JPG */			a.filetype-jpg	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-jpg.gif') no-repeat;}
+/* Acrobat */		a.filetype-pdf	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-pdf.gif') no-repeat;}
+/* ZIP */			a.filetype-zip	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-zip.gif') no-repeat;}
+/* XML */			a.filetype-xml	{background:  url('http://www.tfl.gov.uk/tfl-global/images/filetype-xml.gif') no-repeat;}
+/* Print */			a.print	{background:  url('http://www.tfl.gov.uk/tfl-global/images/icon-small-print.gif') no-repeat;}
+/* Email */			a.email	{background:  url('http://www.tfl.gov.uk/tfl-global/images/icon-small-email.gif') no-repeat;}
+/* RSS */			a.rss	{background:  url('http://www.tfl.gov.uk/tfl-global/images/icon-small-rss.gif') no-repeat;}
+a.filetype-psd,
+a.filetype-txt,
+a.filetype-rtf,
+a.filetype-doc,
+a.filetype-xls,
+a.filetype-ppt,
+a.filetype-gif,
+a.filetype-jpg,
+a.filetype-pdf,
+a.filetype-zip,
+a.filetype-xml,
+a.email,
+a.rss,
+a.print{
+	padding: 2px 0 2px 20px;
+}
+
+/* fix links on text rtl pages (i.e. arabic/urdu) */
+.rtl a.filetype-psd,
+.rtl a.filetype-txt,
+.rtl a.filetype-rtf,
+.rtl a.filetype-doc,
+.rtl a.filetype-xls,
+.rtl a.filetype-ppt,
+.rtl a.filetype-gif,
+.rtl a.filetype-jpg,
+.rtl a.filetype-pdf,
+.rtl a.filetype-zip,
+.rtl a.filetype-xml,
+.rtl a.email,
+.rtl a.rss,
+.rtl a.print{
+	padding: 2px 20px 2px 0 !important;
+	background-position: top right !important;
+	display:block;
+}
+
+
+/* LINKS THAT OPEN IN NEW WINDOWS */
+.external-site,
+.new-window,
+.microsite{
+	padding: 0 15px 0 0;
+	background:  url('http://www.tfl.gov.uk/tfl-global/images/new-window.gif') no-repeat right bottom;
+}
+/* close window */
+.close-window{
+	padding: 0 17px 0 0;
+	background:  url('http://www.tfl.gov.uk/tfl-global/images/pop-up-close.gif') no-repeat right bottom;
+}
+
+/* Hide 'new window' icon from image links */
+.external-site img,
+.new-window img,
+.microsite img{
+	margin-right: -15px;
+}
+/* CLEAR ON FOCUS */
+.clear-on-focus{
+	color: #777;
+}
+
+/* TOP OF PAGE LINKS */
+.top-of-page{
+	float: right;
+	position: relative;
+	top: -2.5em;
+	padding-left: 9px;
+	background:  url('http://www.tfl.gov.uk/tfl-global/images/green-bullet-up.gif') left no-repeat;
+}
+
+.width-fix {
+	padding-right: 80px !important;
+}
+
+/* RED DOT STYLES */
+.reddotnotes{
+background-color: #e81b1b; 
+color: #fff; 
+font-weight: bold;
+}
+/*	google search results	*/
+.searchNotification {
+	border-bottom:1px solid #CCCCCC;
+	border-top:1px solid #CCCCCC;
+	padding:13px 8px 2px 1px;
+	background: #ffffe3;
+	min-height: 30px;
+        margin-bottom:20px;
+        clear:both;
+        float:left;
+        width:100%;
+}
+/* jQuery styles for click-div  */
+/*.underline {text-decoration: underline;}*/
+.cursor {cursor: pointer;
+background: #DDF1F9 !important;
+
+}
+/*img.underline {outline: 1px solid #3497d5; text-decoration: none;}*/
+
+.large-text {
+	font-family: Arial, Sans-Serif, Verdana;
+	font-size: 1.4em;
+	font-weight: 700;
+}
