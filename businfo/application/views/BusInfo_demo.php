@@ -1,15 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
 <!-- Global head start -->
     <!-- Meta data -->
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     
-    <script type="text/javascript" src="demo_files/jquery-1.js"></script>
     
-    <link type="text/css" rel="stylesheet" href="demo_files/default0.css" media="all" />
-    <link type="text/css" rel="alternate stylesheet" href="demo_files/large-te.css" title="Large text" media="screen" />
-    <link type="text/css" rel="alternate stylesheet" href="demo_files/hi-contr.css" title="Hi-contrast" media="screen" />
-    <link type="text/css" rel="stylesheet" href="demo_files/print000.css" media="print" />
+    
+    <link type="text/css" rel="stylesheet" href="views/BusInfo_demo_files/default0.css" media="all" />
+    <link type="text/css" rel="alternate stylesheet" href="views/BusInfo_demo_files/large-te.css" title="Large text" media="screen" />
+    <link type="text/css" rel="alternate stylesheet" href="views/BusInfo_demo_files/hi-contr.css" title="Hi-contrast" media="screen" />
+    <link type="text/css" rel="stylesheet" href="views/BusInfo_demo_files/print000.css" media="print" />
 
 <!-- Global head end -->
     <!-- Extra includes start -->
@@ -23,15 +24,14 @@
     src="http://maps.googleapis.com/maps/api/js?sensor=true">
 </script>
         
-        <script src="demo_files/jquery00.js" type="text/javascript"></script>
-        <script src="demo_files/jquery01.js" type="text/javascript"></script>
+        <script src="views/BusInfo_demo_files/jquery00.js" type="text/javascript"></script>
+        <script src="views/BusInfo_demo_files/jquery01.js" type="text/javascript"></script>
         <script src="demo_files/markerma.js" type="text/javascript"></script>
-        
-        <script type="text/javascript" src="public/js/zfz.js"></script>
-        <script type="text/javascript" src="public/js/googlemap.js"></script>
-        <script type="text/javascript"> 
+        <script type="text/javascript" src="views/BusInfo_demo_files/jquery-1.js"></script>
+    <script type="text/javascript" src="public/js/googlemap.js"></script>
+    <script type="text/javascript"> 
           $(document).ready(function(){initialize(10.75, 106.65, "User's location", "search", true);});
-        </script>
+    </script>
 
 
         <!--[if IE 6]>
@@ -39,7 +39,6 @@
         <![endif]-->        
         <link href="demo_files/colorbox.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="demo_files/buttons0.js"></script>
-        <script type="text/javascript">stLight.options({ publisher: '47c6d80c-0100-4e56-908a-ec0303cfe3d2' });</script>
 
     <!-- Extra includes end -->
 </head>
@@ -48,7 +47,7 @@
 <div id="container" class="getting-around">
 
 <div id="branding">
-<p><?= $title ?></p>
+
 </div>
     <div id="section-title" class="bus-stops">Bus Maps</div>
     
@@ -244,22 +243,6 @@
     
 <!-- Global footer end -->
 
-<script type="text/javascript">
-var directionDisplay;
-var directionsService = new google.maps.DirectionsService();
-directionsDisplay = new google.maps.DirectionsRenderer();
-        var myOptions = {
-          zoom: 12,
-          center: new google.maps.LatLng(10.7569353, 106.6686039),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("mm-map"),
-            myOptions);
-    
-    var stops = [];
-    var stop_latlng = [];
-    var lines = [];
-</script>
 
 
 

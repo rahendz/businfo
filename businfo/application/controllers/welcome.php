@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	{
 		//$this->load->view('welcome_message');
 		//$data['title'] = "Welcome Karmi!";
-		$this->load->view('BusInfo_demo', $data);
+		$this->load->view('demo');
 	}
 }
 
