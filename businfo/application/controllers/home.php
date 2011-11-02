@@ -9,18 +9,18 @@ class Home extends CI_Controller{
 	}
 	public function index(){
 		$temp['title']="BusInfo for Hochiminh";
-		$this->load->view("guest/home",$temp);
+		$this->load->view("home",$temp);
 	}
 	
-	 public function layout1(){
+	 public function login(){
         $temp['title']="BusInfo for Hochiminh";
        
-		$this->load->view("guest/home",$temp);
+		$this->load->view("home/demo",$temp);
 	   
     }
     public function layout2(){
         $temp['title']="BusInfo for Hochiminh";
       
-		$this->load->view("guest/home",$temp);
+		$this->load->view("admin/home",$temp);
    	}
 }

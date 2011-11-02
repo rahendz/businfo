@@ -49,8 +49,8 @@
 
 <body class="template-5">
 	<div id="container" class="getting-around">
-		<?php $this->load->view("guest/top");?>
-	
+		<?php $this->load->view("admin/top");?>
+	<?php $this->load->view("admin/left");?>
 		<!--  Main  -->
    		<div id="main-content" class="station-stop-page">
 			<!-- <form name="aspnetForm" method="GET" action="http://www.tfl.gov.uk/tfl/gettingaround/maps/buses/default.aspx" id="aspnetForm">
@@ -187,7 +187,7 @@
 	<!-- Main content end -->
    
     
-	<?php $this->load->view("guest/bottom");?>
+	<?php $this->load->view("admin/bottom");?>
 	
 	 </div>
 </div>
