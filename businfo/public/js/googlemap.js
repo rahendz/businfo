@@ -35,7 +35,7 @@
 	function initialize(input_lat, input_lng, input_address, input_module, viewController) {
 		var default_coor = new google.maps.LatLng(10.75913978771365, 106.66536514282234);
 		var myOptions = {
-			zoom: 18,
+			zoom: 13,
 			center: default_coor,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
@@ -58,6 +58,8 @@
 		if (input_lat != null && input_lng != null && input_address != null) {		
 			locate(input_lat, input_lng, input_address, input_module);
 		}
+		
+		showStops('');
 	}
 	
 	/**
@@ -97,7 +99,8 @@
 		if (input_module == "location") {
 			// set zoom for map
 			map.setZoom(16);	
-		} else if (input_module == "search") {
+		} else //if (input_module == "search") 
+			{
 			circle = new google.maps.Circle({
 				map: map,
 				strokeColor: "#FFFF00",
@@ -127,10 +130,10 @@
 		
 		// EVENT DRAGEND: Changes the value of address when user stop moving the marker.
 		google.maps.event.addListener(marker, 'dragend', function() {
-			update();
+			//update();
 			
 			// Set center for circle
-			if (input_module == "search") {
+			if (input_module != "search") {
 				circle.setCenter(marker.getPosition());
 			}
 		});
@@ -263,30 +266,70 @@
         } */
     }
     
+    function showStops(stop_list) {
+    	if(!stop_list){
+		// Convert JSON result to JS objects. (for testing)
+    		input_json = '[{"ID":"1","NAME":"Trạm 1","GEO_LAT":"10.7935931560974","GEO_LONG":"106.69419521485"},'
+						+ '{"ID":"3","NAME":"Trạm 2","GEO_LAT":"10.8035931560974","GEO_LONG":"106.70419521485"},'
+						+ '{"ID":"4","NAME":"Trạm 3","GEO_LAT":"10.8135931560974","GEO_LONG":"106.71419521485"}]';
+			stop_list = jQuery.parseJSON(input_json);
+    	}
+    	
+    	// Clear all old markers.
+        clearMarkers();
+        // Clear old guide & direction.
+		directionsDisplay.setMap(null);
+		//document.getElementById("directionsPanel").innerHTML = "";
+		
+		// Set zoom for map
+		//setZoom(zclient.search.distance);
+		
+        // Create new array of markers.
+		markers = new Array();
+		
+		// Add markers.
+		var i;
+        for (i = 0 ; i < stop_list.length ; i++) {
+			obj = stop_list[i];
+            addMarker(obj);
+        }
+				
+		// Display all markers (one by one).
+        /* iterator = 0;
+        if (markers) {
+            for (i in markers) {
+            	setTimeout(function() {
+            		markers[iterator].setMap(map);
+                    markers[iterator].setAnimation(google.maps.Animation.DROP);
+                    iterator++;
+                }, i * 400);
+            }
+        } */
+    }
+    
 	/**
     * Add new marker into marker array.
     */
     function addMarker(obj) {
     	var coordinate = new google.maps.LatLng(obj.GEO_LAT, obj.GEO_LONG);
-    	var shopCatObj= shopCat[obj.CATEGORY_ID];
+    	/*var shopCatObj= shopCat[obj.CATEGORY_ID];
     	var imageFile= "store.png";
     	if(shopCatObj.icon) {
     		imageFile=shopCatObj.icon;
     	}
-        var iconFile= "/public/images/cat/"+ imageFile;
+        var iconFile= "/public/images/cat/"+ imageFile;*/
         // Create a new LatLng point for the marker.
         var marker_child = new google.maps.Marker({
             map: map,
 			position: coordinate,
             title: obj.NAME,
-            draggable: false,
-            icon: context + iconFile
+            draggable: false
 		});		
 		obj.marker= marker_child;
 		
 		google.maps.event.addListener(marker_child, 'click', function() {
 			// Set infowindow's content.
-	        infowindow_shop.setContent(generateHTMLForShopMarker(obj));
+	        infowindow_shop.setContent("<b>" + obj.NAME + "</b");
 			
 			// Open infowindow
 			infowindow_shop.open(map, marker_child);
@@ -303,7 +346,7 @@
 			}
 			
 			// Show direction between user's location & shop's one.
-			showDirection(obj);
+			//showDirection(obj);
 		});
         
         markers.push(marker_child);
@@ -314,9 +357,10 @@
     */
     function clearMarkers() {
     	if (markers) {
-    		for (i in markers) {
-    			markers[i].setMap(null);
-    		}
+    		var x;
+    		for (x = 0 ; x < markers.length ; x++) {
+    			markers[x].setMap(null);
+            }
     	}
     }    
 	

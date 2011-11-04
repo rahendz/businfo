@@ -4,24 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta content="BusInfo For HCM City" name="keywords">
 	<title><?php echo $title;?></title>
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>public/css/MainStyle.css" media="all" />
     <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
-      <script src="<?php echo base_url()?>public/js/jquery00.js" type="text/javascript"></script>
-    <script src="<?php echo base_url()?>public/js/jquery01.js" type="text/javascript"></script>
-    <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery-1.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	
-	<script type="text/javascript" src="<?php echo base_url()?>public/js/googlemap.js"></script>
-
-    <script type="text/javascript" src="<?php echo base_url()?>public/js/TabMenu.js"></script>
-
-	<script type="text/javascript">
+    <script type="text/javascript" src="<?php echo base_url() ?>public/js/googlemap.js"></script>
+    <script type="text/javascript">
     try {
-    	$(document).ready(function(){initialize('', '', '', '', false);});
+      $(document).ready(function(){initialize(10.75, 106.66, '196 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận', '', false);});
     } catch (e) {
-        alert (e.message);	//this executes if jQuery isn't loaded
+        alert (e.message);  //this executes if jQuery isn't loaded
     }
     </script>
+    <script type="text/javascript" src="<?php echo base_url()?>public/js/TabMenu.js"></script>
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>public/css/MainStyle.css" media="all" />
 </head>
 
 <body class="template-5">
