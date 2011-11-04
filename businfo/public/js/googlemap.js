@@ -10,10 +10,10 @@
 	
 	//========================================================================
 	// INITALIZE: get input value from controller before initalizing HTML, 
-	// get input value from element "map_canvas", "directionsPanel", "geo_lat", "geo_long" in HTML page
+	// get input value from element "map canvas", "directionsPanel", "geo_lat", "geo_long" in HTML page
 	//========================================================================
 	// Variables for initialize.
-    var map;
+    var map; // i am karmi
 	var geocoder = new google.maps.Geocoder();
 	var marker;
 	var circle;

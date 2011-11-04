@@ -1,12 +1,16 @@
 <?php
 class demo extends CI_Controller {
-	function demo() {
-		
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper("url");
+        
+        //$this->load->library("my_layout"); // Nạp thư viện layout
+        //$this-> my_layout->setLayout("bluesky/layout"); // load file layout chính (view/layout/frontend.php)
 	}
 	
 	public function index() {
-		$data['title'] = "Welcome Karmi!";
-		$this->load->view('BusInfo_demo');
+		//$data['title'] = "Welcome Karmi!";
+		$this->load->view('demo');
 	}
 	
 	function search() {
