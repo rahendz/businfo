@@ -39,7 +39,7 @@
 			center: default_coor,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		map = new google.maps.Map(document.getElementById("mm-map"), myOptions);
 		// Modifying the mapTypeId dynamically
 		map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 		

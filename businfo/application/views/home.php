@@ -4,19 +4,22 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta content="BusInfo For HCM City" name="keywords">
 	<title><?php echo $title;?></title>
-	<link type="text/css" rel="stylesheet" href="http://localhost/BusInfo/businfo/public/css/MainStyle.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>public/css/MainStyle.css" media="all" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	
 	<script type="text/javascript" src="<?php echo base_url()?>public/js/googlemap.js"></script>
-	<script src="http://localhost/BusInfo/businfo/public/js/jquery00.js" type="text/javascript"></script>
-    <script src="http://localhost/BusInfo/businfo/public/js/jquery01.js" type="text/javascript"></script>
-    <script src="demo_files/markerma.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://localhost/BusInfo/businfo/public/js/jquery-1.js"></script>
+	<script src="<?php echo base_url()?>public/js/jquery00.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>public/js/jquery01.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery-1.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>public/js/TabMenu.js"></script>
-    <script src="http://maps.google.com/maps?indexing=false&amp;file=api&amp;v=2&amp;indexing=false&amp;key=ABQIAAAA0HPcSVWJKlo5kHbW_wY_zBRDVj_Q1DBcSaFa2U8I4KZQmgQPfRSW9G2WwDzuXZvqgS8WskdXWEpd6g" type="text/javascript"></script>
-		<script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;indexing=false&amp;key=ABQIAAAA0HPcSVWJKlo5kHbW_wY_zBRDVj_Q1DBcSaFa2U8I4KZQmgQPfRSW9G2WwDzuXZvqgS8WskdXWEpd6g" type="text/javascript"></script>
-		
-    <script type="text/javascript"> 
-          $(document).ready(function(){initialize(10.75, 106.65, "User's location", "search", true);});
+
+	<script type="text/javascript">
+    try {
+    	$(document).ready(function(){initialize('', '', '', '', false);});
+    } catch (e) {
+        alert (e.message);	//this executes if jQuery isn't loaded
+    }
     </script>
 </head>
 
@@ -35,7 +38,7 @@
 				<li id="findpathtab" class="">
 				<a id="tdir" onclick="state(ChangeFunctionType, GLOBAL_FINDPATH_FUNCTION)"> Tìm Lộ Trình</a>
 				</li>
-				<img class="tab_img_end" src="http://localhost/BusInfo/businfo/public/img/Skins/tab_img_end.png" alt="">
+				<img class="tab_img_end" src="<?php echo base_url()?>public/img/Skins/tab_img_end.png" alt="">
 			</ul>
 			<!-- End Tab Main menu -->
 			
@@ -270,58 +273,6 @@
                    
 	
 	</div>
-<script type="text/javascript">
-    if (GBrowserIsCompatible()) {
 
-  var map = new GMap2(document.getElementById("mm-map"));
-  map.setCenter(new GLatLng(10.7569353, 106.6686039),13)
-  map.addControl(new GLargeMapControl());
-  map.addControl(new GMapTypeControl());
-  var dirn = new GDirections();
-
-  var firstpoint = true;
-  var gmarkers = [];
-  var gpolys = [];
-  var dist = 0;
-
-
-  GEvent.addListener(map, "click", function(overlay,point) {
-    // == When the user clicks on a the map, get directiobns from that point to itself ==
-    if (!overlay) {
-      if (firstpoint) {
-        dirn.loadFromWaypoints([point.toUrlValue(6),point.toUrlValue(6)],{getPolyline:true});
-      } else {
-        dirn.loadFromWaypoints([gmarkers[gmarkers.length-1].getPoint(),point.toUrlValue(6)],{getPolyline:true});
-      }
-    }
-  });
-
-  // == when the load event completes, plot the point on the street ==
-  GEvent.addListener(dirn,"load", function() {
-    // snap to last vertex in the polyline
-    var n = dirn.getPolyline().getVertexCount();
-    var p=dirn.getPolyline().getVertex(n-1);
-    var marker=new GMarker(p);
-    map.addOverlay(marker);
-    // store the details
-    gmarkers.push(marker);
-    if (!firstpoint) {
-      map.addOverlay(dirn.getPolyline());
-      gpolys.push(dirn.getPolyline());
-      dist += dirn.getPolyline().Distance();
-      document.getElementById("distance").innerHTML="Path length: "+(dist/1000).toFixed(2)+" km. "+(dist/1609.344).toFixed(2)+" miles.";
-    }
-    firstpoint = false;
-  });
-
-  GEvent.addListener(dirn,"error", function() {
-    GLog.write("Failed: "+dirn.getStatus().code);
-  });
-
-}
-else {
-  alert("Sorry, the Google Maps API is not compatible with this browser");
-}
-    </script>
 </body>
 </html>
