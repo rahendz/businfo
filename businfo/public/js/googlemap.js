@@ -59,7 +59,7 @@
 			locate(input_lat, input_lng, input_address, input_module);
 		}
 		
-		showStops('');
+		//showStops('');
 	}
 	
 	/**
@@ -229,9 +229,9 @@
     function showShops(shop_list) {
     	if(!shop_list){
 		// Convert JSON result to JS objects. (for testing)
-    		input_json = '[{"ID":"1","NAME":"Phở 24","DESCRIPTION":"Các loại phở thêm ngon, thương hiệu nổi tiếng","ADDRESS":"16 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận","GEO_LAT":"10.7935931560974","GEO_LONG":"106.69419521485","TYPE":"Quán ăn","ICON":""},'
-						+ '{"ID":"3","NAME":"Vina Phở","DESCRIPTION":"Các loại phở thêm ngon,hương vị đậm đà","ADDRESS":"176 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận","GEO_LAT":"10.8035931560974","GEO_LONG":"106.70419521485","TYPE":"Quán  ăn","ICON":""},'
-						+ '{"ID":"4","NAME":"Phở Thìn","DESCRIPTION":"Phở gia truyền Hà Nội","ADDRESS":"196 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận","GEO_LAT":"10.8135931560974","GEO_LONG":"106.71419521485","TYPE":"Quán ăn",  "ICON":""}]';
+    		input_json = '[{"matram":"1","tentram":"Phở 24","DESCRIPTION":"Các loại phở thêm ngon, thương hiệu nổi tiếng","ADDRESS":"16 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận","geo_lat":"10.7935931560974","geo_long":"106.69419521485","TYPE":"Quán ăn","ICON":""},'
+						+ '{"matram":"3","tentram":"Vina Phở","DESCRIPTION":"Các loại phở thêm ngon,hương vị đậm đà","ADDRESS":"176 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận","geo_lat":"10.8035931560974","geo_long":"106.70419521485","TYPE":"Quán  ăn","ICON":""},'
+						+ '{"matram":"4","tentram":"Phở Thìn","DESCRIPTION":"Phở gia truyền Hà Nội","ADDRESS":"196 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận","geo_lat":"10.8135931560974","geo_long":"106.71419521485","TYPE":"Quán ăn",  "ICON":""}]';
 			shop_list = jQuery.parseJSON(input_json);
     	}
     	
@@ -269,11 +269,15 @@
     function showStops(stop_list) {
     	if(!stop_list){
 		// Convert JSON result to JS objects. (for testing)
-    		input_json = '[{"ID":"1","NAME":"Trạm 1","GEO_LAT":"10.7935931560974","GEO_LONG":"106.69419521485"},'
-						+ '{"ID":"3","NAME":"Trạm 2","GEO_LAT":"10.8035931560974","GEO_LONG":"106.70419521485"},'
-						+ '{"ID":"4","NAME":"Trạm 3","GEO_LAT":"10.8135931560974","GEO_LONG":"106.71419521485"}]';
-			stop_list = jQuery.parseJSON(input_json);
+    		return;
+    		//input_json = '[{"matram":"1","tentram":"Trạm 1","geo_lat":"10.7935931560974","geo_long":"106.69419521485"},'
+						+ '{"matram":"3","tentram":"Trạm 2","geo_lat":"10.8035931560974","geo_long":"106.70419521485"},'
+						+ '{"matram":"4","tentram":"Trạm 3","geo_lat":"10.8135931560974","geo_long":"106.71419521485"}]';
     	}
+    	else {
+    		input_json = stop_list;
+    	}
+    	stop_list = jQuery.parseJSON(input_json);
     	
     	// Clear all old markers.
         clearMarkers();
@@ -311,8 +315,8 @@
     * Add new marker into marker array.
     */
     function addMarker(obj) {
-    	var coordinate = new google.maps.LatLng(obj.GEO_LAT, obj.GEO_LONG);
-    	/*var shopCatObj= shopCat[obj.CATEGORY_ID];
+    	var coordinate = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
+    	/*var shopCatObj= shopCat[obj.CATEGORY_matram];
     	var imageFile= "store.png";
     	if(shopCatObj.icon) {
     		imageFile=shopCatObj.icon;
@@ -322,14 +326,14 @@
         var marker_child = new google.maps.Marker({
             map: map,
 			position: coordinate,
-            title: obj.NAME,
+            title: obj.tentram,
             draggable: false
 		});		
 		obj.marker= marker_child;
 		
 		google.maps.event.addListener(marker_child, 'click', function() {
 			// Set infowindow's content.
-	        infowindow_shop.setContent("<b>" + obj.NAME + "</b");
+	        infowindow_shop.setContent("<b>" + obj.tentram + "</b");
 			
 			// Open infowindow
 			infowindow_shop.open(map, marker_child);
@@ -372,7 +376,7 @@
      */
     function showDirection(obj) {
     	var origin = new google.maps.LatLng(zclient.location.latitude, zclient.location.longitude);
-    	var destination = new google.maps.LatLng(obj.GEO_LAT, obj.GEO_LONG);
+    	var destination = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
         var request = {
             origin: origin, 
             destination: destination,
@@ -397,7 +401,7 @@
 	function showGuide(obj, myRoute) {
 		var guide = "";
 		
-		guide += "<b>Đường đến cửa hàng " + obj.NAME + "</b>"
+		guide += "<b>Đường đến cửa hàng " + obj.tentram + "</b>"
 			+ "<br>Tổng khoảng cách : " + myRoute.distance.text
 			+ "<br>Tổng thời gian: " + myRoute.duration.text;
 		
