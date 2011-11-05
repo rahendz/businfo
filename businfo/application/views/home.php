@@ -10,8 +10,11 @@
     <script type="text/javascript">
     try {
       $(document).ready(function(){initialize(10.75, 106.66, '196 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận', '', false);});
+      <?php echo '$(document).ready(function(){showStops(\''?>
+      <?php echo $php_array;?>
+      <?php echo '\')});'?>
     } catch (e) {
-        alert (e.message);  //this executes if jQuery isn't loaded
+        alert (e.message);  //this executes if jQuery isn't loaded // '<php echo $php_array;?>'
     }
     </script>
     <script type="text/javascript" src="<?php echo base_url()?>public/js/TabMenu.js"></script>
@@ -50,6 +53,7 @@
            		
            		<!--  Tab Search -->
 				<div id="search">
+                <form id="frmSearch" action="<?php echo base_url();?>home/search/" method="post">
 	            	<div class="SLeft"></div>
 	                <div class="SCenter">
 	                	<div class="SBox">
@@ -60,6 +64,7 @@
 						</div>
 					</div>
 	                <div class="SRight"></div>
+                </form>
 	            </div>
 	            <!--  End Tab search -->
 	            
