@@ -98,7 +98,7 @@
 	         <div id="login">
 				<div id="line2">
 					<a id="Signup" class="line2reg" href="">Đăng ký</a>|
-					<a id="Login" class="line2login" href="<?php echo base_url();?>application/views/BusInfo_demo.php">Đăng nhập</a>
+					<a id="Login" class="line2login" href="<?php echo base_url();?>application/views/login.php">Đăng nhập</a>
 				</div>
 			</div>
         </div>
