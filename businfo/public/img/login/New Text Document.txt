@@ -1,0 +1,48 @@
+<div class="header">
+			<div class="header-top">
+				<a href="">
+					<img class="logo" alt="BusInfo Logo" src="">
+				</a>
+				<div class="header-right">
+				<p class="super">Ðang nh?p v?i quy?n admin
+					<span class="separator">|</span>
+					Th? 7, Ngày 5 tháng 11 nam 2011
+					<span class="separator">|</span>
+					<a class="link-logout" href="../login.php">Ðang xu?t</a>
+				</p>
+				</div>
+				<div class="clear"></div>
+				<div class="nav-bar">
+					<ul id="nav">
+						<li class=" active level0">
+							<a class="active" href="">
+								<span>Trang Ch?</span>
+							</a>
+						</li>
+						<li class="parent level0" onmouseout="Element.removeClassName(this,'over')" onmouseover="Element.addClassName(this,'over')">
+							<a class="" onclick="return false" href="#">
+								<span>Sales</span>
+							</a>
+							<ul>
+								<li class=" level1">
+									<a class="" href="http://demo-admin.magentocommerce.com/index.php/admin/sales_order/index/key/d2e5140410d2f16cad9a0c5cba67f192/">
+										<span>Orders</span>
+									</a>
+								</li>
+								<li class=" level1">
+									<a class="" href="http://demo-admin.magentocommerce.com/index.php/admin/sales_invoice/index/key/2a1793786fc3550bdbf58bd075c9f033/">
+										<span>Invoices</span>
+									</a>
+								</li>
+								<li class=" level1">
+									<a class="" href="http://demo-admin.magentocommerce.com/index.php/admin/sales_shipment/index/key/1709738013ec963bdd8d76779a14bbe2/">
+										<span>Shipments</span>
+									</a>
+								</li>
+							</ul>
+					</ul>
+				</div>
+			</div>
+			
+			
+		</div>

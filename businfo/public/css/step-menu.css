@@ -1,0 +1,82 @@
+
+#mainStepNav li {
+    background-color: #EBEBEB;
+    background-image: url("../img/step_menu/navBtn.gif");
+    background-position: right top;
+    background-repeat: no-repeat;
+    float: left;
+    height: 71px;
+    list-style: none outside none;
+}
+#mainStepNav li.current {
+    background-color: #C36615;
+    background-image: url("../img/step_menu/navCurrentBtn.gif");
+}
+#mainStepNav li.lastDone {
+    background-color: #7C8437;
+    background-image: url("../img/step_menu/navLastDoneBtn.gif");
+}
+#mainStepNav li.done {
+    background-color: #7C8437;
+    background-image: url("../img/step_menu/navDoneBtn.gif");
+}
+#mainStepNav li a, #mainStepNav li a:link, #mainStepNav li a:visited, #mainStepNav li a:hover, #mainStepNav li a:active {
+    color: #CCCCCC;
+}
+#mainStepNav li.lastDone a, #mainStepNav li.lastDone a:link, #mainStepNav li.lastDone a:visited, #mainStepNav li.lastDone a:hover, #mainStepNav li.lastDone a:active, #mainStepNav li.current a, #mainStepNav li.current a:link, #mainStepNav li.current a:visited, #mainStepNav li.current a:hover, #mainStepNav li.current a:active, #mainStepNav li.done a, #mainStepNav li.done a:link, #mainStepNav li.done a:visited, #mainStepNav li.done a:hover, #mainStepNav li.done a:active {
+    color: #FFFFFF;
+}
+#mainStepNav li.done a:hover, #mainStepNav li.lastDone a:hover {
+    color: #FFFF99;
+}
+#mainStepNav li a em {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    margin: 25px 0 0 20px;
+    width: 210px;
+}
+#mainStepNav li a span {
+    display: block;
+    font-weight: normal;
+    margin-left: 10px;
+    width: 190px;
+}
+#mainStepNav li.mainStepNavNoBg {
+    background-image: none;
+}
+#mainStepNav li a {
+    display: block;
+    height: 71px;
+}
+#mainStepNav.fiveStep li {
+    width: 241.2px;
+}
+#mainStepNav.fiveStep li a {
+    width: 241.2px;
+}
+#mainStepNav.fourStep li {
+    width: 227px;
+}
+#mainStepNav.fourStep li.mainStepNavNoBg {
+    width: 229px;
+}
+
+#mainStepNav.fourStep li a {
+    width: 227px;
+}
+#mainStepNav.threeStep li {
+    width: 303px;
+}
+#mainStepNav.threeStep li.mainStepNavNoBg {
+    width: 304px;
+}
+#mainStepNav.threeStep li a {
+    width: 303px;
+}
+#mainStepNav.twoStep li {
+    width: 455px;
+}
+#mainStepNav.twoStep li a {
+    width: 455px;
+}

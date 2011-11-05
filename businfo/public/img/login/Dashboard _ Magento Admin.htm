@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Dashboard / Magento Admin</title>
+<link rel="icon" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/favicon.ico" type="image/x-icon"/>
+
+<script type="text/javascript">
+    var BLANK_URL = 'http://demo-admin.magentocommerce.com/js/blank.html';
+    var BLANK_IMG = 'http://demo-admin.magentocommerce.com/js/spacer.gif';
+    var BASE_URL = 'http://demo-admin.magentocommerce.com/index.php/admin/index/index/key/275a45650a80b25eac2136afe0a13a6b/';
+    var SKIN_URL = 'http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/';
+    var FORM_KEY = 'R7nJ6Hng3qzosJFa';
+</script>
+
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/js/calendar/calendar-win2k-1.css" />
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/reset.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/boxes.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/custom.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/xmlconnect/boxes.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/menu.css" media="screen, projection" />
+
+<script type="text/javascript" src="http://demo-admin.magentocommerce.com/js/prototype/prototype.js"></script>
+
+
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/iestyles.css" media="all" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/below_ie7.css" media="all" />
+<script type="text/javascript" src="http://demo-admin.magentocommerce.com/js/lib/ds-sleight.js" defer></script>
+<script type="text/javascript" src="http://demo-admin.magentocommerce.com/js/varien/iehover-fix.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/ie7.css" media="all" />
+<![endif]-->
+
+
+
+<script type="text/javascript">
+    Fieldset.addToPrefix(3);
+</script>
+
+<script type="text/javascript">var Translator = new Translate({"Please use only letters (a-z or A-Z), numbers (0-9) or underscore(_) in this field, first character should be a letter.":"Please use only letters (a-z or A-Z), numbers (0-9) or underscores (_) in this field, first character must be a letter."});</script>
+
+<script type="text/javascript">
+//<![CDATA[
+enUS = {"m":{"wide":["January","February","March","April","May","June","July","August","September","October","November","December"],"abbr":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}}; // en_US locale reference
+Calendar._DN = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]; // full day names
+Calendar._SDN = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; // short day names
+Calendar._FD = 0; // First day of the week. "0" means display Sunday first, "1" means display Monday first, etc.
+Calendar._MN = ["January","February","March","April","May","June","July","August","September","October","November","December"]; // full month names
+Calendar._SMN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; // short month names
+Calendar._am = "AM"; // am/pm
+Calendar._pm = "PM";
+
+// tooltips
+Calendar._TT = {};
+Calendar._TT["INFO"] = "About the calendar";
+
+Calendar._TT["ABOUT"] =
+"DHTML Date/Time Selector\n" +
+"(c) dynarch.com 2002-2005 / Author: Mihai Bazon\n" +
+"For latest version visit: http://www.dynarch.com/projects/calendar/\n" +
+"Distributed under GNU LGPL. See http://gnu.org/licenses/lgpl.html for details." +
+"\n\n" +
+"Date selection:\n" +
+"- Use the \xab, \xbb buttons to select year\n" +
+"- Use the " + String.fromCharCode(0x2039) + ", " + String.fromCharCode(0x203a) + " buttons to select month\n" +
+"- Hold mouse button on any of the above buttons for faster selection.";
+Calendar._TT["ABOUT_TIME"] = "\n\n" +
+"Time selection:\n" +
+"- Click on any of the time parts to increase it\n" +
+"- or Shift-click to decrease it\n" +
+"- or click and drag for faster selection.";
+
+Calendar._TT["PREV_YEAR"] = "Prev. year (hold for menu)";
+Calendar._TT["PREV_MONTH"] = "Prev. month (hold for menu)";
+Calendar._TT["GO_TODAY"] = "Go Today";
+Calendar._TT["NEXT_MONTH"] = "Next month (hold for menu)";
+Calendar._TT["NEXT_YEAR"] = "Next year (hold for menu)";
+Calendar._TT["SEL_DATE"] = "Select date";
+Calendar._TT["DRAG_TO_MOVE"] = "Drag to move";
+Calendar._TT["PART_TODAY"] = ' (' + "Today" + ')';
+
+// the following is to inform that "%s" is to be the first day of week
+Calendar._TT["DAY_FIRST"] = "Display %s first";
+
+// This may be locale-dependent. It specifies the week-end days, as an array
+// of comma-separated numbers. The numbers are from 0 to 6: 0 means Sunday, 1
+// means Monday, etc.
+Calendar._TT["WEEKEND"] = "0,6";
+
+Calendar._TT["CLOSE"] = "Close";
+Calendar._TT["TODAY"] = "Today";
+Calendar._TT["TIME_PART"] = "(Shift-)Click or drag to change value";
+
+// date formats
+Calendar._TT["DEF_DATE_FORMAT"] = "%b %e, %Y";
+Calendar._TT["TT_DATE_FORMAT"] = "%B %e, %Y";
+
+Calendar._TT["WK"] = "Week";
+Calendar._TT["TIME"] = "Time:";
+
+CalendarDateObject._LOCAL_TIMZEONE_OFFSET_SECONDS = -25200;
+CalendarDateObject._SERVER_TIMZEONE_SECONDS = 1320396736;
+
+//]]>
+</script>
+</head>
+
+<body id="html-body"class=" adminhtml-dashboard-index">
+<div class="wrapper">
+        <noscript>
+        <div class="noscript">
+            <div class="noscript-inner">
+                <p><strong>We detected that your JavaScript seem to be disabled.</strong></p>
+                <p>You must have JavaScript enabled in your browser to utilize the functionality of this website.</p>
+            </div>
+        </div>
+    </noscript>
+    <p class="demo-notice">This is a demo admin panel. Any data entered is cleaned twice an hour.</p>
+        <div class="header">
+            <div class="header-top">
+    <a href="http://demo-admin.magentocommerce.com/index.php/admin/index/index/key/275a45650a80b25eac2136afe0a13a6b/"><img src="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/images/logo.gif" alt="Magento Logo" class="logo"/></a>
+    <div class="header-right">
+        <p class="super">
+            Logged in as admin<span class="separator">|</span>Friday, November 4, 2011<span class="separator">|</span><a href="http://golinks.magento.com/CE15" onclick="this.target='_blank'" class="go-try">Try Magento Go for Free</a><span class="separator">|</span><a href="http://demo-admin.magentocommerce.com/index.php/admin/index/logout/key/c3431e9865f88c99e95d3640b2b01cce/" class="link-logout">Log Out</a>
+        </p>
+                <fieldset>
+            <legend>Search</legend>
+            <span id="global_search_indicator" class="autocomplete-indicator" style="display: none">
+                <img src="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/images/ajax-loader.gif" alt="Loading..." class="v-middle"/>
+            </span>
+                        <input id="global_search" name="query" type="text" class="input-text" value="Global Record Search" onfocus="if(this.value=='Global Record Search')this.value=''; " onblur="if(this.value=='')this.value='Global Record Search';" />
+            <div id="global_search_autocomplete" class="autocomplete"></div>
+            <script type="text/javascript">
+                new Ajax.Autocompleter(
+                    'global_search',
+                    'global_search_autocomplete',
+                    'http://demo-admin.magentocommerce.com/index.php/admin/index/globalSearch/key/a51690ede3d9ad0ec2248e8fa68e003f/',
+                    {
+                        paramName:"query",
+                        minChars:2,
+                        indicator:"global_search_indicator",
+                        updateElement:getSelectionId,
+                        evalJSON:'force'
+                    }
+                );
+                function getSelectionId(li) {
+                    location.href = li.getAttribute('url');
+                }
+            </script>
+        </fieldset>
+            </div>
+</div>
+        <div class="clear"></div>
+            
+<!-- menu start -->
+
+<!-- menu end -->
+<div class="nav-bar">
+    <ul id="nav">
+                <li  class="  active  level0"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/dashboard/index/key/ae6d62fc225266898d8a4f628530f24f/"   class="active"><span>Dashboard</span></a>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>Sales</span></a>
+                                <ul >
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_order/index/key/d2e5140410d2f16cad9a0c5cba67f192/"   class=""><span>Orders</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_invoice/index/key/2a1793786fc3550bdbf58bd075c9f033/"   class=""><span>Invoices</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_shipment/index/key/1709738013ec963bdd8d76779a14bbe2/"   class=""><span>Shipments</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_creditmemo/index/key/0d81d4d82892364c75ef576e5543b0e5/"   class=""><span>Credit Memos</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_transactions/index/key/c6bde16faf5a82cb1b008e275d144879/"   class=""><span>Transactions</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_recurring_profile/index/key/efb458558940e394e89491eeceacf2be/"   class=""><span>Recurring Profiles (beta)</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_billing_agreement/index/key/c6be345d3278f7cf295b576298552584/"   class=""><span>Billing Agreements</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/checkout_agreement/index/key/78aa516455b4c42e58859e0250e385fb/"   class=""><span>Terms and conditions</span></a>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent last level1"> <a href="#"  onclick="return false" class=""><span>Tax</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/tax_rule/index/key/529e7ff7ad398295ccfe525f7dd2777f/"   class=""><span>Manage Tax Rules</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/tax_rate/index/key/79a27e8d0f62bb08fe2e7e3019b9c73e/"   class=""><span>Manage Tax Zones & Rates</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/tax_class_customer/index/key/09285ffbc69f574eb801972a5ab55cdb/"   class=""><span>Customer Tax Classes</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/tax_class_product/index/key/f7b962c5b2e57ef69749eef7c18e7d0d/"   class=""><span>Product Tax Classes</span></a>
+                    </li>
+            </ul>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>Catalog</span></a>
+                                <ul >
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/catalog_product/index/key/07e420b5a3ee7aa7d50bf5ef0ac07f9f/"   class=""><span>Manage Products</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/catalog_category/index/key/115cd11477cd0dc07073709656f2061f/"   class=""><span>Manage Categories</span></a>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Attributes</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/catalog_product_attribute/index/key/f8de102aff168fca21aa3091b37a2cec/"   class=""><span>Manage Attributes</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/catalog_product_set/index/key/1f98d84d87a6f3047d88fd24240b213e/"   class=""><span>Manage Attribute Sets</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/index/key/05bac554fe1b597e8e25915b5f0ab12f/"   class=""><span>Search Terms</span></a>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Reviews and Ratings</span></a>
+                                <ul >
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level2"> <a href="#"  onclick="return false" class=""><span>Customer Reviews</span></a>
+                                <ul >
+                <li  class="   level3"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/catalog_product_review/pending/key/76d420888edb9319d9371f9c9ac440bb/"   class=""><span>Pending Reviews</span></a>
+                    </li>
+                <li  class="   last level3"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/catalog_product_review/index/key/26bed141477595814086d6f8a1820f1a/"   class=""><span>All Reviews</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/rating/index/key/3ce29269506b4adf79ffb8de3eacbcb9/"   class=""><span>Manage Ratings</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent last level1"> <a href="#"  onclick="return false" class=""><span>Tags</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/tag/index/key/56f630614ff884bf4edc4cf190677e0d/"   class=""><span>All Tags</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/tag/pending/key/ee91f0134c20102319aafa3f0d4cad2a/"   class=""><span>Pending Tags</span></a>
+                    </li>
+            </ul>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>Customers</span></a>
+                                <ul >
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/customer/index/key/0abc1aa5570df22889db38107692cb3e/"   class=""><span>Manage Customers</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/customer_group/index/key/b59292664d3d773c08d025b6401ba3f5/"   class=""><span>Customer Groups</span></a>
+                    </li>
+                <li  class="   last level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/customer_online/index/key/c8d2413d9563bd7900870aafe83bc52b/"   class=""><span>Online Customers</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>Promotions</span></a>
+                                <ul >
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/promo_catalog/index/key/3314f8f69046498df5867ec4a6fda132/"   class=""><span>Catalog Price Rules</span></a>
+                    </li>
+                <li  class="   last level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/promo_quote/index/key/f11779d1560a8309049c3223fb61801e/"   class=""><span>Shopping Cart Price Rules</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>Newsletter</span></a>
+                                <ul >
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/newsletter_template/index/key/d5fd38e50a8c103196800e7040cf8640/"   class=""><span>Newsletter Templates</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/newsletter_queue/index/key/191cbaa22c85d23859c684d28862e8eb/"   class=""><span>Newsletter Queue</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/newsletter_subscriber/index/key/627fca769e6d84a0eb0afc8ff11528e7/"   class=""><span>Newsletter Subscribers</span></a>
+                    </li>
+                <li  class="   last level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/newsletter_problem/index/key/23b95d0afa679a09e95f74dfbdec0304/"   class=""><span>Newsletter Problem Reports</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>CMS</span></a>
+                                <ul >
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/cms_page/index/key/685fade440ae5c1b7432e651ed733f18/"   class=""><span>Pages</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/cms_block/index/key/33ee2f56874fd3e51fe8bab2fbd095fb/"   class=""><span>Static Blocks</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/widget_instance/index/key/b9dba0660d711bd78ba88433d3703fa1/"   class=""><span>Widgets</span></a>
+                    </li>
+                <li  class="   last level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/poll/index/key/ca8f382518b58a03e5bf63c7302e3a6e/"   class=""><span>Polls</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>Reports</span></a>
+                                <ul >
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Sales</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_sales/sales/key/7e91547fda58b74764dce49c7e85cf30/"   class=""><span>Orders</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_sales/tax/key/b02a5552b601e5562660540fdf2bd728/"   class=""><span>Tax</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_sales/invoiced/key/c637eed21bef8f261885607eae6a7487/"   class=""><span>Invoiced</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_sales/shipping/key/23368d53d655e5d405379a0bf31ed18a/"   class=""><span>Shipping</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_sales/refunded/key/ac3be314e417480163a54921ec686b41/"   class=""><span>Refunds</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_sales/coupons/key/b6de61e42e8ce1e642d42c692a39edcb/"   class=""><span>Coupons</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/paypal_reports/index/key/0ca89d5279723b258786642cfca7d4b1/"   class=""><span>PayPal Settlement Reports</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Shopping Cart</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_shopcart/product/key/c63022763e34f716d51c5ff8c1106266/"   class=""><span>Products in carts</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_shopcart/abandoned/key/6be4a64b506e0d72b0f8e24f881346a9/"   class=""><span>Abandoned carts</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Products</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_sales/bestsellers/key/61a401829b77528a9979caf00ac86499/"   class=""><span>Bestsellers</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_product/sold/key/601e1fc33dd968f2e7882d5736f9bf6d/"   class=""><span>Products Ordered</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_product/viewed/key/3075a83ff47628376de8472d1be78f8c/"   class=""><span>Most Viewed</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_product/lowstock/key/877d5c824ef2d077d936886615485e7d/"   class=""><span>Low stock</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_product/downloads/key/e2b2c44bdf28114aa81d4b1fd707adb9/"   class=""><span>Downloads</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Customers</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_customer/accounts/key/7eb72419bc4426d34639b4cf416b3b7f/"   class=""><span>New Accounts</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_customer/totals/key/f986960d831aa5479355fa035d200abe/"   class=""><span>Customers by orders total</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_customer/orders/key/0ef6b6fe34fc7dede44cd40cc4927a67/"   class=""><span>Customers by number of orders</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Tags</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_tag/customer/key/6360622ff822f552aca11c9c2d5afdbc/"   class=""><span>Customers</span></a>
+                    </li>
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_tag/product/key/60d9def66367865d94fafca3aa28ac8b/"   class=""><span>Products</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_tag/popular/key/5fa5747c16e226119b5ec1e4648b7f16/"   class=""><span>Popular</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level1"> <a href="#"  onclick="return false" class=""><span>Reviews</span></a>
+                                <ul >
+                <li  class="   level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_review/customer/key/3a76b9f443054d32810c5f30137f3655/"   class=""><span>Customers Reviews</span></a>
+                    </li>
+                <li  class="   last level2"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report_review/product/key/150a8bddf475ea3a80e58bd0ffe4e81d/"   class=""><span>Products Reviews</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li  class="   last level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/report/search/key/73b59a4c1d69be25c971e7c049b262a5/"   class=""><span>Search Terms</span></a>
+                    </li>
+            </ul>
+                    </li>
+                <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="   parent level0"> <a href="#"  onclick="return false" class=""><span>System</span></a>
+                                <ul >
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/system_design/index/key/f8397783bbbe32c2c40b3063bd46e385/"   class=""><span>Design</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/system_currency/index/key/d1159ef9626fae26d9e87b4b389c3259/"   class=""><span>Manage Currency Rates</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/system_email_template/index/key/8d47276fa3c7839790ebf666dc48143c/"   class=""><span>Transactional Emails</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/system_variable/index/key/102ac379cfced4826c5f2394ae8cddcd/"   class=""><span>Custom Variables</span></a>
+                    </li>
+                <li  class="   level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/process/list/key/062d122b757b52fb461ece629d094788/"   class=""><span>Index Management</span></a>
+                    </li>
+                <li  class="   last level1"> <a href="http://demo-admin.magentocommerce.com/index.php/admin/sales_order_status/index/key/b2a076274ff9c63270c992a92370c8fd/"   class=""><span>Order Statuses</span></a>
+                    </li>
+            </ul>
+                    </li>
+            </ul>
+
+    <a id="page-help-link" href="http://www.magentocommerce.com/gethelp/en_US/Mage_Adminhtml/dashboard/index/">Get help for this page</a>
+    <script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
+
+</div>
+
+        </div>
+                <div class="middle" id="anchor-content">
+            <div id="page:main-container">
+                            <div id="messages"></div>
+                
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><h3 class="head-dashboard">Dashboard</h3></td>
+        </tr>
+    </table>
+</div>
+<div class="dashboard-container">
+    <p class="switcher"><label for="store_switcher">Choose Store View:</label>
+<select name="store_switcher" id="store_switcher" onchange="return switchStore(this);">
+    <option value="">All Store Views</option>
+                                                                                                    <optgroup label="Main Website"></optgroup>
+                                                                        <optgroup label="&nbsp;&nbsp;&nbsp;Main Store">
+                                <option value="1">&nbsp;&nbsp;&nbsp;&nbsp;English</option>
+                                                            <option value="3">&nbsp;&nbsp;&nbsp;&nbsp;French</option>
+                                                            <option value="2">&nbsp;&nbsp;&nbsp;&nbsp;German</option>
+                                        </optgroup>
+                        </select>
+</p>
+<script type="text/javascript">
+    function switchStore(obj){
+        var storeParam = obj.value ? 'store/'+obj.value + '/' : '';
+        if(obj.switchParams){
+            storeParam+= obj.switchParams;
+        }
+            setLocation('http://demo-admin.magentocommerce.com/index.php/admin/dashboard/index/key/ae6d62fc225266898d8a4f628530f24f/'+storeParam);
+        }
+</script>
+    <table cellspacing="25" width="100%">
+        <tr>
+            <td>                        <div class="entry-edit">
+                <div class="entry-edit-head"><h4>Lifetime Sales</h4></div>
+                <fieldset class="a-center bold">
+                    <span class="nowrap" style="font-size:18px;"><span class="price">$0.00</span><span style="font-size:14px; color:#686868;"></span></span>
+                </fieldset>
+            </div>
+                        <div class="entry-edit">
+                <div class="entry-edit-head"><h4>Average Orders</h4></div>
+                <fieldset class="a-center bold">
+                    <span class="nowrap" style="font-size:18px;"><span class="price">$0.00</span><span style="font-size:14px; color:#686868;"></span></span>
+                </fieldset>
+            </div>
+                            <div class="entry-edit">
+                    <div class="entry-edit-head"><h4>Last 5 Orders</h4></div>
+                    <fieldset class="np"><div class="grid np">
+<table cellspacing="0" style="border:0;" id="lastOrdersGrid_table">
+        <col  />
+        <col  width="100" />
+        <col  width="100" />
+                <thead>
+                            <tr class="headings">
+                                    <th  class=" no-link"><span class="nobr">Customer</span></th>
+                                    <th  class=" no-link"><span class="nobr">Items</span></th>
+                                    <th  class=" no-link last"><span class="nobr">Grand Total</span></th>
+                                </tr>
+                    </thead>
+        <tbody>
+            <tr>
+            <td class="empty-text a-center" colspan="100">No records found.</td>
+        </tr>
+        </tbody>
+</table>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    lastOrdersGridJsObject = new varienGrid('lastOrdersGrid', 'http://demo-admin.magentocommerce.com/index.php/admin/dashboard/index/key/ae6d62fc225266898d8a4f628530f24f/', 'page', 'sort', 'dir', 'filter');
+    lastOrdersGridJsObject.useAjax = '';
+            lastOrdersGridJsObject.rowClickCallback = openGridRow;
+                //]]>
+</script>
+</fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4>Last 5 Search Terms</h4></div>
+                    <fieldset class="np"><div class="grid np">
+<table cellspacing="0" style="border:0;" id="lastSearchGrid_table">
+        <col  />
+        <col  width="100" />
+        <col  width="100" />
+                <thead>
+                            <tr class="headings">
+                                    <th  class=" no-link"><span class="nobr">Search Term</span></th>
+                                    <th  class=" no-link"><span class="nobr">Results</span></th>
+                                    <th  class=" no-link last"><span class="nobr">Number of Uses</span></th>
+                                </tr>
+                    </thead>
+        <tbody>
+                <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/id/1/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">Test</td>
+                    <td class=" a-right ">8</td>
+                    <td class=" a-right last">654</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/id/2/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">acer</td>
+                    <td class=" a-right ">1</td>
+                    <td class=" a-right last">394</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/id/3/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">couch</td>
+                    <td class=" a-right ">2</td>
+                    <td class=" a-right last">367</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/id/4/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">Shirts</td>
+                    <td class=" a-right ">3</td>
+                    <td class=" a-right last">410</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/id/5/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">APPLE</td>
+                    <td class=" a-right ">2</td>
+                    <td class=" a-right last">511</td>
+                </tr>
+            </tbody>
+</table>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    lastSearchGridJsObject = new varienGrid('lastSearchGrid', 'http://demo-admin.magentocommerce.com/index.php/admin/dashboard/index/key/ae6d62fc225266898d8a4f628530f24f/', 'page', 'sort', 'dir', 'filter');
+    lastSearchGridJsObject.useAjax = '';
+            lastSearchGridJsObject.rowClickCallback = openGridRow;
+                //]]>
+</script>
+</fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4>Top 5 Search Terms</h4></div>
+                    <fieldset class="np"><div class="grid np">
+<table cellspacing="0" style="border:0;" id="topSearchGrid_table">
+        <col  />
+        <col  width="100" />
+        <col  width="100" />
+                <thead>
+                            <tr class="headings">
+                                    <th  class=" no-link"><span class="nobr">Search Term</span></th>
+                                    <th  class=" no-link"><span class="nobr">Results</span></th>
+                                    <th  class=" no-link last"><span class="nobr">Number of Uses</span></th>
+                                </tr>
+                    </thead>
+        <tbody>
+                <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">computer</td>
+                    <td class=" a-right ">10</td>
+                    <td class=" a-right last">2032</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">camera</td>
+                    <td class=" a-right ">13</td>
+                    <td class=" a-right last">1322</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">sony</td>
+                    <td class=" a-right ">3</td>
+                    <td class=" a-right last">1092</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">design</td>
+                    <td class=" a-right ">19</td>
+                    <td class=" a-right last">826</td>
+                </tr>
+            <tr title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_search/edit/key/ba5da2567bf634b93023f34ab09e178b/">
+                    <td class=" ">Test</td>
+                    <td class=" a-right ">8</td>
+                    <td class=" a-right last">654</td>
+                </tr>
+            </tbody>
+</table>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    topSearchGridJsObject = new varienGrid('topSearchGrid', 'http://demo-admin.magentocommerce.com/index.php/admin/dashboard/index/key/ae6d62fc225266898d8a4f628530f24f/', 'page', 'sort', 'dir', 'filter');
+    topSearchGridJsObject.useAjax = '';
+            topSearchGridJsObject.rowClickCallback = openGridRow;
+                //]]>
+</script>
+</fieldset>
+                </div>
+            </td>
+            <td>
+                <div class="entry-edit" style="border:1px solid #ccc;">
+                    <div class="box" style="margin:20px;">
+    <p class="a-center">
+        Chart is disabled. If you want to enable chart, click <a href="http://demo-admin.magentocommerce.com/index.php/admin/system_config/edit/section/admin/key/f6f074ee250adb8654d6b5f07809796c/">here</a>.    </p>
+</div>
+                                        <div style="margin:20px;">
+                        <div class="box" id="dashboard_diagram_totals">
+    <div class="entry-edit">
+        <table cellspacing="0" width="100%">
+            <tr>
+                            <td class="a-center bold">
+                    <span>Revenue</span><br />
+                    <span class="nowrap" style="font-size:18px; color:#EA7601;"><span class="price">$0.00</span><span style="font-size:14px; color:#DE8946;"></span></span>
+                </td>
+                            <td class="a-center bold">
+                    <span>Tax</span><br />
+                    <span class="nowrap" style="font-size:18px; color:#EA7601;"><span class="price">$0.00</span><span style="font-size:14px; color:#DE8946;"></span></span>
+                </td>
+                            <td class="a-center bold">
+                    <span>Shipping</span><br />
+                    <span class="nowrap" style="font-size:18px; color:#EA7601;"><span class="price">$0.00</span><span style="font-size:14px; color:#DE8946;"></span></span>
+                </td>
+                            <td class="a-center bold">
+                    <span>Quantity</span><br />
+                    <span class="nowrap" style="font-size:18px; color:#EA7601;">0<span style="font-size:14px; color:#DE8946;"></span></span>
+                </td>
+                        </tr>
+        </table>
+    </div>
+</div>
+                    </div>
+                    <div style="margin:20px;">
+                        <!--  -->
+<ul id="grid_tab" class="tabs-horiz">
+    <li>
+        <a href="#" id="grid_tab_ordered_products" title="Bestsellers" class="tab-item-link ">
+            <span><span class="changed" title="The information in this tab has been changed."></span><span class="error" title="This tab contains invalid data. Please solve the problem before saving."></span>Bestsellers</span>
+        </a>
+        <div id="grid_tab_ordered_products_content" style="display:none"><div class="grid np">
+<table cellspacing="0" style="border:0;" id="productsOrderedGrid_table">
+        <col  />
+        <col  width="120" />
+        <col  width="120" />
+                <thead>
+                            <tr class="headings">
+                                    <th  class=" no-link"><span class="nobr">Product Name</span></th>
+                                    <th  class=" no-link"><span class="nobr">Price</span></th>
+                                    <th  class=" no-link last"><span class="nobr">Quantity Ordered</span></th>
+                                </tr>
+                    </thead>
+        <tbody>
+            <tr>
+            <td class="empty-text a-center" colspan="100">No records found.</td>
+        </tr>
+        </tbody>
+</table>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    productsOrderedGridJsObject = new varienGrid('productsOrderedGrid', 'http://demo-admin.magentocommerce.com/index.php/admin/dashboard/index/key/ae6d62fc225266898d8a4f628530f24f/', 'page', 'sort', 'dir', 'filter');
+    productsOrderedGridJsObject.useAjax = '';
+            productsOrderedGridJsObject.rowClickCallback = openGridRow;
+                //]]>
+</script>
+</div>
+    </li>
+    <li>
+        <a href="http://demo-admin.magentocommerce.com/index.php/admin/dashboard/productsViewed/key/fc4027609e488524f55019b73fb7ede1/" id="grid_tab_reviewed_products" title="Most Viewed Products" class="tab-item-link ajax notloaded">
+            <span><span class="changed" title="The information in this tab has been changed."></span><span class="error" title="This tab contains invalid data. Please solve the problem before saving."></span>Most Viewed Products</span>
+        </a>
+        <div id="grid_tab_reviewed_products_content" style="display:none"></div>
+    </li>
+    <li>
+        <a href="http://demo-admin.magentocommerce.com/index.php/admin/dashboard/customersNewest/key/64794592886320e6ba7d3b0204cb26ae/" id="grid_tab_new_customers" title="New Customers" class="tab-item-link ajax notloaded">
+            <span><span class="changed" title="The information in this tab has been changed."></span><span class="error" title="This tab contains invalid data. Please solve the problem before saving."></span>New Customers</span>
+        </a>
+        <div id="grid_tab_new_customers_content" style="display:none"></div>
+    </li>
+    <li>
+        <a href="http://demo-admin.magentocommerce.com/index.php/admin/dashboard/customersMost/key/10962d15ace2513d8aaaadb336e04ffc/" id="grid_tab_customers" title="Customers" class="tab-item-link ajax notloaded">
+            <span><span class="changed" title="The information in this tab has been changed."></span><span class="error" title="This tab contains invalid data. Please solve the problem before saving."></span>Customers</span>
+        </a>
+        <div id="grid_tab_customers_content" style="display:none"></div>
+    </li>
+</ul>
+<script type="text/javascript">
+
+    grid_tabJsTabs = new varienTabs('grid_tab', 'grid_tab_content', 'grid_tab_ordered_products', []);
+</script>
+                        <div id="grid_tab_content"></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+                        </div>
+        </div>
+        <div class="footer">
+            <p class="bug-report">
+    <a href="http://www.magentocommerce.com/bug-tracking" id="footer_bug_tracking">Help Us Keep Magento Healthy - Report All Bugs</a><br/>
+    Interface Locale: <select name="locale" id="interface_locale" class="" title="Interface Language" style="width:200px"><option value="af_ZA" >Afrikaans (Suid-Afrika) / Afrikaans (South Africa)</option><option value="az_AZ" >Azərbaycanca (Azərbaycan) / Azerbaijani (Azerbaijan)</option><option value="id_ID" >Bahasa Indonesia (Indonesia) / Indonesian (Indonesia)</option><option value="ms_MY" >Bahasa Melayu (Malaysia) / Malay (Malaysia)</option><option value="bs_BA" >Bosanski (Bosna i Hercegovina) / Bosnian (Bosnia and Herzegovina)</option><option value="ca_ES" >Català (Espanya) / Catalan (Spain)</option><option value="cy_GB" >Cymraeg (Prydain Fawr) / Welsh (United Kingdom)</option><option value="da_DK" >Dansk (Danmark) / Danish (Denmark)</option><option value="de_DE" >Deutsch (Deutschland) / German (Germany)</option><option value="de_CH" >Deutsch (Schweiz) / German (Switzerland)</option><option value="de_AT" >Deutsch (Österreich) / German (Austria)</option><option value="et_EE" >Eesti (Eesti) / Estonian (Estonia)</option><option value="en_AU" >English (Australia) / English (Australia)</option><option value="en_CA" >English (Canada) / English (Canada)</option><option value="en_IE" >English (Ireland) / English (Ireland)</option><option value="en_NZ" >English (New Zealand) / English (New Zealand)</option><option value="en_GB" >English (United Kingdom) / English (United Kingdom)</option><option value="en_US" selected="selected" >English (United States) / English (United States)</option><option value="es_AR" >Español (Argentina) / Spanish (Argentina)</option><option value="es_CL" >Español (Chile) / Spanish (Chile)</option><option value="es_CO" >Español (Colombia) / Spanish (Colombia)</option><option value="es_CR" >Español (Costa Rica) / Spanish (Costa Rica)</option><option value="es_ES" >Español (España) / Spanish (Spain)</option><option value="es_MX" >Español (México) / Spanish (Mexico)</option><option value="es_PA" >Español (Panamá) / Spanish (Panama)</option><option value="es_PE" >Español (Perú) / Spanish (Peru)</option><option value="es_VE" >Español (Venezuela) / Spanish (Venezuela)</option><option value="fil_PH" >Filipino (Pilipinas) / Filipino (Philippines)</option><option value="fr_CA" >Français (Canada) / French (Canada)</option><option value="fr_FR" >Français (France) / French (France)</option><option value="gl_ES" >Galego (España) / Galician (Spain)</option><option value="hr_HR" >Hrvatski (Hrvatska) / Croatian (Croatia)</option><option value="it_IT" >Italiano (Italia) / Italian (Italy)</option><option value="it_CH" >Italiano (Svizzera) / Italian (Switzerland)</option><option value="sw_KE" >Kiswahili (Kenya) / Swahili (Kenya)</option><option value="lv_LV" >Latviešu (Latvija) / Latvian (Latvia)</option><option value="lt_LT" >Lietuvių (Lietuva) / Lithuanian (Lithuania)</option><option value="hu_HU" >Magyar (Magyarország) / Hungarian (Hungary)</option><option value="nl_NL" >Nederlands (Nederland) / Dutch (Netherlands)</option><option value="nb_NO" >Norsk Bokmål (Norge) / Norwegian Bokmål (Norway)</option><option value="nn_NO" >Nynorsk (Noreg) / Norwegian Nynorsk (Norway)</option><option value="pl_PL" >Polski (Polska) / Polish (Poland)</option><option value="pt_BR" >Português (Brasil) / Portuguese (Brazil)</option><option value="pt_PT" >Português (Portugal) / Portuguese (Portugal)</option><option value="ro_RO" >Română (România) / Romanian (Romania)</option><option value="sq_AL" >Shqipe (Shqipëria) / Albanian (Albania)</option><option value="sk_SK" >Slovenčina (Slovenská republika) / Slovak (Slovakia)</option><option value="sl_SI" >Slovenščina (Slovenija) / Slovenian (Slovenia)</option><option value="fi_FI" >Suomi (Suomi) / Finnish (Finland)</option><option value="sv_SE" >Svenska (Sverige) / Swedish (Sweden)</option><option value="vi_VN" >Tiếng Việt (Việt Nam) / Vietnamese (Vietnam)</option><option value="tr_TR" >Türkçe (Türkiye) / Turkish (Turkey)</option><option value="is_IS" >íslenska (Ísland) / Icelandic (Iceland)</option><option value="cs_CZ" >čeština (Česká republika) / Czech (Czech Republic)</option><option value="el_GR" >Ελληνικά (Ελλάδα) / Greek (Greece)</option><option value="sr_RS" >Српски (Србија) / Serbian (Serbia)</option><option value="be_BY" >беларуская (Беларусь) / Belarusian (Belarus)</option><option value="bg_BG" >български (България) / Bulgarian (Bulgaria)</option><option value="mk_MK" >македонски (Македонија) / Macedonian (Macedonia)</option><option value="mn_MN" >монгол (Монгол улс) / Mongolian (Mongolia)</option><option value="ru_RU" >русский (Россия) / Russian (Russia)</option><option value="uk_UA" >українська (Україна) / Ukrainian (Ukraine)</option><option value="he_IL" >עברית (ישראל) / Hebrew (Israel)</option><option value="ar_DZ" >العربية (الجزائر) / Arabic (Algeria)</option><option value="ar_KW" >العربية (الكويت) / Arabic (Kuwait)</option><option value="ar_MA" >العربية (المغرب) / Arabic (Morocco)</option><option value="ar_SA" >العربية (المملكة العربية السعودية) / Arabic (Saudi Arabia)</option><option value="ar_EG" >العربية (مصر) / Arabic (Egypt)</option><option value="fa_IR" >فارسی (ایران) / Persian (Iran)</option><option value="hi_IN" >हिन्दी (भारत) / Hindi (India)</option><option value="bn_BD" >বাংলা (বাংলাদেশ) / Bengali (Bangladesh)</option><option value="gu_IN" >ગુજરાતી (ભારત) / Gujarati (India)</option><option value="th_TH" >ไทย (ไทย) / Thai (Thailand)</option><option value="lo_LA" >ລາວ (ລາວ) / Lao (Laos)</option><option value="ka_GE" >ქართული (საქართველო) / Georgian (Georgia)</option><option value="km_KH" >ភាសាខ្មែរ (កម្ពុជា) / Khmer (Cambodia)</option><option value="zh_CN" >中文 (中国) / Chinese (China)</option><option value="zh_HK" >中文 (中華人民共和國香港特別行政區) / Chinese (Hong Kong SAR China)</option><option value="zh_TW" >中文 (台灣) / Chinese (Taiwan)</option><option value="ja_JP" >日本語 (日本) / Japanese (Japan)</option><option value="ko_KR" >한국어 (대한민국) / Korean (South Korea)</option></select></p>
+<p class="legality">
+    <a href="http://www.magentocommerce.com" id="footer_connect">Connect with the Magento Community</a><br/>
+    <img src="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/images/varien_logo.gif" class="v-middle" alt="" />&nbsp;&nbsp;
+    Magento&trade; is a trademark of Magento Inc.<br/>Copyright &copy; 2011 Magento Inc.</p>
+Magento ver. 1.6.1.0<script type="text/javascript">
+    $('footer_bug_tracking').target = 'Varien_External';
+    $('footer_connect').target = 'Varien_External';
+    function setInterfaceLanguage(evt){
+        var elem = Event.element(evt);
+        if(elem){
+            setLocation('http://demo-admin.magentocommerce.com/index.php/admin/index/changeLocale/key/99df1bbda1fe61b117cb6ba6c018bdcb/locale/'+elem.value+'/uenc/aHR0cDovL2RlbW8tYWRtaW4ubWFnZW50b2NvbW1lcmNlLmNvbS9pbmRleC5waHAvYWRtaW4vZGFzaGJvYXJkL2luZGV4L2tleS9hZTZkNjJmYzIyNTI2Njg5OGQ4YTRmNjI4NTMwZjI0Zi8,');
+        }
+    }
+    Event.observe('interface_locale', 'change', setInterfaceLanguage)
+</script>
+        </div>
+    </div>
+        <div id="loading-mask" style="display:none">
+    <p class="loader" id="loading_mask_loader"><img src="http://demo-admin.magentocommerce.com/skin/adminhtml/default/default/images/ajax-loader-tr.gif" alt="Loading..."/><br/>Please wait...</p>
+</div>
+
+
+</body>
+</html>

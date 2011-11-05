@@ -1,5 +1,14 @@
-#Wed Nov 02 07:55:50 ICT 2011
+#Sat Nov 05 00:49:54 ICT 2011
 eclipse.preferences.version=1
-encoding//businfo/application/views/admin/home.php=UTF-8
+encoding//businfo/application/views/admin/ThemTramBus.php=UTF-8
+encoding//businfo/application/views/admin/ThemTuyenBus.php=UTF-8
+encoding//businfo/application/views/admin/ThemTuyenBus_B2.php=UTF-8
+encoding//businfo/application/views/admin/ThemTuyenBus_B3.php=UTF-8
+encoding//businfo/application/views/admin/ThemTuyenBus_B4.php=UTF-8
+encoding//businfo/application/views/admin/ThemTuyenBus_B5.php=UTF-8
+encoding//businfo/application/views/admin/ThongTinTram.php=UTF-8
+encoding//businfo/application/views/admin/ThongTinTuyen.php=UTF-8
+encoding//businfo/application/views/admin/ad_home.php=UTF-8
 encoding//businfo/application/views/home.php=UTF-8
+encoding//businfo/application/views/login.php=UTF-8
 encoding//businfo/public/js/TabMenu.js=UTF-8
