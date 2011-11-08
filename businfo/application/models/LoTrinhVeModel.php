@@ -1,9 +1,9 @@
 <?php
-class LoTrinhDiModel extends CI_Model {
+class LoTrinhVeModel extends CI_Model {
   /**
    * Constructor
    */
-  	var $lotrinhdi_id   = '';
+  	var $lotrinhve_id   = '';
     var $matuyen = '';
     var $stttram    = '';
     var $matram = '';
@@ -45,7 +45,7 @@ class LoTrinhDiModel extends CI_Model {
    * 
    * @param array $options 
    * Options :
-   * - lotrinhdi_id (required)
+   * - lotrinhve_id (required)
    * - matuyen (optional)
    * - matram (optional)
    * - offset (optional)
@@ -67,7 +67,7 @@ class LoTrinhDiModel extends CI_Model {
     else
       $this->db->order_by('stttram', $options['sortDirection']);
       
-    $query = $this->db->get('lotrinhdi');
+    $query = $this->db->get('lotrinhve');
       if($query->num_rows() == 0) return false;
       
       if(isset($options['matram']) && isset($options['matuyen'])) // tra ve chi 1 dong 
@@ -93,10 +93,10 @@ class LoTrinhDiModel extends CI_Model {
     else
       $this->db->order_by('stttram', $options['sortDirection']);
       
-    $this->db->select('lotrinhdi.*');
+    $this->db->select('lotrinhve.*');
     $this->db->select('trambus.tentram, trambus.geo_lat, trambus.geo_long');
-    $this->db->from('lotrinhdi');
-	$this->db->join('trambus','lotrinhdi.matram = trambus.matram');
+    $this->db->from('lotrinhve');
+	$this->db->join('trambus','lotrinhve.matram = trambus.matram');
     $query = $this->db->get();
       if($query->num_rows() == 0) return false;
       
@@ -117,14 +117,14 @@ class LoTrinhDiModel extends CI_Model {
    */
   function saveLoTrinh($options = array()){
     // checks if required fields are available
-    if(!$this->_required(array('lotrinhdi_id', 'matram', 'sttram', 'matram'), $options)) return false;
+    if(!$this->_required(array('lotrinhve_id', 'matram', 'sttram', 'matram'), $options)) return false;
       
-    $insertArr = Array('lotrinhdi_id', 'matram' ,'stttram', 'matram');
+    $insertArr = Array('lotrinhve_id', 'matram' ,'stttram', 'matram');
     foreach ($insertArr as $key){
       if(isset($options[$key])) $this->db->set($key, $options[$key]);
     }
       
-    $this->db->insert('lotrinhdi');
+    $this->db->insert('lotrinhve');
 
     return $this->db->insert_id();
   }
@@ -134,23 +134,23 @@ class LoTrinhDiModel extends CI_Model {
    * 
    * @param array $options
    * Options :
-   * - lotrinhdi_id (req)
+   * - lotrinhve_id (req)
    * - matuyen (req)
    * - stttram (req)
    * - matram (req)
    */
   function updateLoTrinh($options = array()){
     // checks if required fields are available
-    if(!$this->_required(array('lotrinhdi_id', 'matram', 'sttram', 'matram'), $options)) return false;
+    if(!$this->_required(array('lotrinhve_id', 'matram', 'sttram', 'matram'), $options)) return false;
     
     $updateArr = Array('matram', 'stttram', 'matram');
     foreach ($updateArr as $key){
       if(isset($options[$key])) $this->db->set($key, $options[$key]);
     }
     
-    if(isset($options['lotrinhdi_id'])) $this->db->where('lotrinhdi_id', $options['lotrinhdi_id']);
+    if(isset($options['lotrinhve_id'])) $this->db->where('lotrinhve_id', $options['lotrinhve_id']);
     
-    $this->db->update('lotrinhdi');
+    $this->db->update('lotrinhve');
 
     return $this->db->affected_rows();
   }
@@ -166,8 +166,8 @@ class LoTrinhDiModel extends CI_Model {
     // checks if required fields are available
     //if(!$this->_required(array('matuyen'), $options)) return false;
     
-    $this->db->where('lotrinhdi_id', $options['lotrinhdi_id']);
-      $this->db->delete('lotrinhdi');
+    $this->db->where('lotrinhve_id', $options['lotrinhve_id']);
+      $this->db->delete('lotrinhve');
   }
 }
 ?>

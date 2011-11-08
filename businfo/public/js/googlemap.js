@@ -28,6 +28,7 @@
 	// Variable for show direction. 
 	var directionsService = new google.maps.DirectionsService();
 	var directionsDisplay = new google.maps.DirectionsRenderer({preserveViewport: true});
+	var legs = [];
 	
 	/**
 	* Displays the map & is called when this page is initializing.
@@ -57,8 +58,7 @@
 		// Locate the input shop first if input values are provided.
 		if (input_lat != null && input_lng != null && input_address != null) {		
 			locate(input_lat, input_lng, input_address, input_module);
-		}
-		
+		}		
 		//showStops('');
 	}
 	
@@ -109,7 +109,7 @@
 				fillColor: "#FFFF00",
 				fillOpacity: 0.25,
 				center: input_loc,
-				radius: 5000
+				radius: 1000
 			});
 			
 			// set zoom for map
@@ -151,7 +151,7 @@
     	if (type == 1 || type == 3){
     		address = document.getElementById("address").value 
     				  + ", TP.HCM";
-    	} else if (type == 2){
+    	} else {//if (type == 2){
     		address = document.getElementById("street").value 
     				  + ", phường " + document.getElementById("ward").value 
     				  + ", quận " + document.getElementById("dist").value 
@@ -248,7 +248,7 @@
 		markers = new Array();
 		
 		// Add markers.
-        for (i = 0 ; i < shop_list.length ; i++) {
+        for (var i = 0 ; i < shop_list.length ; i++) {
 			obj = shop_list[i];
             addMarker(obj);
         }
@@ -266,18 +266,20 @@
         } */
     }
     
-    function showStops(stop_list) {
-    	if(!stop_list){
+    function showStops(stop_list1, stop_list2) {
+    	if(!stop_list1){
 		// Convert JSON result to JS objects. (for testing)
     		return;
     		//input_json = '[{"matram":"1","tentram":"Trạm 1","geo_lat":"10.7935931560974","geo_long":"106.69419521485"},'
-						+ '{"matram":"3","tentram":"Trạm 2","geo_lat":"10.8035931560974","geo_long":"106.70419521485"},'
-						+ '{"matram":"4","tentram":"Trạm 3","geo_lat":"10.8135931560974","geo_long":"106.71419521485"}]';
+			//			+ '{"matram":"3","tentram":"Trạm 2","geo_lat":"10.8035931560974","geo_long":"106.70419521485"},'
+			//			+ '{"matram":"4","tentram":"Trạm 3","geo_lat":"10.8135931560974","geo_long":"106.71419521485"}]';
     	}
     	else {
-    		input_json = stop_list;
+    		input_json = stop_list1;
     	}
-    	stop_list = jQuery.parseJSON(input_json);
+    	stop_list1 = jQuery.parseJSON(input_json);
+    	input_json = stop_list2;
+    	stop_list2 = jQuery.parseJSON(input_json);
     	
     	// Clear all old markers.
         clearMarkers();
@@ -290,25 +292,55 @@
 		
         // Create new array of markers.
 		markers = new Array();
+		markers_latlng = new Array();
 		
 		// Add markers.
-		var i;
-        for (i = 0 ; i < stop_list.length ; i++) {
-			obj = stop_list[i];
+		var lotrinhdi = true; // flag
+		processWaypoints(stop_list1, lotrinhdi);
+		lotrinhdi = false;
+		processWaypoints(stop_list2, lotrinhdi);
+    }
+    
+    function processWaypoints(list, lotrinhdi)
+    {
+    	var i;
+    	for (i = 0 ; i < list.length ; i++) {
+			obj = list[i];
             addMarker(obj);
+            var point = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
+			markers_latlng.push(point);
         }
-				
-		// Display all markers (one by one).
-        /* iterator = 0;
-        if (markers) {
-            for (i in markers) {
-            	setTimeout(function() {
-            		markers[iterator].setMap(map);
-                    markers[iterator].setAnimation(google.maps.Animation.DROP);
-                    iterator++;
-                }, i * 400);
-            }
-        } */
+        try{
+        	// Split waypoints into groups of 10
+        	for(var idx1=0; idx1< markers_latlng.length-1; idx1+=9)
+        	{
+        		var idx2 = Math.min(idx1+9, markers_latlng.length-1);
+        		var waypts_slice = markers_latlng.slice(idx1+1, idx2);
+        		var waypts = new Array();
+                for (var pt = 0; pt < waypts_slice.length; pt++) {
+                	waypts.push({
+                        location: waypts_slice[pt],
+                        stopover:true
+                    });
+                }
+        		var request = {
+        				origin: markers_latlng[idx1],
+        				destination: markers_latlng[idx2],
+        				travelMode: google.maps.DirectionsTravelMode.DRIVING,
+        				waypoints: waypts
+        		};
+
+        		directionsService.route(request, function (response, status) {
+        			if (status == google.maps.DirectionsStatus.OK)
+        				parse(response, lotrinhdi);
+        		});
+        	}
+
+        }
+        catch (e)
+        {
+        	alert(e.message);
+        }
     }
     
 	/**
@@ -349,8 +381,8 @@
 				marker_child.setAnimation(google.maps.Animation.BOUNCE);
 			}
 			
-			// Show direction between user's location & shop's one.
 			//showDirection(obj);
+			//var marker_last = markers[markers.length - 1];
 		});
         
         markers.push(marker_child);
@@ -509,3 +541,62 @@
     	};
     	return obj;
     }
+    
+    // ------------------------------------------------------------
+    // DIRECTION DISPLAY
+    // ------------------------------------------------------------
+    function parse(response, lotrinhdi) {
+    	try{
+    	var routes = response.routes;
+    	
+    	// Loop through all routes and append
+    	for(var rte in routes)
+    	{
+    		//var legs = routes[rte].legs;
+    		add_leg_(routes[rte].overview_path, lotrinhdi);
+    		
+    		// Steps in route
+    		/*for(var leg in legs)
+    		{
+    			var steps = legs[leg].steps;
+    			
+    			// Compute overall distance and time for the trip.
+    			this.overallDistance += legs[leg].distance.value;
+    			this.overallTime += legs[leg].duration.value;
+    		}*/
+    	}
+
+    	// Set zoom and center of map to fit all paths, and display directions.
+    	fit_route_();
+    	//this.create_stepbystep_(response, units);
+    	}
+    	catch (e)
+    	{
+    		console.log(e.message);
+    	}
+    };
+    
+    function add_leg_(path, lotrinhdi) {
+    	var color;
+    	if (lotrinhdi)
+    		color = "#0000FF";
+    	else
+    		color = "#00FF00";
+    	this.legs.push(new google.maps.Polyline({
+    		path: path,
+    		map: map,
+    		strokeColor: color,
+    		strokeOpacity: 0.7,
+    		strokeWeight: 3}));
+    };
+    
+    function fit_route_() {
+    	// Go through all legs of route and fit plot.
+    	var latlngbounds = new google.maps.LatLngBounds();
+    	for(var leg in legs) {
+    		path = legs[leg].getPath();
+    		for(var i = 0; i < path.length; i++)
+    			latlngbounds.extend(path.getAt(i));
+    	}
+    	map.fitBounds(latlngbounds);
+    };

@@ -26,10 +26,13 @@ class Home extends CI_Controller{
    	}
    	
    	public function search(){
-
-	    $route = $_POST['mapinput'];
-
-   		//$route = "19";
+   		
+   		// Search tuyến
+   		if (isset($_POST['mapinput']))
+   		{
+   			$route = $_POST['mapinput'];
+   		}
+   		else $route = "19";
    		
    		$temp['route'] = $route;
    		//$limit = "10";
@@ -37,14 +40,17 @@ class Home extends CI_Controller{
    		$temp['title']="BusInfo for Hochiminh";
    		//$temp['tuyendiqua'] = $route;
    		
-   		$this->load->model("TramBusModel");
-   		$options = array('tuyendiqua' => $route);
+   		$this->load->model("LoTrinhDiModel");
+   		$this->load->model("LoTrinhVeModel");
+   		$options = array('matuyen' => $route);
    		//, 'limit' => $limit);
-   		$rows = $this->TramBusModel->getTramBus($options);
+   		$rows1 = $this->LoTrinhDiModel->getLoTrinh_WithLatLong($options);
+   		$rows2 = $this->LoTrinhVeModel->getLoTrinh_WithLatLong($options);
    		//echo count($res);
    		
 		//$rows = pg_fetch_all($res);
-		$temp['php_array'] = json_encode($rows);
+		$temp['lotrinhdi'] = json_encode($rows1);
+		$temp['lotrinhve'] = json_encode($rows2);
    		
    		$this->load->view("home", $temp);
    	}

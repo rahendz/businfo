@@ -11,7 +11,9 @@
     try {
       $(document).ready(function(){initialize(10.75, 106.66, '196 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận', '', false);});
       <?php echo '$(document).ready(function(){showStops(\''?>
-      <?php echo $php_array;?>
+      <?php echo $lotrinhdi;?>
+      <?php echo '\', \''?>
+      <?php echo $lotrinhve;?>
       <?php echo '\')});'?>
     } catch (e) {
         alert (e.message);  //this executes if jQuery isn't loaded // '<php echo $php_array;?>'
