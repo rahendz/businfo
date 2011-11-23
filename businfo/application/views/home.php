@@ -9,12 +9,9 @@
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/googlemap.js"></script>
     <script type="text/javascript">
     try {
-      $(document).ready(function(){initialize(10.75, 106.66, '196 Lê Văn Sỹ, P. Tân Định, Q. Phú Nhuận', '', false);});
-      <?php echo '$(document).ready(function(){showStops(\''?>
-      <?php echo $lotrinhdi;?>
-      <?php echo '\', \''?>
-      <?php echo $lotrinhve;?>
-      <?php echo '\')});'?>
+        $(document).ready(function(){initialize(<?php echo $init_lat; ?>, <?php echo $init_long; ?>, <?php echo $init_add?>, '', false);});
+      	<?php echo $htmltext; ?>
+      	<?php echo $x; ?>  
     } catch (e) {
         alert (e.message);  //this executes if jQuery isn't loaded // '<php echo $php_array;?>'
     }
@@ -61,8 +58,13 @@
 	                	<div class="SBox">
 	                    	<div class="SBoxLeft">
 	                    	</div>
-	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." />
+	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="this.value = ''" />
 	                        <input class="SButton" type="submit" value="Tìm" onclick="" />
+                            <input type="hidden" id="mode" name="mode" value="search"/>
+                            <input type="hidden" id="bound_top_lat" value=""/>
+                            <input type="hidden" id="bound_top_lng" value=""/>
+                            <input type="hidden" id="bound_bot_lat" value=""/>
+                            <input type="hidden" id="bound_bot_lng" value=""/>
 						</div>
 					</div>
 	                <div class="SRight"></div>

@@ -52,6 +52,11 @@ class TramBusModel extends CI_Model {
 	 * - limit (optional)
 	 * - sortBy (default = matram)
 	 * - sortDirection (default = asc)
+	 * - mode (omitted means normal queries, isset means local search queries)
+	 * - min_lat
+	 * - min_lng
+	 * - max_lat
+	 * - max_lng
 	 */
 	function getTramBus($options = array()){
 		// default value
@@ -66,6 +71,11 @@ class TramBusModel extends CI_Model {
 		if(isset($options['sortBy'])) $this->db->order_by($options['sortBy'], $options['sortDirection']);
 		else
 			$this->db->order_by('matram', $options['sortDirection']);
+			
+		if (isset($options['mode'])) {
+			$where = "geo_lat BETWEEN " . $options['min_lat'] . " AND " . $options['max_lat'] . " AND geo_long BETWEEN " . $options['min_lng'] . " AND " . $options['max_lng'];  
+			$this->db->where($where);
+		}
 			
 		$query = $this->db->get('trambus');
     	if($query->num_rows() == 0) return false;
