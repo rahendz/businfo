@@ -32,9 +32,12 @@ class Home extends CI_Controller{
 	public function search(){
 		$tabinput = 2;
 		if ($tabinput == "1") { // MODE : Tim lo trinh
-			$temp['init_lat'] = 10.770023;
-			$temp['init_long'] = 106.685461;
-			$temp['init_add'] = "'Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh'";
+			//$temp['init_lat'] = 10.770023;
+			//$temp['init_long'] = 106.685461;
+			//$temp['init_add'] = "'Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh'";
+			$temp['init_lat'] = 10.8230989;
+			$temp['init_long'] = 106.6296638;
+			$temp['init_add'] = "'Hồ Chí Minh'";
 			$temp['mode'] = $_POST['mode'];
 			// Search tuyến
 			if (isset($_POST['mapinput']))
@@ -67,7 +70,6 @@ class Home extends CI_Controller{
 			//Bounds : 10.792744,106.670325) - (10.79411,106.671043
 			$temp['title']="BusInfo for Hochiminh";
 			$temp['mode'] = $_POST['mode'];
-			$temp['x'] = $_POST['bound_top_lat'];
 			//$temp['init_lat'] = 10.781023;
 			//$temp['init_long'] = 106.696461;
 			$temp['init_lat'] = 10.770023;

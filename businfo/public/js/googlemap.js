@@ -49,7 +49,7 @@ function initialize(input_lat, input_lng, input_address, input_module,
 		if (status == google.maps.GeocoderStatus.OK) { 
 			zclient.location.latitude = results[0].geometry.location.lat();
 			zclient.location.longitude = results[0].geometry.location.lng();
-			//alert("Map loaded!");
+			alert("Geocode loaded!");
 		}
 	});
 	}

@@ -11,7 +11,6 @@
     try {
         $(document).ready(function(){initialize(<?php echo $init_lat; ?>, <?php echo $init_long; ?>, <?php echo $init_add?>, '', false);});
       	<?php echo $htmltext; ?>
-      	<?php echo $x; ?>  
     } catch (e) {
         alert (e.message);  //this executes if jQuery isn't loaded // '<php echo $php_array;?>'
     }
