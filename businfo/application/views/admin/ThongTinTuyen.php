@@ -2,90 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Trang Quản Lý</title>
+	<title>Trang Quáº£n LÃ½</title>
 	<link rel="icon" href="" type="image/x-icon"/>
 	<link rel="shortcut icon" href="" type="image/x-icon"/>
 	
 	<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/js/calendar/calendar-win2k-1.css" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Reset_Text.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Login.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Menu.css" media="screen, projection"/>
+	<link rel="stylesheet" type="text/css" href="http://localhost/businfo/public/css/Reset_Text.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/businfo/public/css/Login.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/businfo/public/css/Menu.css" media="screen, projection"/>
 	
-	<script type="text/javascript" src="http://localhost/BusInfo/businfo/public/js/prototype.js"></script>
+	<script type="text/javascript" src="http://localhost/businfo/public/js/prototype.js"></script>
 
 </head>
 
 <body id="html-body"class=" adminhtml-dashboard-index">
+
 	<div class="wrapper">
-		<div class="header">
-	    	<div class="header-top">
-				<a href="">
-					<img class="logo" alt="BusInfo Logo" src="">
-				</a>
-				<div class="header-right">
-				<p class="super">Đăng nhập với quyền admin
-					<span class="separator">|</span>
-					Thứ 7, Ngày 5 tháng 11 năm 2011
-					<span class="separator">|</span>
-					<a class="link-logout" href="../login.php">Đăng xuất</a>
-				</p>
-				</div>
-			</div>
-		    <div class="clear"></div>
-		    
-		    <div class="nav-bar">
-		    	<ul id="nav">
-				  	<li class=" active level0"> 
-				  		<a href="../admin/ad_home.php" class="active"><span>Trang Chủ</span></a>
-				    </li>
-				    <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-				    	<a href="#" onclick="return false" class=""><span>Tuyến Bus</span></a>
-				    	<ul >
-					        <li class=" level1"> 
-					        	<a href="../admin/ThongTinTuyen.php" class=""><span>Thông Tin Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="../admin/ThemTuyenBus.php" class=""><span>Thêm Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="" class=""><span>Sửa Thông Tin Tuyến</span>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Trạm Bus</span></a>
-						<ul >
-							<li class="  level1"> 
-								<a href="../admin/ThongTinTram.php"  class=""><span>Thông Tin Trạm Bus</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href="../admin/ThemTramBus.php"  class=""><span>Thêm Trạm Bus</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Sửa Thông Tin Trạm Bus</span></a>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Địa Điểm</span></a>
-						<ul >
-							<li class="  level1">
-								<a href=""  class=""><span>Thông Tin Địa Điểm</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href=""  class=""><span>Thêm Loại Địa Điểm</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Thêm Địa Điểm</span></a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				
-				<a id="page-help-link" href="">Hướng dẫn</a>
-				<script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
-			</div>
-		</div>
+		<?php include("t_top_ad_home.php"); ?>
 		
 		<div class="middle" id="anchor-content">
 			<div id="messages"></div>
@@ -94,11 +27,11 @@
 						<tbody>
 							<tr>
 								<td style="width:50%;">
-									<h3 class="icon-head head-products">Thông Tin Các Tuyến Bus</h3>
+									<h3 class="icon-head head-products">Thông tin các tuyến buýt</h3>
 								</td>
 								<td class="a-right">
 									<button id="ThemTuyenBus" class="scalable add" style=""  onclick="parent.location='../admin/ThemTuyenBus.php'" type="button">
-									<span>Thêm Tuyến Bus</span>
+									<span>Thêm Tuyến Buýt</span>
 								</button>
 								</td>
 							</tr>
@@ -109,10 +42,10 @@
 				<p class="switcher">
 					<label for="store_switcher">Bến đầu / cuối:</label>
 					<select id="store_switcher" onchange="return switchStore(this);" name="store_switcher">
-						<option value="">Tất cả các bến</option>
-						<option value="1">ĐHQG TpHCM</option>
+						<option value="">Tất cả tuyến buýt</option>
+						<option value="1">ĐHQG TPHCM</option>
 						<option value="3">Bến Thành</option>
-						<option value="2">Bến xe Quận 8</option>
+						<option value="2">Bến Xe Quận 8</option>
 					</select>
 				</p>
 				
@@ -122,10 +55,10 @@
 							<tr>
 								<td class="pager">
 									Trang:
-									<img class="arrow" alt="Trang trước" src="http://localhost/businfo/businfo/public/img/login/pager_arrow_left_off.gif">
+									<img class="arrow" alt="Trang trÆ°á»›c" src="http://localhost/businfo/public/img/login/pager_arrow_left_off.gif">
 									<input class="input-text page" type="text" onkeypress="" value="1" name="page">
 									<a onclick="" title="Trang sau" href="#">
-										<img class="arrow" alt="Trang sau" src="http://localhost/businfo/businfo/public/img/login/pager_arrow_right.gif">
+										<img class="arrow" alt="Trang sau" src="http://localhost/businfo/public/img/login/pager_arrow_right.gif">
 									</a>trong 6 trang
 									<span class="separator">|</span>Xem
 									<select onchange="productGridJsObject.loadByElement(this)" name="limit">
@@ -137,7 +70,7 @@
 									</select>
 									/trang
 									<span class="separator">|</span>
-									Tổng cộng: 1 tuyến được tìm thấy
+									Tổng cộng: 1 tuyến được tìm thấy 
 									<span id="productGrid-total-count" class="no-display">1</span>
 									
 								</td>
@@ -202,24 +135,13 @@
 				<div class="grid">
 					<div class="hor-scroll">
 						<table id="productGrid_table" class="data" cellspacing="0" style="width:100%;">
-							<colgroup>
-							<col class="a-center" width="20">
-							<col width="50">
-							<col>
-							<col width="120">
-							<col width="120">
-							<col width="180">
-							<col width="250">
-							<col width="250">
-							<col width="70">
 							
-							</colgroup>
 							<thead>
 								<tr class="headings">
-									<th>
+									<th width="20">
 										<span class="nobr">&nbsp;</span>
 									</th>
-									<th>
+									<th width="50">
 										<span class="nobr">
 										<a class="sort-arrow-desc" title="asc" name="entity_id" href="#">
 											<span class="sort-title">Mã Tuyến</span>
@@ -233,42 +155,42 @@
 										</a>
 										</span>
 									</th>
-									<th>
+									<th width="120">
 										<span class="nobr">
 										<a class="not-sort" title="asc" name="type" href="#">
 											<span class="sort-title">Bến Đầu</span>
 										</a>
 										</span>
 									</th>
-									<th>
+									<th width="120">
 										<span class="nobr">
 										<a class="not-sort" title="asc" name="set_name" href="#">
 											<span class="sort-title">Bến Cuối</span>
 										</a>
 										</span>
 									</th>
-								<th>
+								<th width="180">
 									<span class="nobr">
 									<a class="not-sort" title="asc" name="sku" href="#">
 										<span class="sort-title">Thông Tin Tuyến</span>
 									</a>
 									</span>
 									</th>
-								<th>
+								<th width="250">
 									<span class="nobr">
 									<a class="not-sort" title="asc" name="price" href="#">
 										<span class="sort-title">Lộ Trình Đi</span>
 									</a>
 									</span>
 								</th>
-								<th>
+								<th width="250">
 									<span class="nobr">
 									<a class="not-sort" title="asc" name="qty" href="#">
 										<span class="sort-title">Lộ Trình Về</span>
 									</a>
 									</span>
 								</th>
-								<th class=" no-link last">
+								<th class=" no-link last" width="70">
 									<span class="nobr">Công Cụ</span>
 								</th>
 							</tr>
@@ -300,7 +222,7 @@
 										<option value=""></option>
 										<option value="1">ĐHQG TpHCM</option>
 										<option value="3">Bến Thành</option>
-										<option value="2">Bến xe Quận 8</option>
+										<option value="2">Bến Xe Quận 8</option>
 									</select>
 								</th>
 								<th>
@@ -308,7 +230,7 @@
 										<option value=""></option>
 										<option value="1">ĐHQG TpHCM</option>
 										<option value="3">Bến Thành</option>
-										<option value="2">Bến xe Quận 8</option>
+										<option value="2">Bến Xe Quận 8</option>
 									</select>
 								</th>
 								<th></th>
@@ -319,36 +241,60 @@
 						</thead>
 						
 						<tbody>
+						<?php 	
+						$i=1;
+						foreach($query1 as $row) 
+						{
+							if($i %2 == 1)
+							{	
+						?>
 							<tr class="even pointer" title="">
 								<td class="a-center ">
 									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
 								</td>
-								<td class=" a-center "> 19 </td>
-								<td class=" "> Bến Thành - KCX Linh Trung - Đại học Quốc gia </td>
-								<td class=" "> Bến Thành   </td>
-								<td class=" "> Đại học Quốc gia </td>
-								<td class=" "> Cự ly: 25,95 km <br/>TGHĐ: 05h00 -20h00 </td>
-								<td class=" a-right "> Công trường Quách Thị Trang (trạm điều hành Sài Gòn)-Hàm Nghi-Tôn Đức Thắng-Hai Bà Trưng-Lê Duẩn-Đinh Tiên Hoàng-Nguyễn Thị Minh Khai-Xô Viết Nghệ Tĩnh-Quốc lộ 13-Quốc lộ 1A-(Trạm 2)-Quốc lộ 1A-Đường 621-(Ngã ba đường vào khu ký túc xá)-(Ngã ba đường vào Trường ĐH Quốc Tế)-(Ngã ba đường vào Trường ĐH Khoa học Tự nhiên)-Bến xe buýt A Khu đô thị ĐH Quốc gia TP.HCM; </td>
-								<td class=" a-right "> Bến xe buýt A Khu đô thị ĐH Quốc gia TP.HCM (rẽ phải)-(Ngã ba đường vào Trường ĐH Khoa học Tự nhiên)-(Ngã ba đường vào Trường ĐH Quốc tế)-(Ngã ba đường vào khu ký túc xá)-Đường 621-Quốc lộ 1A-(Trạm 2)-Quốc lộ 1A-Quốc lộ 13-Đinh Bộ Lĩnh-Nguyễn Xí-Ung Văn Khiêm-D2-Điện Biên Phủ-Xô Viết Nghệ Tĩnh-Nguyễn Thị Minh Khai-Đinh Tiên Hoàng-Lê Duẩn-Hai Bà Trưng-Tôn Đức Thắng-Hàm Nghi-Công trường Quách Thị Trang (trạm điều hành Sài Gòn). </td>
+								<td class=" a-center "> <?php echo $row->matuyen; ?> </td>
+								<td class=" "><?php echo $row->tentuyen; ?></td>
+								<td class=" "><?php echo $row->tramdau; ?></td>
+								<td class=" "><?php echo $row->tramcuoi; ?>  </td>
+								<td class=" "><?php echo "- TG vận hành: ".  $row->tgvanhanh; ?>  
+									<br/> <?php echo "- TG giãn cách: ".  $row->tggccao ." - ". $row->tggcthap;?>
+									<br/> <?php echo "- ". $row->tongchuyen ." chuyến/ngày" ;?> 
+								</td>
+								<td class=" a-right ">  </td>
+								<td class=" a-right "> </td>
 								<td class=" last">
 									<a href="">Sửa</a>
 								</td>
 							</tr>
-							<tr class="pointer" title="http://demo-admin.magentocommerce.com/index.php/admin/catalog_product/edit/id/166/key/0b58cae109f5da951b60e98f83eb8f0b/">
+							
+						<?php 
+							}
+							else 
+							{
+						?>
+							<tr class="pointer" title="">
 								<td class="a-center ">
 									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
 								</td>
-								<td class="a-center"> 08 </td>
-								<td class=" "> Bến xe Quận 8 – Đại học Quốc gia</td>
-								<td class=" "> Bến xe Quận 8   </td>
-								<td class=" "> Đại học Quốc gia </td>
-								<td class=" "> Cự ly: Cự ly: 33,85km<br/>TGHĐ: 04h40 -20h20 </td>
-								<td class="a-right"> Bến xe Quận 8 - Quốc lộ 50 - cầu Nhị Thiên Đường - Tùng Thiện Vương - cầu Chà Và - Hải Thượng Lãn Ông - quay đầu Triệu Quang Phục - Hải Thượng Lãn Ông - Châu Văn Liêm - Hồng Bàng - Lý Thường Kiệt - Hoàng Văn Thụ -Phan Đăng Lưu - Bạch Đằng - Xô Viết Nghệ Tĩnh - Quốc lộ 13 - Kha Vạn Cân – Linh Đông – Tô Ngọc Vân - Võ Văn Ngân - Xa lộ Hà Nội - Quốc lộ 52 - Quốc lộ 1A - Đường 621 - (Ngã ba đường vào khu ký túc xá) - (Ngã ba đường vào Trường ĐH Quốc Tế) - (Ngã ba đường vào Trường ĐH Khoa Học Tự Nhiên) - Bến xe buýt A Khu ĐH Quốc Gia TP.HCM</td>
-								<td class="a-right"> Bến xe buýt A Khu ĐH Quốc Gia TP.HCM (rẽ phải) - (Ngã ba đường vào Trường ĐH Khoa học Tự nhiên) - (Ngã ba đường vào Trường ĐH Quốc tế) - (Ngã ba đường vào khu ký túc xá) - Đường 621 - Quốc lộ 1A - Quốc lộ 52 - Võ Văn Ngân – Tô Ngọc Vân – Linh Đông - Kha Vạn Cân - Quốc lộ 13 - Đinh Bộ Lĩnh - Bạch Đằng - Phan Đăng Lưu - Hoàng Văn Thụ - Xuân Diệu - Xuân Hồng - Trường Chinh - Lý Thường Kiệt - Hồng Bàng - Châu Văn Liêm - cầu Chà Và - Cao Xuân Dục - Tùng Thiện Vương - cầu Nhị Thiên Đường - Quốc lộ 50 - Bến xe Quận 8</td>
+								<td class=" a-center "> <?php echo $row->matuyen; ?> </td>
+								<td class=" "><?php echo $row->tentuyen; ?></td>
+								<td class=" "><?php echo $row->tramdau; ?></td>
+								<td class=" "><?php echo $row->tramcuoi; ?>  </td>
+								<td class=" "><?php echo "- TG vận hành: ".  $row->tgvanhanh; ?>  
+									<br/> <?php echo "- TG giãn cách: ".  $row->tggccao ." - ". $row->tggcthap;?>
+									<br/> <?php echo "- ". $row->tongchuyen ." chuyến/ngày" ;?> 
+								</td>
+								<td class=" a-right ">  </td>
+								<td class=" a-right "> </td>
 								<td class=" last">
 									<a href="">Sửa</a>
 								</td>
 							</tr>
+						<?php 
+							}
+							$i++;
+						}
+						?>
 						</tbody>
 					</table>
 					
@@ -357,15 +303,7 @@
 		</div>			
 				
 		
-		<div class="footer">
-			<p class="bug-report">
-				<p class="legality">
-					<a href="http://localhost/businfo/" id="footer_connect">BusInfo TpHCM</a>&trade;
-					<img src="" class="v-middle" alt="" />&nbsp;&nbsp;
-					<br/>Copyright &copy; 2011  <br/> By Nguyễn Ngọc Phúc - Dương Phi Long
-				</p>
-				BusInfo HCMC ver. 1.0.0
-		</div>
+		<?php include("t_bottom_ad_home.php"); ?>
 	</div>
 
 

@@ -6,87 +6,19 @@
 	<link rel="icon" href="" type="image/x-icon"/>
 	<link rel="shortcut icon" href="" type="image/x-icon"/>
 	
-	<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/js/calendar/calendar-win2k-1.css" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Reset_Text.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Login.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Menu.css" media="screen, projection"/>
 	
-	<script type="text/javascript" src="http://localhost/BusInfo/businfo/public/js/prototype.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Reset_Text.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Login.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Menu.css" media="screen, projection"/>
+	
+	<script type="text/javascript" src="<?php echo base_url() ?>public/js/prototype.js"></script>
 
 </head>
 
 <body id="html-body"class=" adminhtml-dashboard-index">
+
 	<div class="wrapper">
-		<div class="header">
-	    	<div class="header-top">
-				<a href="">
-					<img class="logo" alt="BusInfo Logo" src="">
-				</a>
-				<div class="header-right">
-				<p class="super">Đăng nhập với quyền admin
-					<span class="separator">|</span>
-					Thứ 7, Ngày 5 tháng 11 năm 2011
-					<span class="separator">|</span>
-					<a class="link-logout" href="../login.php">Đăng xuất</a>
-				</p>
-				</div>
-			</div>
-		    <div class="clear"></div>
-		    
-		    <div class="nav-bar">
-		    	<ul id="nav">
-				  	<li class=" active level0"> 
-				  		<a href="../admin/ad_home.php" class="active"><span>Trang Chủ</span></a>
-				    </li>
-				    <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-				    	<a href="#" onclick="return false" class=""><span>Tuyến Bus</span></a>
-				    	<ul >
-					        <li class=" level1"> 
-					        	<a href="../admin/ThongTinTuyen.php" class=""><span>Thông Tin Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="../admin/ThemTuyenBus.php" class=""><span>Thêm Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="" class=""><span>Sửa Thông Tin Tuyến</span>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Trạm Bus</span></a>
-						<ul >
-							<li class="  level1"> 
-								<a href="../admin/ThongTinTram.php"  class=""><span>Thông Tin Trạm Bus</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href="../admin/ThemTramBus.php"  class=""><span>Thêm Trạm Bus</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Sửa Thông Tin Trạm Bus</span></a>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Địa Điểm</span></a>
-						<ul >
-							<li class="  level1">
-								<a href=""  class=""><span>Thông Tin Địa Điểm</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href=""  class=""><span>Thêm Loại Địa Điểm</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Thêm Địa Điểm</span></a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				
-				<a id="page-help-link" href="">Hướng dẫn</a>
-				<script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
-			</div>
-		</div>
-		
+		<?php include("t_top_ad_home.php"); ?>
 		<div class="middle" id="anchor-content">
 			<div id="messages"></div>
 				<div class="content-header">
@@ -123,10 +55,10 @@
 							<tr>
 								<td class="pager">
 									Trang:
-									<img class="arrow" alt="Trang trước" src="http://localhost/businfo/businfo/public/img/login/pager_arrow_left_off.gif">
+									<img class="arrow" alt="Trang trước" src="<?php echo base_url() ?>public/img/login/pager_arrow_left_off.gif">
 									<input class="input-text page" type="text" onkeypress="" value="1" name="page">
 									<a onclick="" title="Trang sau" href="#">
-										<img class="arrow" alt="Trang sau" src="http://localhost/businfo/businfo/public/img/login/pager_arrow_right.gif">
+										<img class="arrow" alt="Trang sau" src="<?php echo base_url() ?>public/img/login/pager_arrow_right.gif">
 									</a>trong 6 trang
 									<span class="separator">|</span>Xem
 									<select onchange="productGridJsObject.loadByElement(this)" name="limit">
@@ -203,57 +135,48 @@
 				<div class="grid">
 					<div class="hor-scroll">
 						<table id="productGrid_table" class="data" cellspacing="0" style="width:100%;">
-							<colgroup>
-							<col class="a-center" width="20">
-							<col width="50">
-							<col>
-							<col width="120">
-							<col width="250">
-							<col width="200">
-							<col width="70">
-							
-							</colgroup>
+			
 							<thead>
-								<tr class="headings">
-									<th>
+								<tr Width="20" class="headings">
+									<th >
 										<span class="nobr">&nbsp;</span>
 									</th>
-									<th>
+									<th width="50">
 										<span class="nobr">
 										<a class="sort-arrow-desc" title="asc" name="entity_id" href="#">
 											<span class="sort-title">Mã Trạm</span>
 										</a>
 										</span>
 									</th>
-									<th>
+									<th >
 										<span class="nobr">
 										<a class="not-sort" title="asc" name="name" href="#">
 											<span class="sort-title">Tên Trạm</span>
 										</a>
 										</span>
 									</th>
-									<th>
+									<th width="240">
 										<span class="nobr">
 										<a class="not-sort" title="asc" name="type" href="#">
 											<span class="sort-title">Tọa Độ</span>
 										</a>
 										</span>
 									</th>
-									<th>
+									<th width="250">
 										<span class="nobr">
 										<a class="not-sort" title="asc" name="set_name" href="#">
 											<span class="sort-title">Địa Chỉ</span>
 										</a>
 										</span>
 									</th>
-								<th>
+								<th width="120">
 									<span class="nobr">
 									<a class="not-sort" title="asc" name="sku" href="#">
 										<span class="sort-title">Các Tuyến Đi Qua</span>
 									</a>
 									</span>
 									</th>
-								<th class=" no-link last">
+								<th class=" no-link last" width="70">
 									<span class="nobr">Công Cụ</span>
 								</th>
 							</tr>
@@ -300,266 +223,49 @@
 						</thead>
 						
 						<tbody>
-							<tr class="even pointer" title="">
+						<?php
+						$i=1; 	
+						foreach($query as $row) 
+						{
+							if($i %2 == 1)
+							{
+						?>
+           					<tr class="even pointer" title="">
 								<td class="a-center ">
 									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
 								</td>
-								<td class=" a-center "> 1 </td>
-								<td class=" "> Bến xe ĐHQG TpHCM </td>
-								<td class=" "> 10.875871679728599,106.80093348026276  </td>
+								<td class=" a-center "><?php echo $row->matram;?></td>
+								<td class=" "><?php echo $row->tentram;?></td>
+								<td class=" "><?php echo $row->geo_lat ." - ". $row->geo_long;?> </td>
 								<td class=" "> </td>
 								<td class=" "> 08,19</td>
 								<td class=" last">
 									<a href="">Sửa</a>
 								</td>
 							</tr>
+						<?php 
+							}
+							else 
+							{
+						?>
 							<tr class="pointer" title="">
 								<td class="a-center ">
 									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
 								</td>
-								<td class=" a-center "> 2 </td>
-								<td class=" "> Suối Tiên </td>
-								<td class=" "> 10.866126261141565,106.80206537246704  </td>
+								<td class=" a-center "><?php echo $row->matram;?></td>
+								<td class=" "><?php echo $row->tentram;?></td>
+								<td class=" "><?php echo $row->geo_lat ." - ". $row->geo_long;?> </td>
 								<td class=" "> </td>
-								<td class=" "> 08,19</td>
+								<td class=" "><?php echo $row->tuyendiqua;?></td>
 								<td class=" last">
 									<a href="">Sửa</a>
 								</td>
 							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 3 </td>
-								<td class=" "> ĐH CNTT ĐHQG TpHCM</td>
-								<td class=" "> 10.86901455745209,106.80390939116478 </td>
-								<td class=" "> </td>
-								<td class=" "> 08,19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 4 </td>
-								<td class=" "> ĐH Nông Lâm </td>
-								<td class=" "> 10.86769092307778,106.78854703903198  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 5 </td>
-								<td class=" "> ĐH Kinh Tế Luật (Linh Xuân) </td>
-								<td class=" "> 10.870122191257042,106.77631348371506  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 6 </td>
-								<td class=" "> Khu CX Linh Trung I</td>
-								<td class=" "> 10.872479685903402,106.76766067743301 </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 7 </td>
-								<td class=" "> Khu CN Sóng Thần </td>
-								<td class=" "> 10.874671217289244,106.74691379070282  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 8 </td>
-								<td class=" "> Chợ Đầu Mối Thủ Đức</td>
-								<td class=" "> 10.868317839194859,106.72970741987228  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 9</td>
-								<td class=" "> Cầu Vượt Bình Phước</td>
-								<td class=" "> 10.864111154140145,106.7257109284401 </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr> 
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 10 </td>
-								<td class=" "> CA P.Hiệp Bình Phước </td>
-								<td class=" "> 10.856316644907103,106.72258615493774  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 11 </td>
-								<td class=" "> C.Ty Kinh Đô </td>
-								<td class=" "> 10.838829625801347,106.71537101268768  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 12 </td>
-								<td class=" "> ĐH Luật TpHCM -Chợ Bình Triệu I</td>
-								<td class=" "> 10.830005053332693,106.7144563794136 </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 13 </td>
-								<td class=" "> Ngã tư Bình Triệu </td>
-								<td class=" "> 10.826851616655793,106.71470046043396  </td>
-								<td class=" "> </td>
-								<td class=" "> 08,19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 14 </td>
-								<td class=" "> Bến xe Miền Đông </td>
-								<td class=" "> 10.817177709119356,106.71175807714462  </td>
-								<td class=" "> </td>
-								<td class=" "> 08,19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 15 </td>
-								<td class=" "> Nguyễn Xí</td>
-								<td class=" "> 10.812424945211228,106.71060740947723 </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 16 </td>
-								<td class=" "> Ung Văn Khiêm</td>
-								<td class=" "> 10.80899864048627,106.71360075473785  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 17</td>
-								<td class=" "> Cafe D2 </td>
-								<td class=" "> 10.807355949952361,106.71596646308899  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 18 </td>
-								<td class=" "> ĐH GTVT TpHCM</td>
-								<td class=" "> 10.804808246929824,106.715607047081 </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 19 </td>
-								<td class=" ">ĐH Kỹ Thuật Công Nghệ</td>
-								<td class=" "> 10.801575504734686,106.71427130699158  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
-							<tr class="even pointer" title="">
-								<td class="a-center ">
-									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
-								</td>
-								<td class=" a-center "> 20 </td>
-								<td class=" ">Hàng Xanh</td>
-								<td class=" "> 10.800537,106.711143  </td>
-								<td class=" "> </td>
-								<td class=" "> 19</td>
-								<td class=" last">
-									<a href="">Sửa</a>
-								</td>
-							</tr>
+						<?php 
+							}
+							$i++;
+						} 
+						?>
 						</tbody>
 					</table>
 					
@@ -568,15 +274,7 @@
 		</div>			
 				
 		
-		<div class="footer">
-			<p class="bug-report">
-				<p class="legality">
-					<a href="http://localhost/businfo/" id="footer_connect">BusInfo TpHCM</a>&trade;
-					<img src="" class="v-middle" alt="" />&nbsp;&nbsp;
-					<br/>Copyright &copy; 2011  <br/> By Nguyễn Ngọc Phúc - Dương Phi Long
-				</p>
-				BusInfo HCMC ver. 1.0.0
-		</div>
+		<?php include("t_bottom_ad_home.php"); ?>
 	</div>
 
 

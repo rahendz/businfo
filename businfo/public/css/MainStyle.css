@@ -39,7 +39,7 @@
     background-color: #FFFF33;
 }
 a.TreeClose {
-    background: url("http://localhost/businfo/public/img/Skins/close.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/close.png") no-repeat scroll 0 0 transparent;
     cursor: pointer;
     display: block;
     height: 16px;
@@ -60,12 +60,13 @@ a.TreeClose {
     padding: 0;
 }
 body {
-    background: url("http://localhost/businfo/public/img/Skins/bg_header.png") repeat-x scroll 0 0 #FFFFFF;
+    background: url("../img/Skins/bg_header.png") repeat-x scroll 0 0 #FFFFFF;
     filter: none;
     font-family: Tahoma,Verdana,Geneva,sans-serif;
     font-size: 11px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
+    height: 100%;
     
 }
 *::-moz-selection {
@@ -123,7 +124,8 @@ ol, ul {
     padding: 0;
 }
 #header_wrap {
-    background: url("http://localhost/businfo/public/img/Skins/ab.png") repeat-x scroll left top transparent;
+    background: url("../img/Skins/ab.png") repeat-x scroll left top transparent;
+  /*  background: url("../img/login/header_top_bg.gif") repeat-x scroll 0 0 #425E66;*/
     float: left;
     height: 18%;
     width: 100%;
@@ -135,7 +137,7 @@ ol, ul {
     width: 650px;
 }
 #logo {
-    background: url("http://localhost/businfo/public/img/Skins/bg_logo.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg_logo.png") no-repeat scroll 0 0 transparent;
     height: 62px;
     left: 0;
     position: absolute;
@@ -143,11 +145,11 @@ ol, ul {
     width: 204px;
 }
 .logo-old {
-    background: url("http://localhost/businfo/public/img/Skins/oldlogo-large.png") no-repeat scroll 20px 5px transparent;
+    background: url("../img/Skins/logo.png") no-repeat scroll 10px 0px transparent;
     float: left;
-    height: 63px;
-    margin: 20px 0 0 35px;
-    width: 202px;
+    height: 90px;
+    margin: 0px 0 0 35px;
+    width: 260px;
 }
 
 #nav {
@@ -174,13 +176,13 @@ ol, ul {
     visibility: inherit;
 }
 #nav li li {
-    background: url("http://localhost/businfo/public/img/Skins/bg-nav-sub.gif") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-nav-sub.gif") repeat scroll 0 0 transparent;
     border-left: 1px solid #E1E1E1;
     border-right: 1px solid #E1E1E1;
     padding: 0 4px;
 }
 #nav li li li {
-    background: url("/http://localhost/businfo/public/img/Skins/bg-nav-sub.gif") repeat scroll 0 0 transparent;
+    background: url("/../img/Skins/bg-nav-sub.gif") repeat scroll 0 0 transparent;
     border-left: 1px solid #E1E1E1;
     border-right: 1px solid #E1E1E1;
     padding: 0 4px;
@@ -196,15 +198,15 @@ ol, ul {
     border-bottom-right-radius: 6px;
 }
 #nav li li a:hover, #nav li li li a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/bg-submenu.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-submenu.png") repeat scroll 0 0 transparent;
     color: #FFFFFF;
     outline: 0 none;
 }
 #nav a:active {
-    background: url("http://localhost/businfo/public/img/Skins/nav-active.png") no-repeat scroll left 8px transparent;
+    background: url("../img/Skins/nav-active.png") no-repeat scroll left 8px transparent;
 }
 #nav li.nav-arrow {
-    background: url("http://localhost/businfo/public/img/Skins/nav_arrow.png") no-repeat scroll center top transparent;
+    background: url("../img/Skins/nav_arrow.png") no-repeat scroll center top transparent;
     height: 9px;
     position: absolute;
 }
@@ -213,7 +215,7 @@ ol, ul {
     padding-right: 18px;
 }
 .sf-sub-indicator {
-    background: url("http://localhost/businfo/public/img/Skins/nav-arrow.png") no-repeat scroll 0 -6px transparent;
+    background: url("../img/Skins/nav-arrow.png") no-repeat scroll 0 -6px transparent;
     display: block;
     height: 5px;
     overflow: hidden;
@@ -252,11 +254,11 @@ a:focus > .sf-sub-indicator, a:hover > .sf-sub-indicator, a:active > .sf-sub-ind
     text-shadow: 0 1px 0 #FFFFFF;
 }
 #nav a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/nav-hover.png") no-repeat scroll left 8px transparent;
+    background: url("../img/Skins/nav-hover.png") no-repeat scroll left 8px transparent;
     color: #0175D8;
 }
 .main-nav-hover {
-    background: url("http://localhost/businfo/public/img/Skins/nav-hover.png") no-repeat scroll left 8px transparent;
+    background: url("../img/Skins/nav-hover.png") no-repeat scroll left 8px transparent;
 }
 .submenu1 {
     display: block;
@@ -308,7 +310,7 @@ ul#nav li li li:hover ul, ul#nav li li li.sfHover ul {
     top: 0;
 }
 .sf-shadow ul {
-    background: url("http://localhost/businfo/public/img/Skins/shadow.png") no-repeat scroll right bottom transparent;
+    background: url("../img/Skins/shadow.png") no-repeat scroll right bottom transparent;
     border-bottom-left-radius: 17px;
     border-top-right-radius: 17px;
     padding: 0 17px 9px 0;
@@ -322,29 +324,29 @@ ul#nav li li li:hover ul, ul#nav li li li.sfHover ul {
     top: 42px;
 }
 .SLeft {
-    background: url("http://localhost/businfo/public/img/Skins/SLeft.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/SLeft.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 47px;
     width: 7px;
 }
 .SCenter {
-    background: url("http://localhost/businfo/public/img/Skins/bg-SCenter.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg-SCenter.png") repeat-x scroll 0 0 transparent;
     float: left;
     padding: 10px 4px;
 }
 .SRight {
-    background: url("http://localhost/businfo/public/img/Skins/SRight.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/SRight.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 47px;
     width: 7px;
 }
 .SBox {
-    background: url("http://localhost/businfo/public/img/Skins/bg-SBox.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg-SBox.png") repeat-x scroll 0 0 transparent;
     height: 27px;
     width: 483px;
 }
 .SBoxLeft {
-    background: url("http://localhost/businfo/public/img/Skins/SBoxLeft.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/SBoxLeft.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 27px;
     width: 7px;
@@ -361,7 +363,7 @@ ul#nav li li li:hover ul, ul#nav li li li.sfHover ul {
     width: 342px;
 }
 .SButton {
-    background: url("http://localhost/businfo/public/img/Skins/btn-search.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/btn-search.png") no-repeat scroll 0 0 transparent;
     color: #254401;
     cursor: pointer;
     float: right;
@@ -374,10 +376,10 @@ ul#nav li li li:hover ul, ul#nav li li li.sfHover ul {
     width: 56px;
 }
 input.SButton:hover {
-    background: url("http://localhost/businfo/public/img/Skins/btn-search.png") no-repeat scroll left -27px transparent;
+    background: url("../img/Skins/btn-search.png") no-repeat scroll left -27px transparent;
 }
 input.SButton:active {
-    background: url("http://localhost/businfo/public/img/Skins/btn-search.png") no-repeat scroll left -54px transparent;
+    background: url("../img/Skins/btn-search.png") no-repeat scroll left -54px transparent;
 }
 .SHelpClose, .SHelpOpen {
     display: block;
@@ -389,7 +391,7 @@ input.SButton:active {
     width: 17px;
 }
 .SHelpClose a, .SHelpOpen a {
-    background: url("http://localhost/businfo/public/img/Skins/SHelp0.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/SHelp0.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 17px;
     text-indent: -9999px;
@@ -402,7 +404,7 @@ input.SButton:active {
     background-position: 0 -34px;
 }
 .SHelpOpen a {
-    background: url("http://localhost/businfo/public/img/Skins/SHelp0.png") no-repeat scroll left -34px transparent;
+    background: url("../img/Skins/SHelp0.png") no-repeat scroll left -34px transparent;
 }
 .SHelpOpen a:hover {
     background-position: 0 -17px;
@@ -442,7 +444,7 @@ input.SButton:active {
     text-shadow: 1px 1px 0 #FFFFFF;
 }
 .SHelpDiv-div-ul {
-    background: url("http://localhost/businfo/public/img/Skins/Location.png") no-repeat scroll 290px 10px transparent;
+    background: url("../img/Skins/Location.png") no-repeat scroll 290px 10px transparent;
     border-top: 1px solid #FFFFFF;
     padding: 10px 20px 0;
 }
@@ -453,7 +455,7 @@ input.SButton:active {
     text-shadow: none;
 }
 .close {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
     height: 16px;
     position: absolute;
     right: 5px;
@@ -479,34 +481,34 @@ input.SButton:active {
     top: -10px;
 }
 .SWRight-bgShadow {
-    background: url("http://localhost/businfo/public/img/Skins/s-shadow.png") no-repeat scroll right bottom transparent;
+    background: url("../img/Skins/s-shadow.png") no-repeat scroll right bottom transparent;
     left: -4px;
     padding: 0 4px 7px;
     position: relative;
 }
 .SWRight-bg {
-    background: url("http://localhost/businfo/public/img/Skins/SWRight-bg.png") no-repeat scroll right bottom transparent;
+    background: url("../img/Skins/SWRight-bg.png") no-repeat scroll right bottom transparent;
     display: inline-block;
     height: 10px;
     width: 505px;
 }
 .SWCenter-bg {
-    background: url("http://localhost/businfo/public/img/Skins/SWCenter-bg.png") repeat-x scroll center bottom transparent;
+    background: url("../img/Skins/SWCenter-bg.png") repeat-x scroll center bottom transparent;
     height: 10px;
     margin-right: 7px;
 }
 .SWLeft {
-    background: url("http://localhost/businfo/public/img/Skins/SWLeft.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/SWLeft.png") no-repeat scroll left top transparent;
     display: inline-block;
     height: 31px;
     position: absolute;
 }
 .SWRight {
-    background: url("http://localhost/businfo/public/img/Skins/SWRight.png") no-repeat scroll right top transparent;
+    background: url("../img/Skins/SWRight.png") no-repeat scroll right top transparent;
     height: 31px;
 }
 .SWCloseArea {
-    background: url("http://localhost/businfo/public/img/Skins/closeArea.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/closeArea.png") no-repeat scroll 0 0 transparent;
     display: block;
     height: 8px;
     position: absolute;
@@ -515,13 +517,13 @@ input.SButton:active {
     width: 8px;
 }
 .SWContent {
-    background: url("http://localhost/businfo/public/img/Skins/bg-SW.png") repeat-x scroll center top transparent;
+    background: url("../img/Skins/bg-SW.png") repeat-x scroll center top transparent;
     height: 31px;
     margin: 0 18px 0 6px;
     position: relative;
 }
 .SWBut {
-    background: url("http://localhost/businfo/public/img/Skins/bg-SWBut.png") no-repeat scroll right center transparent;
+    background: url("../img/Skins/bg-SWBut.png") no-repeat scroll right center transparent;
     bottom: 0;
     float: left;
     height: 23px;
@@ -537,29 +539,29 @@ input.SButton:active {
     text-shadow: 0 1px 0 #005AE7;
 }
 .SWBut a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/bg-SWBut-hover.png") no-repeat scroll 4px 3px transparent;
+    background: url("../img/Skins/bg-SWBut-hover.png") no-repeat scroll 4px 3px transparent;
     text-shadow: 0 1px 0 #000000;
 }
 #s-left {
-    background: url("http://localhost/businfo/public/img/Skins/s_left.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_left.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 60px;
     width: 7px;
 }
 #s-center {
-    background: url("http://localhost/businfo/public/img/Skins/s_center.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/s_center.png") repeat-x scroll 0 0 transparent;
     float: left;
     height: 60px;
     width: 487px;
 }
 #s-right {
-    background: url("http://localhost/businfo/public/img/Skins/s_right.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_right.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 60px;
     width: 4px;
 }
 #s-top {
-    background: url("http://localhost/businfo/public/img/Skins/bg_s_top.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_s_top.png") repeat-x scroll 0 0 transparent;
     height: 25px;
     left: 7px;
     margin: 9px 0 0 2px;
@@ -568,7 +570,7 @@ input.SButton:active {
     width: 483px;
 }
 .l_s-top {
-    background: url("http://localhost/businfo/public/img/Skins/l_s_top.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/l_s_top.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 25px;
     width: 4px;
@@ -586,14 +588,14 @@ input.SButton:active {
     width: 344px;
 }
 .s-help-close {
-    background: url("http://localhost/businfo/public/img/Skins/s_help.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_help.png") repeat scroll 0 0 transparent;
     float: left;
     height: 25px;
     margin-left: 8px;
     width: 85px;
 }
 .s-help-open {
-    background: url("http://localhost/businfo/public/img/Skins/s_help_hover2.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_help_hover2.png") repeat scroll 0 0 transparent;
     float: left;
     height: 25px;
     margin-left: 8px;
@@ -607,11 +609,11 @@ input.SButton:active {
     padding: 6px 0 0 17px;
 }
 .s-help-close a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/s_help_hover.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_help_hover.png") no-repeat scroll 0 0 transparent;
     color: #333333;
 }
 .s-help-open a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/s_help_hover2.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_help_hover2.png") no-repeat scroll 0 0 transparent;
     color: #333333;
 }
 .helpdiv {
@@ -641,7 +643,7 @@ input.SButton:active {
     padding: 11px 9px 11px 30px;
 }
 a.btn-xemthem {
-    background: url("http://localhost/businfo/public/img/Skins/btn-xemthem.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/btn-xemthem.png") no-repeat scroll left top transparent;
     bottom: 17px;
     height: 32px;
     position: absolute;
@@ -672,7 +674,7 @@ a.btn-xemthem:active {
     padding: 2px 0 0 25px;
 }
 #s-bot {
-    background: url("http://localhost/businfo/public/img/Skins/s-shadow.png") no-repeat scroll center bottom transparent;
+    background: url("../img/Skins/s-shadow.png") no-repeat scroll center bottom transparent;
     float: left;
     left: -12px;
     padding: 0 8px 7px;
@@ -681,7 +683,7 @@ a.btn-xemthem:active {
     width: 493px;
 }
 #s-bot-content {
-    background: url("http://localhost/businfo/public/img/Skins/bg-where.png") no-repeat scroll 0 bottom #F7F7F7;
+    background: url("../img/Skins/bg-where.png") no-repeat scroll 0 bottom #F7F7F7;
     border-bottom: 1px solid #CCCCCC;
     border-left: 1px solid #CCCCCC;
     border-right: 1px solid #CCCCCC;
@@ -689,7 +691,7 @@ a.btn-xemthem:active {
     width: 493px;
 }
 #timo {
-    background: url("http://localhost/businfo/public/img/Skins/bg_timo.png") no-repeat scroll right center transparent;
+    background: url("../img/Skins/bg_timo.png") no-repeat scroll right center transparent;
     bottom: 0;
     float: left;
     height: 23px;
@@ -697,7 +699,7 @@ a.btn-xemthem:active {
     width: 55px;
 }
 #timo a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/bg_timo-hover.png") no-repeat scroll right center transparent;
+    background: url("../img/Skins/bg_timo-hover.png") no-repeat scroll right center transparent;
 }
 #timo a {
     color: #707070;
@@ -722,7 +724,7 @@ a.btn-xemthem:active {
     text-shadow: 0 1px 0 #004076;
 }
 .boundTree {
-    background: url("http://localhost/businfo/public/img/Skins/SWTrShadow.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/SWTrShadow.png") repeat scroll 0 0 transparent;
     display: inline-block;
     overflow: hidden;
     position: relative;
@@ -742,13 +744,13 @@ a.btn-xemthem:active {
     top: 18px;
 }
 .b_left {
-    background: url("http://localhost/businfo/public/img/Skins/b_left.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/b_left.png") repeat scroll 0 0 transparent;
     float: left;
     height: 21px;
     width: 1px;
 }
 #taikhoan {
-    background: url("http://localhost/businfo/public/img/Skins/bg_login.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_login.png") repeat-x scroll 0 0 transparent;
     color: #707070;
     float: left;
     font-family: Tahoma,Verdana,Geneva,sans-serif;
@@ -758,13 +760,13 @@ a.btn-xemthem:active {
     width: 69px;
 }
 .b_right {
-    background: url("http://localhost/businfo/public/img/Skins/b_right.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/b_right.png") repeat scroll 0 0 transparent;
     float: left;
     height: 21px;
     width: 1px;
 }
 #matkhau {
-    background: url("http://localhost/businfo/public/img/Skins/bg_login.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_login.png") repeat-x scroll 0 0 transparent;
     color: #707070;
     float: left;
     font-family: Tahoma,Verdana,Geneva,sans-serif;
@@ -817,18 +819,18 @@ a.btn-xemthem:active {
     color: #0175D8;
 }
 #line4 .CaptureMap {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -96px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -96px transparent;
     height: 12px;
     margin: 0 5px 0 0;
     padding: 5px 12px 4px 13px;
 }
 #line4 .PrintMap {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 2px -113px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 2px -113px transparent;
     height: 12px;
     padding: 5px 12px 4px 13px;
 }
 #line4 .SendMap {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 3px -206px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 3px -206px transparent;
     height: 12px;
     padding: 5px 13px 4px 14px;
 }
@@ -860,7 +862,7 @@ a.btn-xemthem:active {
     box-shadow: 0 1px 2px #333333 inset;
 }
 #line4 .SaveViewIcon {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -305px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -305px transparent;
     height: 12px;
     padding: 2px 0 3px;
     width: 27px;
@@ -889,7 +891,7 @@ a.btn-xemthem:active {
     box-shadow: 0 1px 2px #333333 inset;
 }
 #line4 .ReturnPageScreenIcon {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -323px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -323px transparent;
     height: 12px;
     padding: 2px 0 3px;
     width: 27px;
@@ -901,7 +903,7 @@ a.btn-xemthem:active {
     padding: 0 5px;
 }
 .lang-Eng {
-    background: url("http://localhost/businfo/public/img/Skins/english.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/english.png") no-repeat scroll 0 0 transparent;
     display: block;
     height: 16px;
     position: absolute;
@@ -910,10 +912,10 @@ a.btn-xemthem:active {
     width: 16px;
 }
 .lang-Vie {
-    background: url("http://localhost/businfo/public/img/Skins/vietnam.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/vietnam.png") no-repeat scroll 0 0 transparent;
 }
 #bando_tab {
-    background: url("http://localhost/businfo/public/img/Skins/bg_bando_tab.png") repeat-x scroll center bottom transparent;
+    background: url("../img/Skins/bg_bando_tab.png") repeat-x scroll center bottom transparent;
     height: 37px;
     left: 0;
     position: absolute;
@@ -926,13 +928,13 @@ a.btn-xemthem:active {
     top: 7px;
 }
 #bando_tab li {
-    background: url("http://localhost/businfo/public/img/Skins/active2_right.png") no-repeat scroll 100% 80px transparent;
+    background: url("../img/Skins/active2_right.png") no-repeat scroll 100% 80px transparent;
     float: left;
     height: 37px;
 }
 #bando_tab li a {
     -moz-user-select: none;
-    background: url("http://localhost/businfo/public/img/Skins/active2_left.png") no-repeat scroll 0 80px transparent;
+    background: url("../img/Skins/active2_left.png") no-repeat scroll 0 80px transparent;
     color: #FFFFFF;
     display: block;
     float: left;
@@ -942,7 +944,7 @@ a.btn-xemthem:active {
     text-shadow: 0 1px 0 #005AE7;
 }
 #bando_tab li a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/tab_hover.png") repeat-x scroll center bottom transparent;
+    background: url("../img/Skins/tab_hover.png") repeat-x scroll center bottom transparent;
 }
 #bando_tab li.active2, #bando_tab li.active2 a, #bando_tab li.active2 a:hover {
     color: #333333;
@@ -953,7 +955,7 @@ a.btn-xemthem:active {
     text-shadow: 1px 1px 0 #FFFFFF;
 }
 #bando_tab li.active2 a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/active2_left.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/active2_left.png") no-repeat scroll 0 0 transparent;
 }
 #bando_tab li.active2 a, #bando_tab li.active2 a:hover {
     background-position: 0 0;
@@ -963,36 +965,39 @@ a.btn-xemthem:active {
     background-position: right top;
 }
 #bando_tab li.active3 a, #bando_tab li.active3 a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/active2_left2.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/active2_left2.png") no-repeat scroll 0 0 transparent;
     padding: 12px 14px;
 }
 #bando_tab li.active3 {
-    background: url("http://localhost/businfo/public/img/Skins/active2_right2.png") no-repeat scroll right top transparent;
+    background: url("../img/Skins/active2_right2.png") no-repeat scroll right top transparent;
 }
 #content_wrap {
     float: left;
     width: 100%;
+   
 }
 .LeftPanel {
-    background: url("http://localhost/businfo/public/img/Skins/bg-tab.png") repeat-x scroll 0 0 #FFFFFF;
+    background: url("../img/Skins/bg-tab.png") repeat-x scroll 0 0 #FFFFFF;
     border-bottom: 1px solid #B7B7B7;
     float: left;
     left: 0;
     position: absolute;
     top: 118px;
+     
 }
 .bodyLeftPanel {
     overflow-x: hidden;
     overflow-y: auto;
     padding: 0 0 0 5px;
     position: relative;
-    height:82%;
+    height: 550px;
+    
 }
 .mymap_div {
     padding: 15px 0 0 5px;
 }
 .splExpand {
-    background: url("http://localhost/businfo/public/img/Skins/bg-splExpand.png") repeat-y scroll 0 0 transparent;
+    background: url("../img/Skins/bg-splExpand.png") repeat-y scroll 0 0 transparent;
     float: left;
     height: 550px;
     left: 343px;
@@ -1000,7 +1005,7 @@ a.btn-xemthem:active {
     width: 9px;
 }
 .topsp1Expand {
-    background: url("http://localhost/businfo/public/img/Skins/top-splExpand.png") no-repeat scroll center top transparent;
+    background: url("../img/Skins/top-splExpand.png") no-repeat scroll center top transparent;
     height: 105px;
     left: 2px;
     position: absolute;
@@ -1008,14 +1013,14 @@ a.btn-xemthem:active {
     width: 7px;
 }
 .botsp1Expand {
-    background: url("http://localhost/businfo/public/img/Skins/bot-splExpand.png") no-repeat scroll center bottom transparent;
+    background: url("../img/Skins/bot-splExpand.png") no-repeat scroll center bottom transparent;
     bottom: 0;
     height: 4px;
     position: absolute;
     width: 9px;
 }
 .moveicon {
-    background: url("http://localhost/businfo/public/img/Skins/moveicon.png") no-repeat scroll right top transparent;
+    background: url("../img/Skins/moveicon.png") no-repeat scroll right top transparent;
     height: 35px;
     left: 4px;
     position: absolute;
@@ -1023,7 +1028,7 @@ a.btn-xemthem:active {
     width: 18px;
 }
 .moveicon-out {
-    background: url("http://localhost/businfo/public/img/Skins/moveicon-out.png") no-repeat scroll right top transparent;
+    background: url("../img/Skins/moveicon-out.png") no-repeat scroll right top transparent;
     height: 35px;
     left: 4px;
     position: absolute;
@@ -1040,7 +1045,7 @@ a.moveicon-out:hover {
     padding: 5px 0;
     position: relative;
     width: 345px;
-  
+   	
 }
 .mainmap {
     background-color: #EDEAE2;
@@ -1084,7 +1089,7 @@ a.moveicon-out:hover {
     color: #111111;
 }
 #createNewMap {
-    background: url("http://localhost/businfo/public/img/Skins/bullet_add.png") no-repeat scroll -8px -6px transparent;
+    background: url("../img/Skins/bullet_add.png") no-repeat scroll -8px -6px transparent;
     float: left;
     font-size: 11px;
     height: 16px;
@@ -1174,16 +1179,16 @@ a.moveicon-out:hover {
     width: 25px;
 }
 .topLeftPanel .edit span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons2.png") no-repeat scroll 6px 3px transparent;
+    background: url("../img/Skins/Icons2.png") no-repeat scroll 6px 3px transparent;
 }
 .topLeftPanel .save span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons2.png") no-repeat scroll 6px -36px transparent;
+    background: url("../img/Skins/Icons2.png") no-repeat scroll 6px -36px transparent;
 }
 .topLeftPanel .back span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons2.png") no-repeat scroll 6px -16px transparent;
+    background: url("../img/Skins/Icons2.png") no-repeat scroll 6px -16px transparent;
 }
 .topLeftPanel .trash span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons2.png") no-repeat scroll 6px -56px transparent;
+    background: url("../img/Skins/Icons2.png") no-repeat scroll 6px -56px transparent;
 }
 .topLeftPanel a.back:active span, .topLeftPanel a.save:active span, .topLeftPanel a.edit:active span, .topLeftPanel .trash:active span {
     background-position: 7px 4px;
@@ -1201,7 +1206,7 @@ a.moveicon-out:hover {
     background-position: 7px -55px;
 }
 .clearPathResult {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
     height: 16px;
     padding: 0 0 2px;
     text-indent: -9999px;
@@ -1211,21 +1216,21 @@ a.moveicon-out:hover {
     margin: 10px 0 0;
 }
 .tdreverse {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 1px -173px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 1px -173px transparent;
     height: 16px;
     margin: 0 8px 0 0;
     text-indent: -9999px;
     width: 20px;
 }
 .printDirection {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 0 -117px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 0 -117px transparent;
     height: 16px;
     margin: 0 8px 0 0;
     text-indent: -9999px;
     width: 20px;
 }
 #clearSearchResultText {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
     display: block;
     height: 16px;
     padding: 0 0 2px;
@@ -1233,7 +1238,7 @@ a.moveicon-out:hover {
     width: 16px;
 }
 .new {
-    background: url("http://localhost/businfo/public/img/Skins/new.png") no-repeat scroll left 3px transparent;
+    background: url("../img/Skins/new.png") no-repeat scroll left 3px transparent;
     display: inline-block;
     text-indent: -9999px;
     width: 35px;
@@ -1264,7 +1269,7 @@ a.moveicon-out:hover {
     width: 32px;
 }
 .ym a {
-    background: url("http://localhost/businfo/public/img/Skins/ym.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/ym.png") no-repeat scroll left top transparent;
     float: left;
     height: 32px;
     width: 32px;
@@ -1279,7 +1284,7 @@ a.moveicon-out:hover {
     width: 32px;
 }
 .skype a {
-    background: url("http://localhost/businfo/public/img/Skins/skype.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/skype.png") no-repeat scroll left top transparent;
     float: left;
     height: 32px;
     width: 32px;
@@ -1294,7 +1299,7 @@ a.moveicon-out:hover {
     width: 32px;
 }
 .facebook a {
-    background: url("http://localhost/businfo/public/img/Skins/facebook.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/facebook.png") no-repeat scroll left top transparent;
     float: left;
     height: 32px;
     width: 32px;
@@ -1328,6 +1333,7 @@ a.moveicon-out:hover {
     display: inline-block;
     line-height: 18px;
     padding: 10px 0 0;
+  
 }
 a.flnk {
     color: #0175D8;
@@ -1414,7 +1420,7 @@ a.flnk:hover {
 }
 .icon1-10 {
     -moz-user-select: none;
-    background: url("http://localhost/businfo/public/img/Skins/Pins.png") no-repeat scroll 0 -38px transparent;
+    background: url("../img/Skins/Pins.png") no-repeat scroll 0 -38px transparent;
     color: #FFFFFF;
     float: left;
     font-size: 11px;
@@ -1432,7 +1438,7 @@ a.flnk:hover {
     color: #FFFFFF;
 }
 #container .icon1-10Hover {
-    background: url("http://localhost/businfo/public/img/Skins/1-10iconHover.png") no-repeat scroll -18px -18px transparent;
+    background: url("../img/Skins/1-10iconHover.png") no-repeat scroll -18px -18px transparent;
     display: block;
     height: 18px;
     left: 4px;
@@ -1444,11 +1450,11 @@ a.flnk:hover {
     background-position: 0 1px;
 }
 .red {
-    background: url("http://localhost/businfo/public/img/Skins/Pins.png") no-repeat scroll 0 -76px transparent;
+    background: url("../img/Skins/Pins.png") no-repeat scroll 0 -76px transparent;
     text-shadow: 1px 1px #BE0D03;
 }
 .appr {
-    background: url("http://localhost/businfo/public/img/Skins/Pins.png") no-repeat scroll 0 -153px transparent;
+    background: url("../img/Skins/Pins.png") no-repeat scroll 0 -153px transparent;
     text-shadow: 1px 1px #0D4567;
 }
 .resultTitle {
@@ -1471,24 +1477,24 @@ a.flnk:hover {
     width: 297px;
 }
 .resultItem .comment {
-    background: url("http://localhost/businfo/public/img/Skins/quote-start.png") no-repeat scroll left top #FCF9E8;
+    background: url("../img/Skins/quote-start.png") no-repeat scroll left top #FCF9E8;
     border-radius: 8px 8px 8px 8px;
     display: block;
     margin-bottom: 8px;
 }
 .resultItem .comment span {
-    background: url("http://localhost/businfo/public/img/Skins/quote-end.png") no-repeat scroll right bottom transparent;
+    background: url("../img/Skins/quote-end.png") no-repeat scroll right bottom transparent;
     display: block;
     padding: 5px 18px 8px 25px;
 }
 .resultItem .address {
-    background: url("http://localhost/businfo/public/img/Skins/address.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/address.png") no-repeat scroll left top transparent;
     display: block;
     margin-bottom: 8px;
     padding-left: 18px;
 }
 .resultItem .phone {
-    background: url("http://localhost/businfo/public/img/Skins/phone.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/phone.png") no-repeat scroll left top transparent;
     display: block;
     margin-bottom: 10px;
     padding-left: 18px;
@@ -1505,7 +1511,7 @@ a.flnk:hover {
     display: block;
     float: left;
     font-size: 11px;
-    padding: 0 5px;
+    padding: 0 4px;
 }
 .resultOptions li a:hover {
     color: #DD0000;
@@ -1596,7 +1602,7 @@ a.flnk:hover {
     color: #333333;
 }
 .dexuat li {
-    background: url("http://localhost/businfo/public/img/Skins/arrow_right.gif") no-repeat scroll -1px 6px transparent;
+    background: url("../img/Skins/arrow_right.gif") no-repeat scroll -1px 6px transparent;
     line-height: 18px;
     padding: 4px 17px 3px;
 }
@@ -1612,6 +1618,9 @@ a.flnk:hover {
     font-size: 12px;
     line-height: 25px;
     padding: 10px 0 10px 5px;
+    border-color: #FFFFFF #FFFFFF #EFEFEF;
+    border-style: solid;
+    border-width: 3px;
 }
 .last {
     margin-bottom: 20px;
@@ -1623,7 +1632,7 @@ a.flnk:hover {
     padding: 0 0 3px 13px;
 }
 #fblnk ul li {
-    background: url("http://localhost/businfo/public/img/Skins/arrow_right.gif") no-repeat scroll 11px 5px transparent;
+    background: url("../img/Skins/arrow_right.gif") no-repeat scroll 11px 5px transparent;
     padding: 0 30px;
 }
 #fblnk ul li a {
@@ -1661,7 +1670,7 @@ a.flnk:hover {
     float: left;
 }
 .jForm input {
-    background: url("http://localhost/businfo/public/img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
     border: 1px solid #C1C1C1;
     border-radius: 5px 5px 5px 5px;
     color: #111111;
@@ -1705,7 +1714,7 @@ a.flnk:hover {
     padding: 0 13px;
 }
 .jForm textarea {
-    background: url("http://localhost/businfo/public/img/Skins/bg_textarea.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_textarea.png") repeat-x scroll 0 0 transparent;
     border: 1px solid #C1C1C1;
     border-radius: 4px 4px 4px 4px;
     color: #111111;
@@ -1754,7 +1763,7 @@ a.flnk:hover {
     top: 6px;
 }
 .jFormPopup input, .jFormPopup textarea {
-    background: url("http://localhost/businfo/public/img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
     border-radius: 5px 5px 5px 5px;
     display: inline-block;
     float: left;
@@ -1847,7 +1856,7 @@ a.flnk:hover {
 }
 .a-z {
     -moz-user-select: none;
-    background: url("http://localhost/businfo/public/img/Skins/Pins.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/Pins.png") no-repeat scroll left top transparent;
     color: #154600;
     display: block;
     font-size: 10px;
@@ -1860,7 +1869,7 @@ a.flnk:hover {
     width: 26px;
 }
 .boxtimduong {
-    background: url("http://localhost/businfo/public/img/Skins/bg_s_top.png") repeat-x scroll 0 -1px transparent;
+    background: url("../img/Skins/bg_s_top.png") repeat-x scroll 0 -1px transparent;
     border: 1px solid #C1C1C1;
     border-radius: 5px 5px 5px 5px;
     color: #333333;
@@ -1887,7 +1896,7 @@ input.boxtimduong:focus, .jForm input:focus, .jForm textarea:focus, #MyMapArea i
     color: #999999;
 }
 .del-timduong {
-    background: url("http://localhost/businfo/public/img/Skins/del.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/del.png") no-repeat scroll 0 0 transparent;
     height: 16px;
     left: 263px;
     position: absolute;
@@ -1899,7 +1908,7 @@ input.boxtimduong:focus, .jForm input:focus, .jForm textarea:focus, #MyMapArea i
     background-position: 0 -16px;
 }
 .btn-timduong {
-    background: url("http://localhost/businfo/public/img/Skins/s_but.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_but.png") no-repeat scroll 0 0 transparent;
     display: block;
     height: 13px;
     left: 291px;
@@ -1919,7 +1928,7 @@ input.boxtimduong:focus, .jForm input:focus, .jForm textarea:focus, #MyMapArea i
     position: relative;
 }
 .collapse {
-    background: url("http://localhost/businfo/public/img/Skins/bullet_blue_collapse.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bullet_blue_collapse.png") no-repeat scroll 0 0 transparent;
     height: 16px;
     position: absolute;
     right: 8px;
@@ -1928,7 +1937,7 @@ input.boxtimduong:focus, .jForm input:focus, .jForm textarea:focus, #MyMapArea i
     width: 16px;
 }
 .expand {
-    background: url("http://localhost/businfo/public/img/Skins/bullet_blue_expand.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bullet_blue_expand.png") no-repeat scroll 0 0 transparent;
     height: 16px;
     position: absolute;
     right: 8px;
@@ -1937,7 +1946,7 @@ input.boxtimduong:focus, .jForm input:focus, .jForm textarea:focus, #MyMapArea i
     width: 16px;
 }
 .s-service {
-    background: url("http://localhost/businfo/public/img/Skins/services.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/services.png") no-repeat scroll 0 0 transparent;
     color: #555555;
     display: block;
     font-size: 11px;
@@ -2026,7 +2035,7 @@ a.s-service:hover {
     width: 327px;
 }
 a.NotAlley-Off {
-    background: url("http://localhost/businfo/public/img/Skins/HemRaochan.png") no-repeat scroll -72px top transparent;
+    background: url("../img/Skins/HemRaochan.png") no-repeat scroll -72px top transparent;
     display: block;
     float: left;
     height: 36px;
@@ -2041,7 +2050,7 @@ a.NotAlley-Off:active {
     background-position: -72px -72px;
 }
 a.NotAlley-On {
-    background: url("http://localhost/businfo/public/img/Skins/HemRaochan.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/HemRaochan.png") no-repeat scroll left top transparent;
 }
 a.NotAlley-On:hover {
     background-position: 0 -36px;
@@ -2050,7 +2059,7 @@ a.NotAlley-On:active {
     background-position: 0 -72px;
 }
 a.NotCons-Off {
-    background: url("http://localhost/businfo/public/img/Skins/HemRaochan.png") no-repeat scroll -108px top transparent;
+    background: url("../img/Skins/HemRaochan.png") no-repeat scroll -108px top transparent;
     display: block;
     float: left;
     height: 36px;
@@ -2065,7 +2074,7 @@ a.NotCons-Off:active {
     background-position: -108px -72px;
 }
 a.NotCons-On {
-    background: url("http://localhost/businfo/public/img/Skins/HemRaochan.png") no-repeat scroll -36px top transparent;
+    background: url("../img/Skins/HemRaochan.png") no-repeat scroll -36px top transparent;
 }
 a.NotCons-On:hover {
     background-position: -36px -36px;
@@ -2074,7 +2083,7 @@ a.NotCons-On:active {
     background-position: -36px -72px;
 }
 .phuongtiendichuyen {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll left top transparent;
     float: left;
     height: 44px;
     padding: 0 0 0 8px;
@@ -2091,13 +2100,13 @@ a.pedestrian {
     width: 44px;
 }
 a.pedestrian:hover {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll left -44px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll left -44px transparent;
 }
 a.pedestrian:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll left -88px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll left -88px transparent;
 }
 a.pedestrian-enable, a.pedestrian-enable:hover, a.pedestrian-enable:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll left -132px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll left -132px transparent;
 }
 a.motor {
     float: left;
@@ -2106,13 +2115,13 @@ a.motor {
     width: 44px;
 }
 a.motor:hover {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -44px -44px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -44px -44px transparent;
 }
 a.motor:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -44px -88px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -44px -88px transparent;
 }
 a.motor-enable, a.motor-enable:hover, a.motor-enable:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -44px -132px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -44px -132px transparent;
 }
 a.car {
     float: left;
@@ -2121,13 +2130,13 @@ a.car {
     width: 44px;
 }
 a.car:hover {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -88px -44px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -88px -44px transparent;
 }
 a.car:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -88px -88px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -88px -88px transparent;
 }
 a.car-enable, a.car-enable:hover, a.car-enable:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -88px -132px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -88px -132px transparent;
 }
 a.lorry {
     float: left;
@@ -2136,13 +2145,13 @@ a.lorry {
     width: 44px;
 }
 a.lorry:hover {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -132px -44px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -132px -44px transparent;
 }
 a.lorry:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen-bus.png") no-repeat scroll -132px -88px transparent;
+    background: url("../img/Skins/phuongtiendichuyen-bus.png") no-repeat scroll -132px -88px transparent;
 }
 a.lorry-enable, a.lorry-enable:hover, a.lorry-enable:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -132px -132px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -132px -132px transparent;
 }
 a.bus {
     float: left;
@@ -2151,13 +2160,13 @@ a.bus {
     width: 44px;
 }
 a.bus:hover {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -176px -44px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -176px -44px transparent;
 }
 a.bus:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -176px -88px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -176px -88px transparent;
 }
 a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
-    background: url("http://localhost/businfo/public/img/Skins/phuongtiendichuyen.png") no-repeat scroll -176px -132px transparent;
+    background: url("../img/Skins/phuongtiendichuyen.png") no-repeat scroll -176px -132px transparent;
 }
 .messagebox-ieshadow {
     border-radius: 10px 10px 10px 10px;
@@ -2180,7 +2189,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     margin-bottom: 5px;
 }
 .messagebox-leftbot .close-wrap, .messagebox-lefttop .close-wrap, .messagebox-righttop .close-wrap, .messagebox-rightbot .close-wrap {
-    background: url("http://localhost/businfo/public/img/Skins/Pop-messagebox.png") no-repeat scroll left bottom transparent;
+    background: url("../img/Skins/Pop-messagebox.png") no-repeat scroll left bottom transparent;
     display: block;
     height: 28px;
     position: absolute;
@@ -2193,7 +2202,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     left: -9px;
 }
 .messagebox-leftbot a.close, .messagebox-lefttop a.close, .messagebox-righttop a.close, .messagebox-rightbot a.close {
-    background: url("http://localhost/businfo/public/img/Skins/Pop-messagebox.png") no-repeat scroll -37px -48px transparent;
+    background: url("../img/Skins/Pop-messagebox.png") no-repeat scroll -37px -48px transparent;
     display: block;
     height: 21px;
     position: absolute;
@@ -2217,22 +2226,22 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 29px;
 }
 .messagebox-leftbot .arrow {
-    background: url("http://localhost/businfo/public/img/Skins/Pop-messagebox.png") no-repeat scroll 0 -24px transparent;
+    background: url("../img/Skins/Pop-messagebox.png") no-repeat scroll 0 -24px transparent;
     bottom: -5px;
     left: -14px;
 }
 .messagebox-lefttop .arrow {
-    background: url("http://localhost/businfo/public/img/Skins/Pop-messagebox.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/Pop-messagebox.png") no-repeat scroll 0 0 transparent;
     left: -14px;
     top: -5px;
 }
 .messagebox-righttop .arrow {
-    background: url("http://localhost/businfo/public/img/Skins/Pop-messagebox.png") no-repeat scroll -29px 0 transparent;
+    background: url("../img/Skins/Pop-messagebox.png") no-repeat scroll -29px 0 transparent;
     right: -14px;
     top: -5px;
 }
 .messagebox-rightbot .arrow {
-    background: url("http://localhost/businfo/public/img/Skins/Pop-messagebox.png") no-repeat scroll -29px -24px transparent;
+    background: url("../img/Skins/Pop-messagebox.png") no-repeat scroll -29px -24px transparent;
     bottom: -5px;
     right: -14px;
 }
@@ -2279,7 +2288,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     text-transform: uppercase;
 }
 .bus-stationnumber .bus-arrow {
-    background: url("http://localhost/businfo/public/img/Skins/bus-arrow.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bus-arrow.png") no-repeat scroll 0 0 transparent;
     bottom: -9px;
     display: block;
     height: 13px;
@@ -2293,7 +2302,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     right: 14px;
 }
 .bus-dibo .bus-arrow {
-    background: url("http://localhost/businfo/public/img/Skins/bus-arrow-right.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bus-arrow-right.png") no-repeat scroll 0 0 transparent;
     left: 15px;
     right: auto;
 }
@@ -2330,7 +2339,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     top: 6px;
 }
 .icon-dibo {
-    background: url("http://localhost/businfo/public/img/Skins/bus-dibo.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bus-dibo.png") no-repeat scroll 0 0 transparent;
     display: block;
     height: 15px;
     left: 8px;
@@ -2339,7 +2348,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 15px;
 }
 .icon-bus {
-    background: url("http://localhost/businfo/public/img/Skins/bus-dixebuyt.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bus-dixebuyt.png") no-repeat scroll 0 0 transparent;
     display: block;
     height: 15px;
     left: 8px;
@@ -2369,7 +2378,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     text-transform: uppercase;
 }
 .bus-total {
-    background: url("http://localhost/businfo/public/img/Skins/grey-up1.png") repeat-x scroll left bottom #F3FAFF;
+    background: url("../img/Skins/grey-up1.png") repeat-x scroll left bottom #F3FAFF;
     border-top: 1px solid #EFEFEF;
     color: #555555;
     display: block;
@@ -2384,12 +2393,12 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     margin-left: 15px;
 }
 .bus-total li .total-dibo-icon {
-    background: url("http://localhost/businfo/public/img/Skins/bus-dibo.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bus-dibo.png") no-repeat scroll 0 0 transparent;
     display: inline-block;
     padding-left: 17px;
 }
 .bus-total li .total-bus-icon {
-    background: url("http://localhost/businfo/public/img/Skins/bus-dixebuyt.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bus-dixebuyt.png") no-repeat scroll 0 0 transparent;
     display: inline-block;
     padding-left: 17px;
 }
@@ -2418,7 +2427,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     color: #0175D8;
 }
 .ButTimDuong {
-    background: url("http://localhost/businfo/public/img/Skins/ButTimDuong.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/ButTimDuong.png") no-repeat scroll 0 0 transparent;
     cursor: pointer;
     float: left;
     height: 45px;
@@ -2427,13 +2436,13 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 101px;
 }
 .MapOptions {
-    background: url("http://localhost/businfo/public/img/Skins/shadow.png") no-repeat scroll right bottom transparent;
+    background: url("../img/Skins/shadow.png") no-repeat scroll right bottom transparent;
     border-bottom-left-radius: 17px;
     border-top-right-radius: 17px;
     padding: 0 9px 9px 0;
 }
 .MapOptions li {
-    background: url("http://localhost/businfo/public/img/Skins/bg-nav-sub.gif") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-nav-sub.gif") repeat scroll 0 0 transparent;
     border-left: 1px solid #E1E1E1;
     border-right: 1px solid #E1E1E1;
     padding: 0 4px;
@@ -2444,7 +2453,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background: url("http://localhost/businfo/public/img/Skins/lineMapOptions.gif") repeat-x scroll left center #FFFFFF;
+    background: url("../img/Skins/lineMapOptions.gif") repeat-x scroll left center #FFFFFF;
     border-color: -moz-use-text-color #E1E1E1;
     border-style: none solid;
     border-width: 0 1px;
@@ -2468,44 +2477,44 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     position: relative;
 }
 .MapOptions li a:hover {
-    background: url("http://localhost/businfo/public/img/Skins/bg-submenu.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-submenu.png") repeat scroll 0 0 transparent;
     border-left: 1px solid #85C43E;
     border-right: 1px solid #85C43E;
     color: #FFFFFF;
     outline: 0 none;
 }
 .cmdeletepoint span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll left -153px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll left -153px transparent;
     height: 19px;
     padding: 2px 0 2px 20px;
 }
 .cmfromhere span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -2px top transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -2px top transparent;
     height: 19px;
     padding: 2px 0 2px 20px;
 }
 .cmtohere span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll left -19px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll left -19px transparent;
     height: 19px;
     padding: 2px 0 2px 20px;
 }
 .cmshowstreet span, .cmshowcity span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll left -344px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll left -344px transparent;
     height: 19px;
     padding: 2px 0 2px 20px;
 }
 .cmsearchnearby span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll left -78px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll left -78px transparent;
     height: 19px;
     padding: 2px 0 2px 20px;
 }
 .cmcapturemap span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll left -97px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll left -97px transparent;
     height: 19px;
     padding: 2px 0 2px 20px;
 }
 .AvimOn {
-    background: url("http://localhost/businfo/public/img/Skins/bogo.png") no-repeat scroll -17px top transparent;
+    background: url("../img/Skins/bogo.png") no-repeat scroll -17px top transparent;
     cursor: pointer;
     float: left;
     height: 17px;
@@ -2513,7 +2522,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 17px;
 }
 .AvimOff {
-    background: url("http://localhost/businfo/public/img/Skins/bogo.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/bogo.png") no-repeat scroll left top transparent;
     cursor: pointer;
     float: left;
     height: 17px;
@@ -2579,19 +2588,19 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     font-weight: bold;
 }
 .MiniPopup .Content .address {
-    background: url("http://localhost/businfo/public/img/Skins/address.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/address.png") no-repeat scroll left top transparent;
     display: block;
     margin-bottom: 8px;
     padding-left: 18px;
 }
 .MiniPopup .Content .phone {
-    background: url("http://localhost/businfo/public/img/Skins/phone.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/phone.png") no-repeat scroll left top transparent;
     display: block;
     margin-bottom: 10px;
     padding-left: 18px;
 }
 .MiniPopup .Content a.vietbandoid {
-    background: url("http://localhost/businfo/public/img/Skins/vbdid.png") no-repeat scroll left center transparent;
+    background: url("../img/Skins/vbdid.png") no-repeat scroll left center transparent;
     color: #0175D8;
     display: block;
     margin-bottom: 10px;
@@ -2601,7 +2610,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     color: #DD0000;
 }
 .MiniPopup .Content a.website {
-    background: url("http://localhost/businfo/public/img/Skins/homepage.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/homepage.png") no-repeat scroll left top transparent;
     color: #0175D8;
     display: block;
     margin-bottom: 10px;
@@ -2675,7 +2684,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     display: inline-block;
 }
 .MiniPopup .ServiceInput, .MiniPopup .RadiusInput {
-    background: url("http://localhost/businfo/public/img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
     border: 1px solid #C1C1C1;
     border-radius: 5px 5px 5px 5px;
     color: #111111;
@@ -2703,7 +2712,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     margin: 10px 0 0;
 }
 .dirPrevAvai {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll 0 0 transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2711,7 +2720,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 33px;
 }
 .dirPrevDis {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll -33px 0 transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll -33px 0 transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2719,7 +2728,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 33px;
 }
 .dirNextAvai {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll 0 -21px transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll 0 -21px transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2727,7 +2736,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 33px;
 }
 .dirNextDis {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll -33px -21px transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll -33px -21px transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2735,7 +2744,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 33px;
 }
 .dirPlayStepAvai {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll 0 -42px transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll 0 -42px transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2743,7 +2752,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 33px;
 }
 .dirPlayStepDis {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll -33px -42px transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll -33px -42px transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2751,7 +2760,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 33px;
 }
 .dirStopAvai {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll 0 -63px transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll 0 -63px transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2759,7 +2768,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 33px;
 }
 .dirStopDis {
-    background: url("http://localhost/businfo/public/img/Skins/dirControl.png") no-repeat scroll -33px -63px transparent;
+    background: url("../img/Skins/dirControl.png") no-repeat scroll -33px -63px transparent;
     display: block;
     float: left;
     height: 21px;
@@ -2825,16 +2834,16 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     padding: 5px 8px 3px 25px;
 }
 .MapToolsBar li a.MT-bus-station span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -520px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -520px transparent;
 }
 .MapToolsBar li a.MT-giaothong span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -480px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -480px transparent;
 }
 .MapToolsBar li a.MT-ranhgioi span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -399px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -399px transparent;
 }
 .MapToolsBar li a.MT-dokhoangcach span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -439px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -439px transparent;
 }
 .MapToolsBar li a.MT-bus-station-active, .MapToolsBar li a.MT-ranhgioi-active {
     background: none repeat scroll 0 0 #185483;
@@ -2847,13 +2856,13 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     filter: none;
 }
 .MapToolsBar li a.MT-bus-station-active span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -540px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -540px transparent;
 }
 .MapToolsBar li a.MT-ranhgioi-active span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -419px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -419px transparent;
 }
 .MapToolsBar .dokhoangcach {
-    background: url("http://localhost/businfo/public/img/Skins/bg-dokhoangcach.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-dokhoangcach.png") no-repeat scroll 0 0 transparent;
     display: none;
     height: 77px;
     line-height: 15px;
@@ -2877,7 +2886,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     border-radius: 0 0 0 0;
 }
 .MapToolsBar .btn-dokhoangcach span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -459px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -459px transparent;
     border-bottom: 1px dotted #CCCCCC;
     color: #082A53;
     line-height: normal;
@@ -2894,7 +2903,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     margin: 3px 0 7px;
 }
 .MapToolsBar .PopupTraffic {
-    background: url("http://localhost/businfo/public/img/Skins/bg-giaothong.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-giaothong.png") no-repeat scroll 0 0 transparent;
     color: #555555;
     display: none;
     height: 77px;
@@ -2919,7 +2928,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     border-radius: 0 0 0 0;
 }
 .MapToolsBar .btn-PopupTraffic span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -500px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -500px transparent;
     border-bottom: 1px dotted #CCCCCC;
     color: #082A53;
     line-height: normal;
@@ -2932,7 +2941,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 130px;
 }
 .MapToolsBar .PopupTraffic-construction {
-    background: url("http://localhost/businfo/public/img/Skins/raochan.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/raochan.png") no-repeat scroll 0 0 transparent;
     display: block;
     float: left;
     height: 45px;
@@ -2940,7 +2949,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 46px;
 }
 .MapToolsBar .PopupTraffic-jam {
-    background: url("http://localhost/businfo/public/img/Skins/ketxe.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/ketxe.png") no-repeat scroll 0 0 transparent;
     display: block;
     float: left;
     height: 45px;
@@ -2962,55 +2971,55 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 70px;
 }
 .imgConstruction-red {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -15px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -15px transparent;
     display: block;
     height: 15px;
     width: 20px;
 }
 .imgConstruction-green {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -49px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -49px transparent;
     display: block;
     height: 15px;
     width: 20px;
 }
 .imgConstruction-yellow {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -83px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -83px transparent;
     display: block;
     height: 15px;
     width: 20px;
 }
 .imgConstruction-orange {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -117px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -117px transparent;
     display: block;
     height: 15px;
     width: 20px;
 }
 .imgTraffic-red {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -141px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -141px transparent;
     display: block;
     height: 25px;
     width: 32px;
 }
 .imgTraffic-green {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -175px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -175px transparent;
     display: block;
     height: 25px;
     width: 32px;
 }
 .imgTraffic-yellow {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -209px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -209px transparent;
     display: block;
     height: 25px;
     width: 32px;
 }
 .imgTraffic-orange {
-    background: url("http://localhost/businfo/public/img/Skins/giaothong-icons.png") no-repeat scroll 0 -243px transparent;
+    background: url("../img/Skins/giaothong-icons.png") no-repeat scroll 0 -243px transparent;
     display: block;
     height: 25px;
     width: 32px;
 }
 .SelectPlace {
-    background: url("http://localhost/businfo/public/img/Skins/bg-goiytimduong.png") no-repeat scroll right top transparent;
+    background: url("../img/Skins/bg-goiytimduong.png") no-repeat scroll right top transparent;
     height: 332px;
     left: 310px;
     overflow: hidden;
@@ -3019,7 +3028,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     width: 282px;
 }
 .SelectPlaceArrow {
-    background: url("http://localhost/businfo/public/img/Skins/goiytimduong-arrow.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/goiytimduong-arrow.png") no-repeat scroll left top transparent;
     height: 35px;
     left: 0;
     position: absolute;
@@ -3041,7 +3050,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     padding-top: 5px;
 }
 .SelectPlaceContent {
-    background: url("http://localhost/businfo/public/img/Skins/SPshadow-inset.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/SPshadow-inset.png") no-repeat scroll left top transparent;
     border-bottom: 1px solid #FFFFFF;
     border-top: 1px solid #FFFFFF;
     height: 260px;
@@ -3054,7 +3063,7 @@ a.bus-enable, a.bus-enable:hover, a.bus-enable:active {
     margin-right: 18px;
 }
 .SelectPlaceCloseBut {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -2px -192px transparent;
     cursor: pointer;
     display: block;
     height: 16px;
@@ -3122,20 +3131,20 @@ a.backbtn:active span {
     padding: 2px 8px;
 }
 .pin-mymap {
-    background: url("http://localhost/businfo/public/img/Skins/pin-mymap.png") no-repeat scroll center center transparent;
+    background: url("../img/Skins/pin-mymap.png") no-repeat scroll center center transparent;
     display: inline-block;
     height: 20px;
     width: 20px;
 }
 .MapHelp ul li.li2 {
-    background: url("http://localhost/businfo/public/img/Skins/arrow_right.gif") no-repeat scroll 12px 12px transparent;
+    background: url("../img/Skins/arrow_right.gif") no-repeat scroll 12px 12px transparent;
 }
 #InforOfMyMap {
     float: left;
     padding: 5px 0 0;
 }
 #MyMapArea h3, .mymaptitle {
-    background: url("http://localhost/businfo/public/img/Skins/favicon.png") no-repeat scroll left 3px transparent;
+    background: url("../img/Skins/favicon.png") no-repeat scroll left 3px transparent;
     border-bottom: 1px solid #EFEFEF;
     color: #333333;
     float: left;
@@ -3147,7 +3156,7 @@ a.backbtn:active span {
     width: 278px;
 }
 #MarkLocation_Cookie .mymaptitle {
-    background: url("http://localhost/businfo/public/img/Skins/favicon.png") no-repeat scroll 16px 3px transparent;
+    background: url("../img/Skins/favicon.png") no-repeat scroll 16px 3px transparent;
     margin: 0 2px;
     padding: 0 0 2px 36px;
     width: 283px;
@@ -3172,7 +3181,7 @@ a.backbtn:active span {
     padding: 0 0 0 5px;
 }
 .MapHelp h3 {
-    background: url("http://localhost/businfo/public/img/Skins/favicon.png") no-repeat scroll left 3px transparent;
+    background: url("../img/Skins/favicon.png") no-repeat scroll left 3px transparent;
     border-bottom: 1px solid #EFEFEF;
     color: #333333;
     font-size: 18px;
@@ -3191,7 +3200,7 @@ a.backbtn:active span {
     padding: 0 0 0 16px;
 }
 .MapHelp ul li {
-    background: url("http://localhost/businfo/public/img/Skins/arrow_right.gif") no-repeat scroll 12px 6px transparent;
+    background: url("../img/Skins/arrow_right.gif") no-repeat scroll 12px 6px transparent;
     color: #111111;
     line-height: 18px;
     padding: 4px 17px 5px 30px;
@@ -3227,7 +3236,7 @@ a.backbtn:active span {
     font-size: 11px;
 }
 #MyMapArea input, #MyMapArea textarea, .filerFavInput {
-    background: url("http://localhost/businfo/public/img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
     border: 1px solid #C1C1C1;
     border-radius: 5px 5px 5px 5px;
     color: #111111;
@@ -3249,7 +3258,7 @@ a.backbtn:active span {
     height: 47px;
 }
 .del {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -2px -191px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -2px -191px transparent;
     display: inline-block;
     height: 16px;
     position: absolute;
@@ -3445,7 +3454,7 @@ a.backbtn:active span {
     width: 273px;
 }
 .btnMove {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll left top transparent;
     display: block;
     height: 26px;
     text-indent: -9999px;
@@ -3458,10 +3467,10 @@ a.backbtn:active span {
     background-position: 0 -52px;
 }
 .btnMoveActive, .btnMoveActive:hover, .btnMoveActive:active {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll left -78px transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll left -78px transparent;
 }
 .btnAddPoint {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -26px top transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -26px top transparent;
     display: block;
     height: 26px;
     text-indent: -9999px;
@@ -3474,10 +3483,10 @@ a.backbtn:active span {
     background-position: -26px -52px;
 }
 .btnAddPointActive, .btnAddPointActive:hover, .btnAddPointActive:active {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -26px -78px transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -26px -78px transparent;
 }
 .btnAddText {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -52px top transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -52px top transparent;
     display: block;
     height: 26px;
     text-indent: -9999px;
@@ -3490,10 +3499,10 @@ a.backbtn:active span {
     background-position: -52px -52px;
 }
 .btnAddTextActive, .btnAddTextActive:hover, .btnAddTextActive:active {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -52px -78px transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -52px -78px transparent;
 }
 .btnAddPolyline {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -78px top transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -78px top transparent;
     display: block;
     height: 26px;
     text-indent: -9999px;
@@ -3506,10 +3515,10 @@ a.backbtn:active span {
     background-position: -78px -52px;
 }
 .btnAddPolylineActive, .btnAddPolylineActive:hover, .btnAddPolylineActive:active {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -78px -78px transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -78px -78px transparent;
 }
 .btnAddPolygon {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -104px top transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -104px top transparent;
     display: block;
     height: 26px;
     text-indent: -9999px;
@@ -3522,7 +3531,7 @@ a.backbtn:active span {
     background-position: -104px -52px;
 }
 .btnAddPolygonActive, .btnAddPolygonActive:hover, .btnAddPolygonActive:active {
-    background: url("http://localhost/businfo/public/img/Skins/myMapTools.png") no-repeat scroll -104px -78px transparent;
+    background: url("../img/Skins/myMapTools.png") no-repeat scroll -104px -78px transparent;
 }
 #MyMapList {
     float: left;
@@ -3563,12 +3572,12 @@ a.backbtn:active span {
     width: 297px;
 }
 .MyMapListLeft .Info {
-    background: url("http://localhost/businfo/public/img/Skins/address.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/address.png") no-repeat scroll left top transparent;
     display: block;
     padding-left: 18px;
 }
 .MyMapDel {
-    background: url("http://localhost/businfo/public/img/Skins/MapListDel.png") no-repeat scroll 4px center transparent;
+    background: url("../img/Skins/MapListDel.png") no-repeat scroll 4px center transparent;
     float: right;
     margin: 8px 0 0;
     text-indent: -9999px;
@@ -3579,7 +3588,7 @@ a.backbtn:active span {
 }
 .MapListIcon {
     -moz-user-select: none;
-    background: url("http://localhost/businfo/public/img/Skins/Pins.png") no-repeat scroll 0 -109px transparent;
+    background: url("../img/Skins/Pins.png") no-repeat scroll 0 -109px transparent;
     color: #FFAB50;
     float: left;
     font-family: Georgia,"Times New Roman",Times,serif;
@@ -3645,7 +3654,7 @@ a.backbtn:active span {
     display: inline-block;
 }
 #MyMapCoorPopup input, #MyMapCoorPopup textarea {
-    background: url("http://localhost/businfo/public/img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/Skins/bg_input.png") repeat-x scroll 0 0 transparent;
     border: 1px solid #C1C1C1;
     border-radius: 5px 5px 5px 5px;
     color: #111111;
@@ -3762,7 +3771,7 @@ a.backbtn:active span {
     float: left;
 }
 #MyMapCoorPopup .listsubinfo li.PropertyChild a.delete {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -2px -191px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -2px -191px transparent;
     display: block;
     float: left;
     height: 16px;
@@ -3809,16 +3818,16 @@ a.backbtn:active span {
     padding: 4px 11px;
 }
 .ButtonTitleLeft {
-    background: url("http://localhost/businfo/public/img/Skins/buttontitle.png") no-repeat scroll left top transparent;
+    background: url("../img/Skins/buttontitle.png") no-repeat scroll left top transparent;
     height: 24px;
     position: absolute;
 }
 .ButtonTitleRight {
-    background: url("http://localhost/businfo/public/img/Skins/buttontitle.png") no-repeat scroll right -24px transparent;
+    background: url("../img/Skins/buttontitle.png") no-repeat scroll right -24px transparent;
     height: 24px;
 }
 .ButtonTitleContent {
-    background: url("http://localhost/businfo/public/img/Skins/buttontitle.png") repeat-x scroll center -48px transparent;
+    background: url("../img/Skins/buttontitle.png") repeat-x scroll center -48px transparent;
     color: #FFFFFF;
     display: block;
     font-size: 11px;
@@ -3828,7 +3837,7 @@ a.backbtn:active span {
     position: relative;
 }
 .ButtonTitleArrow {
-    background: url("http://localhost/businfo/public/img/Skins/buttontitle.png") no-repeat scroll -5px top transparent;
+    background: url("../img/Skins/buttontitle.png") no-repeat scroll -5px top transparent;
     height: 7px;
     left: 40%;
     position: absolute;
@@ -3845,7 +3854,7 @@ a.backbtn:active span {
     box-shadow: 0 0 4px #444444;
 }
 .tipsy-inner {
-    background: url("http://localhost/businfo/public/img/Skins/bg-tipsy.png") repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-tipsy.png") repeat scroll 0 0 transparent;
     border-radius: 3px 3px 3px 3px;
     color: #FFFFFF;
     max-width: 200px;
@@ -3855,7 +3864,7 @@ a.backbtn:active span {
     white-space: nowrap;
 }
 .tipsy-arrow {
-    background: url("http://localhost/businfo/public/img/Skins/tipsy.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/tipsy.png") no-repeat scroll 0 0 transparent;
     bottom: 1px;
     height: 5px;
     left: 0;
@@ -3872,7 +3881,7 @@ a.backbtn:active span {
     background-position: right -358px;
 }
 .SendMapLinks-wrap {
-    background: url("http://localhost/businfo/public/img/Skins/bg-links.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/bg-links.png") no-repeat scroll 0 0 transparent;
     color: #555555;
     display: none;
     font-size: 11px;
@@ -3933,7 +3942,7 @@ a.backbtn:active span {
     width: 16px;
 }
 .btn-links {
-    background: url("http://localhost/businfo/public/img/Skins/btn-links.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/btn-links.png") no-repeat scroll 0 0 transparent;
     height: 22px;
     position: absolute;
     right: 0;
@@ -3941,34 +3950,34 @@ a.backbtn:active span {
     width: 40px;
 }
 .shareFacebook {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -1px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -1px transparent;
 }
 .shareTwitter {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -19px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -19px transparent;
 }
 .shareDelicious {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -37px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -37px transparent;
 }
 .shareDigg {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -55px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -55px transparent;
 }
 .shareWordpress {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -72px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -72px transparent;
 }
 .share360plus {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -123px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -123px transparent;
 }
 .shareLinkhay {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -106px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -106px transparent;
 }
 .shareYume {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -140px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -140px transparent;
 }
 .shareYahooMess {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -157px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -157px transparent;
 }
 .shareZingme {
-    background: url("http://localhost/businfo/public/img/Skins/btn-share.png") no-repeat scroll -1px -174px transparent;
+    background: url("../img/Skins/btn-share.png") no-repeat scroll -1px -174px transparent;
 }
 .IE6-warning {
     background-color: #F1F4F5;
@@ -4003,7 +4012,7 @@ a.backbtn:active span {
     text-align: center;
 }
 .IE6-warning .Firefox, .IE6-warning .Chrome, .IE6-warning .Safari, .IE6-warning .Opera, .IE6-warning .IE8 {
-    background: url("http://localhost/businfo/public/img/Skins/BrowserIcon.jpg") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/BrowserIcon.jpg") no-repeat scroll 0 0 transparent;
     display: block;
     float: left;
     height: 50px;
@@ -4026,21 +4035,21 @@ a.backbtn:active span {
     background-position: 0 0;
 }
 .favToogle-Dis {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 2px -364px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 2px -364px transparent;
     display: inline-block;
     height: 13px;
     padding: 0 0 0 5px;
     width: 13px;
 }
 .favimg {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll -3px -364px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll -3px -364px transparent;
 }
 .favToogle-Ena {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 2px -383px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 2px -383px transparent;
 }
 .fav1-10 {
     -moz-user-select: none;
-    background: url("http://localhost/businfo/public/img/Skins/Pins.png") no-repeat scroll 0 -195px transparent;
+    background: url("../img/Skins/Pins.png") no-repeat scroll 0 -195px transparent;
     color: #844C15;
     float: left;
     font-size: 11px;
@@ -4357,7 +4366,7 @@ a.backbtn:active span {
     padding-left: 17px;
 }
 #PlacesManager_Container h3 {
-    background: url("http://localhost/businfo/public/img/Skins/favicon.png") no-repeat scroll 16px 3px transparent;
+    background: url("../img/Skins/favicon.png") no-repeat scroll 16px 3px transparent;
     border-bottom: 1px solid #EFEFEF;
     color: #333333;
     font-size: 18px;
@@ -4441,7 +4450,7 @@ a.backbtn:active span {
     color: #888888;
 }
 .DefaultPlaceEdit {
-    background: url("http://localhost/businfo/public/img/Skins/Icons.png") no-repeat scroll 4px -248px transparent;
+    background: url("../img/Skins/Icons.png") no-repeat scroll 4px -248px transparent;
     float: right;
     height: 16px;
     margin: 5px 0 0;
@@ -4465,7 +4474,7 @@ a.backbtn:active span {
     padding: 6px 3px 0;
 }
 .favGroup select, .favGroup input {
-    background: url("http://localhost/businfo/public/img/Skins/bg_input.png") repeat-x scroll 0 0 #FFFFFF;
+    background: url("../img/Skins/bg_input.png") repeat-x scroll 0 0 #FFFFFF;
     border: 1px solid #C1C1C1;
     border-radius: 5px 5px 5px 5px;
     color: #111111;
@@ -4506,7 +4515,7 @@ a.backbtn:active span {
     margin-right: 20px;
 }
 .inputCommentEdit {
-    background: url("http://localhost/businfo/public/img/Skins/bg_input.png") repeat-x scroll 0 0 #FFFFFF;
+    background: url("../img/Skins/bg_input.png") repeat-x scroll 0 0 #FFFFFF;
     border: 1px solid #C1C1C1;
     border-radius: 5px 5px 5px 5px;
     color: #111111;
@@ -4554,7 +4563,7 @@ a.backbtn:active span {
     text-shadow: 0 1px #FFFFFF;
 }
 #favToolbar label .btn-ok {
-    background: url("http://localhost/businfo/public/img/Skins/s_but.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/Skins/s_but.png") no-repeat scroll 0 0 transparent;
     display: block;
     float: left;
     height: 13px;
@@ -4584,10 +4593,10 @@ a.backbtn:active span {
     width: 25px;
 }
 .topLeftPanel .showAllMarkerClass span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons2.png") no-repeat scroll 4px -78px transparent;
+    background: url("../img/Skins/Icons2.png") no-repeat scroll 4px -78px transparent;
 }
 .topLeftPanel .hideAllMarkerClass span {
-    background: url("http://localhost/businfo/public/img/Skins/Icons2.png") no-repeat scroll 4px -100px transparent;
+    background: url("../img/Skins/Icons2.png") no-repeat scroll 4px -100px transparent;
 }
 .topLeftPanel .showAllMarkerClass:active span, .topLeftPanel .hideAllMarkerClass:active span {
     background-position: 5px -77px;

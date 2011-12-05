@@ -7,11 +7,11 @@
 	<link rel="shortcut icon" href="" type="image/x-icon"/>
 	
 	<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/js/calendar/calendar-win2k-1.css" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Reset_Text.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Login.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Menu.css" media="screen, projection"/>
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/step-menu.css" title ="mainStepNav" media="all" />
-	<script type="text/javascript" src="http://localhost/BusInfo/businfo/public/js/prototype.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Reset_Text.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Login.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Menu.css" media="screen, projection"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/step-menu.css" title ="mainStepNav" media="all" />
+	<script type="text/javascript" src="<?php echo base_url() ?>public/js/prototype.js"></script>
 	<script src="http://maps.google.com/maps?indexing=false&amp;file=api&amp;v=2&amp;indexing=false&amp;key=ABQIAAAA0HPcSVWJKlo5kHbW_wY_zBRDVj_Q1DBcSaFa2U8I4KZQmgQPfRSW9G2WwDzuXZvqgS8WskdXWEpd6g" type="text/javascript"></script>
 	<script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;indexing=false&amp;key=ABQIAAAA0HPcSVWJKlo5kHbW_wY_zBRDVj_Q1DBcSaFa2U8I4KZQmgQPfRSW9G2WwDzuXZvqgS8WskdXWEpd6g" type="text/javascript"></script>
 	
@@ -19,75 +19,7 @@
 
 <body id="html-body"class=" adminhtml-dashboard-index">
 	<div class="wrapper">
-		<div class="header">
-	    	<div class="header-top">
-				<a href="">
-					<img class="logo" alt="BusInfo Logo" src="">
-				</a>
-				<div class="header-right">
-				<p class="super">Đăng nhập với quyền admin
-					<span class="separator">|</span>
-					Thứ 7, Ngày 5 tháng 11 năm 2011
-					<span class="separator">|</span>
-					<a class="link-logout" href="../login.php">Đăng xuất</a>
-				</p>
-				</div>
-			</div>
-		    <div class="clear"></div>
-		    
-		    <div class="nav-bar">
-		    	<ul id="nav">
-				  	<li class=" active level0"> 
-				  		<a href="../admin/ad_home.php" class="active"><span>Trang Chủ</span></a>
-				    </li>
-				    <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-				    	<a href="#" onclick="return false" class=""><span>Tuyến Bus</span></a>
-				    	<ul >
-					        <li class=" level1"> 
-					        	<a href="../admin/ThongTinTuyen.php" class=""><span>Thông Tin Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="../admin/ThemTuyenBus.php" class=""><span>Thêm Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="" class=""><span>Sửa Thông Tin Tuyến</span>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Trạm Bus</span></a>
-						<ul >
-							<li class="  level1"> 
-								<a href="../admin/ThongTinTram.php"  class=""><span>Thông Tin Trạm Bus</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href=""  class=""><span>Thêm Trạm Bus</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Sửa Thông Tin Trạm Bus</span></a>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Địa Điểm</span></a>
-						<ul >
-							<li class="  level1">
-								<a href=""  class=""><span>Thông Tin Địa Điểm</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href=""  class=""><span>Thêm Loại Địa Điểm</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Thêm Địa Điểm</span></a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				
-				<a id="page-help-link" href="">Hướng dẫn</a>
-				<script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
-			</div>
-		</div>
+		<?php include("t_top_ad_home.php"); ?>
 		
 		<div class="middle" id="anchor-content">
 		
@@ -120,6 +52,7 @@
 					</div>
 					<div id="content" class="main-col">
 						<div class="main-col-inner">
+						<form id="frmInsertTuyenBusB4" action="<?php echo base_url();?>home/ThemTuyenBusB5/" enctype="multipart/form-data"  method="post">
 							<div id="product_info_tabs_group_4_content" style="">
 								<div class="entry-edit">
 									<div class="entry-edit-head">
@@ -149,7 +82,7 @@
 																<button id="Reset" class="scalable add" style="" onclick="" type="button">
 																	<span>Hủy</span>
 																</button>
-																<button id="Save" class="scalable add" style="" onclick="parent.location='../admin/ThemTuyenBus_B5.php'" type="button">
+																<button id="Save" class="scalable add" style="" onclick="" type="submit">
 																	<span>Lưu và Tiếp Tục</span>
 																</button>
 															</div>
@@ -161,20 +94,13 @@
 									</div>
 								</div>
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer">
-			<p class="bug-report">
-				<p class="legality">
-					<a href="" id="footer_connect">BusInfo TpHCM</a>&trade;
-					<img src="" class="v-middle" alt="" />&nbsp;&nbsp;
-					<br/>Copyright &copy; 2011  <br/> By Nguyễn Ngọc Phúc - Dương Phi Long
-				</p>
-				BusInfo HCMC ver. 1.0.0
-		</div>
+		<?php include("t_bottom_ad_home.php"); ?>
 	</div>
 <script type="text/javascript">
     if (GBrowserIsCompatible()) {

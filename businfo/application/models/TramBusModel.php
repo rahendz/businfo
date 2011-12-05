@@ -103,7 +103,7 @@ class TramBusModel extends CI_Model {
 	 */
 	function saveTramBus($options = array()){
 		// checks if required fields are available
-		if(!$this->_required(array('matram', 'tentram', 'tuyendiqua', 'geo_lat', 'geo_long'), $options)) return false;
+		if(!$this->_required(array('matram', 'tentram', 'geo_lat', 'geo_long'), $options)) return false;
 		
 		// default values
     	$options = $this->_default(array('tuyendiqua' => '0'), $options);

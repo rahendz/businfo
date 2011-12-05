@@ -7,87 +7,32 @@
 	<link rel="shortcut icon" href="" type="image/x-icon"/>
 	
 	<link rel="stylesheet" type="text/css" href="http://demo-admin.magentocommerce.com/js/calendar/calendar-win2k-1.css" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Reset_Text.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Login.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/Menu.css" media="screen, projection"/>
-	<link rel="stylesheet" type="text/css" href="http://localhost/BusInfo/businfo/public/css/step-menu.css" title ="mainStepNav" media="all" />
-	<script type="text/javascript" src="http://localhost/BusInfo/businfo/public/js/prototype.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Reset_Text.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Login.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/Menu.css" media="screen, projection"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/step-menu.css" title ="mainStepNav" media="all" />
+	<script type="text/javascript" src="<?php echo base_url() ?>public/js/prototype.js"></script>
 	<script src="http://maps.google.com/maps?indexing=false&amp;file=api&amp;v=2&amp;indexing=false&amp;key=ABQIAAAA0HPcSVWJKlo5kHbW_wY_zBRDVj_Q1DBcSaFa2U8I4KZQmgQPfRSW9G2WwDzuXZvqgS8WskdXWEpd6g" type="text/javascript"></script>
 	<script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;indexing=false&amp;key=ABQIAAAA0HPcSVWJKlo5kHbW_wY_zBRDVj_Q1DBcSaFa2U8I4KZQmgQPfRSW9G2WwDzuXZvqgS8WskdXWEpd6g" type="text/javascript"></script>
 	
+	 <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>public/js/googlemap.js"></script>
+    <script type="text/javascript">
+    try {
+      $(document).ready(function(){initialize(10.75, 106.66, '196 LÃª VÄƒn Sá»¹, P. TÃ¢n Ä�á»‹nh, Q. PhÃº Nhuáº­n', '', false);});
+      <?php echo '$(document).ready(function(){showStops(\''?>
+      <?php echo $php_array;?>
+      <?php echo '\')});'?>
+    } catch (e) {
+        alert (e.message);  //this executes if jQuery isn't loaded // '<php echo $php_array;?>'
+    }
+    </script>
 </head>
 
 <body id="html-body"class=" adminhtml-dashboard-index">
 	<div class="wrapper">
-		<div class="header">
-	    	<div class="header-top">
-				<a href="">
-					<img class="logo" alt="BusInfo Logo" src="">
-				</a>
-				<div class="header-right">
-				<p class="super">Đăng nhập với quyền admin
-					<span class="separator">|</span>
-					Thứ 7, Ngày 5 tháng 11 năm 2011
-					<span class="separator">|</span>
-					<a class="link-logout" href="../login.php">Đăng xuất</a>
-				</p>
-				</div>
-			</div>
-		    <div class="clear"></div>
-		    
-		    <div class="nav-bar">
-		    	<ul id="nav">
-				  	<li class=" active level0"> 
-				  		<a href="../admin/ad_home.php" class="active"><span>Trang Chủ</span></a>
-				    </li>
-				    <li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-				    	<a href="#" onclick="return false" class=""><span>Tuyến Bus</span></a>
-				    	<ul >
-					        <li class=" level1"> 
-					        	<a href="../admin/ThongTinTuyen.php" class=""><span>Thông Tin Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="../admin/ThemTuyenBus.php" class=""><span>Thêm Tuyến Bus</span></a>
-					        </li>
-					        <li class="  level1"> 
-					        	<a href="" class=""><span>Sửa Thông Tin Tuyến</span>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Trạm Bus</span></a>
-						<ul >
-							<li class="  level1"> 
-								<a href="../admin/ThongTinTram.php"  class=""><span>Thông Tin Trạm Bus</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href=""  class=""><span>Thêm Trạm Bus</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Sửa Thông Tin Trạm Bus</span></a>
-							</li>
-						</ul>
-					</li>
-					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Địa Điểm</span></a>
-						<ul >
-							<li class="  level1">
-								<a href=""  class=""><span>Thông Tin Địa Điểm</span></a>
-							</li>
-							<li class="  level1"> 
-								<a href=""  class=""><span>Thêm Loại Địa Điểm</span></a>
-							</li>
-							<li class="  last level1"> 
-								<a href=""  class=""><span>Thêm Địa Điểm</span></a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				
-				<a id="page-help-link" href="">Hướng dẫn</a>
-				<script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
-			</div>
-		</div>
+		<?php include("t_top_ad_home.php"); ?>
 		
 		<div class="middle" id="anchor-content">
 		
@@ -120,6 +65,7 @@
 					</div>
 					<div id="content" class="main-col">
 						<div class="main-col-inner">
+						<form id="frmInsertTuyenBusB3" action="<?php echo base_url();?>home/ThemTuyenBusB4/" enctype="multipart/form-data"  method="post">
 							<div id="product_info_tabs_group_4_content" style="">
 								<div class="entry-edit">
 									<div class="entry-edit-head">
@@ -140,6 +86,7 @@
 													<tr>
 														<td>
 															<div id="mm-map" class="" style="overflow: hidden;  width: 100%; height: 500px;"></div>
+															
 														</td>
 													</tr>
 													<tr height="10px" ><td></td></tr>
@@ -149,7 +96,7 @@
 																<button id="Reset" class="scalable add" style="" onclick="" type="button">
 																	<span>Hủy</span>
 																</button>
-																<button id="Save" class="scalable add" style="" onclick="parent.location='../admin/ThemTuyenBus_B4.php'" type="button">
+																<button id="Save" class="scalable add" style="" onclick="" type="submit">
 																	<span>Lưu và Tiếp Tục</span>
 																</button>
 															</div>
@@ -161,74 +108,15 @@
 									</div>
 								</div>
 							</div>
+						</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer">
-			<p class="bug-report">
-				<p class="legality">
-					<a href="" id="footer_connect">BusInfo TpHCM</a>&trade;
-					<img src="" class="v-middle" alt="" />&nbsp;&nbsp;
-					<br/>Copyright &copy; 2011  <br/> By Nguyễn Ngọc Phúc - Dương Phi Long
-				</p>
-				BusInfo HCMC ver. 1.0.0
-		</div>
+		<<?php include("t_bottom_ad_home.php"); ?>
 	</div>
-<script type="text/javascript">
-    if (GBrowserIsCompatible()) {
 
-  var map = new GMap2(document.getElementById("mm-map"));
-  map.setCenter(new GLatLng(10.7569353, 106.6686039),13)
-  map.addControl(new GLargeMapControl());
-  map.addControl(new GMapTypeControl());
-  var dirn = new GDirections();
-
-  var firstpoint = true;
-  var gmarkers = [];
-  var gpolys = [];
-  var dist = 0;
-
-
-  GEvent.addListener(map, "click", function(overlay,point) {
-    // == When the user clicks on a the map, get directiobns from that point to itself ==
-    if (!overlay) {
-      if (firstpoint) {
-        dirn.loadFromWaypoints([point.toUrlValue(6),point.toUrlValue(6)],{getPolyline:true});
-      } else {
-        dirn.loadFromWaypoints([gmarkers[gmarkers.length-1].getPoint(),point.toUrlValue(6)],{getPolyline:true});
-      }
-    }
-  });
-
-  // == when the load event completes, plot the point on the street ==
-  GEvent.addListener(dirn,"load", function() {
-    // snap to last vertex in the polyline
-    var n = dirn.getPolyline().getVertexCount();
-    var p=dirn.getPolyline().getVertex(n-1);
-    var marker=new GMarker(p);
-    map.addOverlay(marker);
-    // store the details
-    gmarkers.push(marker);
-    if (!firstpoint) {
-      map.addOverlay(dirn.getPolyline());
-      gpolys.push(dirn.getPolyline());
-      dist += dirn.getPolyline().Distance();
-      document.getElementById("distance").innerHTML="Path length: "+(dist/1000).toFixed(2)+" km. "+(dist/1609.344).toFixed(2)+" miles.";
-    }
-    firstpoint = false;
-  });
-
-  GEvent.addListener(dirn,"error", function() {
-    GLog.write("Failed: "+dirn.getStatus().code);
-  });
-
-}
-else {
-  alert("Sorry, the Google Maps API is not compatible with this browser");
-}
-    </script>
 
 </body>
 </html>

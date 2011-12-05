@@ -65,9 +65,10 @@ class TuyenBusModel extends CI_Model {
 	 */
 	function getTuyenBus($options = array()){
 		// default value
-    	$options = $this->_default(array('sortDirection' => 'asc'), $options);
+		$options = $this->_default(array('sortDirection' => 'asc'), $options);
 		
 		if (isset($options['matuyen'])) $this->db->where('matuyen', $options['matuyen']);
+		
 		if (isset($options['limit']) && isset($options['offset']))
 			$this->db->limit($options['limit'], $options['offset']);
 		else if (isset($options['limit']))
@@ -79,11 +80,11 @@ class TuyenBusModel extends CI_Model {
 		$query = $this->db->get('tuyenbus');
     	if($query->num_rows() == 0) return false;
     	
-    	if(isset($options['matuyen'])) // getMaTuyenById, tra ve chi 1 dong 
+    	if(isset($options['matuyen'])) // tra ve chi 1 dong 
     	{
     		return $query->row(0);
     	}
-    	else // getListMaTuyen, tra ve 1 hay nhieu dong
+    	else // tra ve 1 hay nhieu dong
     	{
     		return $query->result();
     	}
