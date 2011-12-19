@@ -12,7 +12,7 @@ class Home extends CI_Controller{
 		$temp['mode'] = "index";
 		$temp['init_lat'] = 10.8230989;
 		$temp['init_long'] = 106.6296638;
-		$temp['init_add'] = "'Hồ Chí Minh'";
+		$temp['init_add'] = "'User'";
 		$temp['htmltext'] = "";
 		$this->load->view("home",$temp);
 	}
@@ -30,15 +30,19 @@ class Home extends CI_Controller{
 	}
 
 	public function search(){
-		$tabinput = 2;
-		if ($tabinput == "1") { // MODE : Tim lo trinh
+		//$tabinput = 2;
+		if (isset($_POST['mode']))
+			{
+				$tabinput = $_POST['mode'];
+			}
+			else $tabinput = "route";
+		if ($tabinput == "route") { // MODE : Tim lo trinh
 			//$temp['init_lat'] = 10.770023;
 			//$temp['init_long'] = 106.685461;
 			//$temp['init_add'] = "'Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh'";
 			$temp['init_lat'] = 10.8230989;
 			$temp['init_long'] = 106.6296638;
-			$temp['init_add'] = "'Hồ Chí Minh'";
-			$temp['mode'] = $_POST['mode'];
+			$temp['init_add'] = "'User'";
 			// Search tuyến
 			if (isset($_POST['mapinput']))
 			{
@@ -66,21 +70,32 @@ class Home extends CI_Controller{
 			 
 			$this->load->view("home", $temp);
 		}
-		else if ($tabinput == "2") { // MODE : Tim tram xung quanh
+		else if ($tabinput == "poi") { // MODE : Tim tram xung quanh 1 địa chỉ
 			//Bounds : 10.792744,106.670325) - (10.79411,106.671043
+				// Search tuyến
+			if (isset($_POST['mapinput']))
+			{
+				$add = "'" . $_POST['mapinput'] . "'";
+			}
+			else $add = "'Hồ Chí Minh, Việt Nam'";
+			
+			$temp['b_top_lat'] = $_POST['bound_lat'] + 0.0085;
+			$temp['b_top_lng'] = $_POST['bound_lng'] + 0.0085;
+			$temp['b_bot_lat'] = $_POST['bound_lat'] - 0.0085;
+			$temp['b_bot_lng'] = $_POST['bound_lng'] - 0.0085;
+			
 			$temp['title']="BusInfo for Hochiminh";
-			$temp['mode'] = $_POST['mode'];
 			//$temp['init_lat'] = 10.781023;
 			//$temp['init_long'] = 106.696461;
 			$temp['init_lat'] = 10.770023;
 			$temp['init_long'] = 106.685461;
-			$temp['init_add'] = "'6,14, Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh'";
-			//$temp['init_add'] = "'Đại học Công nghệ Thông tin'";
+			//$temp['init_add'] = "'6,14, Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh'";
+			$temp['init_add'] = $add;
 			$htmltext = "$(document).ready(function(){geocodeAdd(" . $temp['init_add'] . ");});";
-			//$htmltext .= "$(document).ready(function(){document.getElementById('bound_top_lat').value);});";
 			
 			$this->load->model("TramBusModel");
-			$options = array('mode' => 'search', 'min_lat' => '10.775044', 'min_lng' => '106.665325', 'max_lat' => '10.78411', 'max_lng' => '106.751043');
+			//$options = array('mode' => 'search', 'min_lat' => '10.775044', 'min_lng' => '106.665325', 'max_lat' => '10.78411', 'max_lng' => '106.751043');
+			$options = array('mode' => 'search', 'min_lat' => $temp['b_bot_lat'], 'min_lng' => $temp['b_bot_lng'], 'max_lat' => $temp['b_top_lat'], 'max_lng' => $temp['b_top_lng']);
 			$rows = $this->TramBusModel->getTramBus($options);
 			
 			$htmltext .= "$(document).ready(function(){showStops2('" . json_encode($rows) . "')});";

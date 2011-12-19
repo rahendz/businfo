@@ -39,27 +39,30 @@ var legs = [];
  */
 function initialize(input_lat, input_lng, input_address, input_module,
 		viewController) {
+	
 	var default_coor = new google.maps.LatLng(input_lat, input_lng);
 	// Create new Client
 	zclient = new ZClient();
-	
+	try{
 	if (input_address != null) {
-		var address = input_address + ", Việt Nam"; 
+		if (input_address != "User") {
+		var address = input_address + ", Hồ Chí Minh, Việt Nam"; 
 		geocoder.geocode({'address': address}, function(results, status) { 
 		if (status == google.maps.GeocoderStatus.OK) { 
 			zclient.location.latitude = results[0].geometry.location.lat();
 			zclient.location.longitude = results[0].geometry.location.lng();
-			alert("Geocode loaded!");
+			//alert("Geocode loaded!");
 		}
 	});
+	}
 	}
 	else { alert("Geocode was not successful for the following reason: " + status); 
 	}
 	
-	if (input_address != null) {
+	if (input_address != null && input_address != "User") {
 	default_coor = new google.maps.LatLng(zclient.location.latitude,
 			zclient.location.longitude); 
-	alert("Map loaded!");
+	//alert("Map loaded!");
 	}
 	// input_lat = default_coor.lat();
 	// input_lng = default_coor.lng();
@@ -75,14 +78,13 @@ function initialize(input_lat, input_lng, input_address, input_module,
 	map.setTilt(45);
 	map.setHeading(90);
 
-	// Distance buttons
-	if (viewController) {
-		addDistanceController();
-	}
-
 	// Locate the input shop first if input values are provided.
 	if (zclient.location.latitude != 0 && zclient.location.longitude != 0 && input_address != null) {
 		locate(zclient.location.latitude, zclient.location.longitude, input_address, input_module);
+	}
+	}
+	catch (e) {
+		console.log("[Init] " + e.message);
 	}
 }
 
@@ -95,7 +97,8 @@ function locate(input_lat, input_lng, input_address, input_module) {
 
 	// set center for map
 	map.setCenter(input_loc);
-
+	
+	try{
 	marker = new google.maps.Marker({
 		map : map,
 		position : input_loc,
@@ -114,6 +117,8 @@ function locate(input_lat, input_lng, input_address, input_module) {
 	// set lat/lng hidden in HTML & zclient variable
 	zclient.location.latitude = input_lat;
 	zclient.location.longitude = input_lng;
+	document.getElementById('bound_lat').value = input_lat;
+	document.getElementById('bound_lng').value = input_lng;
 
 	// Actions depend on the module.
 	if (input_module == "location") {
@@ -137,16 +142,6 @@ function locate(input_lat, input_lng, input_address, input_module) {
 		alert(circle.getBounds().getNorthEast().lng());
 		alert(circle.getBounds().getSouthWest().lat());
 		alert(circle.getBounds().getSouthWest().lng());*/
-		
-		/*zclient.bound.top_lat = circle.getBounds().getNorthEast().lat();
-		zclient.bound.top_lng = circle.getBounds().getNorthEast().lng();
-		zclient.bound.bot_lat = circle.getBounds().getSouthWest().lat();
-		zclient.bound.bot_lng = circle.getBounds().getSouthWest().lng();
-		document.getElementById('bound_top_lat').value = zclient.bound.top_lat;
-		document.getElementById('bound_top_lng').value = zclient.bound.top_lng;
-		document.getElementById('bound_bot_lat').value = zclient.bound.bot_lat;
-		document.getElementById('bound_bot_lng').value = zclient.bound.bot_lng;*/
-		document.getElementById('mode').value = "karmi";
 		// set zoom for map
 		map.setZoom(15);
 	}
@@ -162,6 +157,11 @@ function locate(input_lat, input_lng, input_address, input_module) {
 		// Open infowindow when clicking marker.
 		infowindow.open(map, marker);
 	});
+	}
+	catch(e)
+	{
+		console.log("[locate] " + e.message);
+	}
 
 	// EVENT DRAGEND: Changes the value of address when user stop moving the
 	// marker.
@@ -231,6 +231,8 @@ function geocodeAdd(input_address) {
 										.lat();
 								zclient.location.longitude = results[0].geometry.location
 										.lng();
+								document.getElementById('bound_lat').value = results[0].geometry.location.lat();
+								document.getElementById('bound_lng').value = results[0].geometry.location.lng();
 								update();
 							} else {
 								alert("Geocode was not successful for the following reason: "
@@ -238,7 +240,7 @@ function geocodeAdd(input_address) {
 							}
 						});
 	} catch (e) {
-		alert(e.message);
+		console.log("[geocodeAdd] " + e.message);
 	}
 }
 
@@ -247,6 +249,7 @@ function geocodeAdd(input_address) {
  * or dragend.
  */
 function update() {
+	try{
 	var geo_address; // this variable will contain the suggested address.
 	var lat = parseFloat(marker.getPosition().lat());
 	var lng = parseFloat(marker.getPosition().lng());
@@ -289,6 +292,11 @@ function update() {
 			alert("Geocoder failed due to: " + status);
 		}
 	});
+	}
+	catch (e)
+	{
+		alert(e.message);
+	}
 }
 
 // ========================================================================
@@ -331,6 +339,10 @@ function showStops(stop_list1, stop_list2) {
 	processWaypoints(stop_list1, lotrinhdi);
 	lotrinhdi = false;
 	processWaypoints(stop_list2, lotrinhdi);
+	
+	var temp_obj = stop_list1[0];
+	var firstStop = new google.maps.LatLng(temp_obj.geo_lat, temp_obj.geo_long);
+	map.setCenter(firstStop);
 }
 
 // local search
@@ -380,6 +392,7 @@ function processWaypoints(list, lotrinhdi) {
 		var point = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
 		markers_latlng.push(point);
 	}
+	
 	try {
 		// Split waypoints into groups of 10
 		for ( var idx1 = 0; idx1 < markers_latlng.length - 1; idx1 += 9) {
@@ -438,13 +451,9 @@ function addMarker(obj) {
 			infowindow_shop.open(map, marker_child);
 
 			// Makes the marker bouncing when it is clicked.
-			for (i in markers) {
-				markers[i].setAnimation(null);
-			}
 
 			if (marker_child.getAnimation() != null) {
 				marker_child.setAnimation(null);
-			} else {
 				marker_child.setAnimation(google.maps.Animation.BOUNCE);
 			}
 
@@ -454,7 +463,7 @@ function addMarker(obj) {
 
 		markers.push(marker_child);
 	} catch (e) {
-		alert(e.message);
+		console.log(e.message);
 	}
 }
 
@@ -616,15 +625,21 @@ function ZClient() {
 		search : {
 			distance : 5.0,
 			keyword : ''
-		},
-		bound : {
-			top_lat : 0.0,
-			top_lng : 0.0,
-			bot_lat : 0.0,
-			bot_lng : 0.0
 		}
 	};
 	return obj;
+}
+
+function setMode(mode) {
+	if (mode == 2) {
+		document.getElementById("mode").value = "poi";
+	}
+	else if (mode == 3) {
+		document.getElementById("mode").value = "dir";
+	}
+	else {
+		document.getElementById("mode").value = "route";
+	}
 }
 
 // ------------------------------------------------------------

@@ -26,10 +26,10 @@
 			
 			<ul id="bando_tab"">
 				<li id="searchtab" class="active2" style="margin-left: 5px;">
-				<a id="tloc" onclick="state(ChangeFunctionType, GLOBAL_SEARCH_FUNCTION)"> Tuyến Bus</a>
+				<a id="tloc" onclick="setMode(1); state(ChangeFunctionType, GLOBAL_SEARCH_FUNCTION);"> Tuyến Bus</a>
 				</li>
 				<li id="mymaptab" class="">
-				<a id="tpers" onclick="state(ChangeFunctionType, GLOBAL_MYMAP_FUNCTION)"> Tìm Vị Trí</a>
+				<a id="tpers" onclick="setMode(2); state(ChangeFunctionType, GLOBAL_MYMAP_FUNCTION);"> Tìm Vị Trí</a>
 				</li>
 				<li id="findpathtab" class="">
 				<a id="tdir" onclick="state(ChangeFunctionType, GLOBAL_FINDPATH_FUNCTION)"> Tìm Lộ Trình</a>
@@ -57,13 +57,11 @@
 	                	<div class="SBox">
 	                    	<div class="SBoxLeft">
 	                    	</div>
-	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="this.value = ''" />
+	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="" />
 	                        <input class="SButton" type="submit" value="Tìm" onclick="" />
-                            <input type="hidden" id="mode" name="mode" value="search"/>
-                            <input type="hidden" id="bound_top_lat" value=""/>
-                            <input type="hidden" id="bound_top_lng" value=""/>
-                            <input type="hidden" id="bound_bot_lat" value=""/>
-                            <input type="hidden" id="bound_bot_lng" value=""/>
+                            <input type="hidden" id="mode" name="mode" value="route"/>
+                            <input name="bound_lat" type="hidden" id="bound_lat" value="0"/>
+                            <input name="bound_lng" type="hidden" id="bound_lng" value="0"/>
 						</div>
 					</div>
 	                <div class="SRight"></div>
