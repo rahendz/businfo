@@ -1353,7 +1353,7 @@ a.flnk:hover {
 .keyPlace {
     border-bottom: 1px solid #EFEFEF;
     color: #DD0000;
-    display: block;
+    display: inline-block;
     font-size: 16px;
     font-weight: bold;
     margin: 0 2px;
@@ -1514,6 +1514,9 @@ a.flnk:hover {
     padding: 0 4px;
 }
 .resultOptions li a:hover {
+    color: #DD0000;
+}
+.resultOptions li a:active {
     color: #DD0000;
 }
 .resultOptions span {
@@ -4821,4 +4824,9 @@ a.backbtn:active span {
     margin: 0 3px 0 0;
     position: relative;
     top: 2px;
+}
+.DetailResult
+{
+	padding-top: 80px;
+	padding-left: 10px;
 }

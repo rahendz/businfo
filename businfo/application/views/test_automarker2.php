@@ -360,7 +360,8 @@ var image = '<?php echo base_url()?>public/img/Skins/tab_img_end.png';
 //        createMarker(endLocation.latlng,"end",endLocation.address,"red");
 	map.setZoom(18);
 	startAnimation();
-    }                                                    
+    }           
+    else {Alert ('lỗi');     }                                    
  });
 }
   

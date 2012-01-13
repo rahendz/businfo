@@ -4,9 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta content="BusInfo For HCM City" name="keywords">
 	<title><?php echo $title;?></title>
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>public/css/MainStyle.css" media="all" />
 	
     <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
+    
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/googlemap.js"></script>
     <script type="text/javascript">
     try {
@@ -17,160 +20,92 @@
     }
     </script>
     
-   <script type="text/javascript">
-			function callAHAH(url, pageElement, callMessage, errorMessage) 
-			{ 
-				document.getElementById(pageElement).innerHTML = callMessage; 
-				try 
-				{ 
-					req = new XMLHttpRequest(); /* e.g. Firefox */ 
-				} 
-				catch(e) 
-				{ 
-					try 
-					{ 
-						req = new ActiveXObject("Msxml2.XMLHTTP"); /* some versions IE */ 
-					} 
-					catch (e) 
-					{ 
-						try 
-						{ 
-							req = new ActiveXObject("Microsoft.XMLHTTP"); /* some versions IE */ 
-						} 
-						catch (E) 
-						{ 
-							req = false; 
-						} 
-					} 
-				} 
-				req.onreadystatechange = function() 
-				{
-					responseAHAH(pageElement, errorMessage);
-				}; 
-				req.open("GET",url,true); 
-				req.send(null); 
-			} 
-
-			
-			function responseAHAH(pageElement, errorMessage) 
-			{ 
-				var output = '';
-				if(req.readyState == 4) 
-				{ 
-					if(req.status == 200) 
-					{ 
-						output = req.responseText; 
-						document.getElementById(pageElement).innerHTML = parseScript(output); 
-					} 
-					else 
-					{ 
-						document.getElementById(pageElement).innerHTML = errorMessage+"\n"+output; 
-					} 
-				} 
-			}
-			
-			function parseScript(_source)
-			{
-					var source = _source;
-					var scripts = new Array();
-			 
-					// Strip out tags
-					while(source.indexOf("<script") > -1 || source.indexOf("</script") > -1) {
-						var s = source.indexOf("<script");
-						var s_e = source.indexOf(">", s);
-						var e = source.indexOf("</script", s);
-						var e_e = source.indexOf(">", e);
-			 
-						// Add to scripts array
-						scripts.push(source.substring(s_e+1, e));
-						// Strip from source
-						source = source.substring(0, s) + source.substring(e_e+1);
-					}
-			 
-					// Loop through every script collected and eval it
-					for(var i=0; i<scripts.length; i++) {
-						try {
-							eval(scripts[i]);
-						}
-						catch(ex) {
-							// do what you want here when a script fails
-						}
-					}
-					// Return the cleaned source
-					return source;
-			}
-				 
-		</script>
-		<script type="text/javascript"> 
-			var IdClick=1;
-			function HideDetailResult()
-			{
-				document.getElementById("DetailResult1").style.display="none";
-				document.getElementById("DetailResult2").style.display="none";
-			}
-
-			function NonActiveResult()
-			{
-				document.getElementById("result1").className = "resultItem"; 
-				document.getElementById("result2").className = "resultItem";
-			}
-			function makeactive(route,tab,url) 
-			{
-				IdClick=tab;
-				NonActiveResult();
-				document.getElementById("result"+tab).className = "resultItem resultItem-active"; 
-				HideDetailResult();				 
-				//callAHAH(url+ 'application/views/tabs2.php?route='+route, 'container', '<div style="position: absolute; top:40%; left:40%; overflow: hidden; width: 100%; height: 100%;"><img align="middle" src="http://localhost/businfo/public/img/ajax-loader.gif" /></div>', 'Error');
-				
-				//$(window).resize(function(){
-					//$("container").css({'display':'block'});
-					//$("mm-map").css({'width':'100%', 'height':'100%'});
-					callAHAH('http://localhost/businfo/application/views/tabs.php', 'container', '<div style="position: absolute; top:40%; left:40%; overflow: hidden; width: 100%; height: 100%;"><img align="middle" src="http://localhost/businfo/public/img/ajax-loader.gif" /></div>', 'Error');
-					//initialize(10.770023,106.685461,'Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh','',false);
-
-					//alert('Changed!');
-					//});
-				 
-			} 
-			 		 
-			function makeactive2(id,route,t,url) 
-			{ 
-				HideDetailResult();
-				if(IdClick!=id)
-				{	
-					makeactive(route,id,url);
-				}
-				else
-				{
-					document.getElementById("DetailResult"+id).style.display="block";
-					callAHAH(url+'home/TuyenBusDetail?route='+route+'&id='+t, 'DetailResult'+id, '<table ><tr height="100px"><td width="300px" align="center"><h3 style="color:green;"><img align="middle" src="http://localhost/businfo/public/img/loading.gif" /> </br> Đang xử lý... </h3></td></tr></table>', 'Error');
-				}
-			} 
-
-			
-		 </script>
-    <script type="text/javascript" src="<?php echo base_url()?>public/js/TabMenu.js"></script>
-      
-    <style type="text/css">
-		.DetailResult
-		{
-			padding-top: 80px;
-			padding-left: 10px;
-		}
+    <script type="text/javascript" src="<?php echo base_url() ?>public/js/TabResults.js"></script>
+	    <script type="text/javascript" src="<?php echo base_url() ?>public/js/RouteBox.js"></script>
 		
-	</style>
-	
-	<!-- Begin JavaScript -->
-		<script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script>
-		<script type="text/javascript" src="javascripts/jquery.easing.1.3.js"></script>
-		<script type="text/javascript" src="javascripts/jquery.coda-slider-2.0.js"></script>
-		 <script type="text/javascript">
-			$().ready(function() {
-				$('#coda-slider-1').codaSlider();
-			});
-		 </script>
-	<!-- End JavaScript -->
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>public/css/MainStyle.css" media="all" />
+	<script type="text/javascript"> 
+		var IdClick=1;
+		function HideDetailResult()
+		{
+			document.getElementById("DetailResult1").style.display="none";
+			document.getElementById("DetailResult2").style.display="none";
+		}
+		function NonActiveResult()
+		{
+			document.getElementById("result1").className = "resultItem"; 
+			document.getElementById("result2").className = "resultItem";
+		}
+		function makeactive(route,tab,url) 
+		{
+			IdClick=tab;
+			NonActiveResult();
+			document.getElementById("result"+tab).className = "resultItem resultItem-active"; 
+			HideDetailResult();				 
+			//callAHAH(url+ 'application/views/tabs2.php?route='+route, 'container', '<div style="position: absolute; top:40%; left:40%; overflow: hidden; width: 100%; height: 100%;"><img align="middle" src="http://localhost/businfo/public/img/ajax-loader.gif" /></div>', 'Error');
+			//$(window).resize(function(){
+			//$("container").css({'display':'block'});
+			//$("mm-map").css({'width':'100%', 'height':'100%'});
+			callAHAH('http://localhost/businfo/application/views/tabs.php', 'container', '<div style="position: absolute; top:40%; left:40%; overflow: hidden; width: 100%; height: 100%;"><img align="middle" src="http://localhost/businfo/public/img/ajax-loader.gif" /></div>', 'Error');
+			//initialize(10.770023,106.685461,'Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh','',false);
+			//alert('Changed!');
+			//});
+		} 
+		function makeactive2(id,route,t,url) 
+		{ 
+			HideDetailResult();
+			if(IdClick!=id)
+			{	
+				makeactive(route,id,url);
+			}
+			else
+			{
+				document.getElementById("DetailResult"+id).style.display="block";
+				callAHAH(url+'home/TuyenBusDetail?route='+route+'&id='+t, 'DetailResult'+id, '<table ><tr height="100px"><td width="300px" align="center"><h3 style="color:green;"><img align="middle" src="http://localhost/businfo/public/img/loading.gif" /> </br> Đang xử lý... </h3></td></tr></table>', 'Error');
+			}
+		} 
+		function SearchPlaceMenu(id)
+		{
+			switch (id)
+			{
+			case 1:
+				document.getElementById("SearchPlaceBusStop").style.display="none";
+				document.getElementById("SearchPlaceBusRoute").style.display="none";
+				document.getElementById("SearchPlaceAround").style.display="none";
+				document.getElementById("SearchPlaceDetail").style.display="block";
+				break;	
+			case 2:
+				document.getElementById("SearchPlaceDetail").style.display="none";
+				document.getElementById("SearchPlaceBusStop").style.display="block";
+				document.getElementById("SearchPlaceBusRoute").style.display="none";
+				document.getElementById("SearchPlaceAround").style.display="none";
+				break;
+			case 3:
+				document.getElementById("SearchPlaceDetail").style.display="none";
+				document.getElementById("SearchPlaceBusStop").style.display="none";
+				document.getElementById("SearchPlaceBusRoute").style.display="block";
+				document.getElementById("SearchPlaceAround").style.display="none";
+				break;
+			case 4:
+				document.getElementById("SearchPlaceDetail").style.display="none";
+				document.getElementById("SearchPlaceBusStop").style.display="none";
+				document.getElementById("SearchPlaceBusRoute").style.display="none";
+				document.getElementById("SearchPlaceAround").style.display="block";
+				break;
+			}
+				
+		}
+	</script>
+    <script type="text/javascript" src="<?php echo base_url()?>public/js/TabMenu.js"></script>
+
+	<script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.coda-slider-2.0.js"></script>
+	 <script type="text/javascript">
+		$().ready(function() {
+		$('#coda-slider-1').codaSlider();
+		});
+	</script>
+
 </head>
 
 <body class="template-5">
@@ -260,11 +195,13 @@
 				</div>
 			</div>
         </div>
+      
         
-        
-         <div id="content_wrap">
+        <div id="content_wrap">
          
          	<div id="leftpanel" class="LeftPanel">
+         	
+<!-- TAB TÌM TUYẾN BUS -->         	
          		<div id="searchtabdiv" class="tableft" >
          		
 				<?php
@@ -281,8 +218,8 @@
 							<a><span onclick="LoadTree()">Xem</span></a>
 							</span></span>
 							
-<!-- Kết quả search theo tuyến -->
-	<!-- Kết quả thứ 1 -->
+	<!-- Kết quả search theo tuyến -->
+		<!-- Kết quả thứ 1 -->
 							<div id="result<?php echo 1;?>" class="resultItem resultItem-active">
 								<a class="icon1-10 red" onclick="makeactive(19,1,'<?php echo base_url()?>')"> <?php echo $row->matuyen; ?><span class="icon1-10Hover"></span></a>
 								<a class="resultTitle" onclick="makeactive(19,1,'<?php echo base_url()?>')">
@@ -312,7 +249,7 @@
 														
 							<div id="DetailResult<?php echo 1;?>" class="DetailResult" ></div>
 							
-	<!-- Kết quả thứ 2 -->							
+		<!-- Kết quả thứ 2 -->							
 							<div id="result<?php echo 2;?>" class="resultItem">
 								<a class="icon1-10 red" onclick="makeactive(8,2,'<?php echo base_url()?>')"> <?php echo $row->matuyen; ?><span class="icon1-10Hover"></span></a>
 								<a class="resultTitle" onclick="makeactive(8,2,'<?php echo base_url()?>')">
@@ -383,15 +320,122 @@
 						</ul>
 						
 					</div>
-					
-					
-								<?php
+					<?php
          			} 
-								?>
+					?>
 				</div>
-				
-				<div id="findpathtabdiv" class="tableft" style="display: none;">
+								
+<!-- TAB TÌM VỊ TRÍ -->				
+				<div id="mymaptabdiv" class="tableft" style="display: none;">
 					
+					<div id="findplace_div" class="bodyLeftPanel" >
+						
+						<div class="Spacer"></div>
+						<div id="listDirection">
+							<div id="direction0" class="direction-item">
+								<div class="swrap-timduong">
+									<span class="a-z">a</span>
+									<input class="boxtimduong timduong-default" id="searchPlaceField" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.value = ''">
+									<a id="btnSearchPlace0" class="btn-timduong" onclick="">Tìm</a>
+								</div>
+							</div>
+						</div>
+						
+						<div id="ResultSearchPlace" class="resultItem resultItem-active" style="display: none;">
+							<a class="icon1-10 red"> <span class="icon1-10Hover"></span></a>
+							<a class="resultTitle">
+								<b id="SearchPlaceTittle"></b>	</a>
+							<div class="Spacer"></div>
+							<ul id="SearchPlaceMenu" class="resultOptions" style="display: none; padding: 4px 12px;">
+								<li>
+									<a onclick="SearchPlaceMenu(1)">Thông tin</a>
+								</li>
+								<li>
+									<a onclick="SearchPlaceMenu(2)">Tìm trạm buýt</a>
+								</li>
+								<li>
+									<a onclick="SearchPlaceMenu(3)">Tìm tuyến buýt</a>
+								</li>
+								<li>
+									<a  onclick="SearchPlaceMenu(4)">Tìm dịch vụ</a>
+								</li>
+							</ul>
+						</div>
+							<div class="Spacer"></div>
+							<div id="SearchPlaceDetail" class="kohailong" style="display: none;"  > 
+								<div id="fblnk" style="">
+									<p>Thông tin địa điểm</p>
+									<ul>
+										<li id="SearchPlaceAddress" ></li>
+										<li id="SearchPlacePhone"></li>
+										<li id="SearchPlaceWebsite"></li>
+										<li id="SearchPlaceLnglat"></li>
+									</ul>
+								</div>
+							</div>
+							<div id="SearchPlaceBusStop" class="kohailong" style="display: none; width:350px"  > 
+								<div id="fblnk" style="">
+									<p>Tìm trạm buýt xung quanh</p>
+									<ul>
+										<li>
+											<div id="direction1" class="direction-item">
+												<span>Bán kính:</span>
+												<input class="boxtimduong timduong-default" type="text" value="500" style="top:0px; width: 150px;">
+												<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
+													<a><span onclick="">Tìm</span></a>
+												</span></span>
+											</div>
+											
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div id="SearchPlaceBusRoute" class="kohailong" style="display: none;"  > 
+								<div id="fblnk" style="">
+									<p>Tìm tuyến buýt xung quanh</p>
+									<ul>
+										<li>
+											<div id="direction1" class="direction-item">
+												<span>Bán kính:</span>
+												<input class="boxtimduong timduong-default" type="text" value="500" style="top:0px; width: 150px;">
+												<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
+													<a><span onclick="">Tìm</span></a>
+												</span></span>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div id="SearchPlaceAround" class="kohailong" style="display: none;"  > 
+								<div id="fblnk" style="">
+									<p>Tìm dịch vụ xung quanh</p>
+									<ul>
+										<li style="padding: 0 30px 5px;">
+											<div class="direction-item">
+												<span>Dịch vụ:</span>
+												<input class="boxtimduong" id="ServiceSearchPlaceAround" type="text" value="Nhập vào loại dịch vụ (KFC,Hotel...)" style="top:0px; width: 120px;">
+											</div>
+										</li>
+										<div class="Spacer"></div>
+										<li>
+											<div class="direction-item">
+												<span>Bán kính (m):</span>
+												<input class="boxtimduong" id="RadiusSearchPlaceAround" type="text" value="500" style="top:0px; width: 120px;" >
+												<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
+													<a><span onclick="DoSearchServiceAround()">Tìm</span></a>
+												</span></span>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+					</div>
+				</div>
+					
+				
+<!-- TAB TÌM LỘ TRÌNH -->				
+				<div id="findpathtabdiv" class="tableft" style="display: none;">
+					<!-- 
 					<div id="topLeftPathResult" class="topLeftPanel" >
 						<span id="FindPathStatus" class="FindPathStatus"></span>
 						<a id="clearPathResultText" class="link clearPathResult" style="display: none" onclick="state(ClearPathResult)" title="XÃ³a káº¿t quáº£"> Xóa kết quả</a>
@@ -399,39 +443,48 @@
 						<a id="printDirection" class="link printDirection" onclick="PrintResult()" title="In lộ trình"> In Lộ Trình</a>
 						<div id="tdvehicle" class="link" style="display: none; z-index: 806;"> </div>
 					</div>
+					 -->
 					<div id="findpath_div" class="bodyLeftPanel" >
 						<div id="listDirection">
-							<div id="dirInputTemplate" style="display: none; z-index: 800;">
-								<div id="direction$section$" class="direction-item" style="z-index: 798;">
-									<div class="swrap-timduong" style="z-index: 796;">
-										<span class="a-z">$order$</span>
-										<input class="boxtimduong timduong-default" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onblur="OnblurTextBoxAB(this)" onfocus="OnforcusTextBoxAB(this)" onkeydown="return SearchPlaceEnter(event,$section$)">
-										<a class="del-timduong" onclick="state(ClickRemovePlaceButton, this)" style="display: none">Xóa</a>
-										<a id="btnSearchPlace$section$" class="btn-timduong" onclick="doSearchPlace($section$)">Tìm</a>
-									</div>
-									<div id="guide$section$" class="direction-guide" style="z-index: 794;"> </div>
-								</div>
-							</div>
-							<div id="direction0" class="direction-item" style="z-index: 792;">
-								<div class="swrap-timduong" style="z-index: 790;">
-									<span class="a-z">a</span>
-									<input class="boxtimduong timduong-default" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onblur="OnblurTextBoxAB(this)" onfocus="OnforcusTextBoxAB(this)" onkeydown="return SearchPlaceEnter(event,0)">
-									<a class="del-timduong" onclick="state(ClickRemovePlaceButton, this)" style="display: none">Xóa</a>
-									<a id="btnSearchPlace0" class="btn-timduong" onclick="doSearchPlace(0)">Tìm</a>
-								</div>
-								<div id="guide0" class="direction-guide" style="z-index: 788;"> </div>
-							</div>
-							<div id="direction1" class="direction-item" style="z-index: 786;">
-								<div class="swrap-timduong" style="z-index: 784;">
-									<span class="a-z">b</span>
-									<input class="boxtimduong timduong-default" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onblur="OnblurTextBoxAB(this)" onfocus="OnforcusTextBoxAB(this)" onkeydown="return SearchPlaceEnter(event,1)">
-									<a class="del-timduong" onclick="state(ClickRemovePlaceButton, this)" style="display: none">Xóa</a>
-									<a id="btnSearchPlace1" class="btn-timduong" onclick="doSearchPlace(1)">Tìm</a>
-								</div>
-								<div id="guide1" class="direction-guide" style="z-index: 782;"> </div>
-							</div>
 							
+							<div id="direction0" class="direction-item">
+								<div class="swrap-timduong">
+									<span class="a-z">a</span>
+									<input class="boxtimduong timduong-default" id="searchPathFrom" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.value = ''">
+									<a id="btnSearchPlace0" class="btn-timduong" onclick="">Tìm</a>
+								</div>
+							</div>
+							<div id="direction0" class="direction-item">
+								<div class="swrap-timduong">
+									<span class="a-z">b</span>
+									<input class="boxtimduong timduong-default" id="searchPathTo" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.value = ''">
+									<a id="btnSearchPlace0" class="btn-timduong" onclick="">Tìm</a>
+								</div>
+							</div>
+							<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
+													<a><span onclick="SearchMotorRoute()">Tìm</span></a>
+												</span></span>
 						</div>
+						<div id="directionoptions">
+                        <div class="directionoptions">
+                            
+                            <ul class="phuongtiendichuyen">
+
+                                <li><a title="Đi bộ" class="pedestrian">
+                                    Đi bộ</a></li>
+                                <li><a title="Xe máy" class="motor">
+                                    Xe máy</a></li>
+                                <li><a title="Ô tô" class="car car-enable">
+                                    Ô tô</a></li>
+                                <li><a title="Xe tải" class="lorry">
+
+                                    Xe tải</a></li>
+                                
+                            </ul>
+                        </div>
+                     
+                    </div>
+						
 					</div>
 				</div>
 			</div>
