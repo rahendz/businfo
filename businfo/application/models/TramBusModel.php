@@ -47,6 +47,7 @@ class TramBusModel extends CI_Model {
 	 * @param array $options 
 	 * Options :
 	 * - matram (optional)
+	 * - tentram (optional)
 	 * - tuyendiqua (optional)
 	 * - offset (optional)
 	 * - limit (optional)
@@ -75,6 +76,11 @@ class TramBusModel extends CI_Model {
 		if (isset($options['mode'])) {
 			$where = "geo_lat BETWEEN " . $options['min_lat'] . " AND " . $options['max_lat'] . " AND geo_long BETWEEN " . $options['min_lng'] . " AND " . $options['max_lng'];  
 			$this->db->where($where);
+		}
+		
+		if (isset($options['tentram'])) {
+			$where = "UPPER(tentram) like UPPER('%" . $options['tentram'] . "%')";
+            $this->db->where($where);
 		}
 			
 		$query = $this->db->get('trambus');
