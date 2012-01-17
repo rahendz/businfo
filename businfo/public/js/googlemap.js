@@ -91,12 +91,12 @@ function initialize(input_lat, input_lng, input_address, input_module,
 /**
  * Locate the input shop
  */
-function locate(input_lat, input_lng, input_address, input_module) {
+function locate(input_lat, input_lng, input_address, center_flag) {
 	// Set marker.
 	var input_loc = new google.maps.LatLng(input_lat, input_lng);
 
 	// set center for map
-	map.setCenter(input_loc);
+	if (!center_flag) map.setCenter(input_loc);
 	
 	try{
 	marker = new google.maps.Marker({
@@ -120,12 +120,12 @@ function locate(input_lat, input_lng, input_address, input_module) {
 	document.getElementById('bound_lat').value = input_lat;
 	document.getElementById('bound_lng').value = input_lng;
 
-	// Actions depend on the module.
+	/*/ Actions depend on the module.
 	if (input_module == "location") {
 		// set zoom for map
 		map.setZoom(16);
 	} else // if (input_module == "search")
-	{
+	{*/
 		circle = new google.maps.Circle({
 			map : map,
 			strokeColor : "#FFFF00",
@@ -137,14 +137,9 @@ function locate(input_lat, input_lng, input_address, input_module) {
 			radius : 1000
 		});
 		
-		/*alert(circle.getCenter());
-		alert(circle.getBounds().getNorthEast().lat());
-		alert(circle.getBounds().getNorthEast().lng());
-		alert(circle.getBounds().getSouthWest().lat());
-		alert(circle.getBounds().getSouthWest().lng());*/
 		// set zoom for map
 		map.setZoom(15);
-	}
+	//}
 
 	// EVENT CLICK: Makes the marker bouncing when it is clicked.
 	google.maps.event.addListener(marker, 'click', function() {
@@ -231,12 +226,13 @@ function geocodeAdd(input_address) {
 										.lat();
 								zclient.location.longitude = results[0].geometry.location
 										.lng();
+								
 								document.getElementById('bound_lat').value = results[0].geometry.location.lat();
 								document.getElementById('bound_lng').value = results[0].geometry.location.lng();
+								locate(zclient.location.latitude, zclient.location.longitude, input_address, true);
 								update();
 							} else {
-								alert("Geocode was not successful for the following reason: "
-										+ status);
+								console.log("[geocodeAdd] failed! " + status);
 							}
 						});
 	} catch (e) {
@@ -295,8 +291,13 @@ function update() {
 	}
 	catch (e)
 	{
-		alert(e.message);
+		console.log("failed at update() : " + e.message);
 	}
+}
+
+// Find routes that stop at the given bus-station
+function findRoute() {
+	
 }
 
 // ========================================================================
@@ -380,7 +381,7 @@ function showStops2(stop_list) {
 			addMarker(obj);
 		}
 	} catch (e) {
-		alert(e.message);
+		console.log(e.message);
 	}
 }
 
@@ -419,7 +420,7 @@ function processWaypoints(list, lotrinhdi) {
 		}
 
 	} catch (e) {
-		alert(e.message);
+		console.log("failed at processWaypnt() : " + e.message);
 	}
 }
 
