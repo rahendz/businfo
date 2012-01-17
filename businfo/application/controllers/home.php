@@ -103,5 +103,43 @@ class Home extends CI_Controller{
 			
 			$this->load->view("home", $temp);
 		}
+		else if ($tabinput == "dir") {
+            $temp['init_add'] = "'User'";
+            // Search tuyến
+            if (isset($_POST['mapinput']))
+            {
+                $query = $_POST['mapinput'];
+            }
+            else $query = "";
+            $limit = 1; // select top 1
+             
+            //$temp['query'] = $query;
+             
+            $temp['title']="BusInfo for Hochiminh";
+            //$temp['tuyendiqua'] = $route;
+             
+            $this->load->model("TramBusModel");
+            $options = array('tentram' => $route, 'limit' => $limit);
+            //, 'limit' => $limit);
+            $rows = $this->TramBusModel->getTramBus($options);
+            $trambus = json_encode($rows);
+		    foreach($trambus as $key => $value)
+            {
+                if ($key == "geo_lat") {
+                $temp['init_lat'] = $value;                
+                } else if ($key == "geo_long") {
+                $temp['init_long'] = $value;
+                } 
+            }
+            //$temp['init_lat'] = 10.8230989;
+            //$temp['init_long'] = 106.6296638;
+            $temp['init_add'] = "' . $query . '";
+            
+            $htmltext = "$(document).ready(function(){showStops('" . json_encode($rows1) . "', '" . json_encode($rows2) . "')});";
+
+            $temp['htmltext'] = $htmltext;
+             
+            $this->load->view("home", $temp);
+		}
 	}
 }
