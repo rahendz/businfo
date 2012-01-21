@@ -75,6 +75,7 @@
 						}
 						catch(ex) {
 							// do what you want here when a script fails
+							alert (ex.message);
 						}
 					}
 					// Return the cleaned source

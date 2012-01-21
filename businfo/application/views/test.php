@@ -1,76 +1,75 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="keywords" content=""/>
-<title></title>
-<link rel="stylesheet" href="css/global.css" type="text/css" />
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Map testing</title>
+		<link rel="stylesheet" href="<?php echo base_url() ?>public/css/css.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+		<script type="text/javascript" src="http://www.google.com/jsapi?key={APIKEY}"></script>
+		<script type="text/javascript">
+			google.load("jquery", "1.4.2");	  
+		</script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script src="<?php echo base_url() ?>public/js/OfficeLocation.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		
+		<div id="home-wrapper">
+			<div id="logo">
+				<a href="http://www.webraptor.eu" target="_self"><img src="logo.jpg" width="245" height="40" alt="WebRaptor" /></a>
+			</div>
+			<div id="home-messages">
+				Trying to determine your location...Please allow browser to share location if prompted
+			</div>
+			<span class="clear">&nbsp;</span>
+			<div id="home-sidebar">
+				<h1>Our offices locations</h1>
+				<ul>
+					<li><a href="#" rel="40.453577,-3.68763, 
+					<strong>Venue: </strong>Estadio Santiago Bernabeu<br />
+					<strong>Address: </strong>Avenida de Concha Espina; No 1; 28036; Madrid<br />
+					<strong>Phone: </strong>+34 (91) 398 4300<br />
+					<strong>Fax: </strong>+34 (91) 344 0695<br />
+					<strong>Email: </strong><a href='mailto:realmadrid@club.realmadrid.com'>realmadrid@club.realmadrid.com</a><br />
+					" target="_self">Estadio Santiago Bernabeu</a></li>
+					<li><a href="#" rel="41.934115,12.45575, 
+					<strong>Venue: </strong>Stadio Olimpico<br />
+					<strong>Address: </strong><br />
+					<strong>Phone: </strong><br />
+					<strong>Fax: </strong><br />
+					<strong>Email: </strong><a href='mailto:'></a><br />
+					" target="_self">Stadio Olimpico - Rome</a></li>
+					<li><a href="#" rel="55.71575,37.554574, 
+					<strong>Venue: </strong>Luzhniki Stadium<br />
+					<strong>Address: </strong><br />
+					<strong>Phone: </strong><br />
+					<strong>Fax: </strong><br />
+					<strong>Email: </strong><a href='mailto:'></a><br />
+					" target="_self">Luzhniki Stadium</a></li>
+					<li><a href="#" rel="38.035991,23.788662,
+					<strong>Venue: </strong>Olympic Stadium - Athens<br />
+					<strong>Address: </strong><br />
+					<strong>Phone: </strong><br />
+					<strong>Fax: </strong><br />
+					<strong>Email: </strong><a href='mailto:'></a><br />
+					" target="_self">Olympic Stadium - Athens</a></li>
+					<li><a href="#" rel="48.924191,2.359529,
+					<strong>Venue: </strong>Stade de France<br />
+					<strong>Address: </strong><br />
+					<strong>Phone: </strong><br />
+					<strong>Fax: </strong><br />
+					<strong>Email: </strong><a href='mailto:'></a><br />
+					" target="_self">Stade de France</a></li>
+				</ul>
+			</div>
+			
+			<div id="map-wrapper">
+				<div id="map">
 
-
-<script type="text/javascript"><!--
-var mps = ['l', '1', 'i', 'j'];var lcs= new Array();function add(f){var ln = f.poi.value;if(lcs.length >=5){alert('Please limit the search to 5 business names');return;}for(var i=0; i< lcs.length; i++){if(lcs[i]==ln) return;}lcs.push(ln);f.poi.value='';f.poi.focus();rndr();}function rmv(i){if(i!=null){lcs.splice(i,1);rndr();}}function rndr(){var txt='';for(var i=0; i < lcs.length; i++){txt = txt + '<div class="eloc"><a title="delete" href="/" onclick="rmv('+i+');return false;">[X]</a>&nbsp;&nbsp;'+lcs[i]+'</div>';}if(txt=='') txt = '<i>-None-</i>';document.getElementById('locsDiv').innerHTML = txt;}function mapit(f){f.action = 'http://localhost/BusInfo/application/views/testdemo.php';if(lcs.length>0){f.strs.value = JSON.stringify(lcs);f.submit();}else{alert('oops ! we found no business location or name. Please specify atleast one businees name to search');return false;}return true;}
-</script>
-</head>
-<body>
-
-<center>
-<br/>
-
-<div style="border:1px solid #cccccc;width:750px;padding: 10px 5px 10px 5px;">
-	<br/>
-	<form id="locsFrm" onsubmit="add(this);return false;">
-	<table width="500">
-		<tr>
-		<td align="left"><input type="text" name="poi" value="" style="width:200px;"/><input type="submit" value="Add Business Name"/>
-		<br/><a href="/" style="font-size:9px" onclick="window.open('http://maps.google.com/maps?f=l&q='+document.getElementById('locsFrm').poi.value); return false;" >[ Verify Name With Google Maps ]</a>
-		<span style="font-size:9px">(Example: KFC, UPS Store, Walmart, Restaurant)</span>
-		</td>
-		</tr>
-		<tr><td align="left">
-		<b>Businesses to search</b>
-		<div id="locsDiv">
-			<i>-None-</i>
+				</div>	
+			</div>
 		</div>
-		<br/>
-		</td></tr>
-	</table>
-	</form>
-	<form id="map" action="" method="post" onsubmit="mapit(this);return false;" target="_blank">
-	<table>
-		<tr>
-			<td align="right" nowrap="nowrap">Start Address:</td>
-			<td align="left"><input style="width:300px;" type="text" value="" name="strt" /></td>
-		</tr>
-		<tr>
-			<td align="right" nowrap="nowrap">End Address:</td>
-			<td align="left"><input style="width:300px;" type="text" value="" name="end" /></td>
-		</tr>
-		<tr>
-			<td valign="top" align="right">Search With in </td>
-			<td align="left">
-				<select name="rad">
-				<option value="3218.688" selected="selected">2 miles</option>
-				<option value="4828.032">3 miles</option>
-				<option value="6437.375">4 miles</option>
-				<option value="8046.720">5 miles</option>
-				<option value="9656.065">6 miles</option>
-				<option value="11265.408">7 miles</option>
-				</select>
-				<span style="font-size:9px">(Only Businesses within the specified radius will be displayed. Others will be ignored)</span>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center"><input type="submit" value="Map it">
-
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2"><br/><br/>
-			</td>
-		</tr>
-	</table>
-	<input type="hidden" name="strs" value="" />
-	</form>
-</div>
-</body>
+		
+	</body>
 </html>

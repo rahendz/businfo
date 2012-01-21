@@ -7,13 +7,35 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>public/css/MainStyle.css" media="all" />
 	
     <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
-    
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=ja"></script>
+     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=true&libraries=places&language=vi"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi?key={APIKEY}"></script>
+	<script type="text/javascript">
+			google.load("jquery", "1.4.2");	  
+	</script>
+		 <style type="text/css">
+      #directions-panel {
+        height: 60%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+        #directions-panel {
+          float: none;
+          width: auto;
+        }
+      }
+    </style>
+		
+		
+		
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/googlemap.js"></script>
     <script type="text/javascript">
     try {
-        $(document).ready(function(){initialize(<?php echo $init_lat; ?>, <?php echo $init_long; ?>, <?php echo $init_add?>, '', false);});
+        $(document).ready(function(){
+            initialize(<?php echo $init_lat; ?>, <?php echo $init_long; ?>, <?php echo $init_add?>, '', false);
+            handle_clicks();
+        });
       	<?php echo $htmltext; ?>
     } catch (e) {
         alert (e.message);  //this executes if jQuery isn't loaded // '<php echo $php_array;?>'
@@ -21,47 +43,170 @@
     </script>
     
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/TabResults.js"></script>
-	    <script type="text/javascript" src="<?php echo base_url() ?>public/js/RouteBox.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>public/js/RouteBox.js"></script>
+		
+	<script language="javascript">
+		function createObject() {
+		var request_type;
+		var browser = navigator.appName;
+		if(browser == "Microsoft Internet Explorer"){
+		request_type = new ActiveXObject("Microsoft.XMLHTTP");
+		}else{
+		request_type = new XMLHttpRequest();
+		}
+		return request_type;
+		}
+		var http = createObject();
+		
+		function SearchStopBusArroundPlace()
+		{
+	    	var str = document.getElementById('RSearchBusStopAroundPlace').value;
+	    	document.getElementById("SearchPlaceBusStopResult").style.display="none";
+			http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchStopBusArroundPlace/'+str);
+			http.onreadystatechange= SearchStopBusArroundPlaceProcess;
+			http.send(null);
+		}
+		
+		function SearchStopBusArroundPlaceProcess()
+		{
+			try
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					result= http.responseText;
+					document.getElementById("SearchPlaceBusStopResult").style.display="block";
+					document.getElementById('SearchPlaceBusStopResult').innerHTML= result;
+			     }
+			}
+			catch(ex)
+			{
+				alert (ex.message);
+			}
+		}
+
+		function SearchComplexRoute()
+		{
+			var selectedMode = document.getElementById("Phuongtiendi").value;
+			if(selectedMode=="BUS")
+			{
+				//var str = document.getElementById('RSearchBusPlace').value;
+		    	document.getElementById("directions-panel").style.display="none";
+		    	document.getElementById("SearchBusPlaceResult").style.display="none";
+		    	
+				http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchBusRoute/'+1);
+				http.onreadystatechange= SearchBusRouteProcess;
+				http.send(null);
+			}
+			else
+		    	//document.getElementById("directions-panel").style.display="none";
+				document.getElementById("SearchBusPlaceResult").style.display="none";
+				SearchMotorRoute();
+			}
+		function SearchBusRouteProcess()
+		{
+			try
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					result= http.responseText;
+					document.getElementById("directions-panel").style.display="block";
+					document.getElementById('directions-panel').innerHTML= result;
+			     }
+			}
+			catch(ex)
+			{
+				alert (ex.message);
+			}
+		}
+		function SearchBusPlace()
+		{
+	    	var str = document.getElementById('RSearchBusPlace').value;
+	    	document.getElementById("SearchBusPlaceResult").style.display="none";
+			http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchBusPlace/'+str);
+			http.onreadystatechange= SearchBusPlaceProcess;
+			http.send(null);
+		}
+		
+		function SearchBusPlaceProcess()
+		{
+			try
+			{
+				if(http.readyState == 4 && http.status == 200)
+				{
+					result= http.responseText;
+					document.getElementById("SearchBusPlaceResult").style.display="block";
+					document.getElementById('SearchBusPlaceResult').innerHTML= result;
+			     }
+			}
+			catch(ex)
+			{
+				alert (ex.message);
+			}
+		}
+	</script>
 		
 	<script type="text/javascript"> 
 		var IdClick=1;
-		function HideDetailResult()
+		function HideDetailResult(count)
 		{
-			document.getElementById("DetailResult1").style.display="none";
-			document.getElementById("DetailResult2").style.display="none";
+			
+			for(i=0;i<count;i++)
+			{
+				document.getElementById("DetailResult"+i).style.display="none";
+				
+			}
+			
 		}
-		function NonActiveResult()
-		{
-			document.getElementById("result1").className = "resultItem"; 
-			document.getElementById("result2").className = "resultItem";
+		function NonActiveResult(count)
+		{			
+			for(i=0;i<count;i++)
+			{
+				document.getElementById("result"+i).className = "resultItem";
+			}
+			
+			//document.getElementById("result1").className = "resultItem"; 
+			//document.getElementById("result2").className = "resultItem";
 		}
-		function makeactive(route,tab,url) 
-		{
+		function makeactive(route,count,tab,url) 
+		{	
+			NonActiveResult(count);
+			HideDetailResult(count);
+			
+			document.getElementById("result"+tab).className = "resultItem resultItem-active";
 			IdClick=tab;
-			NonActiveResult();
-			document.getElementById("result"+tab).className = "resultItem resultItem-active"; 
-			HideDetailResult();				 
+							 
 			//callAHAH(url+ 'application/views/tabs2.php?route='+route, 'container', '<div style="position: absolute; top:40%; left:40%; overflow: hidden; width: 100%; height: 100%;"><img align="middle" src="http://localhost/businfo/public/img/ajax-loader.gif" /></div>', 'Error');
 			//$(window).resize(function(){
 			//$("container").css({'display':'block'});
 			//$("mm-map").css({'width':'100%', 'height':'100%'});
-			callAHAH('http://localhost/businfo/application/views/tabs.php', 'container', '<div style="position: absolute; top:40%; left:40%; overflow: hidden; width: 100%; height: 100%;"><img align="middle" src="http://localhost/businfo/public/img/ajax-loader.gif" /></div>', 'Error');
+			//callAHAH('http://localhost/businfo/application/views/tabs.php', 'container', '<div style="position: absolute; top:40%; left:40%; overflow: hidden; width: 100%; height: 100%;"><img align="middle" src="http://localhost/businfo/public/img/ajax-loader.gif" /></div>', 'Error');
 			//initialize(10.770023,106.685461,'Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh','',false);
 			//alert('Changed!');
 			//});
 		} 
-		function makeactive2(id,route,t,url) 
+		function makeactivemenu(id,route,count,t,url) 
 		{ 
-			HideDetailResult();
+			if (count >1)
+				HideDetailResult(count);
+			
+			if( id ==-1)
+			{
+				document.getElementById("DetailResult"+id).style.display="block";
+				callAHAH(url+'home/TuyenBusDetail?route='+route+'&id='+t, 'DetailResult'+id, '<table ><tr height="100px"><td width="300px" align="center"><h3 style="color:green;"><img align="middle" src="http://localhost/businfo/public/img/loading.gif" /> </br> Đang xử lý... </h3></td></tr></table>', 'Error');
+			}
+			else
+			{
 			if(IdClick!=id)
 			{	
-				makeactive(route,id,url);
+				makeactive(route,count,id,url);
 			}
+			
 			else
 			{
 				document.getElementById("DetailResult"+id).style.display="block";
 				callAHAH(url+'home/TuyenBusDetail?route='+route+'&id='+t, 'DetailResult'+id, '<table ><tr height="100px"><td width="300px" align="center"><h3 style="color:green;"><img align="middle" src="http://localhost/businfo/public/img/loading.gif" /> </br> Đang xử lý... </h3></td></tr></table>', 'Error');
 			}
+		}	
 		} 
 		function SearchPlaceMenu(id)
 		{
@@ -69,26 +214,33 @@
 			{
 			case 1:
 				document.getElementById("SearchPlaceBusStop").style.display="none";
+				document.getElementById("SearchPlaceBusStopResult").style.display="none";
 				document.getElementById("SearchPlaceBusRoute").style.display="none";
+				document.getElementById("SearchBusPlaceResult").style.display="none";
 				document.getElementById("SearchPlaceAround").style.display="none";
 				document.getElementById("SearchPlaceDetail").style.display="block";
+				
 				break;	
 			case 2:
 				document.getElementById("SearchPlaceDetail").style.display="none";
 				document.getElementById("SearchPlaceBusStop").style.display="block";
 				document.getElementById("SearchPlaceBusRoute").style.display="none";
+				document.getElementById("SearchBusPlaceResult").style.display="none";
 				document.getElementById("SearchPlaceAround").style.display="none";
 				break;
 			case 3:
 				document.getElementById("SearchPlaceDetail").style.display="none";
 				document.getElementById("SearchPlaceBusStop").style.display="none";
+				document.getElementById("SearchPlaceBusStopResult").style.display="none";
 				document.getElementById("SearchPlaceBusRoute").style.display="block";
 				document.getElementById("SearchPlaceAround").style.display="none";
 				break;
 			case 4:
 				document.getElementById("SearchPlaceDetail").style.display="none";
 				document.getElementById("SearchPlaceBusStop").style.display="none";
+				document.getElementById("SearchPlaceBusStopResult").style.display="none";
 				document.getElementById("SearchPlaceBusRoute").style.display="none";
+				document.getElementById("SearchBusPlaceResult").style.display="none";
 				document.getElementById("SearchPlaceAround").style.display="block";
 				break;
 			}
@@ -220,25 +372,25 @@
 							
 	<!-- Kết quả search theo tuyến -->
 		<!-- Kết quả thứ 1 -->
-							<div id="result<?php echo 1;?>" class="resultItem resultItem-active">
-								<a class="icon1-10 red" onclick="makeactive(19,1,'<?php echo base_url()?>')"> <?php echo $row->matuyen; ?><span class="icon1-10Hover"></span></a>
-								<a class="resultTitle" onclick="makeactive(19,1,'<?php echo base_url()?>')">
+							<div id="result-1" class="resultItem resultItem-active">
+								<a class="icon1-10 red" onclick="makeactive(<?php echo $row->matuyen;?>,1,-1,'<?php echo base_url()?>')"> <?php echo $row->matuyen; ?><span class="icon1-10Hover"></span></a>
+								<a class="resultTitle" onclick="makeactive(<?php echo $row->matuyen;?>,1,-1,'<?php echo base_url()?>')">
 								<b><?php echo $row->tentuyen; ?></b>	</a>
 								<div class="Spacer"></div>
 								<ul  class="resultOptions">
-									<li onclick="makeactive2(1,19,0,'<?php echo base_url()?>')">
+									<li onclick="makeactivemenu(-1,<?php echo $row->matuyen;?>,1,0,'<?php echo base_url()?>')">
 										<a class="" id ="t19_0">X</a>
 									</li>
-									<li onclick="makeactive2(1,19,1,'<?php echo base_url()?>')">
+									<li onclick="makeactivemenu(-1,<?php echo $row->matuyen;?>,1,1,'<?php echo base_url()?>')">
 										<a class="" id ="t19_1">Thông tin</a>
 									</li>
-									<li onclick="makeactive2(1,19,2,'<?php echo base_url()?>')">
+									<li onclick="makeactivemenu(-1,<?php echo $row->matuyen;?>,1,2,'<?php echo base_url()?>')">
 										<a class="" id ="t19_2">Lộ trình đi</a>
 									</li>
-									<li onclick="makeactive2(1,19,3,'<?php echo base_url()?>')">
+									<li onclick="makeactivemenu(-1,<?php echo $row->matuyen;?>,1,3,'<?php echo base_url()?>')">
 										<a class="" id ="t19_3">Lộ trình về</a>
 									</li>
-									<li onclick="makeactive2(1,19,4,'<?php echo base_url()?>')">
+									<li onclick="makeactivemenu(-1,<?php echo $row->matuyen;?>,1,4,'<?php echo base_url()?>')">
 										<a class="" id ="t19_4">Tìm xung quanh</a>
 									</li>
 									<li>
@@ -247,36 +399,8 @@
 								</ul>
 							</div>
 														
-							<div id="DetailResult<?php echo 1;?>" class="DetailResult" ></div>
-							
-		<!-- Kết quả thứ 2 -->							
-							<div id="result<?php echo 2;?>" class="resultItem">
-								<a class="icon1-10 red" onclick="makeactive(8,2,'<?php echo base_url()?>')"> <?php echo $row->matuyen; ?><span class="icon1-10Hover"></span></a>
-								<a class="resultTitle" onclick="makeactive(8,2,'<?php echo base_url()?>')">
-								<b><?php echo $row->tentuyen; ?></b>	</a>
-								<div class="Spacer"></div>
-								<ul  class="resultOptions">
-									<li onclick="makeactive2(2,8,0,'<?php echo base_url()?>')">
-										<a class="" id ="t8_0">X</a>
-									</li>
-									<li onclick="makeactive2(2,8,1,'<?php echo base_url()?>')">
-										<a class="" id ="t8_1">Thông tin</a>
-									</li>
-									<li onclick="makeactive2(2,8,2,'<?php echo base_url()?>')">
-										<a class="" id ="t8_2">Lộ trình đi</a>
-									</li>
-									<li onclick="makeactive2(2,8,3,'<?php echo base_url()?>')">
-										<a class="" id ="t8_3">Lộ trình về</a>
-									</li>
-									<li onclick="makeactive2(2,8,4,'<?php echo base_url()?>')">
-										<a class="" id ="t8_4">Tìm xung quanh</a>
-									</li>
-									<li>
-										<a href="" target="_blank">Chi tiết</a>
-									</li>
-								</ul>
-							</div>
-							<div id="DetailResult<?php echo 2;?>" class="DetailResult"></div>
+							<div id="DetailResult-1" class="DetailResult" ></div>
+												
 						</div>
 						
 						<div class="kohailong"  > 
@@ -380,15 +504,15 @@
 										<li>
 											<div id="direction1" class="direction-item">
 												<span>Bán kính:</span>
-												<input class="boxtimduong timduong-default" type="text" value="500" style="top:0px; width: 150px;">
+												<input id="RSearchBusStopAroundPlace" name="RSearchBusStopAroundPlace" class="boxtimduong timduong-default" type="text" value="500" style="top:0px; width: 150px;">
 												<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
-													<a><span onclick="">Tìm</span></a>
+													<a><span onclick="SearchStopBusArroundPlace()">Tìm</span></a>
 												</span></span>
-											</div>
-											
+											</div>								
 										</li>
 									</ul>
 								</div>
+								<div id="SearchPlaceBusStopResult" ></div>
 							</div>
 							<div id="SearchPlaceBusRoute" class="kohailong" style="display: none;"  > 
 								<div id="fblnk" style="">
@@ -397,15 +521,17 @@
 										<li>
 											<div id="direction1" class="direction-item">
 												<span>Bán kính:</span>
-												<input class="boxtimduong timduong-default" type="text" value="500" style="top:0px; width: 150px;">
+												<input id="RSearchBusPlace" name="RSearchBusPlace" class="boxtimduong timduong-default" type="text" value="500" style="top:0px; width: 150px;">
 												<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
-													<a><span onclick="">Tìm</span></a>
+													<a><span onclick="SearchBusPlace()">Tìm</span></a>
 												</span></span>
 											</div>
 										</li>
 									</ul>
 								</div>
+															
 							</div>
+							<div id="SearchBusPlaceResult" ></div>
 							<div id="SearchPlaceAround" class="kohailong" style="display: none;"  > 
 								<div id="fblnk" style="">
 									<p>Tìm dịch vụ xung quanh</p>
@@ -422,13 +548,14 @@
 												<span>Bán kính (m):</span>
 												<input class="boxtimduong" id="RadiusSearchPlaceAround" type="text" value="500" style="top:0px; width: 120px;" >
 												<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
-													<a><span onclick="DoSearchServiceAround()">Tìm</span></a>
+													<a><span onclick="SearchPOIArroundPlace()">Tìm</span></a>
 												</span></span>
 											</div>
 										</li>
 									</ul>
 								</div>
 							</div>
+							<div id="SearchPlaceArroundResult" ></div>
 					</div>
 				</div>
 					
@@ -462,10 +589,22 @@
 								</div>
 							</div>
 							<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">
-													<a><span onclick="SearchMotorRoute()">Tìm</span></a>
+													<a><span onclick="SearchComplexRoute()">Tìm</span></a>
 												</span></span>
 						</div>
+						
+<div id="directions-panel"></div>
 						<div id="directionoptions">
+						<div>
+<strong>Phương tiện di chuyển: </strong>
+<select id="Phuongtiendi" onchange="SearchComplexRoute()">
+  <option selected="selected" value="BUS">Xe buýt</option>
+  <option value="DRIVING">Xe hơi</option>
+  <option value="WALKING">Xe máy</option>
+  <option value="BICYCLING">Xe máy</option>
+</select>
+<a onclick="SearchPlaceMotorRoute()">Tìm dịch vụ</a>
+</div>
                         <div class="directionoptions">
                             
                             <ul class="phuongtiendichuyen">
