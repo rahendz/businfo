@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="ctl00_Head1">
+<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta content="BusInfo For HCM City" name="keywords">
 	<title><?php echo $title;?></title>
@@ -57,16 +57,32 @@
 	                	<div class="SBox">
 	                    	<div class="SBoxLeft">
 	                    	</div>
-	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="" />
-	                        <input class="SButton" type="submit" value="Tìm" onclick="" />
+	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="this.focus(), this.select();" />
+	                        <input class="SButton" type="submit" value="Tìm" onclick=""/>
                             <input type="hidden" id="mode" name="mode" value="route"/>
-                            <input name="bound_lat" type="hidden" id="bound_lat" value="0"/>
-                            <input name="bound_lng" type="hidden" id="bound_lng" value="0"/>
+                            <input name="bound_lat" type="hidden" id="bound_lat"/>
+                            <input name="bound_lng" type="hidden" id="bound_lng"/>
 						</div>
 					</div>
 	                <div class="SRight"></div>
                 </form>
+                
+                <script type="text/javascript">
+                $('#frmSearch').submit(function() {
+                	event.preventDefault();
+                	markers = [];
+                	var self = this;
+                    if (document.getElementById('mode').value == "poi") {                    
+                        geocodeAdd(document.getElementById('mapinput').value);
+                    }
+                    window.setTimeout(function() {
+                        self.submit();
+                        }, 100);
+                });
+                </script>
+                
 	            </div>
+              
 	            <!--  End Tab search -->
 	            
 				<!--  Tab Top menu -->
