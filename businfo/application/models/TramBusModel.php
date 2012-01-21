@@ -74,7 +74,8 @@ class TramBusModel extends CI_Model {
 			$this->db->order_by('matram', $options['sortDirection']);
 			
 		if (isset($options['mode'])) {
-			$where = "geo_lat BETWEEN " . $options['min_lat'] . " AND " . $options['max_lat'] . " AND geo_long BETWEEN " . $options['min_lng'] . " AND " . $options['max_lng'];  
+			$where = "geo_lat BETWEEN " . $options['min_lat'] . " AND " . $options['max_lat'] . " AND geo_long BETWEEN " . $options['min_lng'] . " AND " . $options['max_lng'];
+			//$where .= " AND ST_Distance ((shop_geom) ::geography,'POINT($Sy $Sx)' ::geography) <= $RCircle*1000";  
 			$this->db->where($where);
 		}
 		
