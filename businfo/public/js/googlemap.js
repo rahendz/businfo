@@ -82,6 +82,7 @@ function initialize(input_lat, input_lng, input_address, input_module,
 	if (zclient.location.latitude != 0 && zclient.location.longitude != 0 && input_address != null) {
 		locate(zclient.location.latitude, zclient.location.longitude, input_address, input_module);
 	}
+	//console.log("[Init] Bnd : " + document.getElementById('bound_lat').value + "," + document.getElementById('bound_lng').value);
 	}
 	catch (e) {
 		console.log("[Init] " + e.message);
@@ -226,9 +227,10 @@ function geocodeAdd(input_address) {
 										.lat();
 								zclient.location.longitude = results[0].geometry.location
 										.lng();
-								
-								document.getElementById('bound_lat').value = results[0].geometry.location.lat();
-								document.getElementById('bound_lng').value = results[0].geometry.location.lng();
+								//console.log("[geocodeRslt] Old : " + document.getElementById('bound_lat').value + "," + document.getElementById('bound_lng').value);
+								document.getElementById('bound_lat').value = zclient.location.latitude;
+								document.getElementById('bound_lng').value = zclient.location.longitude;
+								//console.log("[geocodeRslt] New : " + document.getElementById('bound_lat').value + "," + document.getElementById('bound_lng').value);
 								locate(zclient.location.latitude, zclient.location.longitude, input_address, true);
 								update();
 							} else {
