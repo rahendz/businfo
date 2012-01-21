@@ -94,7 +94,6 @@ class Home extends CI_Controller{
 			$htmltext = "$(document).ready(function(){geocodeAdd(" . $temp['init_add'] . ");});";
 			
 			$this->load->model("TramBusModel");
-			//$options = array('mode' => 'search', 'min_lat' => '10.775044', 'min_lng' => '106.665325', 'max_lat' => '10.78411', 'max_lng' => '106.751043');
 			$options = array('mode' => 'search', 'min_lat' => $temp['b_bot_lat'], 'min_lng' => $temp['b_bot_lng'], 'max_lat' => $temp['b_top_lat'], 'max_lng' => $temp['b_top_lng']);
 			$rows = $this->TramBusModel->getTramBus($options);
 			
