@@ -60,9 +60,10 @@
 		
 		function SearchStopBusArroundPlace()
 		{
-	    	var str = document.getElementById('RSearchBusStopAroundPlace').value;
+	    	var str = "radius=" + document.getElementById('RSearchBusStopAroundPlace').value;
+            str += "&bound_lat=" + marker.getPosition().lat() + "&bound_lng=" + marker.getPosition().lng();
 	    	document.getElementById("SearchPlaceBusStopResult").style.display="none";
-			http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchStopBusArroundPlace/'+str);
+			http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchStopBusArroundPlace/?'+str);
 			http.onreadystatechange= SearchStopBusArroundPlaceProcess;
 			http.send(null);
 		}
@@ -298,14 +299,9 @@
 	                	<div class="SBox">
 	                    	<div class="SBoxLeft">
 	                    	</div>
-	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="this.value = ''" />
-
+	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="this.focus(), this.select();" />
 	                        <input class="SButton" type="submit" value="Tìm" onclick="" />
                             <input type="hidden" id="mode" name="mode" value="search"/>
-                            <input type="hidden" id="bound_top_lat" value=""/>
-                            <input type="hidden" id="bound_top_lng" value=""/>
-                            <input type="hidden" id="bound_bot_lat" value=""/>
-                            <input type="hidden" id="bound_bot_lng" value=""/>
 						</div>
 					</div>
 	                <div class="SRight"></div>
@@ -459,7 +455,7 @@
 							<div id="direction0" class="direction-item">
 								<div class="swrap-timduong">
 									<span class="a-z">a</span>
-									<input class="boxtimduong timduong-default" id="searchPlaceField" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.value = ''">
+									<input class="boxtimduong timduong-default" id="searchPlaceField" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.focus(), this.select();">
 									<a id="btnSearchPlace0" class="btn-timduong" onclick="">Tìm</a>
 								</div>
 							</div>

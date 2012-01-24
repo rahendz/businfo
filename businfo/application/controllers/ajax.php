@@ -6,27 +6,40 @@ class Ajax extends CI_Controller
 	{
 		parent::__construct();
 	}
-	public function ajax_SearchStopBusArroundPlace($id)
+	public function ajax_SearchStopBusArroundPlace()
 	{
-	 	$temp['title']="BusInfo for Hochiminh";
-		
-		//$temp['x'] = $_POST['bound_top_lat'];
-		//$temp['init_lat'] = 10.781023;
-		//$temp['init_long'] = 106.696461;
-		$temp['init_lat'] = 10.770023;
-		$temp['init_long'] = 106.685461;
-		$temp['init_add'] = "'6,14, Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh'";
-		//$temp['init_add'] = "'Đại học Công nghệ Thông tin'";
-		//$htmltext = "$(document).ready(function(){geocodeAdd(" . $temp['init_add'] . ");});";
-		//$htmltext .= "$(document).ready(function(){document.getElementById('bound_top_lat').value);});";
+//		if (isset($_GET['input']))
+//            {
+//                $add = "'" . $_GET['input'] . "'";
+//            }
+//            else $add = "'Hồ Chí Minh, Việt Nam'";
+//
+//          
+            if (isset($_GET['radius'])) $delta = $_GET['radius'];
+            else $delta = 500;
+            $delta = $delta * 0.85 / 100000;
+            $temp['b_top_lat'] = $_GET['bound_lat'] + $delta;
+            $temp['b_top_lng'] = $_GET['bound_lng'] + $delta;
+            $temp['b_bot_lat'] = $_GET['bound_lat'] - $delta;
+            $temp['b_bot_lng'] = $_GET['bound_lng'] - $delta;
+            
+            $temp['title']="BusInfo for Hochiminh";
+            //$temp['init_lat'] = 10.781023;
+            //$temp['init_long'] = 106.696461;
+            $temp['init_lat'] = 10.770023;
+            $temp['init_long'] = 106.685461;
+            //$temp['init_add'] = "'6,14, Nguyễn Thị Minh Khai, Bến Nghé, Hồ Chí Minh'";
+            $temp['init_add'] = "Hồ Chí Minh, Việt Nam";//$add;
+            //$htmltext = "$(document).ready(function(){geocodeAdd(" . $temp['init_add'] . ");});";
+            
+            $this->load->model("TramBusModel");
+            $options = array('mode' => 'search', 'min_lat' => $temp['b_bot_lat'], 'min_lng' => $temp['b_bot_lng'], 'max_lat' => $temp['b_top_lat'], 'max_lng' => $temp['b_top_lng']);
+            $rows = $this->TramBusModel->getTramBus($options);
 
-		$this->load->model("TramBusModel");
-		$options = array('mode' => 'search', 'min_lat' => '10.775044', 'min_lng' => '106.665325', 'max_lat' => '10.78411', 'max_lng' => '106.751043');
-		$rows = $this->TramBusModel->getTramBus($options);
-		
-		
-		$htmltext= json_encode($rows);
-		$temp['htmltext'] = $htmltext;
+            $htmltext = json_encode($rows);
+            //$htmltext .= "$(document).ready(function(){showStops2('" . json_encode($rows) . "')});";
+            $temp['htmltext'] = $htmltext;
+            
 		$temp['queryTram'] = $this->TramBusModel->getTramBus($options);
 		
 		$this->load->view("ResultSearchBusStopArroundPlace",$temp);
