@@ -22,17 +22,27 @@ var infowindow_shop = new google.maps.InfoWindow({
 	maxWidth : 200
 });
 var zclient;
-
+var newHTML ="";
 // Variables for showShops.
 var iterator = 0;
 var markers = [];
-
+var address = '';
+var place;
 // Variable for show direction.
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer({
 	preserveViewport : true
 });
 var legs = [];
+var routes =[];
+var pathroutebox;
+var boxpolys = null;
+var directions = null;
+var routeBoxer = null;
+var distance = null; // km
+var markerTo;
+var markerFrom;
+var markersArray = [];
 
 /**
  * Displays the map & is called when this page is initializing.
@@ -40,32 +50,30 @@ var legs = [];
 function initialize(input_lat, input_lng, input_address, input_module,
 		viewController) {
 	
+	 directionsDisplay = new google.maps.DirectionsRenderer();
+
 	var default_coor = new google.maps.LatLng(input_lat, input_lng);
 	// Create new Client
 	zclient = new ZClient();
-	try{
+	
 	if (input_address != null) {
-		if (input_address != "User") {
 		var address = input_address + ", Hồ Chí Minh, Việt Nam"; 
 		geocoder.geocode({'address': address}, function(results, status) { 
 		if (status == google.maps.GeocoderStatus.OK) { 
 			zclient.location.latitude = results[0].geometry.location.lat();
-			zclient.location.longitude = results[0].geometry.location.lng();
-			//alert("Geocode loaded!");
+			zclient.location.longitude = results[0].geometry.location.lng(); 
 		}
 	});
 	}
-	}
 	else { alert("Geocode was not successful for the following reason: " + status); 
 	}
-	
 	if (input_address != null && input_address != "User") {
-	default_coor = new google.maps.LatLng(zclient.location.latitude,
-			zclient.location.longitude); 
-	//alert("Map loaded!");
-	}
-	// input_lat = default_coor.lat();
-	// input_lng = default_coor.lng();
+		default_coor = new google.maps.LatLng(zclient.location.latitude,
+				zclient.location.longitude); 
+		alert("Map loaded!");
+		}
+		// input_lat = default_coor.lat();
+		// input_lng = default_coor.lng();
 	var myOptions = {
 		zoom : 15,
 		center : default_coor,
@@ -78,17 +86,554 @@ function initialize(input_lat, input_lng, input_address, input_module,
 	map.setTilt(45);
 	map.setHeading(90);
 
+	// Distance buttons
+//	if (viewController) {
+//		addDistanceController();
+//	}
+
 	// Locate the input shop first if input values are provided.
 	if (zclient.location.latitude != 0 && zclient.location.longitude != 0 && input_address != null) {
 		locate(zclient.location.latitude, zclient.location.longitude, input_address, input_module);
 	}
-	//console.log("[Init] Bnd : " + document.getElementById('bound_lat').value + "," + document.getElementById('bound_lng').value);
-	}
-	catch (e) {
-		console.log("[Init] " + e.message);
-	}
+	
+	searchplace();
+	searchpath();
+	//Search point along a route
+	routeBoxer = new RouteBoxer();
+    
+    directionService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+    directionsDisplay.setMap(map);
+    
+    directionsRenderer.setPanel(document.getElementById('directions-panel'));
+    
+    
+    //end 
 }
 
+
+
+
+function handle_clicks()
+{
+
+	$('#SearchBusStopArroundPlaceResult ul li a').live('click',function(){
+		var coordString = $(this).attr('rel');
+		var coordTitle = $(this).text();
+		var coordArray = coordString.split(',');
+		var update2Location = new google.maps.LatLng(coordArray[0],coordArray[1]);
+		map.setCenter(update2Location);
+		addBusStopArroundPlace(update2Location,coordTitle,coordArray[2]);
+//  		$('#home-messages').text("Viewing: "+coordTitle);
+	});
+	$('#ResultTableBusStop tr td a').live('click',function(){
+		
+		var stop_list = $(this).attr('rel');
+		
+		var coordTitle = $(this).text();
+		if (!stop_list) {
+			// Convert JSON result to JS objects. (for testing)
+			return;
+			
+		} else {
+			stop_list = stop_list.replace(/'/g, '"');
+			
+			input_json = stop_list;
+		}
+		stop_list = jQuery.parseJSON(input_json);
+		// Clear all old markers.
+		clearMarkers();
+		// Clear old guide & direction.
+		directionsDisplay.setMap(null);
+		//directionsDisplay.setMap(map);
+		markers = new Array();
+
+		// Add markers.
+		try {
+			for ( var i = 0; i < stop_list.length; i++) {
+				obj = stop_list[i];
+				addMarker(obj);
+			}
+		} catch (e) {
+			alert(e.message);
+		}
+	});
+	
+	$('#ResultSearchBusPlaceDetail a').live('click',function(){
+		var stop_list = $(this).attr('rel');
+		//alert(stop_list);
+		if (!stop_list) {
+			// Convert JSON result to JS objects. (for testing)
+			return;
+			// input_json = '[{"matram":"1","tentram":"Trạm
+			// 1","geo_lat":"10.7935931560974","geo_long":"106.69419521485"},'
+			// + '{"matram":"3","tentram":"Trạm
+			// 2","geo_lat":"10.8035931560974","geo_long":"106.70419521485"},'
+			// + '{"matram":"4","tentram":"Trạm
+			// 3","geo_lat":"10.8135931560974","geo_long":"106.71419521485"}]';
+		} else {
+			stop_list = stop_list.replace(/'/g, '"');
+			input_json = stop_list;
+		}
+		stop_list = jQuery.parseJSON(input_json);
+		
+
+		// Clear all old markers.
+		clearMarkers();
+		// Clear old guide & direction.
+
+		directionsDisplay.setMap(null);
+		markers = new Array();
+		
+		// document.getElementById("directionsPanel").innerHTML = "";
+
+		// Set zoom for map
+		// setZoom(zclient.search.distance);
+
+		// Create new array of markers.
+		markers = new Array();
+		markers_latlng = new Array();
+
+		// Add markers.
+		var lotrinhdi = true; // flag
+		
+		processWaypoints(stop_list, lotrinhdi);
+		directionsDisplay.setMap(map); 
+		//lotrinhdi = false;
+		//processWaypoints(stop_list2, lotrinhdi);
+	});
+	
+	$('#ResultSearchBusPlaceDetail ul li').live('click',function(){
+		var stop_list = $(this).attr('rel');
+		
+		if (!stop_list) {
+			return;
+		} else {
+			stop_list = stop_list.replace(/'/g, '"');
+			input_json = stop_list;
+		}
+		
+			stop_list = jQuery.parseJSON(input_json);
+		
+
+		// Clear all old markers.
+		clearMarkers();
+		// Clear old guide & direction.
+
+		directionsDisplay.setMap(null);
+		markers = new Array();
+		
+		// document.getElementById("directionsPanel").innerHTML = "";
+
+		// Set zoom for map
+		// setZoom(zclient.search.distance);
+
+		// Create new array of markers.
+		markers = new Array();
+		markers_latlng = new Array();
+
+		// Add markers.
+		var lotrinhdi = true; // flag
+		
+		processWaypoints(stop_list, lotrinhdi);
+		directionsDisplay.setMap(map); 
+		//lotrinhdi = false;
+		//processWaypoints(stop_list2, lotrinhdi);
+	});
+	
+	$('#SearchPlaceArroundResultDetail ul li a').live('click',function(){
+		var coordString = $(this).attr('rel');
+		coordString = coordString.replace('(', '');
+		coordString = coordString.replace(')', '');
+		var coordTitle = $(this).text();
+		var coordArray = coordString.split(';');
+		var LatLng = coordArray[0].split(',');
+		
+		//alert(LatLng[0]);
+		var update2Location = new google.maps.LatLng(LatLng[0],LatLng[1]);
+		map.setCenter(update2Location);
+		addBusStopArroundPlace(update2Location,coordTitle,coordArray[1]);
+//  		$('#home-messages').text("Viewing: "+coordTitle);
+	});
+	
+	
+}
+
+
+function addBusStopArroundPlace(m_position,m_title,m_infowindow) {
+	var marker_child = new google.maps.Marker({
+	  	position: m_position,
+	  	map: map,
+		title: m_title
+	});
+	markers.push(marker_child);
+  	var mark = markers.pop();
+  	infowindow.close();
+  	infowindow = new google.maps.InfoWindow({
+		content : "<b>Tên: </b>" +  m_infowindow + "<br>"
+				+ "<b>Tọa độ:</b> <br>" + m_position,
+		maxWidth : 200
+	});
+	//google.maps.event.addListener(mark, 'click', function() {
+		infowindow.open(map,mark);
+	//});
+	markers.push(mark);
+}
+
+function SearchMotorRoute() {
+    // Clear any previous route boxes from the map
+	clearBoxes();
+    deleteOverlays();
+	clearMarkers();
+	marker.setMap(null);
+   markerTo.setMap(null);
+   markerFrom.setMap(null);
+    // Convert the distance to box around the route from miles to km
+    //distance = parseFloat(document.getElementById("distance").value) * 1.609344;
+   var selectedMode = document.getElementById("Phuongtiendi").value;
+   //alert(selectedMode);
+    var request = {
+      origin: document.getElementById("searchPathFrom").value,
+      destination: document.getElementById("searchPathTo").value,
+      //travelMode: google.maps.DirectionsTravelMode.DRIVING
+      travelMode: google.maps.TravelMode[selectedMode]
+    	//language:
+    };
+    
+    // Make the directions request
+    directionService.route(request, function(result, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsRenderer.setDirections(result);
+        
+        // Box around the overview path of the first route
+        pathroutebox = result.routes[0].overview_path;
+    
+      }
+      
+        else {
+        alert("Directions query failed: " + status);
+      }
+      
+
+    });
+  }
+
+function SearchPlaceMotorRoute() {
+    distance=0.02;
+    var boxes = routeBoxer.box(pathroutebox, distance);
+    
+    //drawBoxes(boxes);
+    
+    
+    
+   for (var i = 0; i < boxes.length; i++) {
+  		
+ 
+	 var bounds = boxes[i];
+
+    var request2 = {
+           bounds: bounds,
+  		  name: ['hotel']
+          };
+		
+    infowindow = new google.maps.InfoWindow();
+    
+    var service = new google.maps.places.PlacesService(map);  
+    service.search(request2, callback);
+   }
+}
+    function drawBoxes(boxes) {
+    	
+        boxpolys = new Array(boxes.length);
+        for (var i = 0; i < boxes.length; i++) {
+          boxpolys[i] = new google.maps.Rectangle({
+            bounds: boxes[i],
+            fillOpacity: 0,
+            strokeOpacity: 1.0,
+            strokeColor: '#000000',
+            strokeWeight: 1,
+            map: map
+          });
+         
+        }
+      }
+// Search place google maps
+function searchplace()
+{
+	var bounds = new google.maps.LatLngBounds(
+		new google.maps.LatLng(10.906133,106.411972),
+		new google.maps.LatLng(10.398676,107.146683));
+	var input = document.getElementById('searchPlaceField');
+	var options = {
+		bounds: bounds
+	};
+	var autocomplete = new google.maps.places.Autocomplete(input, options);
+	
+	autocomplete.bindTo('bounds', map);
+	infowindow = new google.maps.InfoWindow();
+	marker = new google.maps.Marker({
+		map: map
+	});
+	deleteOverlays();
+	
+	google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        infowindow.close();
+        deleteOverlays();
+       
+        place = autocomplete.getPlace();
+        AddMarkerPlace(place,marker);
+        document.getElementById("SearchPlaceMenu").style.display="block";
+        document.getElementById("ResultSearchPlace").style.display="block";
+        document.getElementById("SearchPlaceDetail").style.display="block";
+        document.getElementById("SearchPlaceTittle").innerHTML = place.name;
+        document.getElementById("SearchPlaceAddress").innerHTML = "Địa chỉ: "+place.formatted_address;
+        if(place.international_phone_number)
+        {
+        document.getElementById("SearchPlacePhone").innerHTML = "Điện thoại: "+ place.international_phone_number;
+        }
+        if( place.website)
+        {
+        document.getElementById("SearchPlaceWebsite").innerHTML = "Website: "+ place.website;
+        }
+        document.getElementById("SearchPlaceLnglat").innerHTML = "Tọa độ: "+ place.geometry.location ;
+      });
+}
+function AddMarkerPlace(place,marker)
+{
+	if (place.geometry.viewport) 
+    {
+    	map.fitBounds(place.geometry.viewport);
+    } 
+    else 
+    {
+    	map.setCenter(place.geometry.location);
+    	map.setZoom(16);
+    }
+    /*
+    var image = new google.maps.MarkerImage(
+        place.icon,
+        new google.maps.Size(71, 71),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(17, 34),
+        new google.maps.Size(35, 35));
+    */
+    var image = 'http://localhost/businfo/public/img/Skins/point-1.gif';
+    marker.setIcon(image);
+    marker.setPosition(place.geometry.location);
+    
+    if (place.address_components) {
+      address = [(place.address_components[0] &&
+                  place.address_components[0].short_name || ''),
+                 (place.address_components[1] &&
+                  place.address_components[1].short_name || ''),
+                 (place.address_components[2] &&
+                  place.address_components[2].short_name || '')
+                ].join(' ');
+    }
+
+    infowindow.setContent('<div><strong>'+ place.name + '</strong><br>' + address);
+    infowindow.open(map, marker);
+    
+//    circle = new google.maps.Circle({
+//		map : map,
+//		strokeColor : "#FFAA00",
+//		strokeOpacity : 0.8,
+//		strokeWeight : 1,
+//		fillColor : "#FFFF00",
+//		fillOpacity : 0.15,
+//		center : place.geometry.location,
+//		radius : 500
+//	});
+}
+function searchpath()
+{
+	var defaultBounds = new google.maps.LatLngBounds(
+		new google.maps.LatLng(10.906133,106.411972),
+		new google.maps.LatLng(10.398676,107.146683));
+	var input1 = document.getElementById('searchPathFrom');
+	var input2 = document.getElementById('searchPathTo');
+	var options = {
+		bounds: defaultBounds
+	};
+	var autocompleteFrom = new google.maps.places.Autocomplete(input1, options);
+	var autocompleteTo = new google.maps.places.Autocomplete(input2, options);
+	
+	autocompleteFrom.bindTo('bounds', map);
+	autocompleteTo.bindTo('bounds', map);
+	infowindow = new google.maps.InfoWindow();
+	markerTo = new google.maps.Marker({
+		map: map
+	});
+	markerFrom = new google.maps.Marker({
+		map: map
+	});
+	google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
+        infowindow.close();
+        var place = autocompleteFrom.getPlace();
+        AddMarkerPlace(place,markerFrom);
+        
+        //markersArray.push(markerFrom);
+        
+     });
+	google.maps.event.addListener(autocompleteTo, 'place_changed', function() {
+        infowindow.close();
+        var place = autocompleteTo.getPlace();
+        AddMarkerPlace(place,markerTo);
+       
+        //markersArray.push(markerTo);
+        
+     });
+}
+function SearchPOIArroundPlace()
+{	
+
+	var request = {
+		location:  place.geometry.location ,
+		    radius: document.getElementById("RadiusSearchPlaceAround").value,
+		    name: document.getElementById("ServiceSearchPlaceAround").value
+		  };
+	deleteOverlays();
+
+	markersArray=new Array();
+	var service = new google.maps.places.PlacesService(map);
+		  service.search(request, callbackPOIPlace);
+		  
+}
+
+
+
+function callbackPOIPlace(results, status) {
+	if (status == google.maps.places.PlacesServiceStatus.OK) {
+		newHTML ="<div id=\"fblnk\" style=\" \">"+
+		"<div id=\"SearchPlaceArroundResultDetail\" class=\"kohailong\">"+
+		"<ul>";
+      for (var i = 0; i < results.length; i++) {
+        createMarkerPOIPlace(results[i]);
+      }
+      newHTML=newHTML + "</ul></div></div>";
+      //alert(newHTML);
+      document.getElementById('SearchPlaceArroundResult').innerHTML = newHTML;  
+    }
+  }
+function createMarkerPOIPlace(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+    markersArray.push(marker);
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+      });
+/*
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name,place.types);
+      infowindow.open(map, this);
+    });*/
+    /*var mark = markersArray.pop();
+    infowindow.close();
+  	infowindow = new google.maps.InfoWindow({
+		content : "<b>Tên: </b>" +  place.name + "<br>"
+				+ "<b>Địa chỉ:</b>" + place.formatted_address,
+		maxWidth : 200
+	});
+	google.maps.event.addListener(mark, 'click', function() {
+		infowindow.open(map,mark);
+	});
+	
+	markersArray.push(mark);*/
+    
+    newHTML = newHTML + 
+    		"<li id=\"SearchArroundResult>\">"+
+			"<a href=\"#\" rel=\""+place.geometry.location +";"+place.name +
+			"<br> <b>Địa chỉ: </b>"+ place.formatted_address +
+			"<br> <b>Điện thoại: </b>"+ place.formatted_phone_number +
+			"\" target=\"_self\"><span>"+ place.name+ "</span>"+
+			"</a> </li>	<div class=\"Spacer\"></div>";
+    
+    
+
+  }
+
+function callback(results, status) {
+	if (status == google.maps.places.PlacesServiceStatus.OK) {
+    	/*newHTML ="<div id=\"fblnk\" style=\" \">"+
+		"<div id=\"SearchPlaceArroundResultDetail\" class=\"kohailong\">"+
+		"<ul>";*/
+		
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+      /*newHTML=newHTML + "</ul></div></div>";
+      //alert(newHTML);
+      document.getElementById('SearchPlaceArroundResult').innerHTML = newHTML;*/  
+    }
+  }
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+    markersArray.push(marker);
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+      });
+/*
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name,place.types);
+      infowindow.open(map, this);
+    });*/
+    /*var mark = markersArray.pop();
+    infowindow.close();
+  	infowindow = new google.maps.InfoWindow({
+		content : "<b>Tên: </b>" +  place.name + "<br>"
+				+ "<b>Địa chỉ:</b>" + place.formatted_address,
+		maxWidth : 200
+	});
+	google.maps.event.addListener(mark, 'click', function() {
+		infowindow.open(map,mark);
+	});
+	
+	markersArray.push(mark);*/
+    /*
+    newHTML = newHTML + 
+    		"<li id=\"SearchArroundResult>\">"+
+			"<a href=\"#\" rel=\""+place.geometry.location +";"+place.name +
+			"<br> <b>Địa chỉ: </b>"+ place.formatted_address +
+			"<br> <b>Điện thoại: </b>"+ place.formatted_phone_number +
+			"\" target=\"_self\"><span>"+ place.name+ "</span>"+
+			"</a> </li>	<div class=\"Spacer\"></div>";
+    */
+    
+
+  }
+
+function deleteOverlays() 
+{	 
+	if (markers.length > 0) 
+	{	
+		for (i = 0; i < markers.length; i++) 
+		{
+			markers[i].setMap(null);
+		}
+		markers.length = 0;
+	}
+}
+function clearBoxes() 
+{
+	if (boxpolys != null) 
+	{
+		for (var i = 0; i < boxpolys.length; i++) 
+		{
+			boxpolys[i].setMap(null);
+		}
+	}
+	boxpolys = null;
+	
+}
 /**
  * Locate the input shop
  */
@@ -247,7 +792,6 @@ function geocodeAdd(input_address) {
  * or dragend.
  */
 function update() {
-	try{
 	var geo_address; // this variable will contain the suggested address.
 	var lat = parseFloat(marker.getPosition().lat());
 	var lng = parseFloat(marker.getPosition().lng());
@@ -290,16 +834,6 @@ function update() {
 			alert("Geocoder failed due to: " + status);
 		}
 	});
-	}
-	catch (e)
-	{
-		console.log("failed at update() : " + e.message);
-	}
-}
-
-// Find routes that stop at the given bus-station
-function findRoute() {
-	
 }
 
 // ========================================================================
@@ -342,10 +876,6 @@ function showStops(stop_list1, stop_list2) {
 	processWaypoints(stop_list1, lotrinhdi);
 	lotrinhdi = false;
 	processWaypoints(stop_list2, lotrinhdi);
-	
-	var temp_obj = stop_list1[0];
-	var firstStop = new google.maps.LatLng(temp_obj.geo_lat, temp_obj.geo_long);
-	map.setCenter(firstStop);
 }
 
 // local search
@@ -383,7 +913,7 @@ function showStops2(stop_list) {
 			addMarker(obj);
 		}
 	} catch (e) {
-		console.log(e.message);
+		alert(e.message);
 	}
 }
 
@@ -395,7 +925,6 @@ function processWaypoints(list, lotrinhdi) {
 		var point = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
 		markers_latlng.push(point);
 	}
-	
 	try {
 		// Split waypoints into groups of 10
 		for ( var idx1 = 0; idx1 < markers_latlng.length - 1; idx1 += 9) {
@@ -422,7 +951,7 @@ function processWaypoints(list, lotrinhdi) {
 		}
 
 	} catch (e) {
-		console.log("failed at processWaypnt() : " + e.message);
+		alert(e.message);
 	}
 }
 
@@ -448,15 +977,19 @@ function addMarker(obj) {
 
 		google.maps.event.addListener(marker_child, 'click', function() {
 			// Set infowindow's content.
-			infowindow_shop.setContent("<b>" + obj.tentram + "</b");
+			infowindow_shop.setContent("<b>Trạm: " + obj.tentram + "</b");
 
 			// Open infowindow
 			infowindow_shop.open(map, marker_child);
 
 			// Makes the marker bouncing when it is clicked.
+			for (i in markers) {
+				markers[i].setAnimation(null);
+			}
 
 			if (marker_child.getAnimation() != null) {
 				marker_child.setAnimation(null);
+			} else {
 				marker_child.setAnimation(google.maps.Animation.BOUNCE);
 			}
 
@@ -466,7 +999,7 @@ function addMarker(obj) {
 
 		markers.push(marker_child);
 	} catch (e) {
-		console.log(e.message);
+		alert(e.message);
 	}
 }
 
@@ -479,6 +1012,7 @@ function clearMarkers() {
 		for (x = 0; x < markers.length; x++) {
 			markers[x].setMap(null);
 		}
+		
 	}
 }
 
@@ -628,21 +1162,15 @@ function ZClient() {
 		search : {
 			distance : 5.0,
 			keyword : ''
+		},
+		bound : {
+			top_lat : 0.0,
+			top_lng : 0.0,
+			bot_lat : 0.0,
+			bot_lng : 0.0
 		}
 	};
 	return obj;
-}
-
-function setMode(mode) {
-	if (mode == 2) {
-		document.getElementById("mode").value = "poi";
-	}
-	else if (mode == 3) {
-		document.getElementById("mode").value = "dir";
-	}
-	else {
-		document.getElementById("mode").value = "route";
-	}
 }
 
 // ------------------------------------------------------------
@@ -650,13 +1178,13 @@ function setMode(mode) {
 // ------------------------------------------------------------
 function parse(response, lotrinhdi) {
 	try {
-		var routes = response.routes;
-
+		routes = response.routes;
+		
 		// Loop through all routes and append
 		for ( var rte in routes) {
 			// var legs = routes[rte].legs;
 			add_leg_(routes[rte].overview_path, lotrinhdi);
-
+			
 			// Steps in route
 			/*
 			 * for(var leg in legs) { var steps = legs[leg].steps;
@@ -677,7 +1205,9 @@ function parse(response, lotrinhdi) {
 function add_leg_(path, lotrinhdi) {
 	var color;
 	if (lotrinhdi)
-		color = "#0000FF";
+	{	
+		
+		color = "#0000FF";}
 	else
 		color = "#00FF00";
 	this.legs.push(new google.maps.Polyline({
@@ -697,5 +1227,6 @@ function fit_route_() {
 		for ( var i = 0; i < path.length; i++)
 			latlngbounds.extend(path.getAt(i));
 	}
+	
 	map.fitBounds(latlngbounds);
 };
