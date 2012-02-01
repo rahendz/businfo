@@ -183,6 +183,17 @@ function handle_clicks()
 		// Clear old guide & direction.
 
 		directionsDisplay.setMap(null);
+		/*if (routes) {
+			alert ("long");
+			
+			for ( var rte in routes) {
+				// var legs = routes[rte].legs;
+				routes[rte].overview_path = null;
+				//routes[rte].legs.setMap=null;
+				//routes[rte].setMap(null);
+			}
+		}*/
+		routes = new Array();
 		markers = new Array();
 		
 		// document.getElementById("directionsPanel").innerHTML = "";
@@ -382,10 +393,11 @@ function searchplace()
        
         place = autocomplete.getPlace();
         AddMarkerPlace(place,marker);
+        document.getElementById("listDirection").style.display="none";
         document.getElementById("SearchPlaceMenu").style.display="block";
         document.getElementById("ResultSearchPlace").style.display="block";
         document.getElementById("SearchPlaceDetail").style.display="block";
-        document.getElementById("SearchPlaceTittle").innerHTML = place.name;
+        document.getElementById("SearchPlaceTittle").innerHTML = document.getElementById("searchPlaceField").value;
         document.getElementById("SearchPlaceAddress").innerHTML = "Địa chỉ: "+place.formatted_address;
         if(place.international_phone_number)
         {
@@ -862,6 +874,16 @@ function showStops(stop_list1, stop_list2) {
 	clearMarkers();
 	// Clear old guide & direction.
 	directionsDisplay.setMap(null);
+	/*
+	if (routes) {
+		alert ("long");
+		
+		for ( var rte in routes) {
+			// var legs = routes[rte].legs;
+			routes[rte].overview_path = null;
+			routes[rte].setMap(null);
+		}
+	}*/
 	// document.getElementById("directionsPanel").innerHTML = "";
 
 	// Set zoom for map
@@ -1184,7 +1206,7 @@ function parse(response, lotrinhdi) {
 		for ( var rte in routes) {
 			// var legs = routes[rte].legs;
 			add_leg_(routes[rte].overview_path, lotrinhdi);
-			
+			//routes[rte].legs.setMap=map;
 			// Steps in route
 			/*
 			 * for(var leg in legs) { var steps = legs[leg].steps;

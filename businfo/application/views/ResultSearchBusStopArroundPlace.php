@@ -35,28 +35,37 @@
 			<div id="SearchBusStopArroundPlaceResult" class="kohailong"> 
 		
 			<ul>
-		<?php 	
-		$i=1;
-		foreach($queryTram as $row) 
+		<?php
+		if ($htmltext=="false")
+		{
+			?>
+			<li id="SearchBusStopResult-1">Không tìm thấy trạm buýt nào phù hợp với điều kiện tìm kiếm</li>
+			<?php 
+		}
+		else 
+		{
+			$i=1;
+			foreach($queryTram as $row) 
 			{		
-		?>
-			<li id="SearchBusStopResult<?php echo $i;?>">
-				
-					<!--<div id="direction1" class="direction-item">
-				 <div id="resultBusStopArroundPlace<?php echo $i;?>" class="resultItem resultItem-active">
-					 -->
-					<a href="#" rel="<?php echo $row->geo_lat;?>,<?php echo $row->geo_long;?>, 
-					<?php echo $row->tentram; ?><br />
-					" target="_self"><span><?php echo $row->tentram; ?></span>
-					</a>
-					<!-- </div>
-				</div> -->
-			</li>
-			<div class="Spacer"></div>
-	
-	<?php
-		$i++;
-		} 
+			?>
+				<li id="SearchBusStopResult<?php echo $i;?>">
+					
+						<!--<div id="direction1" class="direction-item">
+					 <div id="resultBusStopArroundPlace<?php echo $i;?>" class="resultItem resultItem-active">
+						 -->
+						<a href="#" rel="<?php echo $row->geo_lat;?>,<?php echo $row->geo_long;?>, 
+						<?php echo $row->tentram; ?><br />
+						" target="_self"><span><?php echo $row->tentram; ?></span>
+						</a>
+						<!-- </div>
+					</div> -->
+				</li>
+				<div class="Spacer"></div>
+		
+		<?php
+			$i++;
+			} 
+		}
 	?>
 			</ul>
 		</div>

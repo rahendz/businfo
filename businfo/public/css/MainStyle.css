@@ -974,7 +974,7 @@ a.btn-xemthem:active {
 #content_wrap {
     float: left;
     width: 100%;
-   
+    height:82%;
 }
 .LeftPanel {
     background: url("../img/Skins/bg-tab.png") repeat-x scroll 0 0 #FFFFFF;
@@ -983,14 +983,16 @@ a.btn-xemthem:active {
     left: 0;
     position: absolute;
     top: 118px;
-     
+     height:80%;
+     overflow-x: hidden;
+    overflow-y: auto;
 }
 .bodyLeftPanel {
     overflow-x: hidden;
     overflow-y: auto;
     padding: 0 0 0 5px;
     position: relative;
-    height: 550px;
+    
     
 }
 .mymap_div {
@@ -1402,7 +1404,7 @@ a.flnk:hover {
 .resultItem {
     border-color: #FFFFFF #FFFFFF #EFEFEF;
     border-style: solid;
-    border-width: 1px;
+    border-width: 5px;
     float: left;
     margin: 0 2px;
     padding: 8px 0 8px 10px;
@@ -1414,6 +1416,26 @@ a.flnk:hover {
     box-shadow: 0 -20px 50px #FFF3B0 inset, 0 2px 50px #FFF3B0 inset, 0 50px 100px #FFFDF2 inset, 0 2px 8px rgba(200, 200, 200, 0.3);
     padding: 8px 0 8px 10px;
 }
+.resultItem2 {
+    border-color: #FFFFFF #FFFFFF #EFEFEF;
+    border-style: solid;
+    border-width: 3px;
+    float: left;
+    position: relative;
+    width:325px;
+}
+
+
+.resultItem2-active {
+     background: -moz-linear-gradient(center top , #FFFFFF, #C4C4C4) repeat scroll 0 0 #C4C4C4;
+    box-shadow: 0 -8px 8px #C4C4C4 inset, 0 0 0 #FFFFFF inset, 0 0 0 #FFFFFF inset;
+   
+    border: 1px solid #C4C4C4;
+    
+    padding: 8px 0 8px 10px;
+}
+
+
 .countimg {
     float: left;
     margin: 12px 0 0 10px;
@@ -1901,10 +1923,10 @@ input.boxtimduong:focus, .jForm input:focus, .jForm textarea:focus, #MyMapArea i
 .del-timduong {
     background: url("../img/Skins/del.png") no-repeat scroll 0 0 transparent;
     height: 16px;
-    left: 263px;
+    left: 312px;
     position: absolute;
     text-indent: -9999px;
-    top: 17px;
+    top: 0px;
     width: 23px;
 }
 .del-timduong:hover {
@@ -1959,31 +1981,90 @@ a.s-service:hover {
     color: #0175D8;
 }
 .direction-guide {
+    overflow: hidden;
     width: 100%;
 }
+
+.pin1-10 {
+    background: url("../img/Skins/pin2011.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 39px;
+    overflow: visible;
+    position: relative;
+    width: 22px;
+}
+.resultItem .pin1-10 {
+    margin: 0 12px -2px 0;
+}
+.pin1-10 a, .a-z a {
+    color: #FFFFFF;
+    display: inline-block;
+    font: bold 11px tahoma;
+    height: 15px;
+    letter-spacing: -1px;
+    min-width: 10px;
+    padding: 4px 6px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 1px #226DCC;
+}
+.resultItem .pin1-10 {
+    height: 37px;
+}
+.pin1-10.large {
+    background: url("../img/Skins/pin2011.png") no-repeat scroll 0 -195px transparent;
+    width: 25px;
+}
+.pin1-10.red {
+    background: url("../img/Skins/pin2011.png") no-repeat scroll 0 -78px transparent;
+}
+.pin1-10.red.large {
+    background: url("../img/Skins/pin2011.png") no-repeat scroll 0 -273px transparent;
+}
+.pin1-10.red a {
+    text-shadow: 0 1px #AF0303;
+}
+.collapse {
+    background: url("../img/Skins/bullet_blue_collapse.png") no-repeat scroll 0 0 transparent;
+    height: 16px;
+    position: absolute;
+    right: 24px;
+    text-indent: -9999px;
+    top: 5px;
+    width: 16px;
+}
+.expand {
+    background: url("../img/Skins/bullet_blue_expand.png") no-repeat scroll 0 0 transparent;
+    height: 16px;
+    position: absolute;
+    right: 24px;
+    text-indent: -9999px;
+    top: 5px;
+    width: 16px;
+}
+
 .stepsList {
-    color: #333333;
     font-size: 11px;
     line-height: 18px;
-    margin: 0 10px;
 }
 .stepsList li {
-    border-bottom: 1px solid #EFEFEF;
+    border-bottom: 1px solid #D9D9D9;
     cursor: pointer;
-    padding: 6px 0 6px 30px;
+    padding: 6px 16px 6px 45px;
     position: relative;
 }
-.stepsList .StepList-hover {
-    background: -moz-linear-gradient(center top , #FFF9D7, #FFF3B0) repeat scroll 0 0 #FFF3B0;
-    box-shadow: 0 -5px 0 #FFF3B0 inset, 0 -5px 35px #FFF3B0 inset, 0 3px 10px #FFF9D7 inset, 0 2px 8px rgba(200, 200, 200, 0.3);
+.StepList-hover {
+    background: -moz-linear-gradient(center top , #FFFFFF, #F7F7F7) repeat scroll 0 0 #F8F8F8;
+    box-shadow: 0 -8px 8px #F7F7F7 inset, 0 0 0 #FFFFFF inset, 0 0 0 #FFFFFF inset;
 }
-.stepsList .StepList-active {
-    background: -moz-linear-gradient(center top , #F7E163, #F5D362) repeat scroll 0 0 #F5D362;
-    box-shadow: 0 -5px 0 #F5D362 inset, 0 -5px 35px #F5D362 inset, 0 3px 10px #F7E163 inset, 0 2px 8px rgba(200, 200, 200, 0.3);
+.StepList-active, #MyMapCoorList .listpins li.MyMapCoorList-active {
+    background: -moz-linear-gradient(center top , #F7E163, #EBBF56) repeat scroll 0 0 #EBBF56;
+    box-shadow: 0 -20px 50px #EBBF56 inset, 0 2px 50px #EBBF56 inset, 0 50px 100px #F7E163 inset, 0 2px 8px rgba(200, 200, 200, 0.3);
 }
 .stepsList li a {
     color: #333333;
-    left: 0;
+    left: 10px;
     padding: 0 0 0 8px;
     position: absolute;
 }
@@ -1997,15 +2078,16 @@ a.s-service:hover {
 .distance {
     padding: 0 8px 0 0;
     position: absolute;
-    right: 0;
+    right: 16px;
 }
 .summary {
-    color: #555555;
-    font-size: 12px;
-    margin: 0 18px;
-    padding: 8px 0;
+    padding: 8px 24px 8px 13px;
     text-align: right;
 }
+.summary b {
+    margin-right: 4px;
+}
+
 .quahem {
     clear: none;
     color: #555555;
@@ -2030,8 +2112,9 @@ a.s-service:hover {
     bottom: 0;
     box-shadow: -1px -1px 5px #BBBBBB;
     float: left;
-    padding: 8px 10px 7px 13px;
-    position: absolute;
+    padding: 8px 10px 7px 1px;
+    top:70%;
+    position:relative;
 }
 .directionoptions {
     float: left;
@@ -4830,3 +4913,4 @@ a.backbtn:active span {
 	padding-top: 80px;
 	padding-left: 10px;
 }
+

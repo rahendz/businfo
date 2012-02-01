@@ -27,8 +27,8 @@
 	        geocoder = new GClientGeocoder();
 	        var marker = new GMarker(center, {draggable: true});  
 	        map.addOverlay(marker);
-	        document.getElementById("lat").innerHTML = center.lat().toFixed(6);
-	        document.getElementById("lng").innerHTML = center.lng().toFixed(6);
+	        document.getElementById("lat").innerHTML = center.lat().toFixed(13);
+	        document.getElementById("lng").innerHTML = center.lng().toFixed(13);
 	        var container = document.getElementById("lng");
 		      container.value = document.getElementById("lng").innerHTML;
 		   var container1 = document.getElementById("lat");
@@ -37,8 +37,8 @@
 		  GEvent.addListener(marker, "dragend", function() {
 	       var point = marker.getPoint();
 		      map.panTo(point);
-	       document.getElementById("lat").innerHTML = point.lat().toFixed(6);
-	       document.getElementById("lng").innerHTML = point.lng().toFixed(6);
+	       document.getElementById("lat").innerHTML = point.lat().toFixed(13);
+	       document.getElementById("lng").innerHTML = point.lng().toFixed(13);
 	       var container = document.getElementById("lng");
 		      container.value = document.getElementById("lng").innerHTML;
 		   var container1 = document.getElementById("lat");
@@ -52,8 +52,8 @@
 	    var center = map.getCenter();
 			  var marker = new GMarker(center, {draggable: true});
 			  map.addOverlay(marker);
-			  document.getElementById("lat").innerHTML = center.lat().toFixed(6);
-		   document.getElementById("lng").innerHTML = center.lng().toFixed(6);
+			  document.getElementById("lat").innerHTML = center.lat().toFixed(13);
+		   document.getElementById("lng").innerHTML = center.lng().toFixed(13);
 		   var container = document.getElementById("lng");
 		      container.value = document.getElementById("lng").innerHTML;
 		   var container1 = document.getElementById("lat");
@@ -62,8 +62,8 @@
 		 GEvent.addListener(marker, "dragend", function() {
 	      var point =marker.getPoint();
 		     map.panTo(point);
-	      document.getElementById("lat").innerHTML = point.lat().toFixed(6);
-		     document.getElementById("lng").innerHTML = point.lng().toFixed(6);
+	      document.getElementById("lat").innerHTML = point.lat().toFixed(13);
+		     document.getElementById("lng").innerHTML = point.lng().toFixed(13);
 	
 	        });
 	 
@@ -83,8 +83,8 @@
 	            if (!point) {
 	              alert(address + " not found");
 	            } else {
-			  document.getElementById("lat").innerHTML = point.lat().toFixed(6);
-		   document.getElementById("lng").innerHTML = point.lng().toFixed(6);
+			  document.getElementById("lat").innerHTML = point.lat().toFixed(13);
+		   document.getElementById("lng").innerHTML = point.lng().toFixed(13);
 			 map.clearOverlays()
 				map.setCenter(point, 14);
 	   var marker = new GMarker(point, {draggable: true});  
@@ -98,8 +98,8 @@
 			GEvent.addListener(marker, "dragend", function() {
 	      var pt = marker.getPoint();
 		     map.panTo(pt);
-	      document.getElementById("lat").innerHTML = pt.lat().toFixed(6);
-		     document.getElementById("lng").innerHTML = pt.lng().toFixed(6);
+	      document.getElementById("lat").innerHTML = pt.lat().toFixed(13);
+		     document.getElementById("lng").innerHTML = pt.lng().toFixed(13);
 		     
 	        });
 	
@@ -109,8 +109,8 @@
 	    var center = map.getCenter();
 			  var marker = new GMarker(center, {draggable: true});
 			  map.addOverlay(marker);
-			  document.getElementById("lat").innerHTML = center.lat().toFixed(6);
-		   document.getElementById("lng").innerHTML = center.lng().toFixed(6);
+			  document.getElementById("lat").innerHTML = center.lat().toFixed(13);
+		   document.getElementById("lng").innerHTML = center.lng().toFixed(13);
 		   var container = document.getElementById("lng");
 		      container.value = document.getElementById("lng").innerHTML;
 		   var container1 = document.getElementById("lat");
@@ -119,8 +119,8 @@
 		 GEvent.addListener(marker, "dragend", function() {
 	     var pt = marker.getPoint();
 		    map.panTo(pt);
-	    document.getElementById("lat").innerHTML = pt.lat().toFixed(6);
-		   document.getElementById("lng").innerHTML = pt.lng().toFixed(6);
+	    document.getElementById("lat").innerHTML = pt.lat().toFixed(13);
+		   document.getElementById("lng").innerHTML = pt.lng().toFixed(13);
 		   var container = document.getElementById("lng");
 		      container.value = document.getElementById("lng").innerHTML;
 		   var container1 = document.getElementById("lat");

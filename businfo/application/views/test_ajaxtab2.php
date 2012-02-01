@@ -90,11 +90,15 @@
 			var selectedMode = document.getElementById("Phuongtiendi").value;
 			if(selectedMode=="BUS")
 			{
-				//var str = document.getElementById('RSearchBusPlace').value;
+				//var str = "radius=" + document.getElementById('RSearchBusPlace').value;
+				var str = "radius=500";
+            	str += "&bound_lat_to=" + markerTo.getPosition().lat() + "&bound_lng_to=" + markerTo.getPosition().lng();
+            	
+            	str += "&bound_lat_from=" + markerFrom.getPosition().lat() + "&bound_lng_from=" + markerFrom.getPosition().lng();
 		    	document.getElementById("directions-panel").style.display="none";
 		    	document.getElementById("SearchBusPlaceResult").style.display="none";
-		    	
-				http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchBusRoute/'+1);
+		    	alert( str);
+				http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchBusRoute/?'+str);
 				http.onreadystatechange= SearchBusRouteProcess;
 				http.send(null);
 			}
@@ -121,11 +125,14 @@
 		}
 		function SearchBusPlace()
 		{
-	    	var str = document.getElementById('RSearchBusPlace').value;
+			var str = "radius=" + document.getElementById('RSearchBusPlace').value;
+            str += "&bound_lat=" + marker.getPosition().lat() + "&bound_lng=" + marker.getPosition().lng();
+	    	
 	    	document.getElementById("SearchBusPlaceResult").style.display="none";
-			http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchBusPlace/'+str);
+			http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchBusPlace/?'+str);
 			http.onreadystatechange= SearchBusPlaceProcess;
 			http.send(null);
+		
 		}
 		
 		function SearchBusPlaceProcess()
@@ -247,6 +254,25 @@
 			}
 				
 		}
+		function DelResultSearchPlace()
+		{
+			
+			document.getElementById("listDirection").style.display="block";
+			document.getElementById("directionSearchPlace").style.display="block";
+			document.getElementById("searchPlaceField").value="Nhập vào vị trí, địa chỉ, tọa độ...";
+				document.getElementById("ResultSearchPlace").style.display="none";
+				document.getElementById("SearchPlaceMenu").style.display="none";
+				document.getElementById("SearchPlaceDetail").style.display="none";
+				document.getElementById("SearchPlaceBusStop").style.display="none";
+				document.getElementById("SearchPlaceBusStopResult").style.display="none";
+				document.getElementById("SearchPlaceBusRoute").style.display="none";
+				document.getElementById("SearchBusPlaceResult").style.display="none";
+				document.getElementById("SearchPlaceAround").style.display="none";
+				document.getElementById("SearchPlaceArroundResult").style.display="none"
+				
+			
+				
+		}
 	</script>
     <script type="text/javascript" src="<?php echo base_url()?>public/js/TabMenu.js"></script>
 
@@ -301,7 +327,7 @@
 	                    	</div>
 	                        <input name="mapinput" type="text" class="SText keyboardInput" id="mapinput" value="Tìm tuyến bus..." onclick="this.focus(), this.select();" />
 	                        <input class="SButton" type="submit" value="Tìm" onclick="" />
-                            <input type="hidden" id="mode" name="mode" value="search"/>
+                            <!-- <input type="hidden" id="mode" name="mode" value="search"/> -->
 						</div>
 					</div>
 	                <div class="SRight"></div>
@@ -452,21 +478,29 @@
 						
 						<div class="Spacer"></div>
 						<div id="listDirection">
-							<div id="direction0" class="direction-item">
+							<div id="directionSearchPlace" class="direction-item">
 								<div class="swrap-timduong">
-									<span class="a-z">a</span>
+									<span><img src="http://maps.gstatic.com/mapfiles/markers2/icon_greenA.png"></img></span>
 									<input class="boxtimduong timduong-default" id="searchPlaceField" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.focus(), this.select();">
 									<a id="btnSearchPlace0" class="btn-timduong" onclick="">Tìm</a>
 								</div>
 							</div>
 						</div>
+											
 						
-						<div id="ResultSearchPlace" class="resultItem resultItem-active" style="display: none;">
-							<a class="icon1-10 red"> <span class="icon1-10Hover"></span></a>
-							<a class="resultTitle">
-								<b id="SearchPlaceTittle"></b>	</a>
-							<div class="Spacer"></div>
-							<ul id="SearchPlaceMenu" class="resultOptions" style="display: none; padding: 4px 12px;">
+						<div id="ResultSearchPlace" class="resultItem2 resultItem2-active" style="display: none;">
+							<table><tr>
+								<td width="30px"><img src="http://maps.gstatic.com/mapfiles/markers2/icon_greenA.png"></img></td>
+								<td width="260px">
+									<a class="resultTitle" id="SearchPlaceTittle"></a>
+								</td>
+								<td width="30px">
+									<a class="del-timduong" id="btndelResultSearchPlace" onclick="DelResultSearchPlace()">Xóa</a>
+								</td>
+							</tr></table>
+						</div>
+						
+						<ul id="SearchPlaceMenu" class="resultOptions" style="display: none; padding: 4px 30px;">
 								<li>
 									<a onclick="SearchPlaceMenu(1)">Thông tin</a>
 								</li>
@@ -480,7 +514,6 @@
 									<a  onclick="SearchPlaceMenu(4)">Tìm dịch vụ</a>
 								</li>
 							</ul>
-						</div>
 							<div class="Spacer"></div>
 							<div id="SearchPlaceDetail" class="kohailong" style="display: none;"  > 
 								<div id="fblnk" style="">
@@ -574,14 +607,14 @@
 								<div class="swrap-timduong">
 									<span class="a-z">a</span>
 									<input class="boxtimduong timduong-default" id="searchPathFrom" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.value = ''">
-									<a id="btnSearchPlace0" class="btn-timduong" onclick="">Tìm</a>
+									
 								</div>
 							</div>
 							<div id="direction0" class="direction-item">
 								<div class="swrap-timduong">
 									<span class="a-z">b</span>
 									<input class="boxtimduong timduong-default" id="searchPathTo" type="text" value="Nhập vào vị trí, địa chỉ, tọa độ..." onclick="this.value = ''">
-									<a id="btnSearchPlace0" class="btn-timduong" onclick="">Tìm</a>
+									
 								</div>
 							</div>
 							<span class="keyPlace" style="width:40px; padding: 0 100px 8px;"><span class="searchinwrap">

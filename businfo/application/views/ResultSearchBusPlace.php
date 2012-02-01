@@ -21,8 +21,16 @@
 	}*/	
 	$str_htmlDi= str_replace('"', "'",$htmlLoTrinhDi);
 	$str_htmlVe= str_replace('"', "'",$htmlLoTrinhVe);
-	//echo $htmlBus;
-	$BusArray = explode("%", $htmlBus);
+	if($htmlBus =="")
+	{
+	?>
+	<b>Không co tuyến</b>	
+	<?php 
+	}
+	else
+	{
+		$BusArray = explode("%", $htmlBus);
+	
 	$LoTrinhDiArray= explode("%", $str_htmlDi);
 	$LoTrinhVeArray= explode("%", $str_htmlVe);
 	//echo $LoTrinhDiArray[0];
@@ -67,5 +75,5 @@
 <?php 
 	}
 	
-		
+	}	
 ?>
