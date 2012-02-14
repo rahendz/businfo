@@ -46,6 +46,21 @@
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/RouteBox.js"></script>
 		
 	<script language="javascript">
+		/*function moveIconClick()
+		{
+			if($(".LeftPanel").is(":hidden"))shrinkMap();else expandMap();
+		}
+*/
+		/*
+		function shrinkMap()
+		{
+			$(".LeftPanelWrap").show();
+			$(".HideLeftPanel").removeClass("ShowLeftPanel");
+			$(".Map-Tools-Wrap").css("width",myWidth-$(".LeftPanelWrap").width()+"px");
+			map.checkResize();
+		}
+*/
+	
 		function createObject() {
 		var request_type;
 		var browser = navigator.appName;
@@ -153,7 +168,24 @@
 		}
 	</script>
 		
-	<script type="text/javascript"> 
+	<script type="text/javascript">
+	function expandMapLong()
+	{
+		$(".LeftPanel").hide();
+		$(".splExpand").hide();
+		
+		//$(".HideLeftPanel").addClass("ShowLeftPanel");
+		//$(".mainmap").css("width","10px");
+		document.getElementById('mainmap').style.width="99.5%";
+		google.maps.event.trigger(map, 'resize');
+		map.setZoom( map.getZoom() );
+		//checkResize();
+		alert("long");
+		
+
+	} 
+
+
 		var IdClick=1;
 		function HideDetailResult(count)
 		{
@@ -389,7 +421,7 @@
 						<div id="TablePlace">
 							<span class="countPlace">Kết quả tìm	<b>1-10</b>	trong số <b>27</b>cho tuyến buýt số</span>
 							<span class="keyPlace"><b><?php echo $route?></b><span class="searchinwrap">
-							<a><span onclick="LoadTree()">Xem</span></a>
+							<a><span onclick="">Xem</span></a>
 							</span></span>
 							
 	<!-- Kết quả search theo tuyến -->
@@ -400,7 +432,7 @@
 								<b><?php echo $row->tentuyen; ?></b>	</a>
 								<div class="Spacer"></div>
 								<ul  class="resultOptions">
-									<li onclick="makeactivemenu(-1,<?php echo $row->matuyen;?>,1,0,'<?php echo base_url()?>')">
+									<li onclick="expandMapLong()">
 										<a class="" id ="t19_0">X</a>
 									</li>
 									<li onclick="makeactivemenu(-1,<?php echo $row->matuyen;?>,1,1,'<?php echo base_url()?>')">
@@ -664,7 +696,7 @@
 				-->
 			</div>
 			
-			<div id="container" class="mainmap">
+			<div id="mainmap" class="mainmap">
 				<div id="mm-map" class="" style="position: absolute; overflow: hidden; left: 0pt; top: 0pt; width: 100%; height: 100%;"></div>
 			</div>
 			

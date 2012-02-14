@@ -83,12 +83,14 @@
 												<input id="name" class=" required-entry input-text required-entry" type="text" value="" name="tentuyen">
 											</td>
 										</tr>
+										<!--
 										<tr>
 											<td class="label">
 												<label for="BenDau">Bến Đầu:
 													<span class="required">*</span>
 												</label>
 											</td>
+											 
 											<td class="value">
 												<select id="BenDau" class=" required-entry required-entry select" name="tramdau">
 													<option selected="selected" value="">-- Chọn --</option>
@@ -113,6 +115,7 @@
 												</select>
 											</td>
 										</tr>
+										 -->
 										<tr>
 											<td class="label">
 												<label for="info">Thời gian vận hành:

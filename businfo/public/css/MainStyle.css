@@ -60,13 +60,15 @@ a.TreeClose {
     padding: 0;
 }
 body {
-    background: url("../img/Skins/bg_header.png") repeat-x scroll 0 0 #FFFFFF;
+    
+    background: url("../img/Skins/bg.png") no-repeat fixed center top #666666;
     filter: none;
     font-family: Tahoma,Verdana,Geneva,sans-serif;
     font-size: 11px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
     height: 100%;
+    
     
 }
 *::-moz-selection {
@@ -127,7 +129,7 @@ ol, ul {
     background: url("../img/Skins/ab.png") repeat-x scroll left top transparent;
   /*  background: url("../img/login/header_top_bg.gif") repeat-x scroll 0 0 #425E66;*/
     float: left;
-    height: 18%;
+    height: 10%;
     width: 100%;
 }
 #header {
@@ -318,11 +320,33 @@ ul#nav li li li:hover ul, ul#nav li li li.sfHover ul {
 .sf-shadow ul.sf-shadow-off {
     background: none repeat scroll 0 0 transparent;
 }
-#search {
+#search, #searchPlace {
     left: 129px;
     position: absolute;
-    top: 42px;
+    top: 8px;
+    width: 800px;
 }
+#searchRoute {
+	
+    left: 80px;
+    position: absolute;
+    top: 8px;
+    width: 630px;
+}
+.SIcon{
+	float: left;
+    background: url("../img/Skins/twitter-bus-icon.png") no-repeat scroll 0 0 transparent;
+    height: 64px;
+    
+    width: 64px;
+	}
+.SIcon2{
+	float: left;
+    background: url("../img/Skins/star_48.png") no-repeat scroll 0 0 transparent;
+    height: 64px;
+    
+    width: 64px;
+	}
 .SLeft {
     background: url("../img/Skins/SLeft.png") no-repeat scroll 0 0 transparent;
     float: left;
@@ -360,7 +384,7 @@ ul#nav li li li:hover ul, ul#nav li li li.sfHover ul {
     height: 14px;
     padding: 6px;
     text-decoration: none;
-    width: 342px;
+    width: 405px;
 }
 .SButton {
     background: url("../img/Skins/btn-search.png") no-repeat scroll 0 0 transparent;
@@ -727,7 +751,9 @@ a.btn-xemthem:active {
     background: url("../img/Skins/SWTrShadow.png") repeat scroll 0 0 transparent;
     display: inline-block;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    left: 527px;
+    top: 10px;
     width: 489px;
 }
 #login {
@@ -973,17 +999,18 @@ a.btn-xemthem:active {
 }
 #content_wrap {
     float: left;
+    position: absolute;
+    top: 69px;
     width: 100%;
-    height:82%;
+    height:100%;
 }
 .LeftPanel {
     background: url("../img/Skins/bg-tab.png") repeat-x scroll 0 0 #FFFFFF;
     border-bottom: 1px solid #B7B7B7;
     float: left;
     left: 0;
-    position: absolute;
-    top: 118px;
-     height:80%;
+   
+     height:100%;
      overflow-x: hidden;
     overflow-y: auto;
 }
@@ -992,6 +1019,7 @@ a.btn-xemthem:active {
     overflow-y: auto;
     padding: 0 0 0 5px;
     position: relative;
+    height:100%;
     
     
 }
@@ -1001,9 +1029,9 @@ a.btn-xemthem:active {
 .splExpand {
     background: url("../img/Skins/bg-splExpand.png") repeat-y scroll 0 0 transparent;
     float: left;
-    height: 550px;
+	height: 100%;
     left: 343px;
-    position: relative;
+    position: absolute;
     width: 9px;
 }
 .topsp1Expand {
@@ -1052,13 +1080,18 @@ a.moveicon-out:hover {
 .mainmap {
     background-color: #EDEAE2;
     border-bottom: 1px solid #B7B7B7;
-    height: 82%;
-    left: 352px;
+    height: 98.5%;
+    border-color: #B5BDC3;
+    border-left: 1px solid #B5BDC3;
+    border-right: 1px solid #B5BDC3;
+    border-style: solid;
+    
+    border-width: 4px;
     overflow: hidden;
     position: absolute;
     right: 0;
-    top: 122px;
-    width: 72.5%;
+    top: 0px;
+    width: 99.5%;
 }
 .footer {
     background-color: #FFFFFF;
@@ -1349,24 +1382,25 @@ a.flnk:hover {
 .countPlace {
     display: block;
     font-size: 12px;
-    margin: 0 2px;
-    padding: 0 16px;
+   
+    padding: 5px 16px 5px;
 }
 .keyPlace {
     border-bottom: 1px solid #EFEFEF;
     color: #DD0000;
-    display: inline-block;
+    display: block;
     font-size: 16px;
     font-weight: bold;
-    margin: 0 2px;
-    padding: 5px 16px 8px;
+   
+    padding: 5px 16px ;
     text-shadow: 0 1px 0 #FFFFFF;
 }
 .keyPlace .searchinwrap {
     display: inline-block;
     height: 18px;
     margin: 0 0 0 2px;
-    position: relative;
+    position: absolute;
+    float: left;
     width: 37px;
 }
 .keyPlace a {
@@ -1422,7 +1456,8 @@ a.flnk:hover {
     border-width: 3px;
     float: left;
     position: relative;
-    width:325px;
+    width:330px;
+    
 }
 
 
@@ -1432,7 +1467,7 @@ a.flnk:hover {
    
     border: 1px solid #C4C4C4;
     
-    padding: 8px 0 8px 10px;
+    
 }
 
 
@@ -1486,6 +1521,14 @@ a.flnk:hover {
     margin: 2px 0 0;
     padding: 0 1px 9px 0;
     width: 265px;
+}
+.resultTitle2 {
+    color: #333333;
+    float: left;
+    font-size: 14px;
+    margin: 2px 0 0;
+    padding: 0 1px 9px 0;
+    width: 295px;
 }
 .resultTitle:hover {
     color: #0175D8;
@@ -1859,7 +1902,12 @@ a.flnk:hover {
     border: medium none;
 }
 #listDirection {
-    padding: 12px 0;
+    background-color: #2C99EE;
+    height:48px;
+    width: 600px;
+    border: 1px solid #C1C1C1;
+    border-radius: 5px 5px 5px 5px;
+    color: #333333;
 }
 #FindPathStatus {
     color: #333333;
@@ -1870,11 +1918,29 @@ a.flnk:hover {
     text-shadow: 0 1px 0 #FFFFFF;
 }
 .direction-item {
+	position: absolute;;
+ }
+.direction-item2 {
     position: relative;
 }
+#direction1{
+	
+	position: absolute;;
+	left:270px;
+	}
 .swrap-timduong {
-    margin: 0 10px;
+    
     padding: 5px 8px 0;
+}
+#btnSearchRoute{
+	position: absolute;;
+	top:12px;
+	left:550px;
+}
+#btnThamSo{
+	position: absolute;;
+	top:10px;
+	left:602px;
 }
 .background {
     background-color: #F7F7F7;
@@ -1892,6 +1958,7 @@ a.flnk:hover {
     text-shadow: 0 1px #B4DC34;
     text-transform: uppercase;
     width: 26px;
+    
 }
 .boxtimduong {
     background: url("../img/Skins/bg_s_top.png") repeat-x scroll 0 -1px transparent;
@@ -1901,11 +1968,11 @@ a.flnk:hover {
     font-family: Tahoma,Verdana,Arial,Geneva,sans-serif;
     font-size: 12px;
     height: 16px;
-    left: 52px;
-    padding: 3px 23px 4px 6px;
+    left: 40px;
+    padding: 3px 3px 4px 6px;
     position: absolute;
     top: 12px;
-    width: 204px;
+    width: 190px;
 }
 input.boxtimduong:hover, .jForm input:hover, .jForm textarea:hover, #MyMapArea input:hover, #MyMapArea textarea:hover, #MyMapCoorPopup input:hover, #MyMapCoorPopup textarea:hover, .MiniPopup .ServiceInput:hover, .MiniPopup .RadiusInput:hover, .filerFavInput:hover {
     border: 1px solid #AEDEF2;
@@ -1948,26 +2015,26 @@ input.boxtimduong:focus, .jForm input:focus, .jForm textarea:focus, #MyMapArea i
 .options {
     border-bottom: 1px solid #EFEFEF;
     display: block;
-    margin: 0 10px;
-    padding: 5px 28px 8px 5px;
+    margin: 0 14px;
+    padding: 5px 28px 14px 5px;
     position: relative;
 }
 .collapse {
     background: url("../img/Skins/bullet_blue_collapse.png") no-repeat scroll 0 0 transparent;
-    height: 16px;
+    height: 20px;
     position: absolute;
     right: 8px;
     text-indent: -9999px;
-    top: 5px;
+    top: 3px;
     width: 16px;
 }
 .expand {
     background: url("../img/Skins/bullet_blue_expand.png") no-repeat scroll 0 0 transparent;
-    height: 16px;
+    height: 20px;
     position: absolute;
     right: 8px;
     text-indent: -9999px;
-    top: 5px;
+    top: 3px;
     width: 16px;
 }
 .s-service {
@@ -2080,6 +2147,14 @@ a.s-service:hover {
     position: absolute;
     right: 16px;
 }
+
+.time {
+    font-weight: bold;
+    color: #595959;
+    font: 24px arial;
+    letter-spacing: -1px;
+    text-transform: lowercase;
+}
 .summary {
     padding: 8px 24px 8px 13px;
     text-align: right;
@@ -2119,6 +2194,7 @@ a.s-service:hover {
 .directionoptions {
     float: left;
     width: 327px;
+    
 }
 a.NotAlley-Off {
     background: url("../img/Skins/HemRaochan.png") no-repeat scroll -72px top transparent;
@@ -4914,3 +4990,334 @@ a.backbtn:active span {
 	padding-left: 10px;
 }
 
+
+
+
+
+
+
+
+ #directions-panel {
+        height: 60%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+        #directions-panel {
+          float: none;
+          width: auto;
+        }
+      }
+      
+        
+     body, div,ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none outside none;
+}
+
+
+
+
+
+
+.page_tc {
+    background-position: 0 -30px;
+    height: 30px;
+    margin: 0 12px 0 84px;
+}
+
+.page_cl {
+    background: url("http://www.diadiem.com/theme/images/page_shadow_left.png") repeat-y scroll 0 0 transparent;
+    height: 18%;
+    padding-left: 7px;
+}
+.page_cr {
+    background: url("http://www.diadiem.com/theme/images/page_shadow_right.png") repeat-y scroll right top transparent;
+    padding-right: 7px;
+}
+.page_inner {
+    padding: 66px 0 36.5%;
+    position: relative;
+    
+}
+.headerbox {
+    height: 102px;
+    overflow: hidden;
+    position: absolute;
+    top: -23px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+.bgbox {
+    position: relative;
+    z-index: 5;
+}
+.bgbox_l, .bgbox_r, .bgbox_c {
+    height: 85px;
+}
+.bgbox_l, .bgbox_r{
+    background-repeat: repeat;
+    position: absolute;
+    top: 0;
+}
+.bgbox_l {
+    background-image: url("http://www.diadiem.com/theme/images/header_bg_box.png");
+    
+    width: 43px;
+}
+.bgbox_r {
+    background-image: url("http://www.diadiem.com/theme/images/repeat_bg_box.png");
+    
+    right: 0;
+    width: 8px;
+}
+
+.bgbox_c {
+   
+    background-image: url("http://www.diadiem.com/theme/images/repeat_bg_box.png") ;
+   margin: 0 8px 0 18px;
+}
+.bgbox_c2 {
+	background-color: #8EC73F;
+	position: absolute;
+	top: 68px;
+ 	height: 20px;
+ 	width: 100%;
+    }
+
+.fpoint {
+}
+.fpoint .bgbox_l, .fpoint .bgbox_r {
+    background-position: 0 0;
+}
+.fpoint .bgbox_c {
+    background-position: 0 -80px;
+}
+.fway {
+}
+.fway .bgbox_l, .fway .bgbox_r {
+    background-position: 0 0;
+}
+.fway .bgbox_c {
+    background-position: 0 -80px;
+}
+.fdirect {
+}
+.fdirect .bgbox_l {
+    background-position: 0 -80px;
+}
+.fdirect .bgbox_r {
+    background-position: 0 -160px;
+}
+.fdirect .bgbox_c {
+    background-position: 0 -240px;
+}
+.bg_fpoint {
+    float: left;
+    height: 33px;
+    position: relative;
+}
+.curve_box {
+    position: absolute;
+    right: 0;
+    top: 52px;
+    width: 446px;
+}
+.curve_box_l, .curve_box_r {
+    height: 36px;
+}
+.curve_box_l {
+    background: url("http://www.diadiem.com/theme/images/curve_bg_box.png") repeat scroll 0 0 transparent;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 52px;
+}
+.curve_box_r {
+    background-color: #CDCDCD;
+    margin-left: 52px;
+}
+.tab_fbox {
+    height: 24px;
+    left: 328px;
+    position: absolute;
+    top: -4px;
+    z-index: 6;
+}
+.tab_fbox li {
+    float: left;
+}
+.tab_fbox a {
+    background: url("http://www.diadiem.com/theme/images/tab_bg_box.png") repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 14px;
+    margin-left: -2px;
+    padding: 8px 0 0 8px;
+    width: 142px;
+}
+.tab_fbox a:hover {
+    text-decoration: none;
+}
+.tab_fbox .active a {
+    height: 17px;
+}
+.active .fpoint {
+    background-position: -160px 0;
+}
+.active .fway {
+    background-position: -160px 0;
+}
+.active .fdirect {
+    background-position: -320px 0;
+}
+.bgbox_inner {
+    clear: both;
+    left: 202px;
+    position: absolute;
+    top: 24px;
+    z-index: 2;
+}
+#divBus, #divPlace {
+    float: left;
+}
+#divBus .fbox {
+    width: 475px;
+}
+#divBus .fbox_inner input {
+    left: 11px;
+    width: 438px;
+}
+#divBus .fbox_inner label {
+    left: 11px;
+}
+#divDirectory .fbox {
+    width: 220px;
+}
+#divDirectory .fbox_inner input {
+    width: 174px;
+}
+.fbox {
+    float: left;
+    position: relative;
+    top: 2px;
+    width: 235px;
+}
+.fbox_l, .fbox_r, .fbox_c {
+    background-image: url("http://www.diadiem.com/theme/images/bg_fbox.gif");
+    height: 30px;
+}
+.fbox_l {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 11px;
+}
+.fbox_r {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+}
+.fbox_c {
+    background-repeat: repeat;
+    margin: 0 11px;
+}
+.fway .fbox_l {
+    background-position: 0 -120px;
+}
+.fway .fbox_r {
+    background-position: 0 -520px;
+    cursor: pointer;
+    width: 25px;
+}
+.fway .fbox_c {
+    background-position: 0 -160px;
+}
+.fway .focus .fbox_l {
+    background-position: 0 0;
+}
+.fway .focus .fbox_r {
+    background-position: 0 -480px;
+    cursor: pointer;
+}
+.fway .focus .fbox_c {
+    background-position: 0 -40px;
+}
+.fpoint .fbox_l {
+    background-position: 0 -120px;
+}
+.fpoint .fbox_r {
+    background-position: 0 -520px;
+    width: 25px;
+}
+.fpoint .fbox_c {
+    background-position: 0 -160px;
+}
+.fpoint .focus .fbox_l {
+    background-position: 0 0;
+}
+.fpoint .focus .fbox_r {
+    background-position: 0 -480px;
+    cursor: pointer;
+}
+.fpoint .focus .fbox_c {
+    background-position: 0 -40px;
+}
+.transparent_6 input {
+    visibility: hidden;
+}
+.transparent_6 label {
+    display: none;
+}
+.fdirect .fbox_l {
+    background-position: 0 -360px;
+}
+.fdirect .fbox_r {
+    background-position: 0 -440px;
+}
+.fdirect .fbox_c {
+    background-position: 0 -400px;
+}
+.fdirect .focus .fbox_l {
+    background-position: 0 -240px;
+}
+.fdirect .focus .fbox_r {
+    background-position: 0 -320px;
+}
+.fdirect .focus .fbox_c {
+    background-position: 0 -280px;
+}
+.fway .fbox_inner input, .fpoint .fbox_inner input {
+    width: 184px;
+}
+.fbox_inner input, .fbox_inner label {
+    background-color: #FFFFFF;
+    left: 21px;
+    position: absolute;
+    top: 6px;
+}
+.fbox_inner input {
+    border: 0 none;
+    color: #262D28;
+    width: 198px;
+}
+.fbox_inner label {
+    color: #CDCDCD;
+    cursor: text;
+}
+.fdirect .icon_A, .fdirect .icon_B {
+    background: none repeat scroll 0 0 transparent;
+}

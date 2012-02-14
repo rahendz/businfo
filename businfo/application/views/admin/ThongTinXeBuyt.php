@@ -27,7 +27,7 @@
 						<tbody>
 							<tr>
 								<td style="width:50%;">
-									<h3 class="icon-head head-products">Thông tin các tuyến buýt</h3>
+									<h3 class="icon-head head-products">Thông tin các xe buýt</h3>
 								</td>
 								<td class="a-right">
 									<button id="ThemTuyenBus" class="scalable add" style=""  onclick="parent.location='../admin/ThemTuyenBus.php'" type="button">
@@ -39,16 +39,7 @@
 					</table>
 				</div>
 				
-				<p class="switcher">
-					<label for="store_switcher">Bến đầu / cuối:</label>
-					<select id="store_switcher" onchange="return switchStore(this);" name="store_switcher">
-						<option value="">Tất cả tuyến buýt</option>
-						<option value="1">ĐHQG TPHCM</option>
-						<option value="3">Bến Thành</option>
-						<option value="2">Bến Xe Quận 8</option>
-					</select>
-				</p>
-				
+						
 				<div id="TuyenBusGrid">
 					<table class="actions" cellspacing="0">
 						<tbody>
@@ -144,14 +135,14 @@
 									<th width="50">
 										<span class="nobr">
 										<a class="sort-arrow-desc" title="asc" name="entity_id" href="#">
-											<span class="sort-title">Mã Tuyến</span>
+											<span class="sort-title">Mã Xe Buýt</span>
 										</a>
 										</span>
 									</th>
 									<th>
 										<span class="nobr">
 										<a class="not-sort" title="asc" name="name" href="#">
-											<span class="sort-title">Tên Tuyến</span>
+											<span class="sort-title">Biển số Xe</span>
 										</a>
 										</span>
 									</th>
@@ -171,24 +162,45 @@
 										</span>
 									</th>
 									 -->
-								<th width="180">
+								<th width="150">
 									<span class="nobr">
 									<a class="not-sort" title="asc" name="sku" href="#">
-										<span class="sort-title">Thông Tin Tuyến</span>
+										<span class="sort-title">Tuyến Hoạt Động</span>
 									</a>
 									</span>
 									</th>
-								<th width="350">
+								<th width="150">
 									<span class="nobr">
-									<a class="not-sort" title="asc" name="price" href="#">
-										<span class="sort-title">Lộ Trình Đi</span>
+									<a class="not-sort" title="asc" name="sku" href="#">
+										<span class="sort-title">Thời gian Xuất Bến</span>
 									</a>
 									</span>
 								</th>
-								<th width="350">
+								<th width="150">
+									<span class="nobr">
+									<a class="not-sort" title="asc" name="price" href="#">
+										<span class="sort-title">Tài Xế</span>
+									</a>
+									</span>
+								</th>
+								<th width="150">
 									<span class="nobr">
 									<a class="not-sort" title="asc" name="qty" href="#">
-										<span class="sort-title">Lộ Trình Về</span>
+										<span class="sort-title">Tiếp Viên</span>
+									</a>
+									</span>
+								</th>
+								<th width="150">
+									<span class="nobr">
+									<a class="not-sort" title="asc" name="price" href="#">
+										<span class="sort-title">Nơi Đỗ Hiện Tại</span>
+									</a>
+									</span>
+								</th>
+								<th width="150">
+									<span class="nobr">
+									<a class="not-sort" title="asc" name="qty" href="#">
+										<span class="sort-title">Tình Trạng</span>
 									</a>
 									</span>
 								</th>
@@ -203,14 +215,14 @@
 									</span>
 								</th>
 								<th>
-								<form id="frmSearchMaTuyen" action="<?php echo base_url();?>home/TimThongTinMaTuyen/" enctype="multipart/form-data"  method="post"> 
+								<form id="frmSearchMaTuyen" action="<?php echo base_url();?>home/" enctype="multipart/form-data"  method="post"> 
 									<div class="field-100">
 										<input id="matuyen" class="input-text no-changes" type="text" value="" name="matuyen">								
 									</div>
 								</form>
 								</th>
 								<th>
-								<form id="frmSearchTenTuyen" action="<?php echo base_url();?>home/TimThongTinTenTuyen/" enctype="multipart/form-data"  method="post">
+								<form id="frmSearchTenTuyen" action="<?php echo base_url();?>home/" enctype="multipart/form-data"  method="post">
 									<div class="field-100">
 										<input id="tentuyen" class="input-text no-changes" type="text" value="" name="tentuyen">
 									</div>
@@ -233,6 +245,9 @@
 									</select>
 								</th>
 								 -->
+								 <th></th>
+								<th></th>
+								<th></th>
 								<th></th>
 								<th></th>
 								<th></th>
@@ -248,13 +263,23 @@
 						?>
 							<tr class="even pointer" title="">
 								<td class="a-center " colspan="6">
-									Không tìm thấy tuyến buýt nào thỏa yêu cầu
+									Không tìm thấy xe buýt nào thỏa yêu cầu
 								</td>
 							</tr>
 						<?php 
 						}
 						foreach($query1->result() as $row) 
 						{
+							$queryChuyenDi=$this->db->query("select * from luotdi where maxe=".$row->maxe.
+								" and tinhtrang=0");
+							$queryChuyenVe=$this->db->query("select * from luotve where maxe=".$row->maxe.
+								" and tinhtrang=0");
+							$countChuyenDi= $queryChuyenDi->num_rows();
+							$countChuyenVe= $queryChuyenVe->num_rows();
+							if($countChuyenDi>0)
+								$ChuyenDi=$queryChuyenDi->row(0);
+							if($countChuyenVe)
+								$ChuyenVe=$queryChuyenVe->row(0);
 							if($i %2 == 1)
 							{	
 						?>
@@ -262,19 +287,33 @@
 								<td class="a-center ">
 									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
 								</td>
-								<td class=" a-center "> <?php echo $row->matuyen; ?> </td>
-								<td class=" "><?php echo $row->tentuyen; ?></td>
-								<!-- <td class=" "><?php echo $row->tramdau; ?></td>
-								<td class=" "><?php echo $row->tramcuoi; ?>  </td>
-								 -->
-								<td class=" "><?php echo "- TG vận hành: ".  $row->tgvanhanh; ?>  
-									<br/> <?php echo "- TG giãn cách: ".  $row->tggccao ." - ". $row->tggcthap;?>
-									<br/> <?php echo "- ". $row->tongchuyen ." chuyến/ngày" ;?> 
+								<td class=" a-center "> <?php echo $row->maxe; ?> </td>
+								<td class=" "><?php echo $row->biensoxe; ?></td>
+								<td class=" "><?php echo $row->matuyen; ?></td>
+								<td class=" a-left "> 
+									<?php
+										if($countChuyenDi>0)echo $ChuyenDi->thoigianxuatben;
+										if($countChuyenVe>0)echo $ChuyenVe->thoigianxuatben;
+									?>
+								 </td>
+								<td class=" "><?php echo $row->taixe; ?>  </td>
+															
+								<td class=" a-left ">  <?php echo $row->soatve;?></td>
+								<td class=" a-left "> <?php if($row->bendo ==1) echo "Trạm cuối"; else echo "Trạm đầu";  ?></td>
+								<td class=" a-left "> 
+									<?php
+										if(($countChuyenDi>0)||($countChuyenVe>0))echo "Đang chạy";
+										else echo "Đang chờ"; 
+									?>
 								</td>
-								<td class=" a-left ">  <?php echo $row->lotrinhdi;?></td>
-								<td class=" a-left "> <?php echo $row->lotrinhve;?></td>
 								<td class=" last">
-									<a href="">Sửa</a>
+									<?php
+										if(($countChuyenDi>0)||($countChuyenVe>0));
+										else { 
+									?>
+									<a href="">Xuất bến</a>
+									<?php }?>
+									
 								</td>
 							</tr>
 							
@@ -287,20 +326,34 @@
 								<td class="a-center ">
 									<input class="massaction-checkbox" type="checkbox" value="19" name="product">
 								</td>
-								<td class=" a-center "> <?php echo $row->matuyen; ?> </td>
-								<td class=" "><?php echo $row->tentuyen; ?></td>
-								<!-- 
-								<td class=" "><?php echo $row->tramdau; ?></td>
-								<td class=" "><?php echo $row->tramcuoi; ?>  </td>
-								 -->
-								<td class=" "><?php echo "- TG vận hành: ".  $row->tgvanhanh; ?>  
-									<br/> <?php echo "- TG giãn cách: ".  $row->tggccao ." - ". $row->tggcthap;?>
-									<br/> <?php echo "- ". $row->tongchuyen ." chuyến/ngày" ;?> 
+								<td class=" a-center "> <?php echo $row->maxe; ?> </td>
+								<td class=" "><?php echo $row->biensoxe; ?></td>						
+								<td class=" "><?php echo $row->matuyen; ?></td>
+								<td class=" a-left "> 
+									<?php
+										if($countChuyenDi>0)echo $ChuyenDi->thoigianxuatben;
+										if($countChuyenVe>0)echo $ChuyenVe->thoigianxuatben;
+									?>
+								 </td>
+								<td class=" "><?php echo $row->taixe; ?>  </td>
+															
+								<td class=" a-left ">  <?php echo $row->soatve;?></td>
+								<td class=" a-left "> <?php if($row->bendo ==1) echo "Trạm cuối"; else echo "Trạm đầu";  ?></td>
+								
+								<td class=" a-left "> 
+									<?php
+										if(($countChuyenDi>0)||($countChuyenVe>0))echo "Đang chạy";
+										else echo "Đang chờ"; 
+									?>
 								</td>
-								<td class=" a-left "> <?php echo $row->lotrinhdi;?> </td>
-								<td class=" a-left "> <?php echo $row->lotrinhve;?></td>
 								<td class=" last">
-									<a href="">Sửa</a>
+									<?php
+										if(($countChuyenDi>0)||($countChuyenVe>0));
+										else { 
+									?>
+									<a href="">Xuất bến</a>
+									<?php }?>
+									
 								</td>
 							</tr>
 						<?php 

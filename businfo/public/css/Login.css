@@ -1199,16 +1199,18 @@ td.divider {
     padding: 0 2.2em 1.8em 2em;
 }
 .columns {
-    background: url("../img/login/side_col_bg.gif") repeat-y scroll 217px 0 transparent;
+    background: url("../img/login/side_col_bg.gif") repeat-y scroll 297px 0 transparent;
 }
 div.side-col {
     float: left;
     margin-right: -220px;
     padding-bottom: 25px;
-    width: 220px;
+    width: 295px;
+    
+    height:550px;
 }
 div.main-col {
-    margin-left: 220px;
+    margin-left: 300px;
     min-height: 450px;
     padding: 0 0 25px 25px;
 }
@@ -1220,7 +1222,7 @@ div.main-col-inner {
     background: url("../img/login/footer_bg.gif") repeat-x scroll 0 0 #E6E6E6;
     clear: both;
     font-size: 0.95em;
-    padding: 95px 2.8em 0em;
+    padding: 25px 2.8em 0em;
     text-align: center;
 }
 .simple-container-popup {
@@ -3580,3 +3582,40 @@ big {
     font-size: 1.25em;
 }
 
+
+.direction-guide {
+    overflow: auto;
+    height:570px;
+    width: 100%;
+}
+
+.stepsList {
+    font-size: 11px;
+    line-height: 18px;
+}
+.stepsList li {
+    border-bottom: 1px solid #D9D9D9;
+    cursor: pointer;
+    padding: 6px 16px 6px 45px;
+    position: relative;
+}
+.StepList-hover {
+    background: -moz-linear-gradient(center top , #FFFFFF, #F7F7F7) repeat scroll 0 0 #F8F8F8;
+    box-shadow: 0 -8px 8px #F7F7F7 inset, 0 0 0 #FFFFFF inset, 0 0 0 #FFFFFF inset;
+}
+.StepList-active, #MyMapCoorList .listpins li.MyMapCoorList-active {
+    background: -moz-linear-gradient(center top , #F7E163, #EBBF56) repeat scroll 0 0 #EBBF56;
+    box-shadow: 0 -20px 50px #EBBF56 inset, 0 2px 50px #EBBF56 inset, 0 50px 100px #F7E163 inset, 0 2px 8px rgba(200, 200, 200, 0.3);
+}
+.stepsList li a {
+    color: #333333;
+    left: 10px;
+    padding: 0 0 0 8px;
+    position: absolute;
+}
+
+.distance {
+    padding: 0 8px 0 0;
+    position: absolute;
+    right: 16px;
+}

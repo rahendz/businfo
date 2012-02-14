@@ -57,22 +57,37 @@
 								<div class="entry-edit">
 									<div class="entry-edit-head">
 										<h4 class="icon-head head-edit-form fieldset-legend">Lộ Trình Đi Của Tuyến Bus</h4>
-										<div class="form-buttons">
+										<!-- <div class="form-buttons">
 											<button id="Reset" class="scalable add" style="" onclick="" type="button">
 												<span>Xóa</span>
 											</button>
 											<button id="Save" class="scalable add" style="" onclick="" type="button">
 												<span>Lưu</span>
 											</button>
-										</div>
+										</div>-->
 									</div>
 									<div id="group_fields4" class="fieldset fieldset-wide">
 										<div class="hor-scroll">
 											<table class="form-list" cellspacing="0">
+												<!-- <form id="frmAddTuyen" action="<?php echo base_url();?>home/ThemTuyen/" method="get" enctype="multipart/form-data">
+												 -->
 												<tbody>
 													<tr>
+														<td> Chọn file lộ trình đi:
+														</td>
 														<td>
-															<div id="mm-map" class="" style="overflow: hidden;  width: 100%; height: 500px;"></div>
+															<!--  <div id="mm-map" class="" style="overflow: hidden;  width: 100%; height: 500px;"></div>
+															-->
+															
+															<input id="matuyen" type="text" name="matuyen" value="<?php echo $matuyen;?>" style="display:none">
+															<input id="danhsach" type="file" name="danhsach">
+															<br>
+															<p class="description">Danh sách dạng file csv (excel) chỉ chứa các cột lần lượt là "stttram", "tentram", "geo_lat", "geo_long"</p>
+															<p class="description">stttram là số thứ tự của trạm buýt mà lộ trình đi qua </p>
+															<p class="description">geo_lat và geo_long là tọa độ của trạm, có phần thập phân gồm 13 chữ sô </p>
+															<p class="description">Tất cả các cột đều phải điền đầy đủ thông tin. </p>
+															<p class="description">Bắt buộc phải có tiêu đề cột, vì dòng đầu tiên không xử lý. </p>
+																													
 														</td>
 													</tr>
 													<tr height="10px" ><td></td></tr>
@@ -82,13 +97,14 @@
 																<button id="Reset" class="scalable add" style="" onclick="" type="button">
 																	<span>Hủy</span>
 																</button>
-																<button id="Save" class="scalable add" style="" onclick="" type="submit">
+																<button id="Save" class="scalable add"  accesskey="s" tabindex="1" style="" onclick="" type="submit">
 																	<span>Lưu và Tiếp Tục</span>
 																</button>
 															</div>
 														</td>
 													</tr>
 												</tbody>
+												<!-- </form> -->
 											</table>
 										</div>
 									</div>
@@ -102,59 +118,6 @@
 		</div>
 		<?php include("t_bottom_ad_home.php"); ?>
 	</div>
-<script type="text/javascript">
-    if (GBrowserIsCompatible()) {
-
-  var map = new GMap2(document.getElementById("mm-map"));
-  map.setCenter(new GLatLng(10.7569353, 106.6686039),13)
-  map.addControl(new GLargeMapControl());
-  map.addControl(new GMapTypeControl());
-  var dirn = new GDirections();
-
-  var firstpoint = true;
-  var gmarkers = [];
-  var gpolys = [];
-  var dist = 0;
-
-
-  GEvent.addListener(map, "click", function(overlay,point) {
-    // == When the user clicks on a the map, get directiobns from that point to itself ==
-    if (!overlay) {
-      if (firstpoint) {
-        dirn.loadFromWaypoints([point.toUrlValue(6),point.toUrlValue(6)],{getPolyline:true});
-      } else {
-        dirn.loadFromWaypoints([gmarkers[gmarkers.length-1].getPoint(),point.toUrlValue(6)],{getPolyline:true});
-      }
-    }
-  });
-
-  // == when the load event completes, plot the point on the street ==
-  GEvent.addListener(dirn,"load", function() {
-    // snap to last vertex in the polyline
-    var n = dirn.getPolyline().getVertexCount();
-    var p=dirn.getPolyline().getVertex(n-1);
-    var marker=new GMarker(p);
-    map.addOverlay(marker);
-    // store the details
-    gmarkers.push(marker);
-    if (!firstpoint) {
-      map.addOverlay(dirn.getPolyline());
-      gpolys.push(dirn.getPolyline());
-      dist += dirn.getPolyline().Distance();
-      document.getElementById("distance").innerHTML="Path length: "+(dist/1000).toFixed(2)+" km. "+(dist/1609.344).toFixed(2)+" miles.";
-    }
-    firstpoint = false;
-  });
-
-  GEvent.addListener(dirn,"error", function() {
-    GLog.write("Failed: "+dirn.getStatus().code);
-  });
-
-}
-else {
-  alert("Sorry, the Google Maps API is not compatible with this browser");
-}
-    </script>
 
 </body>
 </html>

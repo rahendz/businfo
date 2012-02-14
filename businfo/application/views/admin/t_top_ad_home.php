@@ -95,16 +95,16 @@ function displayDate() {
 						</ul>
 					</li>
 					<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> 
-						<a href="#" onclick="return false" class=""><span>Địa Điểm</span></a>
+						<a href="#" onclick="return false" class=""><span>Xe buýt</span></a>
 						<ul >
 							<li class="  level1">
-								<a href=""  class=""><span>Thông Tin Địa Điểm</span></a>
+								<a href="<?php echo base_url()?>home/ThongTinXeBuyt"  class=""><span>Thông Tin Xe Buýt</span></a>
 							</li>
 							<li class="  level1"> 
-								<a href=""  class=""><span>Thêm Loại Địa Điểm</span></a>
+								<a href=""  class=""><span>Thêm Xe Buýt</span></a>
 							</li>
 							<li class="  last level1"> 
-								<a href=""  class=""><span>Thêm Địa Điểm</span></a>
+								<a href=""  class=""><span>Thông Tin Chuyến</span></a>
 							</li>
 						</ul>
 					</li>

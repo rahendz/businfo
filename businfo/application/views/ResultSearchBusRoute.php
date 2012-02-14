@@ -1,34 +1,33 @@
+<div id="ResultSearchBusRoute">
+	<span class="countPlace">
+	<table id="ResultTableBusRoute" width="295px">
+		<tr>
+			<td><b>Kết quả tìm:</b></td>	
+		</tr>
+	</table>
+	</span>
+		</div>
 <?php
-	/*$array_lat="";
-	$array_long="";
-	$array_name="";
-	$i=1; 	
-	foreach($queryTram as $row) 
-	{
-		if($i==1)
-		{
-		$array_lat="[{".$row->geo_lat;
-		$array_long=$row->geo_long;
-		$array_name=$row->tentram;
-		}
-		else 
-		{
-		$array_lat=$array_lat.",".$row->geo_lat;
-		$array_long= $array_long.",".$row->geo_long;
-		$array_name=$array_name."%".$row->tentram;
-		}
-		$i++;	
-	}*/	
-	echo $htmlHuongDanDi;
+
+	//echo $htmlHuongDanDi;
 	$HuongDanDiArray= explode(";", $htmlHuongDanDi);
-	
+	$str_htmlChuoiCacTram= str_replace('"', "'",$htmlChuoiCacTram);
+	$ChuoiCacTramArray= explode(";",$str_htmlChuoiCacTram);
+	//echo $$htmlChuoiCacTram;
 	//$str_htmlDi= str_replace('"', "'",$htmlLoTrinhDi);
 	//$str_htmlVe= str_replace('"', "'",$htmlLoTrinhVe);
 	//if($htmlBus =="")
 	if($htmlHuongDanDi=="")
 	{
 	?>
-	<b>Không co tuyến</b>	
+	<div id="fblnk" style="">
+			<div id="SearchBusStopArroundPlaceResult" class="kohailong"> 
+		
+			<ul>
+			<li id="SearchBusStopResult-1">Không tìm thấy tuyến buýt nào phù hợp với điều kiện tìm kiếm</li>
+			</ul>
+		</div>
+	</div>	
 	<?php 
 	}
 	else
@@ -45,20 +44,25 @@
 		if ($HuongDanDiArray[$i]!="")
 		{
 			$countResult++;
-		$HuongDanDiArrayDetail = explode(">", $HuongDanDiArray[$i]);
+		$HuongDanQuangDuong= explode("#", $HuongDanDiArray[$i]);
+		$QuangDuong=explode("-",$HuongDanQuangDuong[1]);
+		$TongQuangDuong=$QuangDuong[0]/1000;
+		$ThoiGian=$QuangDuong[1];
+		$HuongDanDiArrayDetail = explode(">", $HuongDanQuangDuong[0]);
+		//$ChuoiCacTramArrayDetail = explode(">", $ChuoiCacTramArray[$i]);
 		$TuyenBus="";
 		$CountTuyenBus=0;
 		for ($h=0; $h<count($HuongDanDiArrayDetail);$h++)
 		{
 			$BusInfo=explode("-", $HuongDanDiArrayDetail[$h]);
-			$BusDiOrVe= explode("&", $BusInfo[0]);
+			//$BusDiOrVe= explode("&", $BusInfo[0]);
 			$temp=0;
 			
 			for($t=0;$t<$h;$t++)
 			{
 				$BusInfo1=explode("-", $HuongDanDiArrayDetail[$t]);
-				$BusDiOrVe1= explode("&", $BusInfo1[0]);
-				if($BusDiOrVe[0]==$BusDiOrVe1[0])
+				//$BusDiOrVe1= explode("&", $BusInfo1[0]);
+				if($BusInfo[0]==$BusInfo1[0])
 					$temp++;
 			}
 			if($temp==0)
@@ -66,31 +70,55 @@
 				//echo $BusDiOrVe[0];
 				if($CountTuyenBus==0)
 				{
-					$TuyenBus.=$BusDiOrVe[0];
+					$BusDiOrVe= explode("&", $BusInfo[0]);
+					if($BusDiOrVe[1]=="Di")
+						$TuyenBus.=$BusDiOrVe[0]." Lượt đi";
+					else
+						$TuyenBus.=$BusDiOrVe[0]." Lượt về";
 					$CountTuyenBus++;
 				}
-				else $TuyenBus.="-".$BusDiOrVe[0];
+				else 
+				{
+					$BusDiOrVe= explode("&", $BusInfo[0]);
+					if($BusDiOrVe[1]=="Di")
+						$TuyenBus.=" - ".$BusDiOrVe[0]." Lượt đi";
+					else
+						$TuyenBus.=" - ".$BusDiOrVe[0]." Lượt về";
+				}
 				
 			} 
 		}
 		
 ?>
-		<div id="result<?php echo $i;?>" class="resultItem">
-			<div id="ResultSearchBusPlaceDetail">
+		<div id="result<?php echo $countResult;?>" class="resultItem">
+			<div id="ResultSearchBusRouteDetail">
 				<div class="pin1-10 btns large red"><a><?php echo $countResult;?></a></div>
 				
 				<!--  <a class="resultTitle" rel="<?php echo $LoTrinhDiArray[$i];?>" onclick="makeactive(<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,<?php echo $i?>,'<?php echo base_url()?>')" target="_self">
 				Tuyến xe buýt số <?php echo $TuyenBus; //$BusArrayDetail[0];?></a>
 				-->
-				<a class="resultTitle" target="_self">
-				Tuyến xe buýt số <?php echo $TuyenBus; ?></a>
+				<a class="resultTitle" rel="<?php echo $ChuoiCacTramArray[$countResult-1];?>" onclick="makeRouteBusActive(100,<?php echo $countResult;?>)" target="_self">
+					<table>
+						<tr>
+						<td width="230px">Tuyến xe buýt số <?php echo $TuyenBus; ?></td>
+						<td><span class="time"><?php echo $ThoiGian;?></span></td>
+						</tr>
+					</table>
+					
+				
+				</a>
 				<div class="Spacer"></div>
 			</div>
+		</div>	
+		
 			<div id="guide<?php echo $countResult;?>" class="direction-guide">
 				<span class="options background">
 					<a class="expand" onclick="CloseDirection(this)">Ẩn</a>
+					<!--  
 					<a class="s-service" onclick="ShowSearchNearByShortestPath(this)">Tìm dịch vụ trên đoạn này</a>
+					-->
 				</span>
+				<div id="ResultSearchRouteDetail">
 				<ol class="stepsList" style="display: none;">
 				<?php 
 				$count=0;
@@ -125,9 +153,13 @@
 									</span>
 								</span>
 							</span>
-							<span class="distance">120 m</span>
+							<span class="distance"></span>
 						</li>
-						<li id="106.80578453_10.87072958" class="StepList" onmouseout="OutDirectionGuide(this)" onmouseover="OverDirectionGuide(this,0, 3)" onclick="GetRoadFromShortestPath(this,0)">
+						<?php
+							$queryTram = $this->db->query("select * from trambus where matram=". $SttTramArray[0]);
+							$retTram=$queryTram->row(0); 
+						?>
+						<li rel="<?php echo $retTram->geo_lat.'_'.$retTram->geo_long;?>" class="StepList" onmouseout="OutDirectionGuide(this)" onmouseover="OverDirectionGuide(this,0, 3)" onclick="GetRoadFromShortestPath(this,0)">
 							<a><?php $count++; echo $count;?></a>
 							<span class="instruction">
 								<span>Xuống các trạm 
@@ -143,7 +175,7 @@
 								?>
 								</span>
 							</span>
-							<span class="distance">120 m</span>
+							<span class="distance">  </span>
 						</li>
 							<?php
 							break;
@@ -153,8 +185,11 @@
 					$count++;
 					if($k %2==0)
 					{
+						$queryTram = $this->db->query("select * from trambus where matram=". $SttTramArray[0]);
+						$retTram=$queryTram->row(0);
 					?>
-						<li id="106.80578453_10.87072958" class="StepList" onmouseout="OutDirectionGuide(this)" onmouseover="OverDirectionGuide(this,0, 3)" onclick="GetRoadFromShortestPath(this,0)">
+						
+						<li  rel="<?php echo $retTram->geo_lat.'_'.$retTram->geo_long;?>" class="StepList" onmouseout="OutDirectionGuide(this)" onmouseover="OverDirectionGuide(this,0, 3)" onclick="">
 							<a><?php echo $count?></a>
 							<span class="instruction">
 								<span>Đi tới các trạm 
@@ -170,7 +205,7 @@
 								?>
 								</span>
 							</span>
-							<span class="distance">120 m</span>
+							<span class="distance">  </span>
 						</li>
 						<li id="106.80578453_10.87072958" class="StepList" onmouseout="OutDirectionGuide(this)" onmouseover="OverDirectionGuide(this,0, 3)" onclick="GetRoadFromShortestPath(this,0)">
 							<a><?php $count++; echo $count?></a>
@@ -193,7 +228,7 @@
 									</span>
 								</span>
 							</span>
-							<span class="distance">120 m</span>
+							<span class="distance">  </span>
 						</li>
 					<?php
 					}
@@ -202,10 +237,12 @@
 						
 						$BusInfoArray=explode("-", $HuongDanDiArrayDetail[$k]);
 						$SttTramArray=explode("%", $BusInfoArray[1]);
-						
+						$queryTram = $this->db->query("select * from trambus where matram=". $SttTramArray[0]);
+						$retTram=$queryTram->row(0);
 					?>
+					
 						
-						<li id="106.80578453_10.87072958" class="StepList" onmouseout="OutDirectionGuide(this)" onmouseover="OverDirectionGuide(this,0, 3)" onclick="GetRoadFromShortestPath(this,0)">
+						<li rel="<?php echo $retTram->geo_lat.'_'.$retTram->geo_long;?>" class="StepList" onmouseout="OutDirectionGuide(this)" onmouseover="OverDirectionGuide(this,0, 3)" onclick="GetRoadFromShortestPath(this,0)">
 							<a><?php echo $count?></a>
 							<span class="instruction">
 								<span>Xuống các trạm 
@@ -221,7 +258,7 @@
 								?>
 								</span>
 							</span>
-							<span class="distance">120 m</span>
+							<span class="distance">  </span>
 						</li>
 						
 					<?php
@@ -230,7 +267,7 @@
 				?>
 				</ol>
 				<div class="summary" style="display: none;">
-					Chiều dài:<b>18.8</b>km
+					Chiều dài:<b><?php echo $TongQuangDuong;?></b>km
 				</div>										
 			</div>		
 		</div>

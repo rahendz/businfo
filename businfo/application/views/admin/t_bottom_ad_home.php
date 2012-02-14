@@ -15,7 +15,7 @@
 
 </head>
 
-<body id="html-body"class=" adminhtml-dashboard-index">
+<body >
 	<div class="footer">
 		<p class="bug-report">
 			<p class="legality">

@@ -1,30 +1,30 @@
 <?php
-	/*$array_lat="";
-	$array_long="";
-	$array_name="";
-	$i=1; 	
-	foreach($queryTram as $row) 
-	{
-		if($i==1)
-		{
-		$array_lat="[{".$row->geo_lat;
-		$array_long=$row->geo_long;
-		$array_name=$row->tentram;
-		}
-		else 
-		{
-		$array_lat=$array_lat.",".$row->geo_lat;
-		$array_long= $array_long.",".$row->geo_long;
-		$array_name=$array_name."%".$row->tentram;
-		}
-		$i++;	
-	}*/	
+	
 	$str_htmlDi= str_replace('"', "'",$htmlLoTrinhDi);
 	$str_htmlVe= str_replace('"', "'",$htmlLoTrinhVe);
+?>
+	<div id="ResultSearchBus">
+	<span class="countPlace">
+	<table id="ResultTableBus" width="295px">
+		<tr>
+			<td><b>Kết quả tìm:</b></td>	
+		</tr>
+	</table>
+	</span>
+		</div>
+	<?php 
 	if($htmlBus =="")
 	{
 	?>
-	<b>Không co tuyến</b>	
+	
+	<div id="fblnk" style="">
+			<div id="SearchBusStopArroundPlaceResult" class="kohailong"> 
+		
+			<ul>
+			<li id="SearchBusStopResult-1">Không tìm thấy tuyến buýt nào phù hợp với điều kiện tìm kiếm</li>
+			</ul>
+		</div>
+	</div>	
 	<?php 
 	}
 	else
@@ -53,15 +53,16 @@
 					<li onclick="makeactivemenu(<?php echo $i?>,<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,1,'<?php echo base_url()?>')">
 						<a class="" id ="t19_1">Thông tin</a>
 					</li>
-					<li rel="<?php echo $LoTrinhDiArray[$i];?>" onclick="makeactivemenu(<?php echo $i?>,<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,2,'<?php echo base_url()?>')" target="_self">
+					<li id="BusLoTrinhDiPlace" rel="<?php echo $LoTrinhDiArray[$i];?>" onclick="makeactivemenu(<?php echo $i?>,<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,2,'<?php echo base_url()?>')" target="_self">
 						<a class="" id ="t19_2">Lộ trình đi</a>
 					</li>
-					<li rel="<?php echo $LoTrinhVeArray[$i];?>" onclick="makeactivemenu(<?php echo $i?>,<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,3,'<?php echo base_url()?>')" target="_self">
+				 <li id="BusLoTrinhVePlace" rel="<?php echo $LoTrinhVeArray[$i];?>" onclick="makeactivemenu(<?php echo $i?>,<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,3,'<?php echo base_url()?>')" target="_self">
 						<a class="" id ="t19_3">Lộ trình về</a>
 					</li>
-					<li onclick="makeactivemenu(<?php echo $i?>,<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,4,'<?php echo base_url()?>')">
+				
+				<!--	<li onclick="makeactivemenu(<?php echo $i?>,<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,4,'<?php echo base_url()?>')">
 						<a class="" id ="t19_4">Tìm xung quanh</a>
-					</li>
+					</li>-->
 					<li>
 						<a href="" target="_blank">Chi tiết</a>
 					</li>

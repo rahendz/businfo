@@ -57,7 +57,7 @@
 								<div class="entry-edit">
 									<div class="entry-edit-head">
 										<h4 class="icon-head head-edit-form fieldset-legend">Lộ Trình Về Của Tuyến Bus</h4>
-										<div class="form-buttons">
+									<!-- 	<div class="form-buttons">
 											<button id="Reset" class="scalable add" style="" onclick="" type="button">
 												<span>Xóa</span>
 											</button>
@@ -65,14 +65,28 @@
 												<span>Lưu</span>
 											</button>
 										</div>
+										 -->
 									</div>
 									<div id="group_fields4" class="fieldset fieldset-wide">
 										<div class="hor-scroll">
 											<table class="form-list" cellspacing="0">
 												<tbody>
 													<tr>
+														<td> Chọn file lộ trình về:
+														</td>
 														<td>
-															<div id="mm-map" class="" style="overflow: hidden;  width: 100%; height: 500px;"></div>
+															<!--  <div id="mm-map" class="" style="overflow: hidden;  width: 100%; height: 500px;"></div>
+															-->
+															
+															<input id="matuyen" type="text" name="matuyen" value="<?php echo $route;?>" style="display:none">
+															<input id="danhsach" type="file" name="danhsach">
+															<br>
+															<p class="description">Danh sách dạng file csv (excel) chỉ chứa các cột lần lượt là "stttram", "tentram", "geo_lat", "geo_long"</p>
+															<p class="description">stttram là số thứ tự của trạm buýt mà lộ trình đi qua </p>
+															<p class="description">geo_lat và geo_long là tọa độ của trạm, có phần thập phân gồm 13 chữ sô </p>
+															<p class="description">Tất cả các cột đều phải điền đầy đủ thông tin. </p>
+															<p class="description">Bắt buộc phải có tiêu đề cột, vì dòng đầu tiên không xử lý. </p>
+																													
 														</td>
 													</tr>
 													<tr height="10px" ><td></td></tr>
@@ -82,7 +96,7 @@
 																<button id="Reset" class="scalable add" style="" onclick="" type="button">
 																	<span>Hủy</span>
 																</button>
-																<button id="Save" class="scalable add" style="" onclick="" type="submit">
+																<button id="Save" class="scalable add"  accesskey="s" tabindex="1" style="" onclick="" type="submit">
 																	<span>Lưu và Tiếp Tục</span>
 																</button>
 															</div>
