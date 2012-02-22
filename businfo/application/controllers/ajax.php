@@ -13,7 +13,7 @@ class Ajax extends CI_Controller
 		$temp['init_lat'] = 10.770023;
 		$temp['init_long'] = 106.685461;
 		$temp['init_add'] = "Hồ Chí Minh, Việt Nam";//$add;
-		$htmltext = json_encode($rows);
+		$htmltext = $_GET['bound_lat'].";".$_GET['bound_lng'].";".json_encode($rows);
 		$temp['htmltext'] = $htmltext;
 		$temp['queryTram'] = $rows;
 		$this->load->view("ResultSearchBusStopArroundPlace",$temp);
@@ -54,7 +54,7 @@ class Ajax extends CI_Controller
 		$temp['htmltext'] = $htmltext;
 		$temp['queryTram'] = $rows;
 	 	
-		
+		//echo $htmltext;
 		$this->load->model("TramBusModel");
 		$this->load->model("TuyenBusModel");
 		$this->load->model("LoTrinhDiModel");
@@ -80,6 +80,7 @@ class Ajax extends CI_Controller
 				}
 				$i++;
 			}
+			//echo $StrBus;
 			if($StrBus!="")
 			{
 				$BusArray = explode(",", $StrBus);
@@ -102,13 +103,12 @@ class Ajax extends CI_Controller
 					}
 					if($count==1)
 					{
-					//	echo $bus;
+					//echo $bus;
 					$BusArray2[]=$bus;
 					}
 				}
 				
 				$i=0;
-				
 				for($h=0; $h<count($BusArray2);$h++)
 				{
 					//echo $BusArray2[$h];
@@ -135,7 +135,7 @@ class Ajax extends CI_Controller
 					}
 					$i++;
 					}
-					else return;
+					//else return;
 				}
 			}
 				//echo $htmlBus;
@@ -321,12 +321,14 @@ class Ajax extends CI_Controller
 			$BusArrayLoTrinhDiDiemDau = explode(";", $BusLoTrinhDiDiemDau);
 			$BusArrayLoTrinhDiDiemCuoi= explode(";", $BusLoTrinhDiDiemCuoi);
 			//echo $BusLoTrinhDiDiemDau;
-			//echo $BusLoTrinhDiDiemCuoi;
+			//echo "*".$BusLoTrinhDiDiemCuoi;
 			$LoTrinhDiChung="";
 			$LoTrinhDiChung=$this->Tim2TuyenTramGiao($BusArrayLoTrinhDiDiemDau, $BusArrayLoTrinhDiDiemCuoi,$radius);
 			
 			//$htmlHuongDanDi.=$this->TimHuongDanDi($LoTrinhDiChung);
-			$htmlHuongDanDi.=$LoTrinhDiChung;			
+			
+			$htmlHuongDanDi.=$LoTrinhDiChung;
+			//echo $htmlHuongDanDi;			
 		}	
 		return  $htmlHuongDanDi;
 	}
@@ -368,7 +370,7 @@ class Ajax extends CI_Controller
   					foreach($queryTramGiaoArray->result() as $TramBus)
 		  			{
 						//echo $TramBus->matram.";";
-						if ($countTuyen==($queryTramGiaoArray->num_rows()-1))
+						//if ($countTuyen==($queryTramGiaoArray->num_rows()-1))
 							$LoTrinhTramTrucTiep.=";";
 						//echo count($BusArrayLoTrinhDiDiemDau).",".$count;
 				  		for($t=0; $t<count($BusArrayLoTrinhDiDiemCuoi);$t++)
@@ -408,7 +410,7 @@ class Ajax extends CI_Controller
 										$LoTrinhTramTrucTiep.=";".$BusArrayLoTrinhDiDiemDau[$h].">".$BusArrayDiemDau[0].
 					  					"-".$sttTramGiao->stttram.">".$BusArrayLoTrinhDiDiemCuoi[$t];
 					  					// "-".$TramBusGiao->matram.">".$BusArrayLoTrinhDiDiemCuoi[$t];
-					  					
+					  				//$countTramGiao++;
 									$TuyenGiao.=";".$BusArrayDiemCuoi[0];
 								}
 							}
@@ -516,8 +518,8 @@ class Ajax extends CI_Controller
 		//Tìm Lộ trình chung giao nhau ( duyệt bỏ trùng)
 		$LoTrinh2TuyenTramGiaoTrucTiep=$this->ChuoiLoTrinh2TuyenTramGiaoTrucTiep($LoTrinhTramTrucTiep);
 		$LoTrinh2TuyenTramGiaoXungQuanh=$this->ChuoiLoTrinh2TuyenTramGiaoXungQuanh($LoTrinhTramXungQuanh);
-		//echo $LoTrinh2TuyenTramGiaoTrucTiep;
-		//echo $LoTrinh2TuyenTramGiaoXungQuanh;
+		//echo "**".$LoTrinh2TuyenTramGiaoTrucTiep;
+		//echo "***".$LoTrinh2TuyenTramGiaoXungQuanh;
 		$htmlHuongDanTramGiaoTrucTiep=$this->TimHuongDanDi($LoTrinh2TuyenTramGiaoTrucTiep);
 		$htmlHuongDanTramGiaoTrucTiep=$this->TinhQuangDuong($htmlHuongDanTramGiaoTrucTiep);
 		$htmlHuongDanTramGiaoTrucTiep=$this->SapXepLoTrinh($htmlHuongDanTramGiaoTrucTiep);
@@ -529,6 +531,7 @@ class Ajax extends CI_Controller
 		$LoTrinh2Tuyen=$htmlHuongDanTramGiaoTrucTiep.";".$htmlHuongDanTramGiaoXungQuanh;
 		
 		return $LoTrinh2Tuyen;
+		
 	}
 
 // Hàm Lọc Lại Chuỗi lộ trình 2 tuyến trạm trực tiếp
@@ -1210,13 +1213,16 @@ class Ajax extends CI_Controller
 		//echo $htmltext;
 		$temp['queryTramDen'] = $rowsTo;
 
-		//	TÌM LỘ TRÌNH 1 TUYẾN
 		$htmlBus='';
 		$htmlLoTrinhDi='';
 		$htmlHuongDan='';
 		$htmlLoTrinhVe='';
 		$htmlHuongDanDi='';
 		$htmlChuoiCacTram='';
+		if($htmltextDi!="" && $htmltextDen="=")
+		{
+		//	TÌM LỘ TRÌNH 1 TUYẾN
+		
 		// Duyệt lộ trình đi
 		$LoTrinhDiChung= $this->TimMotTuyenTheoLoTrinhDi($temp['queryTramDi'], $temp['queryTramDen'],$temp['htmltextDi'] ,$temp['htmltextDen'],"Di" );
 		
@@ -1280,7 +1286,9 @@ class Ajax extends CI_Controller
 			$htmlChuoiCacTram.=$this->TimChuoiCacTram3Tuyen($htmlHuongDanDi);
 		
 		}
+		
 		$htmlHuongDanDi=$this->TinhThoiGian($htmlHuongDanDi);
+		}
 		//echo $htmlHuongDanDi;
 		$temp['htmlBus'] = $htmlBus;
 		$temp['htmlLoTrinhDi'] = $htmlLoTrinhDi;

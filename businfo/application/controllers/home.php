@@ -15,7 +15,7 @@ class Home extends CI_Controller{
 		$temp['init_long'] = 106.6296638;
 		$temp['init_add'] = "'User'";
 		$temp['htmltext'] = "";
-		
+		$temp['htmlXeBus']="";
 		$this->load->view("test_ajaxtab3",$temp);
 	}
 
@@ -71,8 +71,15 @@ class Home extends CI_Controller{
 			$rows2 = $this->LoTrinhVeModel->getLoTrinh_WithLatLong($options);
 			//echo count($res);
 			$stt=count($rows1)/2;
-			$htmltext = "$(document).ready(function(){showStops('" . json_encode($rows1) . "', '" . json_encode($rows2) . "',$stt)});";
+		
 			
+			$jsonXeBusDi=$this->TimViTriXeBus($route,'di');
+			$jsonXeBusVe=$this->TimViTriXeBus($route,'ve');
+				$htmltext = "$(document).ready(function(){showStops('" . json_encode($rows1) . "', '" . json_encode($rows2) . "',$stt,'" .$jsonXeBusDi . "','" .$jsonXeBusVe . "')});";
+			//echo $jsonXeBus;
+	//		$htmlXebus="$(document).ready(function(){showXeBus('" .$jsonXeBus . "')});";
+//			echo $htmlXebus;
+			//$temp['htmlXeBus']=$htmlXebus;
 			$temp['htmltext'] = $htmltext;
 			//echo $htmltext;
 			$temp['htmlLoTrinhDi']=json_encode($rows1);
@@ -81,6 +88,9 @@ class Home extends CI_Controller{
 			$options2 = array('matuyen' => $route);
 			$temp['queryTuyen'] = $this->TuyenBusModel->getTuyenBus($options2);
 			$this->load->view("test_ajaxtab3", $temp);
+			
+		
+			
 		}
 		else if ($tabinput == "poi") { // MODE : Tim tram xung quanh 1 địa chỉ
 			//Bounds : 10.792744,106.670325) - (10.79411,106.671043
@@ -155,7 +165,112 @@ class Home extends CI_Controller{
 	}
 	
 	
-	
+	public function TimViTriXeBus($TuyenBus,$DiOrVe)
+	{
+		$output_json="";
+		//Tìm thời gian vận hành
+		$queryTuyen= $this->db->query("select tgvanhanh from tuyenbus where matuyen =".$TuyenBus);
+		$Tuyen=$queryTuyen->row(0);
+		$TGVanHanh=$Tuyen->tgvanhanh;
+		
+		
+		//Tìm chiều dài lộ trình
+		$queryLoTrinh=$this->db->query("select sum(khoangcach)as chieudai from lotrinh".$DiOrVe.
+			" where matuyen =".$TuyenBus."  group by matuyen");
+		$LoTrinh=$queryLoTrinh->row(0);
+		$ChieuDaiLoTrinh=$LoTrinh->chieudai;
+		
+		//Tìm tổng trạm của lộ trình
+		$queryTongTam=$this->db->query("select max(stttram) as tongtram from lotrinh".$DiOrVe.
+					" where matuyen=".$TuyenBus);
+		$TongTram=$queryTongTam->row(0);
+		$TongSoTram=$TongTram->tongtram;
+		
+		//Tìm những xe buýt thỏa thời gian
+		$queryXeBus= $this->db->query("Select *,((DATE_PART('day', now()::timestamp - thoigianxuatben::timestamp) * 24 +". 
+               		" DATE_PART('hour', now()::timestamp - thoigianxuatben::timestamp)) * 60 +".
+               		" DATE_PART('minute', now()::timestamp - thoigianxuatben::timestamp)) as thoigian". 
+					" from luot".$DiOrVe.", xebus".
+					" where tinhtrang=0". 
+					" and ((DATE_PART('day', now()::timestamp - thoigianxuatben::timestamp) * 24 +". 
+               		" DATE_PART('hour', now()::timestamp - thoigianxuatben::timestamp)) * 60 +".
+               		" DATE_PART('minute', now()::timestamp - thoigianxuatben::timestamp) < ".$TGVanHanh.")".
+        			" and luot".$DiOrVe.".maxe=xebus.maxe	and matuyen=".$TuyenBus);
+		//echo $queryXeBus->num_rows();
+		
+		if($queryXeBus->num_rows()>0)				
+		{
+			$strViTriXeBus="";
+			foreach ($queryXeBus->result() as $XeBus)
+			{
+				//echo $XeBus->thoigian;
+				$TyLeThoiGian=$XeBus->thoigian / $TGVanHanh;
+				//echo $TyLeThoiGian;
+				$QuangDuongDiDuoc=$ChieuDaiLoTrinh*$TyLeThoiGian;
+				$QuangDuongDiDuoc=round($QuangDuongDiDuoc, 0);
+				//echo round($QuangDuongDiDuoc, 0).";";
+				$TongQuangDuong=0;
+				$SttTram=1;
+				//tìm stt tram dang dung cua xe bus
+				for($stt=1; $stt<=$TongSoTram;$stt++)
+				{
+					$queryLoTrinhDetail=$this->db->query("select * from lotrinh".$DiOrVe.
+					" where matuyen=".$TuyenBus." and stttram=".$stt);
+					$LoTrinhDetail=$queryLoTrinhDetail->row(0);
+					$QuangDuong=$LoTrinhDetail->khoangcach;
+					$TongQuangDuong+=$QuangDuong;
+					If($TongQuangDuong>$QuangDuongDiDuoc)
+					{
+						$SttTram=$stt-1;
+						$strViTriXeBus.=";".$XeBus->maxe."-".$SttTram;
+						break;
+					}
+				}						
+			}
+			
+			$ViTriXeBusArray=explode(";", $strViTriXeBus);
+			
+			$output_json.="[";
+			$count=0;
+			for ($i=0; $i<count($ViTriXeBusArray);$i++)
+			{
+				if($ViTriXeBusArray[$i]!="")
+				{
+					//vị trí xe bus
+					$ViTriBusDetail=explode("-", $ViTriXeBusArray[$i]);
+					$ViTriXeBus=$ViTriBusDetail[1];
+					$MaXe=$ViTriBusDetail[0];		
+					
+					$queryToaDoXeBus=$this->db->query("select * from lotrinh".$DiOrVe." ltd, trambus tb". 
+					" where ltd.matram= tb.matram and matuyen=".$TuyenBus." and stttram=".$ViTriXeBus);
+					$rToaDoXeBus=$queryToaDoXeBus->row(0);
+					$LatXeBus=$rToaDoXeBus->geo_lat;
+					$LngXeBus=$rToaDoXeBus->geo_long;
+					
+					$queryInfoXebus= $this->db->query("select * from xebus where maxe=".$MaXe);
+					$InfoXeBus=$queryInfoXebus->row(0);
+					$BienSoXe=$InfoXeBus->biensoxe;
+					
+					if($count==0)
+					{
+						$json='{"maxe":"'.$MaXe.'","biensoxe":"'.$BienSoXe.'","geo_lat":"'.$LatXeBus.
+						'","geo_long":"'.$LngXeBus.'"}';
+					}
+					else 
+					{
+						$json=',{"maxe":"'.$MaXe.'","biensoxe":"'.$BienSoXe.'","lotrinh":"'.$DiOrVe.'","geo_lat":"'.$LatXeBus.
+						'","geo_long":"'.$LngXeBus.'"}';
+					}
+					$output_json.=$json;
+					$count++;
+				}
+			}
+			$output_json.="]";	
+		}
+		//echo $output_json;
+		return $output_json;
+		
+	}
 	    
 	public function TuyenBusDetail(){
    		parse_str($_SERVER['QUERY_STRING'],$_GET); //converts query string into global GET array variable   		
@@ -289,6 +404,76 @@ class Home extends CI_Controller{
    		$this->load->view("admin/ThongTinXeBuyt", $temp);
 	}
 	
+	public function TimThongTinMaXe(){
+        $maxe = $_POST['maxebus'];
+        $temp['maxe'] = $maxe;
+   		//$limit = "10";
+   		
+   		$temp['title']="BusInfo for Hochiminh";
+   		//$temp['tuyendiqua'] = $route;
+   		
+   		$temp['query1'] = $this->db->query("select * from xebus where maxe=".$maxe);
+   	
+   		$this->load->view("admin/ThongTinXeBuyt", $temp);
+	}
+	
+	public function TimThongTinBienSoXe(){
+        $bienso = $_POST['bienso'];
+        $temp['maxe'] = $bienso;
+   		//$limit = "10";
+   		
+   		$temp['title']="BusInfo for Hochiminh";
+   		//$temp['tuyendiqua'] = $route;
+   		
+   		$temp['query1'] = $this->db->query("select * from xebus where biensoxe like '%".$bienso."%'");
+   	
+   		$this->load->view("admin/ThongTinXeBuyt", $temp);
+	}
+	public function TimThongTinTuyenHoatDong(){
+		$matuyen = $_POST['matuyen'];
+        $temp['matuyen'] = $matuyen;
+   		//$limit = "10";
+   		
+   		$temp['title']="BusInfo for Hochiminh";
+   		//$temp['tuyendiqua'] = $route;
+   		
+   		$temp['query1'] = $this->db->query("select * from xebus where matuyen =".$matuyen);
+   	
+   		$this->load->view("admin/ThongTinXeBuyt", $temp);
+	}
+	public function ThemThongTinXuatBen(){
+           		
+   		$temp['title']="BusInfo for Hochiminh";
+   		//$temp['tuyendiqua'] = $route;
+   		$maxe=$_POST['maxe'];
+   		$lotrinh=$_POST['lotrinhid'];
+   		echo $lotrinh;
+   		if($lotrinh==0)$luot="di";
+   		if($lotrinh==1)$luot="ve";
+   		
+   		$queryLuotID=$this->db->query("select max(luot".$luot."_id) as luot_id from luot".$luot);
+   		$rLuot=$queryLuotID->row(0);
+   		$LuotID=$rLuot->luot_id +1;
+   		
+   		$queryINSERT= $this->db->query("insert into luot".$luot." 
+   			(luot".$luot."_id, maxe,thoigianxuatben,tinhtrang) 
+   			values (".$LuotID.",".$maxe.", now(),0)");
+   		$this->load->model("TuyenBusModel");
+   		$this->UpdateChuyenBuyt('di');
+   		$this->UpdateChuyenBuyt('ve');
+   		$temp['query1'] = $this->db->query("select * from xebus order by maxe");
+   		
+   		$this->load->view("admin/ThongTinXeBuyt", $temp);
+	}
+	public function XuatBen(){
+   		parse_str($_SERVER['QUERY_STRING'],$_GET); //converts query string into global GET array variable   		
+   		$temp['maxe']= $_GET['maxe'];
+		$temp['lotrinh']= $_GET['lotrinh'];
+		$temp['biensoxe']= $_GET['bienso'];
+			
+   		$this->load->view("admin/XeBuytXuatBen", $temp);
+   	}
+	
 	public function TimThongTinMaTuyen(){
         $route = $_POST['matuyen'];
         $temp['route'] = $route;
@@ -419,6 +604,7 @@ class Home extends CI_Controller{
 		$temp['init_long'] = 106.6296638;
 		$temp['init_add'] = "'User'";
 		$temp['htmltext'] = "";
+		
 		
 		$this->load->model("TramBusModel");
     	$file_path= $_FILES['danhsach']['tmp_name'];

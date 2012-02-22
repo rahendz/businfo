@@ -8,7 +8,6 @@
 	<!-- CSS -->
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url()?>public/css/MainStyle.css" media="all" />
 	
-	
 	<!-- JAVASCRIPT -->
     <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=ja"></script>
@@ -19,7 +18,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/googlemap.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/TabResults.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/RouteBox.js"></script>
-    
+    <script type="text/javascript" src="<?php echo base_url() ?>public/js/markerwithlabel.js"></script>
     <script type="text/javascript">
     try {
         $(document).ready(function(){
@@ -27,8 +26,9 @@
             handle_clicks();
         });
       	<?php echo $htmltext;
-      		   
+      	
       	?>
+      	
     } catch (e) {
         alert (e.message);  //this executes if jQuery isn't loaded // '<php echo $php_array;?>'
     }

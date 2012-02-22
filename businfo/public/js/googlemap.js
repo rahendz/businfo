@@ -40,6 +40,7 @@ var legs = [];
 var routes =[];
 var routesArray =[];
 var routesVe=[];
+var STT = [];
 var pathroutebox;
 var boxpolys = null;
 var directions = null;
@@ -195,16 +196,29 @@ function handle_clicks()
 	$('#SearchBusStopResultDetail a').live('click',function(){
 		var coordString = $(this).attr('rel');
 		var coordTitle = $(this).text();
-		var coordArray = coordString.split(',');
+		var coordArray = coordString.split(';');
 		var update2Location = new google.maps.LatLng(coordArray[0],coordArray[1]);
+		var Location = new google.maps.LatLng(coordArray[3],coordArray[4]);
 		map.setCenter(update2Location);
-		addBusStopArroundPlace(update2Location,coordTitle,coordArray[2]);
+		addBusStopArroundPlace(update2Location,coordTitle,coordArray[2],Location);
+		
 //  		$('#home-messages').text("Viewing: "+coordTitle);
 	});
 	$('#ResultTableBusStop tr td a').live('click',function(){
 		
-		var stop_list = $(this).attr('rel');
+		var str = $(this).attr('rel');
 		
+		//alert(str);
+		var coordArray = str.split(';');
+		var Lat=coordArray[0];
+		var Lng=coordArray[1];
+		var coordinate2 = new google.maps.LatLng(Lat, Lng);
+		var stop_list=coordArray[2];
+		//alert(stop_list);
+		var strdistance;
+		var string;
+		STT= new Array();
+		var newHTML="";
 		var coordTitle = $(this).text();
 		if (!stop_list) {
 			// Convert JSON result to JS objects. (for testing)
@@ -227,11 +241,65 @@ function handle_clicks()
 		try {
 			for ( var i = 0; i < stop_list.length; i++) {
 				obj = stop_list[i];
-				addMarker(obj,2);
+				addMarker(obj,2,i+1);
 			}
 		} catch (e) {
 			alert(e.message);
 		}
+		
+		var routes = new Array();  //local scope route array
+	    for (var x = 0; x < markers.length; x++) 
+	    {
+	        var request = {
+	            origin: coordinate2,
+	            destination: new google.maps.LatLng(markers[x].position.lat(), markers[x].position.lng()),
+	            travelMode: google.maps.DirectionsTravelMode.WALKING
+	        };
+	        (function(index) {
+	            directionsService.route(request, function(response, status) {
+	                console.log('this is x ' + x);
+	                console.log('this is index ' + index);
+	                if (status == google.maps.DirectionsStatus.OK) {
+	                    var route = response.routes[0];
+	                    // For each route, display summary information.
+	                    for (var i = 0; i < route.legs.length; i++) {
+	                        routes.push(route.legs[i].distance.value);
+	                    }
+
+	                    if (index == markers.length - 1){ //check to see if this is the last call back of x                     
+	                         //console.log(routes); //print route
+	                         printMyDistances(routes);  //passed out to global function
+	                         clearMarkers();
+	                         for(var i=0; i< STT.length;i++)
+	                 	    {
+	                        	var k= STT[i];
+	                        	var j=i+1;
+	                   	    	object=stop_list[k];
+	                   	    	addMarker(object,2,i+1);
+	                   			
+	                   	    	//alert(object.tentram);
+	                   	    	newHTML= newHTML +
+	                    		"<div class=\"Spacer\"></div>"+
+	                    		"<div id=\"SearchBusStopResult"+j+"\" class=\"resultItem\" style=\"height: 30px; width: 295px;\">"+
+	                    		"<div id=\"SearchBusStopResultDetail\">"+
+	                			"<div class=\"pin1-10 btns large red\"><a>"+j+"</a></div>"+
+	                			"<a class=\"resultTitle\" style=\"width: 255px;\" rel=\""+object.geo_lat+";"+object.geo_long +";"+
+	                			object.tentram +";"+Lat+";"+Lng+
+	                   			"\" onclick=\"makeBusStopActive("+STT.length+","+j+")\" target=\"_self\">"+
+	                			"<span>"+ object.tentram + "</span></a>"+
+	                			"<div class=\"Spacer\"></div></div></div>" +
+	                			"<div class=\"Spacer\"></div></div></div>";
+	                   	    	
+	                   	    	
+	                 	    }
+	                         document.getElementById('SearchBusStopRS').innerHTML = newHTML;	
+	                    }
+	                }
+	            });
+	        })(x);
+	    }
+	    
+	    
 	});
 	
 	$('#ResultSearchBusPlaceDetail a').live('click',function(){
@@ -269,7 +337,7 @@ function handle_clicks()
 		var update2Location = new google.maps.LatLng(LatLng[0],LatLng[1]);
 		map.setCenter(update2Location);
 		map.setZoom(16);
-		addBusStopArroundPlace(update2Location,coordTitle,coordArray[1]);
+		addPlaceArroundPlace(update2Location,coordTitle,coordArray[1]);
 //  		$('#home-messages').text("Viewing: "+coordTitle);
 	});
 	
@@ -374,8 +442,67 @@ function handle_clicks()
 	
 }
 
+function printMyDistances(routes){
+    console.log(routes);
+    
+    var routes2=[];
+   
+    for(var i=0; i< routes.length;i++)
+    {
+    	routes2.push(routes[i]);
+    }
+    for(var i=0; i< routes2.length-1;i++)
+    {	
+    	var min=i+1;
+    	for(var j=i+2; j< routes2.length;j++)
+    	   if(routes2[j]<routes2[min])min=j;
+    	
+    	   if(routes2[min]<=routes2[i])
+    	    {
+    	     temp=routes2[i];
+    	     routes2[i]=routes2[min];
+    	     routes2[min]=temp;
+    	    }
+    }
+    
+    for(var i=0; i< routes2.length;i++)
+    {
+    	//alert(routes2[i]);
+    	for(var j=0; j< routes.length;j++)
+    	{
+    		//alert(routes[j]);
+    		if(routes2[i]==routes[j])
+    			{
+    				STT.push(j);
+    			}
+    	}
+    }
+      
+}
 
-function addBusStopArroundPlace(m_position,m_title,m_infowindow) {
+function addPlaceArroundPlace(m_position,m_title,m_infowindow) {
+	image = 'http://localhost/businfo/public/img/Skins/icon_green.png';
+	var marker_child = new google.maps.Marker({
+	  	position: m_position,
+	  	map: map,
+		title: m_title
+	});
+	marker_child.setIcon(image);
+	markers.push(marker_child);
+  	var mark = markers.pop();
+  	infowindow.close();
+  	infowindow = new google.maps.InfoWindow({
+		content : "<b>Tên: </b>" +  m_infowindow + "<br>"
+				+ "<b>Tọa độ:</b> <br>" + m_position,
+		maxWidth : 200
+	});
+	//google.maps.event.addListener(mark, 'click', function() {
+		infowindow.open(map,mark);
+	//});
+	markers.push(mark);
+}
+
+function addBusStopArroundPlace(m_position,m_title,m_infowindow,n_position) {
 	image = 'http://localhost/businfo/public/img/Skins/icon_red.png';
 	var marker_child = new google.maps.Marker({
 	  	position: m_position,
@@ -395,6 +522,27 @@ function addBusStopArroundPlace(m_position,m_title,m_infowindow) {
 		infowindow.open(map,mark);
 	//});
 	markers.push(mark);
+	
+	var request = {
+		      origin: n_position,
+		      destination: m_position,
+		      //travelMode: google.maps.DirectionsTravelMode.DRIVING
+		      travelMode: google.maps.TravelMode.WALKING
+		    	//language:
+		    };
+ 
+
+	directionsRenderer.suppressMarkers = true;
+	map.setZoom(15);
+	// Make the directions request
+	directionService.route(request, function(result, status) {
+	 if (status == google.maps.DirectionsStatus.OK) {
+		
+		directionsRenderer.setDirections(result);
+		
+	}
+	});
+	
 }
 
 function SearchMotorRoute() {
@@ -1141,7 +1289,7 @@ function ShowLoTrinh(stop_list,lotrinh)
 
 }
 
-function showStops(stop_list1, stop_list2,i) {
+function showStops(stop_list1, stop_list2,i,stop_list3,stop_list4) {
 	if (!stop_list1) {
 		// Convert JSON result to JS objects. (for testing)
 		return;
@@ -1179,7 +1327,8 @@ function showStops(stop_list1, stop_list2,i) {
 	ShowLoTrinh(stop_list2,lotrinh);
 	//processWaypoints(stop_list1, lotrinhdi);
 	//clearMarkers();
-		
+	showXeBus(stop_list3);
+	showXeBus(stop_list4);	
 	//Set center
 	obj = stop_list1[i];
 	var point = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
@@ -1242,6 +1391,31 @@ function showStopsAdmin(stop_list1,lotrinh,i) {
 }
 
 
+//local search
+function showXeBus(stop_list) {
+	if (!stop_list) {
+		
+		return;
+		
+	} else {
+		input_json = stop_list;
+	}
+	stop_list = jQuery.parseJSON(input_json);
+
+	// Add markers.
+	try {
+		for ( var i = 0; i < stop_list.length; i++) {
+			
+			obj = stop_list[i];
+			addMarkerXeBus(obj);
+		}
+	} catch (e) {
+		alert(e.message);
+	}
+	
+}
+
+
 // local search
 function showStops2(stop_list) {
 	if (!stop_list) {
@@ -1270,7 +1444,7 @@ function showStops2(stop_list) {
 		for ( var i = 0; i < stop_list.length; i++) {
 			
 			obj = stop_list[i];
-			addMarker(obj,1);
+			addMarker(obj,1,i+1);
 		}
 	} catch (e) {
 		alert(e.message);
@@ -1285,7 +1459,7 @@ function processWaypoints(list, lotrinhdi) {
 	for (i = 0; i < list.length; i++) {
 		
 		obj = list[i];
-		addMarker(obj,lotrinhdi);
+		addMarker(obj,lotrinhdi,i+1);
 		var point = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
 		
 		markers_latlng.push(point);
@@ -1330,10 +1504,64 @@ function processWaypoints(list, lotrinhdi) {
 	}
 }
 
+
+
+function addMarkerXeBus(obj) {
+	try {
+		var coordinate = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
+		
+		/*
+		 * var shopCatObj= shopCat[obj.CATEGORY_matram]; var imageFile=
+		 * "store.png"; if(shopCatObj.icon) { imageFile=shopCatObj.icon; } var
+		 * iconFile= "/public/images/cat/"+ imageFile;
+		 */
+		// Create a new LatLng point for the marker.
+		var image = 'http://localhost/businfo/public/img/Skins/blink1.gif';
+		
+				
+		var marker_child = new google.maps.Marker({
+			map : map,
+			position : coordinate,
+			title : obj.tentram,
+			draggable : true
+		});
+		marker_child.setIcon(image);
+		obj.marker = marker_child;
+		
+		google.maps.event.addListener(marker_child, 'click', function() {
+			// Set infowindow's content.
+			infowindow_shop.setContent("<b>Biển số xe: " + obj.biensoxe + "</b");
+
+			// Open infowindow
+			infowindow_shop.open(map, marker_child);
+
+			// Makes the marker bouncing when it is clicked.
+			for (i in markers) {
+				markers[i].setAnimation(null);
+			}
+
+			if (marker_child.getAnimation() != null) {
+				marker_child.setAnimation(null);
+			} else {
+				marker_child.setAnimation(google.maps.Animation.BOUNCE);
+			}
+
+			// showDirection(obj);
+			// var marker_last = markers[markers.length - 1];
+		});
+
+		markers.push(marker_child);
+		
+	} catch (e) {
+		alert(e.message);
+	}
+}
+
+
 /**
  * Add new marker into marker array.
  */
-function addMarker(obj, lotrinh) {
+function addMarker(obj, lotrinh,stt) {
 	try {
 		var coordinate = new google.maps.LatLng(obj.geo_lat, obj.geo_long);
 		
@@ -1355,14 +1583,21 @@ function addMarker(obj, lotrinh) {
 			var image = 'http://localhost/businfo/public/img/Skins/icon_green.png';
 			break;
 		}
-				
-		var marker_child = new google.maps.Marker({
+		
+		var marker_child =  new MarkerWithLabel({
 			map : map,
 			position : coordinate,
 			title : obj.tentram,
-			draggable : false
+			draggable : false,
+			raiseOnDrag: true,
+		       labelContent: stt,
+		       labelAnchor: new google.maps.Point(5, 37),
+		       labelClass: "labels", // the CSS class for the label
+		       labelInBackground: false
 		});
+		
 		marker_child.setIcon(image);
+		//marker_child.setTitle('1');
 		obj.marker = marker_child;
 		
 		google.maps.event.addListener(marker_child, 'click', function() {

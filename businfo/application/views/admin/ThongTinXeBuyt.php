@@ -215,27 +215,38 @@
 									</span>
 								</th>
 								<th>
-								<form id="frmSearchMaTuyen" action="<?php echo base_url();?>home/" enctype="multipart/form-data"  method="post"> 
+								<form id="frmSearchMaXe" action="<?php echo base_url();?>home/TimThongTinMaXe" enctype="multipart/form-data"  method="post"> 
 									<div class="field-100">
-										<input id="matuyen" class="input-text no-changes" type="text" value="" name="matuyen">								
+										<input id="maxebus" class="input-text no-changes" type="text" value="" name="maxebus">								
 									</div>
 								</form>
 								</th>
 								<th>
-								<form id="frmSearchTenTuyen" action="<?php echo base_url();?>home/" enctype="multipart/form-data"  method="post">
+								<form id="frmSearchTenxe" action="<?php echo base_url();?>home/TimThongTinBienSoXe" enctype="multipart/form-data"  method="post">
 									<div class="field-100">
-										<input id="tentuyen" class="input-text no-changes" type="text" value="" name="tentuyen">
+										<input id="bienso" class="input-text no-changes" type="text" value="" name="bienso">
 									</div>
 								</form>
 								</th>
-						<!-- 		<th>
-									<select id="productGrid_product_filter_type" class="no-changes" name="type">
+						 		<th>
+						 		<form id="frmSearchTuyen" action="<?php echo base_url();?>home/TimThongTinTuyenHoatDong" enctype="multipart/form-data"  method="post">
+									<!--  <select id="matuyen" class="no-changes" name="type">
 										<option value=""></option>
-										<option value="1">ĐHQG TpHCM</option>
-										<option value="3">Bến Thành</option>
-										<option value="2">Bến Xe Quận 8</option>
-									</select>
+									<?php 
+										$queryTuyen=$this->db->query("select * from tuyenbus");
+										foreach ($queryTuyen->result() as $tuyen)
+										{
+									?>									
+										<option value="<?php echo $tuyen->matuyen;?>"><?php echo $tuyen->matuyen;?></option>
+									
+									<?php }?>
+									</select>-->
+									<div class="field-100">
+										<input id="matuyen" class="input-text no-changes" type="text" value="" name="matuyen">
+									</div>
+								</form>
 								</th>
+								<!-- 
 								<th>
 									<select id="productGrid_product_filter_set_name" class="no-changes" name="set_name">
 										<option value=""></option>
@@ -245,7 +256,7 @@
 									</select>
 								</th>
 								 -->
-								 <th></th>
+								 
 								<th></th>
 								<th></th>
 								<th></th>
@@ -311,7 +322,7 @@
 										if(($countChuyenDi>0)||($countChuyenVe>0));
 										else { 
 									?>
-									<a href="">Xuất bến</a>
+									<a href="<?php echo base_url();?>home/XuatBen?maxe=<?php echo $row->maxe;?>&lotrinh=<?php echo $row->bendo;?>&bienso=<?php echo $row->biensoxe;?>">Xuất bến</a>
 									<?php }?>
 									
 								</td>
@@ -351,7 +362,7 @@
 										if(($countChuyenDi>0)||($countChuyenVe>0));
 										else { 
 									?>
-									<a href="">Xuất bến</a>
+									<a href="<?php echo base_url();?>home/XuatBen?maxe=<?php echo $row->maxe;?>&lotrinh=<?php echo $row->bendo;?>&bienso=<?php echo $row->biensoxe;?>">Xuất bến</a>
 									<?php }?>
 									
 								</td>

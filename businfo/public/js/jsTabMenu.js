@@ -164,6 +164,7 @@ function SearchPlaceMenu(id)
 		document.getElementById("SearchPlaceBusRoute").style.display="none";
 		document.getElementById("SearchBusPlaceResult").style.display="none";
 		document.getElementById("SearchPlaceAround").style.display="none";
+		document.getElementById("SearchPlaceArroundResult").style.display="none";
 		document.getElementById("SearchPlaceDetail").style.display="block";
 		break;	
 	case 2:
@@ -171,6 +172,7 @@ function SearchPlaceMenu(id)
 		document.getElementById("SearchPlaceBusStop").style.display="block";
 		document.getElementById("SearchPlaceBusRoute").style.display="none";
 		document.getElementById("SearchBusPlaceResult").style.display="none";
+		document.getElementById("SearchPlaceArroundResult").style.display="none";
 		document.getElementById("SearchPlaceAround").style.display="none";
 		break;
 	case 3:
@@ -178,6 +180,7 @@ function SearchPlaceMenu(id)
 		document.getElementById("SearchPlaceBusStop").style.display="none";
 		document.getElementById("SearchPlaceBusStopResult").style.display="none";
 		document.getElementById("SearchPlaceBusRoute").style.display="block";
+		document.getElementById("SearchPlaceArroundResult").style.display="none";
 		document.getElementById("SearchPlaceAround").style.display="none";
 		break;
 	case 4:

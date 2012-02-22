@@ -21,6 +21,8 @@ function SearchStopBusArroundPlace()
 	var str = "radius=" + document.getElementById('RSearchBusStopAroundPlace').value;
 	str += "&bound_lat=" + markerSearch.getPosition().lat() + "&bound_lng=" + markerSearch.getPosition().lng();
 	document.getElementById("SearchPlaceBusStopResult").style.display="none";
+	document.getElementById("SearchPlaceArroundResult").style.display="none";
+	
 	http.open('get','http://localhost/businfo/index.php/ajax/ajax_SearchStopBusArroundPlace/?'+str);
 	http.onreadystatechange= SearchStopBusArroundPlaceProcess;
 	http.send(null);

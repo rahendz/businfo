@@ -94,14 +94,17 @@
 			<div id="ResultSearchBusRouteDetail">
 				<div class="pin1-10 btns large red"><a><?php echo $countResult;?></a></div>
 				
-				<!--  <a class="resultTitle" rel="<?php echo $LoTrinhDiArray[$i];?>" onclick="makeactive(<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,<?php echo $i?>,'<?php echo base_url()?>')" target="_self">
+				<!--  <a class="resultTitle" rel="<?php echo $LoTrinhDiArray[$i];?>" onclick="makeactive(<?php echo $BusArrayDetail[0]; ?>,<?php echo count($BusArray);?>,<?php echo $countResult?>,'<?php echo base_url()?>')" target="_self">
 				Tuyến xe buýt số <?php echo $TuyenBus; //$BusArrayDetail[0];?></a>
 				-->
 				<a class="resultTitle" rel="<?php echo $ChuoiCacTramArray[$countResult-1];?>" onclick="makeRouteBusActive(100,<?php echo $countResult;?>)" target="_self">
 					<table>
 						<tr>
-						<td width="230px">Tuyến xe buýt số <?php echo $TuyenBus; ?></td>
-						<td><span class="time"><?php echo $ThoiGian;?></span></td>
+						<td width="220px" rowspan=2>Tuyến xe buýt số <?php echo $TuyenBus; ?></td>
+						<td align="center"><span class="time" ><?php echo $ThoiGian;?></span></td>
+						</tr>
+						<tr>
+						<td>phút</td>
 						</tr>
 					</table>
 					

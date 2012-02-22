@@ -5321,3 +5321,17 @@ li {
 .fdirect .icon_A, .fdirect .icon_B {
     background: none repeat scroll 0 0 transparent;
 }
+
+
+
+
+
+.labels {
+     color: white;
+     font-weight: bold;
+     font-family: "Lucida Grande", "Arial", sans-serif;
+     font-size: 10px;
+     text-align: center;
+     width: 10px;
+     white-space: nowrap;
+   }
